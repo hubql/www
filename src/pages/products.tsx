@@ -1,18 +1,14 @@
 import { useTina } from 'tinacms/dist/react'
 import client from '../../tina/__generated__/client'
+import { AboveFold } from '../components/product/AboveFold'
+import { OpenSource } from '../components/product/OpenSource'
+import { ProductGrid } from '../components/product/ProductGrid'
+import { TrustedBy } from '../components/product/TrustedBy'
 import { Layout } from '../components/layout/Layout'
-import { Blocks } from '../components/util/Blocks'
-import { HeroBg } from '../components/animation/HeroBg'
-import Link from 'next/link'
-import { Network, ArrowUpDown, BookMarked, Grid } from 'lucide-react'
 import { BecomeBacker } from '../components/pricing/BecomeBacker'
-import { OpenSource } from '../components/homepage/OpenSource'
-import { TrustedBy } from '../components/homepage/TrustedBy'
-import { Chevron } from '../components/icons/Chevron'
-import { AboveFold } from '../components/homepage/AboveFold'
-import { ProductGrid } from '../components/homepage/ProductGrid'
+import { Blocks } from '../components/util/Blocks'
 
-export default function Home(props: {
+export default function Products(props: {
     query: any
     variables: any
     data: any
@@ -31,10 +27,12 @@ export default function Home(props: {
     return (
         <Layout data={data.pages}>
             <AboveFold />
-
             <TrustedBy />
             <ProductGrid />
-
+            {/* TODO VIDEO */}
+            <OpenSource />
+            <BecomeBacker align="center" />
+            {/* TODO SOCIAL WALL */}
             <Blocks {...data.pages} posts={posts} />
         </Layout>
     )

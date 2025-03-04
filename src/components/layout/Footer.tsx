@@ -185,8 +185,8 @@ export const footerNav = {
     nav: [
         {
             __typename: 'GlobalFooterNav',
-            label: 'Product',
-            href: null,
+            label: 'Products',
+            href: '/products',
             nav: [
                 {
                     __typename: 'GlobalFooterNavNav',

@@ -217,8 +217,8 @@ export const headerNav = {
         {
             __typename: 'GlobalHeaderNav',
             isExternal: null,
-            label: 'Product',
-            href: '#',
+            label: 'Products',
+            href: '/products',
             nav: [
                 {
                     __typename: 'GlobalHeaderNavNav',
