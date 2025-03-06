@@ -28,7 +28,7 @@ export const TrustedBy = () => {
                 {companies.map((item, index) => (
                     <div
                         key={index}
-                        className="flex items-center justify-center p-8"
+                        className="flex items-center justify-center p-2"
                     >
                         <div className="relative w-full aspect-video h-16">
                             <Image

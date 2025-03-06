@@ -4,7 +4,7 @@ export const AboveFold = () => {
     return (
         <div className="hero relative w-full lg:min-h-[500px] lg:h-[500px] lg:max-h-[500px] flex flex-col items-start justify-center">
             <div className="pt-8 absolute top-0 left-0 lg:relative w-fit h-fit flex flex-col z-10 px-8 max-lg:bg-black/10 max-lg:backdrop-blur-sm">
-                <h1 className="text-white text-3xl lg:text-5xl font-bold lg:font-medium text-left">
+                <h1 className="text-white text-3xl lg:text-5xl font-bold lg:font-medium text-left tracking-wide font-orbitron">
                     You code, we craft docs
                     <br /> — elevating DX beyond code.
                 </h1>
