@@ -1,20 +1,7 @@
-import clsx from 'clsx'
-import { Noto_Sans, Ubuntu } from 'next/font/google'
 import Head from 'next/head'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import { useRouter } from 'next/router'
-
-const ubuntu = Ubuntu({
-    subsets: ['latin'],
-    variable: '--font-ubuntu',
-    weight: '400',
-})
-const noto = Noto_Sans({
-    subsets: ['latin'],
-    variable: '--font-noto-sans',
-    weight: '400',
-})
 
 export const Layout = ({ children, data }: { children: any; data?: any }) => {
     const router = useRouter()
@@ -31,10 +18,25 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <link rel="icon" href="/settings/16x16.png" sizes="16x16" />
-                <link rel="icon" href="/settings/32x32.png" sizes="32x32" />
-                <link rel="icon" href="/settings/96x96.png" sizes="96x96" />
-                <link rel="apple-touch-icon" href="/settings/180x180.png" />
+                <link
+                    rel="icon"
+                    href="/settings/hubql-favicon-new.png"
+                    sizes="16x16"
+                />
+                <link
+                    rel="icon"
+                    href="/settings/hubql-favicon-new.png"
+                    sizes="32x32"
+                />
+                <link
+                    rel="icon"
+                    href="/settings/hubql-favicon-new.png"
+                    sizes="96x96"
+                />
+                <link
+                    rel="apple-touch-icon"
+                    href="/settings/hubql-favicon-new.png"
+                />
                 <link rel="manifest" href="/manifest.webmanifest" />
                 {data.robots && <meta name="robots" content={data.robots} />}
 
@@ -68,7 +70,7 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                 />
                 <meta property="twitter:locale" content="en_US" />
             </Head>
-            <div className={clsx(ubuntu.variable, noto.variable, 'bg-black')}>
+            <div className={'bg-black'}>
                 <Header />
                 <div className="w-full">
                     <div className="relative w-full overflow-x-hidden  bg-grid-neutral-800 ">
