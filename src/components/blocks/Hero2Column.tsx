@@ -14,7 +14,7 @@ export const Hero2Column = ({
     data: PagesBlocksHero2Column | LandingsBlocksHero2Column
 }) => {
     return (
-        <div className="relative w-full overflow-hidden flex justify-center border-b border-zinc-100 dark:border-zinc-800">
+        <div className="relative w-full overflow-hidden flex justify-center  border-zinc-100 dark:border-zinc-800">
             <div className="w-full max-w-7xl px-8 mx-auto pt-32  grid lg:grid-cols-2 gap-16 ">
                 <div className="w-full flex flex-col items-start text-left order-first justify-center">
                     {data.title &&

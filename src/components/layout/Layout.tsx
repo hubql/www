@@ -75,7 +75,7 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                 <div className="w-full">
                     <div className="relative w-full overflow-x-hidden  bg-grid-neutral-800 ">
                         <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-gradient-to-r from-black/90 from-[0.2%] via-transparent via-50% to-black/90 to-[99.2%] z-0"></div>
-                        <div className="relative z-10 w-full max-w-screen-xl mx-auto border-x border-neutral-800 bg-black">
+                        <div className="relative z-10 w-full max-w-screen-xl mx-auto border-x border-neutral-800 bg-black divide-y divide-neutral-800">
                             {children}{' '}
                         </div>
                     </div>

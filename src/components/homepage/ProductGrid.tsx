@@ -1,26 +1,22 @@
-import { Grid, ArrowUpDown, BookMarked, Network, MoveRight } from 'lucide-react'
+import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Section } from '../kit/Section'
 
 export const ProductGrid = () => {
     return (
-        <div>
-            <div className="w-full">
-                <div className="max-w-screen-xl mx-auto">
-                    <h2 className="text-lg text-center font-semibold py-6 px-4 mb-0 tracking-wide font-orbitron">
-                        Our tools to elevate developer experience in your team
-                        and your API consumers
-                    </h2>
-                </div>
-            </div>
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-0 px-0 w-full divide-y divide-neutral-800 border-b border-neutral-800">
-                {cards.map((item, index) => (
-                    <Link
-                        href={item.link}
-                        key={index + 't'}
-                        className="w-full h-full first:border-t first:border-neutral-800 [&:nth-child(2n)]:border-l [&:nth-child(2n)]:border-neutral-800"
-                    >
-                        <div className="lg:bg-black p-6  w-full lg:hover:bg-neutral-900 transition-transform ease-in h-full">
+        <Section
+            title="Our tools to elevate developer experience in your team and your API consumers"
+            contentClassName="grid grid-cols-1 lg:grid-cols-2 gap-0 px-0 w-full divide-y divide-neutral-800 border-b border-neutral-800"
+        >
+            {cards.map((item, index) => (
+                <Link
+                    href={item.link}
+                    key={index + 't'}
+                    className="w-full h-full first:border-t first:border-neutral-800 [&:nth-child(2n)]:border-l [&:nth-child(2n)]:border-neutral-800"
+                >
+                    <div className="lg:bg-black p-6  w-full lg:hover:bg-neutral-900 transition-transform ease-in h-full flex flex-col justify-between">
+                        <div className="flex flex-col">
                             <div className="flex flex-row justify-start items-center gap-2 mb-2">
                                 {item.icon}
                             </div>
@@ -30,15 +26,15 @@ export const ProductGrid = () => {
                             <p className="text-neutral-400 text-base">
                                 {item.description}
                             </p>
-                            <div className="flex items-center gap-4 text-sm text-zinc-50 ">
-                                Learn more
-                                <MoveRight className="text-accent-500 w-5 h-5" />
-                            </div>
                         </div>
-                    </Link>
-                ))}
-            </div>
-        </div>
+                        <div className="flex items-center gap-4 text-sm text-zinc-50 ">
+                            Learn more
+                            <MoveRight className="text-accent-500 w-5 h-5" />
+                        </div>
+                    </div>
+                </Link>
+            ))}
+        </Section>
     )
 }
 

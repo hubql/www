@@ -41,7 +41,7 @@ export const OpenSource = () => {
         <div className="w-full">
             <div className="max-w-screen-xl mx-auto border-y border-neutral-800">
                 <div className="w-full flex flex-col lg:grid lg:grid-cols-2 grid-rows-5 lg:aspect-video ">
-                    <div className="group max-md:aspect-square max-lg:aspect-video cursor-container relative overflow-clip w-full row-span-3 md:row-span-4 col-span-2 flex flex-col items-center justify-center border-b border-neutral-800">
+                    <div className="group max-md:aspect-square max-lg:aspect-video cursor-container relative overflow-clip w-full row-span-3 md:row-span-4 col-span-2 flex flex-col items-center justify-center  border-neutral-800">
                         <div className="relative z-10 flex flex-col items-center justify-center h-fit w-fit">
                             <h3 className="max-w-lg text-center text-xl md:text-3xl font-bold leading-normal px-4">
                                 <span className="text-accent-100">

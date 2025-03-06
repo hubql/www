@@ -22,7 +22,7 @@ export const FeaturedBlog = ({
                 <div className="flex flex-row gap-2 justify-start items-center">
                     <Rss className="w-7 h-7 stroke-accent-100" />
                     <h2
-                        className="text-left text-2xl lg:text-3xl font-bold   text-black dark:text-white"
+                        className="text-left text-2xl lg:text-3xl font-bold   text-black dark:text-white font-orbitron"
                         data-tina-field={tinaField(data, 'title')}
                     >
                         {data.title}

@@ -2,7 +2,7 @@ import { Sparkles } from 'lucide-react'
 
 export const PricingAboveFold = () => {
     return (
-        <div className="pricingAboveFold w-full mx-auto max-w-screen-xl pt-16 pb-16 px-2 lg:px-8 border-b border-neutral-800">
+        <div className="pricingAboveFold w-full mx-auto max-w-screen-xl pt-16 pb-16 px-2 lg:px-8  border-neutral-800">
             <div className="grid gird-cols-1 lg:grid-cols-2 gap-32">
                 <div className="h-full flex flex-col items-start justify-start">
                     <div className="flex items-center gap-2 mb-2">
