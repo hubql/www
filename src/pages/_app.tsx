@@ -6,6 +6,7 @@ import { PostHogProvider } from 'posthog-js/react'
 import { useEffect } from 'react'
 import { ThemeProvider } from '../components/kit/ThemeProvider'
 import Script from 'next/script'
+import { Noto_Sans, Orbitron } from 'next/font/google'
 
 // Check that PostHog is client-side (used to handle Next.js SSR)
 if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
@@ -19,6 +20,18 @@ if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_POSTHOG_KEY) {
     })
 }
 
+const noto = Noto_Sans({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    variable: '--font-noto',
+})
+
+const orbitron = Orbitron({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    variable: '--font-orbitron',
+})
+
 export default function App({ Component, pageProps }: AppProps) {
     const router = useRouter()
 
@@ -31,8 +44,9 @@ export default function App({ Component, pageProps }: AppProps) {
             router.events.off('routeChangeComplete', handleRouteChange)
         }
     }, [])
+
     return (
-        <main>
+        <main className={` ${orbitron.variable} ${noto.variable} font-noto`}>
             <Script
                 id="koala-snippet"
                 dangerouslySetInnerHTML={{

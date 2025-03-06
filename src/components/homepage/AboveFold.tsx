@@ -6,14 +6,19 @@ export const AboveFold = () => {
     return (
         <div className="hero relative w-full lg:min-h-[500px] lg:h-[500px] lg:max-h-[500px] flex flex-col items-start justify-center">
             <div className="pt-8 absolute top-0 left-0 lg:relative w-fit h-fit flex flex-col z-10 px-8 max-lg:bg-black/10 max-lg:backdrop-blur-sm">
-                <h1 className="text-white text-3xl lg:text-5xl font-bold lg:font-medium text-left">
-                    Intelligent Software Solutions<br /> for Companies that Move Fast
+                <h1 className="text-white text-3xl lg:text-5xl font-bold lg:font-medium text-left font-orbitron">
+                    Intelligent Software Solutions
+                    <br /> for Companies that Move Fast
                 </h1>
                 <p className="max-w-xl text-neutral-400 text-base lg:text-xl">
-                    We are a dedicated software lab, collaborating with ambitious teams to craft web applications and APIs—built with speed and precision.
+                    We are a dedicated software lab, collaborating with
+                    ambitious teams to craft web applications and APIs—built
+                    with speed and precision.
                 </p>
                 <div className="flex flex-wrap items-start w-fit gap-y-2 gap-x-2 justify-center p-[2px] rounded-sm mt-4">
-                    <Button href="/contact" icon={"arrow"}>Get in touch</Button>
+                    <Button href="/contact" icon={'arrow'}>
+                        Get in touch
+                    </Button>
                 </div>
             </div>
             <HeroBg />
