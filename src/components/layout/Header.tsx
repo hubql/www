@@ -216,14 +216,14 @@ export const headerNav = {
             __typename: 'GlobalHeaderNav',
             isExternal: null,
             label: 'Products',
-            href: '/products',
+            href: 'products',
             nav: null,
         },
         {
             __typename: 'GlobalHeaderNav',
             isExternal: null,
             label: 'Projects',
-            href: '/projects',
+            href: 'projects',
             nav: null,
         },
         {
