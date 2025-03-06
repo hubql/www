@@ -5,7 +5,7 @@ export const TechStack = () => {
     return (
         <Section
             title="Tech Stack"
-            contentClassName="grid grid-cols-4 gap-4 divide-x divide-neutral-800"
+            contentClassName="grid grid-cols-4 gap-0 divide-x divide-y divide-neutral-800"
         >
             {TechStackItems.map((item) => (
                 <TechStackItem key={item.name} {...item} />
@@ -24,22 +24,65 @@ const TechStackItem = ({
     image: string[]
 }) => {
     return (
-        <div>
+        <div className="flex flex-col items-center justify-center gap-2 p-4">
             <div className="flex flex-row items-center justify-start gap-2">
                 {image.map((item) => (
-                    <Image src={item} alt={name} width={64} height={64} />
+                    <Image src={item} alt={name} width={28} height={28} />
                 ))}
             </div>
-            <h2>{name}</h2>
+            <h2 className="text-base font-bold font-orbitron tracking-wide mb-0">
+                {name}
+            </h2>
         </div>
     )
 }
 
 const TechStackItems = [
     {
-        name: 'Next.js',
+        name: 'Figma',
         description:
             'Next.js is a React framework for building server-side rendered (SSR) web applications.',
-        image: ['/nextjs.png', '/nextjs.png', '/nextjs.png', '/nextjs.png'],
+        image: ['/techstack/figma.svg'],
+    },
+    {
+        name: 'Figma',
+        description:
+            'Next.js is a React framework for building server-side rendered (SSR) web applications.',
+        image: ['/techstack/figma.svg'],
+    },
+    {
+        name: 'Figma',
+        description:
+            'Next.js is a React framework for building server-side rendered (SSR) web applications.',
+        image: ['/techstack/figma.svg'],
+    },
+    {
+        name: 'Figma',
+        description:
+            'Next.js is a React framework for building server-side rendered (SSR) web applications.',
+        image: ['/techstack/figma.svg'],
+    },
+    {
+        name: 'Figma',
+        description:
+            'Next.js is a React framework for building server-side rendered (SSR) web applications.',
+        image: ['/techstack/figma.svg'],
+    },
+    {
+        name: 'Figma',
+        description:
+            'Next.js is a React framework for building server-side rendered (SSR) web applications.',
+        image: ['/techstack/figma.svg'],
+    },
+    {
+        name: 'Figma',
+        description:
+            'Next.js is a React framework for building server-side rendered (SSR) web applications.',
+        image: ['/techstack/figma.svg'],
+    },
+    {
+        name: '',
+        description: '',
+        image: [],
     },
 ]

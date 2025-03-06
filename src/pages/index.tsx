@@ -7,6 +7,7 @@ import { AboveFold } from '../components/homepage/AboveFold'
 import { ProductGrid } from '../components/homepage/ProductGrid'
 import { WhyHubql } from '../components/homepage/WhyHubql'
 import { Services } from '../components/homepage/Services'
+import { TechStack } from '../components/homepage/TechStack'
 export default function Home(props: {
     query: any
     variables: any
@@ -30,6 +31,7 @@ export default function Home(props: {
             <Services />
             <ProductGrid />
             <WhyHubql />
+            <TechStack />
             <Blocks {...data.pages} posts={posts} />
         </Layout>
     )

@@ -26,7 +26,7 @@ export const Section = ({
                     titleClassName
                 )}
             >
-                <h2 className="text-lg font-bold text-center py-4 px-4 mb-0 font-orbitron tracking-wide">
+                <h2 className="text-lg font-bold text-center py-6 px-4 mb-0 font-orbitron tracking-wide">
                     {title}
                 </h2>
             </div>
