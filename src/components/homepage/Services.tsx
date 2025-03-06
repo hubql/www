@@ -1,5 +1,6 @@
 import { Section } from '../kit/Section'
 import { BlurredBlob } from '../kit/BlurredBlob'
+import { motion } from 'framer-motion'
 export const Services = () => {
     return (
         <Section
@@ -7,9 +8,14 @@ export const Services = () => {
             className="divide-none"
             titleClassName="py-6"
             contentClassName="z-10 grid grid-cols-1 lg:grid-cols-1  gap-4 pb-12 px-2 pt-0 flex flex-col"
+            delay={2}
         >
             {ServicesCards.map((card, index) => (
-                <ServicesCard key={'cardService-' + index} card={card} />
+                <ServicesCard
+                    key={'cardService-' + index}
+                    card={card}
+                    index={index}
+                />
             ))}
             <BlurredBlob className="-right-60 -bottom-60" />
         </Section>
@@ -39,9 +45,20 @@ const ServicesCards = [
     },
 ]
 
-const ServicesCard = ({ card }: { card: any }) => {
+const ServicesCard = ({ card, index }: { card: any; index: number }) => {
     return (
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 bg-black/40 backdrop-blur-lg max-w-screen-lg !border border-neutral-800 mx-auto">
+        <motion.div
+            className="relative z-10 grid grid-cols-1 lg:grid-cols-2 bg-black/40 backdrop-blur-lg max-w-screen-lg !border border-neutral-800 mx-auto"
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+                duration: 0.5,
+                delay: 2.2 + index * 0.2,
+                type: 'spring',
+                stiffness: 100,
+                damping: 10,
+            }}
+        >
             <div className="flex flex-col justify-center p-8 h-full">
                 <h2 className="text-lg font-bold font-orbitron tracking-wide">
                     {card.title}
@@ -53,6 +70,6 @@ const ServicesCard = ({ card }: { card: any }) => {
                     <li key={item}>{item}</li>
                 ))}
             </ul>
-        </div>
+        </motion.div>
     )
 }
