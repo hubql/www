@@ -73,7 +73,7 @@ export const SubNav = () => {
                                 : ''
                                 }`}
                         >
-                            {link.icon} {link.name}
+                            {link.icon}
                         </div>
                         {router.pathname === link.path && (
                             <motion.div

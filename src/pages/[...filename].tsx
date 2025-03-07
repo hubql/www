@@ -31,6 +31,10 @@ const customPages = [
     'visualization',
     'templates',
     'data-schema-visualization',
+    'contact',
+    'events',
+    'products',
+    'services'
 ]
 export const getStaticPaths = async () => {
     const [result, resultLanding] = await Promise.all([
