@@ -147,7 +147,7 @@ export default defineConfig({
                                     {
                                         // I can't leave a field empty - this is a workaround
                                         name: 'empty',
-                                        label: 'leave empty',
+                                        label: 'leave empty ',
                                         type: 'string',
                                     },
                                 ],
