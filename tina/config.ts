@@ -21,7 +21,11 @@ import { templateApiReferenceBlockSchema } from '../src/components/blocks/Templa
 import { vsHeroBlockSchema } from '../src/components/blocks/VsHero'
 
 // Your hosting provider likely exposes this as an environment variable
-const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main'
+const branch =
+    process.env.HEAD ||
+    process.env.VERCEL_GIT_COMMIT_REF ||
+    process.env.CF_PAGES_BRANCH ||
+    'main'
 
 export default defineConfig({
     branch,
