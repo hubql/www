@@ -2,11 +2,26 @@ import Head from 'next/head'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import { useRouter } from 'next/router'
+import { Noto_Sans } from 'next/font/google'
+import { Orbitron } from 'next/font/google'
+
+const noto = Noto_Sans({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    variable: '--font-noto',
+})
+
+const orbitron = Orbitron({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    variable: '--font-orbitron',
+})
 
 export const Layout = ({ children, data }: { children: any; data?: any }) => {
     const router = useRouter()
     const domain = 'https://www.hubql.com'
     const canonicalUrl = domain + router.asPath.replace(/\?.*/, '')
+
     return (
         <>
             <Head>
@@ -70,7 +85,9 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                 />
                 <meta property="twitter:locale" content="en_US" />
             </Head>
-            <div className={'bg-black'}>
+            <div
+                className={`bg-black ${noto.variable} ${orbitron.variable} font-noto`}
+            >
                 <Header />
                 <div className="w-full">
                     <div className="relative w-full overflow-x-hidden  bg-grid-neutral-800 ">

@@ -8,10 +8,11 @@ export const Testimonials = () => {
 
     useEffect(() => {
         controls.start({
-            x: [0, -1000],
+            x: [0, -800],
             transition: {
                 duration: 30,
                 ease: 'linear',
+                repeat: Infinity,
             },
         })
     }, [controls])
@@ -24,7 +25,7 @@ export const Testimonials = () => {
         >
             <div className="absolute z-10 top-0 left-0 w-[300px] h-full bg-gradient-to-r from-black to-transparent" />
             <motion.div
-                className="flex flex-row gap-4 items-center h-fit"
+                className="flex flex-row gap-4 items-center"
                 style={{ x }}
                 animate={controls}
                 initial={{ x: 0 }}
@@ -34,18 +35,30 @@ export const Testimonials = () => {
                 onMouseLeave={() => {
                     const currentX = x.get()
                     controls.start({
-                        x: [currentX, -1000],
+                        x: [currentX, -800],
                         transition: {
                             duration: 30 * (1 + currentX / 1000),
                             ease: 'linear',
+                            repeat: Infinity,
                         },
                     })
                 }}
             >
-                <div className="flex gap-4 min-w-max h-fit flex-row items-center">
+                <div className="flex gap-4 min-w-max flex-row items-center">
                     {testimonials.map((testimonial, index) => (
                         <Testimonial
                             key={'testimonial-' + testimonial.name + index}
+                            {...testimonial}
+                        />
+                    ))}
+                    {testimonials.map((testimonial, index) => (
+                        <Testimonial
+                            key={
+                                'testimonial-' +
+                                testimonial.name +
+                                index +
+                                '-clone'
+                            }
                             {...testimonial}
                         />
                     ))}
@@ -66,10 +79,10 @@ const Testimonial = ({
     text: string
 }) => {
     return (
-        <div className="flex flex-col gap-4 bg-neutral-950 p-4 pb-0 border border-neutral-800 w-full max-w-xl h-fit text-neutral-400">
-            <p className="hyphens-auto break-all">{text}</p>
-            <div className="flex flex-row items-center gap-2 text-white">
-                <p>{name}</p> -<p>{company}</p>
+        <div className="flex flex-col gap-4 bg-neutral-950 p-4 pb-0 border border-neutral-800 w-full max-w-sm text-neutral-400 items-center justify-center">
+            <p className="hyphens-auto break-all text-sm">{text}</p>
+            <div className="flex flex-row items-center gap-2 text-white text-sm">
+                <p>{name}</p> - <p>{company}</p>
             </div>
         </div>
     )
