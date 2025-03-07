@@ -7,8 +7,11 @@ export const TechStack = () => {
             title="Tech Stack"
             contentClassName="grid grid-cols-4 gap-0 divide-x divide-y divide-neutral-800"
         >
-            {TechStackItems.map((item) => (
-                <TechStackItem key={item.name} {...item} />
+            {TechStackItems.map((item, index) => (
+                <TechStackItem
+                    key={'techstack-' + item.name + index}
+                    {...item}
+                />
             ))}
         </Section>
     )

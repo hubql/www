@@ -6,8 +6,11 @@ export const WhyHubql = () => {
             title="Why choose Hubql"
             contentClassName="grid max-lg:grid-cols-1 lg:grid-cols-3 gap-4 divide-x divide-neutral-800"
         >
-            {WhyHubqlCards.map((card) => (
-                <WhyHubqlCard key={card.title} card={card} />
+            {WhyHubqlCards.map((card, index) => (
+                <WhyHubqlCard
+                    key={'whyhubql-' + card.title + index}
+                    card={card}
+                />
             ))}
         </Section>
     )

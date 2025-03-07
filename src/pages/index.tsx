@@ -8,6 +8,7 @@ import { ProductGrid } from '../components/homepage/ProductGrid'
 import { WhyHubql } from '../components/homepage/WhyHubql'
 import { Services } from '../components/homepage/Services'
 import { TechStack } from '../components/homepage/TechStack'
+import { Testimonials } from '../components/homepage/Testimonials'
 export default function Home(props: {
     query: any
     variables: any
@@ -32,6 +33,7 @@ export default function Home(props: {
             <ProductGrid />
             <WhyHubql />
             <TechStack />
+            <Testimonials />
             <Blocks {...data.pages} posts={posts} />
         </Layout>
     )

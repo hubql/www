@@ -12,7 +12,7 @@ export const ProductGrid = () => {
             {cards.map((item, index) => (
                 <Link
                     href={item.link}
-                    key={index + 't'}
+                    key={'productgrid-' + item.title + index}
                     className="w-full h-full first:border-t first:border-neutral-800 [&:nth-child(2n)]:border-l [&:nth-child(2n)]:border-neutral-800"
                 >
                     <div className="lg:bg-black p-6  w-full lg:hover:bg-neutral-900 transition-transform ease-in h-full flex flex-col justify-between">
