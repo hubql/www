@@ -1,220 +1,219 @@
 {
-    "header": {
-        "name": "Hubql",
+  "header": {
+    "name": "Hubql",
+    "nav": [
+      {
+        "label": "Product",
+        "href": "#",
         "nav": [
-            {
-                "label": "Product",
-                "href": "#",
-                "nav": [
-                    {
-                        "href": "product/hubql-cli",
-                        "label": "CLI"
-                    },
-                    {
-                        "href": "product/api-client",
-                        "label": "API Client"
-                    },
-
-                    {
-                        "href": "product/api-reference-hosting",
-                        "label": "API Reference Hosting"
-                    }
-                ]
-            },
-            {
-                "label": "Docs",
-                "href": "docs"
-            },
-            {
-                "label": "Pricing",
-                "href": "pricing"
-            },
-            {
-                "label": "Blog",
-                "href": "blog"
-            }
-        ],
-        "ctaLabel": "Try now"
-    },
-    "footer": {
+          {
+            "href": "product/hubql-cli",
+            "label": "CLI"
+          },
+          {
+            "href": "product/api-client",
+            "label": "API Client"
+          },
+          {
+            "href": "product/api-reference-hosting",
+            "label": "API Reference Hosting"
+          }
+        ]
+      },
+      {
+        "label": "Docs",
+        "href": "docs"
+      },
+      {
+        "label": "Pricing",
+        "href": "pricing"
+      },
+      {
+        "label": "Blog",
+        "href": "blog"
+      }
+    ],
+    "ctaLabel": "Try now"
+  },
+  "footer": {
+    "nav": [
+      {
+        "label": "Product",
         "nav": [
-            {
-                "label": "Product",
-                "nav": [
-                    {
-                        "label": "API Client",
-                        "href": "product/api-client"
-                    },
-                    {
-                        "label": "API Reference Hosting",
-                        "href": "product/api-reference-hosting"
-                    },
-                    {
-                        "label": "Hubql CLI",
-                        "href": "product/hubql-cli"
-                    },
-                    {
-                        "label": "Hubql Cloud",
-                        "href": "cloud"
-                    },
-                    {
-                        "label": "Pricing",
-                        "href": "pricing"
-                    }
-                ]
-            },
-            {
-                "label": "Plugins",
-                "nav": [
-                    {
-                        "label": "NestJS",
-                        "href": "docs/quickstarts/nestjs"
-                    },
-                    {
-                        "label": "Elysia",
-                        "href": "docs/quickstarts/elysia"
-                    },
-                    {
-                        "label": "Fastify",
-                        "href": "docs/quickstarts/fastify"
-                    },
-                    {
-                        "label": "Hono",
-                        "href": "docs/quickstarts/hono"
-                    }
-                ]
-            },
-            {
-                "label": "Use Cases",
-                "nav": [
-                    {
-                        "label": "REST/OpenAPI",
-                        "href": "api-client/open-api"
-                    },
-                    {
-                        "label": "GraphQL",
-                        "href": "api-client/graphql"
-                    },
-                    {
-                        "label": "API Design",
-                        "href": "solutions/api-design"
-                    },
-                    {
-                        "label": "API Testing",
-                        "href": "solutions/api-testing"
-                    },
-                    {
-                        "label": "API Documentation",
-                        "href": "solutions/api-documentation"
-                    }
-                ]
-            },
-            {
-                "label": "Developers",
-                "nav": [
-                    {
-                        "label": "Docs",
-                        "href": "docs"
-                    },
-                    {
-                        "isExternal": false,
-                        "label": "Support",
-                        "href": "support"
-                    },
-                    {
-                        "isExternal": false,
-                        "label": "Glossary",
-                        "href": "resources/glossary"
-                    }
-                ]
-            },
-            {
-                "label": "Compare",
-                "nav": [
-                    {
-                        "label": "SwaggerUI",
-                        "href": "hubql-vs-swaggerui"
-                    },
-                    {
-                        "label": "Insomnia",
-                        "href": "hubql-vs-insomnia"
-                    },
-                    {
-                        "label": "Thunder Client",
-                        "href": "hubql-vs-thunderclient"
-                    },
-                    {
-                        "label": "Postman",
-                        "href": "hubql-vs-postman"
-                    }
-                ]
-            },
-            {
-                "label": "Company",
-                "nav": [
-                    {
-                        "label": "Blog",
-                        "href": "blog"
-                    },
-                    {
-                        "isExternal": false,
-                        "label": "Team",
-                        "href": "about"
-                    },
-                    {
-                        "isExternal": true,
-                        "label": "Join the team!",
-                        "href": "https://join.com/companies/hubql"
-                    },
-                    {
-                        "isExternal": true,
-                        "label": "Contact",
-                        "href": "contact"
-                    },
-                    {
-                        "isExternal": true,
-                        "label": "Twitter",
-                        "href": "https://twitter.com/HubqlHQ"
-                    },
-                    {
-                        "isExternal": true,
-                        "label": "LinkedIn",
-                        "href": "https://www.linkedin.com/company/hubql/"
-                    },
-                    {
-                        "isExternal": true,
-                        "label": "Discord",
-                        "href": "https://discord.gg/NjAwH6VkwY"
-                    },
-                    {
-                        "isExternal": true,
-                        "label": "Reddit",
-                        "href": "https://www.reddit.com/r/hubql/"
-                    },
-                    {
-                        "isExternal": true,
-                        "label": "GitHub",
-                        "href": "https://github.com/hubql/hubql"
-                    }
-                ]
-            }
-        ],
-        "legalNav": [
-            {
-                "href": "imprint",
-                "label": "Imprint"
-            },
-            {
-                "href": "terms",
-                "label": "Terms of service"
-            },
-            {
-                "href": "privacy-policy",
-                "label": "Privacy policy"
-            }
-        ],
-        "social": {
-            "twitter": ""
-        }
+          {
+            "label": "API Client",
+            "href": "product/api-client"
+          },
+          {
+            "label": "API Reference Hosting",
+            "href": "product/api-reference-hosting"
+          },
+          {
+            "label": "Hubql CLI",
+            "href": "product/hubql-cli"
+          },
+          {
+            "label": "Hubql Cloud",
+            "href": "cloud"
+          },
+          {
+            "label": "Pricing",
+            "href": "pricing"
+          }
+        ]
+      },
+      {
+        "label": "Plugins",
+        "nav": [
+          {
+            "label": "NestJS",
+            "href": "docs/quickstarts/nestjs"
+          },
+          {
+            "label": "Elysia",
+            "href": "docs/quickstarts/elysia"
+          },
+          {
+            "label": "Fastify",
+            "href": "docs/quickstarts/fastify"
+          },
+          {
+            "label": "Hono",
+            "href": "docs/quickstarts/hono"
+          }
+        ]
+      },
+      {
+        "label": "Use Cases",
+        "nav": [
+          {
+            "label": "REST/OpenAPI",
+            "href": "api-client/open-api"
+          },
+          {
+            "label": "GraphQL",
+            "href": "api-client/graphql"
+          },
+          {
+            "label": "API Design",
+            "href": "solutions/api-design"
+          },
+          {
+            "label": "API Testing",
+            "href": "solutions/api-testing"
+          },
+          {
+            "label": "API Documentation",
+            "href": "solutions/api-documentation"
+          }
+        ]
+      },
+      {
+        "label": "Developers",
+        "nav": [
+          {
+            "label": "Docs",
+            "href": "docs"
+          },
+          {
+            "isExternal": false,
+            "label": "Support",
+            "href": "support"
+          },
+          {
+            "isExternal": false,
+            "label": "Glossary",
+            "href": "resources/glossary"
+          }
+        ]
+      },
+      {
+        "label": "Compare",
+        "nav": [
+          {
+            "label": "SwaggerUI",
+            "href": "hubql-vs-swaggerui"
+          },
+          {
+            "label": "Insomnia",
+            "href": "hubql-vs-insomnia"
+          },
+          {
+            "label": "Thunder Client",
+            "href": "hubql-vs-thunderclient"
+          },
+          {
+            "label": "Postman",
+            "href": "hubql-vs-postman"
+          }
+        ]
+      },
+      {
+        "label": "Company",
+        "nav": [
+          {
+            "label": "Blog",
+            "href": "blog"
+          },
+          {
+            "isExternal": false,
+            "label": "Team",
+            "href": "about"
+          },
+          {
+            "isExternal": true,
+            "label": "Join the team!",
+            "href": "https://join.com/companies/hubql"
+          },
+          {
+            "isExternal": true,
+            "label": "Contact",
+            "href": "contact"
+          },
+          {
+            "isExternal": true,
+            "label": "Twitter",
+            "href": "https://twitter.com/HubqlHQ"
+          },
+          {
+            "isExternal": true,
+            "label": "LinkedIn",
+            "href": "https://www.linkedin.com/company/hubql/"
+          },
+          {
+            "isExternal": true,
+            "label": "Discord",
+            "href": "https://discord.gg/NjAwH6VkwY"
+          },
+          {
+            "isExternal": true,
+            "label": "Reddit",
+            "href": "https://www.reddit.com/r/hubql/"
+          },
+          {
+            "isExternal": true,
+            "label": "GitHub",
+            "href": "https://github.com/hubql/hubql"
+          }
+        ]
+      }
+    ],
+    "legalNav": [
+      {
+        "href": "imprint",
+        "label": "Imprint"
+      },
+      {
+        "href": "terms",
+        "label": "Terms of service"
+      },
+      {
+        "href": "privacy-policy",
+        "label": "Privacy policy"
+      }
+    ],
+    "social": {
+      "twitter": ""
     }
+  }
 }
