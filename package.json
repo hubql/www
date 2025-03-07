@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "doppler run --project=tinacms --config=development --mount .env --  tinacms dev -c 'next dev'",
-        "build": "tinacms build",
+        "build": "npx tinacms build",
         "lint": "next lint",
         "local": "tinacms dev -c 'next dev'",
         "prepare": "husky"
