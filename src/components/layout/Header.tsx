@@ -27,7 +27,7 @@ export const Header = () => {
                     <div className="w-fit h-full flex items-center justify-start">
                         <div className="pl-2 mr-4 ">
                             <Link href="/" title="Go to the main page" passHref>
-                                <HubqlLogo className={'w-[120px]'} />
+                                <HubqlLogo className={'w-[110px]'} />
                             </Link>
                         </div>
                         <NavigationMenu data={headerNav.nav} />
