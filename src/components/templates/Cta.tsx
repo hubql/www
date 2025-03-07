@@ -16,7 +16,7 @@ export const Cta = ({
         <div className="relative w-full flex justify-center pt-32 pb-24 overflow-clip">
             <div className=" w-full max-w-5xl mx-auto  ">
                 <div className="flex flex-col gap-6 items-center text-center px-8">
-                    <h2 className="text-4xl mb-0">{ctaTitle}</h2>
+                    <h2 className="text-4xl mb-0 font-orbitron">{ctaTitle}</h2>
                     {ctaDescription && (
                         <p className="text-base text-neutral-400 max-w-sm m-auto">
                             {ctaDescription}
@@ -27,7 +27,7 @@ export const Cta = ({
                     </Button>
                 </div>
             </div>
-            <div className="absolute -bottom-60 -left-60 z-10 bg-accent-100 opacity-10 blur-[100px] rounded-full w-[600px] h-[600px]" />
+            <div className="absolute -bottom-60 -left-60 z-10 bg-accent-100 opacity-10 blur-[100px] rounded-full w-[600px] h-[600px] z-[-1]" />
         </div>
     )
 }

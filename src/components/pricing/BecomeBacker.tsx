@@ -41,7 +41,7 @@ export const BecomeBacker = ({
                     >
                         <h2
                             className={cn(
-                                'text-left text-2xl lg:text-3xl font-bold ',
+                                'text-left text-2xl lg:text-3xl font-bold font-orbitron',
                                 align === 'center' && 'text-center'
                             )}
                         >

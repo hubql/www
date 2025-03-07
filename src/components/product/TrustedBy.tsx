@@ -21,7 +21,7 @@ export const TrustedBy = () => {
     ]
     return (
         <div className="w-full border-t border-neutral-800">
-            <h2 className="text-xl text-center font-semibold pt-6 pb-4 px-4">
+            <h2 className="text-xl text-center font-semibold pt-6 pb-4 px-4 font-orbitron">
                 Trusted by developers at innovative companies around the world
             </h2>
             <div className="grid grid-cols-3 divide-x divide-neutral-800 border-y border-neutral-800">

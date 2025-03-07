@@ -60,7 +60,7 @@ const BlogCard = ({ item }: { item: any }) => {
                 <div className="p-6 flex flex-col h-full">
                     {' '}
                     {/* Added flex flex-col and h-full */}
-                    <h3 className="text-xl text-black dark:text-white ">
+                    <h3 className="text-xl text-black dark:text-white font-orbitron">
                         {item.title}
                     </h3>
                     <p className="text-base text-neutral-900 dark:text-neutral-400 line-clamp-3 font-normal">

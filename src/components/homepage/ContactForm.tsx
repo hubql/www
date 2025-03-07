@@ -1,58 +1,138 @@
 import { Turnstile } from '@marsidev/react-turnstile'
 import { ArrowIcon } from '../kit/Button'
+import { useState } from 'react'
 
 export const ContactForm = () => {
-    async function handleSubmit(e: any) {
+    const [loading, setLoading] = useState(false)
+    const [success, setSuccess] = useState(false)
+    const [error, setError] = useState('')
+    const [token, setToken] = useState<string | null>(null)
+
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        const formData = {
-            name: e.target.name.value,
-            email: e.target.email.value,
+        if (!token) {
+            setError('Please complete the CAPTCHA')
+            return
         }
 
-        const response = await fetch('/api/submitToNotion', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
+        setLoading(true)
+        setError('')
 
-        const data = await response.json()
-        alert(data.message)
+        const formData = {
+            firstName: e.currentTarget.firstName.value,
+            company: e.currentTarget.company.value,
+            email: e.currentTarget.email.value,
+            message: e.currentTarget.message.value,
+            token,
+        }
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+
+            const data = await response.json()
+
+            if (!response.ok) throw new Error(data.message || data.error)
+
+            setSuccess(true)
+
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Failed to send message')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    if (success) {
+        return (
+            <div className="w-full flex-1 p-8 text-center">
+                <p className="text-accent-500 text-lg">Thank you, your message has been sent successfully!</p>
+            </div>
+        )
     }
 
     return (
-        <div className="w-full flex-1 border-neutral-800">
+        <div className="w-full flex-1 pt-8">
+            <p className="text-center text-[16px] pb-8 border-b border-neutral-800">
+                Reach out to us below and we will get back to you as soon as possible.
+            </p>
+
             <form onSubmit={handleSubmit}>
-                <div className="w-full flex flex-col gap-2 justify-start items-start">
-                    <div className="w-full flex flex-col lg:flex-row gap-4 items-start lg:items-center rounded-md">
+                <div className="w-full flex flex-col gap-4 justify-start items-start max-w-screen-sm mx-auto pb-12 pt-4">
+                    <div className="w-full grid grid-cols-1 gap-4 ">
                         <input
-                            type="email"
-                            id="email"
-                            name="email"
+                            type="text"
+                            id="firstName"
+                            name="firstName"
                             required
                             className="py-2 px-3 w-full rounded-sm border border-neutral-700"
-                            placeholder="Enter email"
+                            placeholder="First Name"
                         />
+                        <input
+                            type="text"
+                            id="company"
+                            name="company"
+                            required
+                            className="py-2 px-3 w-full rounded-sm border border-neutral-700"
+                            placeholder="Company"
+                        />
+                    </div>
 
-                        <Turnstile
-                            siteKey={
-                                process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
-                            }
-                        />
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        className="py-2 px-3 w-full rounded-sm border border-neutral-700"
+                        placeholder="Email"
+                    />
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        required
+                        className="py-2 px-3 w-full rounded-sm border border-neutral-700 h-32"
+                        placeholder="Your message"
+                    />
+                    <Turnstile
+                        siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''}
+                        onSuccess={(token) => setToken(token)}
+                    />
+
+
+                    <div className="w-full flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
 
                         <button
                             type="submit"
-                            className="button relative hover:decoration-none transition-transform ease-in hover:-translate-y-1 hover:icon:-translate-x-1 h-[44px] pl-4 pr-16 rounded-sm flex flex-row items-center justify-between text-base py-3  font-normal bg-accent-500 !text-white w-fit !no-underline"
+                            disabled={loading}
+                            className="button relative hover:decoration-none transition-transform ease-in hover:-translate-y-1 hover:icon:-translate-x-1 h-[44px] pl-4 pr-16 rounded-sm flex flex-row items-center justify-between text-base py-3 font-normal bg-accent-500 !text-white w-fit !no-underline disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            Join mailing list
+                            {loading ? 'Sending...' : 'Send Message'}
                             <div className="icon absolute inset-y-auto right-4">
                                 <ArrowIcon />
                             </div>
                         </button>
                     </div>
+
+                    {error && (
+                        <p className="text-red-500 text-sm">{error}</p>
+                    )}
+
+
+                    <div className="mb-8 text-left text-[16px] pb-8 pt-12">
+                        <p className="mb-0">or email us at <a href="mailto:hello@hubql.com" className="underline">hello@hubql.com</a>, you can also&nbsp;
+                            <a href="https://cal.com/hubql-tobias/hubql-contact" className="underline">schedule a meeting here</a>
+                        </p>
+                    </div>
                 </div>
+
             </form>
+
         </div>
     )
 }

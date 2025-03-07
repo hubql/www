@@ -16,13 +16,11 @@ export const AboveFold = () => {
                     <br /> for Companies that Move Fast
                 </h1>
                 <p className="max-w-xl text-neutral-400 text-base lg:text-xl">
-                    We are a dedicated software lab, collaborating with
-                    ambitious teams to craft web applications and APIs—built
-                    with speed and precision.
+                    Hubql Labs is a software services company delivering excellent web applications, APIs, and open-source tools. We help fast-moving teams build software with precision.
                 </p>
                 <div className="flex flex-wrap items-start w-fit gap-y-2 gap-x-2 justify-center p-[2px] rounded-sm mt-4">
                     <Button href="/contact" icon={'arrow'}>
-                        Get in touch
+                        Build with us
                     </Button>
                 </div>
             </motion.div>

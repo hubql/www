@@ -4,7 +4,35 @@ export default async function handler(req: any, res: any) {
     }
 
     try {
-        const { name, email } = req.body
+        const { email, firstName, company, message, token } = req.body
+        if (!email || !firstName || !company || !message || !token) {
+            return res.status(400).json({ error: 'Missing required fields' })
+        }
+
+        // Validate Turnstile token
+        const turnstileResponse = await fetch(
+            'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    secret: process.env.TURNSTILE_SECRET,
+                    response: token,
+                    remoteip:
+                        req.headers['CF-Connecting-IP'] ||
+                        req.headers['x-forwarded-for'] ||
+                        req.connection.remoteAddress,
+                }),
+            }
+        )
+
+        const turnstileData = await turnstileResponse.json()
+        if (!turnstileData.success) {
+            return res.status(400).json({ error: 'Invalid token' })
+        }
+
         const notionDatabaseId = process.env.NOTION_DB_ID
         const integrationToken = process.env.NOTION_SECRET
 
@@ -18,17 +46,23 @@ export default async function handler(req: any, res: any) {
             body: JSON.stringify({
                 parent: { database_id: notionDatabaseId },
                 properties: {
-                    Name: {
+                    Firstname: {
                         title: [
                             {
                                 text: {
-                                    content: name,
+                                    content: firstName,
                                 },
                             },
                         ],
                     },
+                    Company: {
+                        rich_text: [{ text: { content: company } }],
+                    },
                     Email: {
                         email: email,
+                    },
+                    Message: {
+                        rich_text: [{ text: { content: message } }],
                     },
                 },
             }),

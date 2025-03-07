@@ -11,7 +11,7 @@ export default function Custom404(props: { header: any; footer: any }) {
     return (
         <Layout data={data}>
             <div className="max-w-2xl mx-auto h-[calc(100vh-80px)] flex flex-col items-center justify-center">
-                <h1 className="text-4xl">Page Not Found</h1>
+                <h1 className="text-4xl font-orbitron">Page Not Found</h1>
                 <p className="text-lg text-center">
                     Sorry, but the page you were looking for could not be found.
                     <br />

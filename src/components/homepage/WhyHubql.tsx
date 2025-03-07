@@ -18,26 +18,26 @@ export const WhyHubql = () => {
 
 const WhyHubqlCards = [
     {
-        title: 'Modern Tech Stack',
+        title: 'Modern Tech Stack for your Future',
         description:
-            'We leverage Next.js, Supabase, AWS, and Vercel to build high-performance applications.',
+            'We leverage the latest and greatest technologies to build high-performance applications.',
     },
     {
-        title: 'Modern Tech Stack',
+        title: 'Experienced Product Builders',
         description:
-            'We leverage Next.js, Supabase, AWS, and Vercel to build high-performance applications.',
+            'We have a proven track record of building successful products.',
     },
     {
-        title: 'Modern Tech Stack',
+        title: 'Fast & Easy to Work With',
         description:
-            'We leverage Next.js, Supabase, AWS, and Vercel to build high-performance applications.',
+            'Our team is dedicated with quick turnaround times and a focus on precision in our work and communication.',
     },
 ]
 
 const WhyHubqlCard = ({ card }: { card: any }) => {
     return (
         <div className="flex flex-col justify-between items-start p-4">
-            <h3 className="text-lg font-bold">{card.title}</h3>
+            <h3 className="text-lg font-bold font-orbitron">{card.title}</h3>
             <p className="text-sm text-neutral-400">{card.description}</p>
         </div>
     )

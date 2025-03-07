@@ -26,9 +26,9 @@ export const Footer = () => {
                                 className="text-left w-full h-full px-8 py-8"
                             >
                                 <div>
-                                    <p className="text-white text-lg font-semibold py-1 mb-1">
+                                    <p className="text-white text-lg font-semibold py-1 mb-1 font-orbitron">
                                         {category?.href ? (
-                                            <Link href={category?.href}>
+                                            <Link href={category?.href} className='font-orbitron'>
                                                 {category?.label}
                                             </Link>
                                         ) : (
@@ -83,7 +83,7 @@ export const Footer = () => {
                                     &copy; {year}
                                 </span>
                             </div>
-                            <p className=" text-sm my-2">
+                            <p className=" text-sm my-4 font-orbitron">
                                 Elevating DX beyond code.
                             </p>
 
@@ -185,6 +185,39 @@ export const footerNav = {
     nav: [
         {
             __typename: 'GlobalFooterNav',
+            label: 'Services',
+            href: '/services',
+            nav: [
+                // {
+                //     __typename: 'GlobalFooterNavNav',
+                //     isExternal: null,
+                //     label: 'Consulting',
+                //     href: 'services/consulting',
+                // },
+                // {
+                //     __typename: 'GlobalFooterNavNav',
+                //     isExternal: null,
+                //     label: 'Training',
+                //     href: 'services/training',
+                // },
+
+                // {
+                //     __typename: 'GlobalFooterNavNav',
+                //     isExternal: null,
+                //     label: 'Workshops',
+                //     href: 'services/workshops',
+                // },
+                // {
+                //     __typename: 'GlobalFooterNavNav',
+                //     isExternal: null,
+                //     label: 'Custom Development',
+                //     href: 'services/custom-development',
+                // },
+
+            ],
+        },
+        {
+            __typename: 'GlobalFooterNav',
             label: 'Products',
             href: '/products',
             nav: [
@@ -221,49 +254,6 @@ export const footerNav = {
                 },
             ],
         },
-        // {
-        //     __typename: 'GlobalFooterNav',
-        //     label: 'Plugins',
-        //     href: null,
-        //     nav: [
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Astro',
-        //             href: 'docs/quickstarts/astro',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'NextJS',
-        //             href: 'docs/quickstarts/nextjs',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'NestJS',
-        //             href: 'docs/quickstarts/nestjs',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Elysia',
-        //             href: 'docs/quickstarts/elysia',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Fastify',
-        //             href: 'docs/quickstarts/fastify',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Hono',
-        //             href: 'docs/quickstarts/hono',
-        //         },
-        //     ],
-        // },
         {
             __typename: 'GlobalFooterNav',
             label: 'Use Cases',
@@ -322,6 +312,12 @@ export const footerNav = {
                 {
                     __typename: 'GlobalFooterNavNav',
                     isExternal: false,
+                    label: 'Events',
+                    href: 'events',
+                },
+                {
+                    __typename: 'GlobalFooterNavNav',
+                    isExternal: false,
                     label: 'Support',
                     href: 'support',
                 },
@@ -341,21 +337,22 @@ export const footerNav = {
             nav: [
                 {
                     __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'Blog',
-                    href: 'blog',
-                },
-                {
-                    __typename: 'GlobalFooterNavNav',
                     isExternal: false,
-                    label: 'Team',
+                    label: 'About',
                     href: 'about',
                 },
                 {
                     __typename: 'GlobalFooterNavNav',
+                    isExternal: null,
+                    label: 'Blog',
+                    href: 'blog',
+                },
+
+                {
+                    __typename: 'GlobalFooterNavNav',
                     isExternal: true,
                     label: 'Contact',
-                    href: 'https://hubql.notion.site/13ecf350629f80329233ff53c9b436ea?pvs=105',
+                    href: 'contact',
                 },
             ],
         },

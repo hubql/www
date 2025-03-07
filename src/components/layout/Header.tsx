@@ -1,14 +1,12 @@
 import Link from 'next/link'
-import * as React from 'react'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Button } from '../kit/Button'
 import { HubqlLogo } from '../kit/HubqlLogo'
-import { NavigationMenu } from './NavigationMenu'
-import { ArrowUpDown, BookMarked, Grid, Network } from 'lucide-react'
-import { usePathname } from 'next/navigation'
 import { cn } from '../util/cn'
+import { NavigationMenu } from './NavigationMenu'
 
-const iconStyle = 'h-3.5 w-3.5 stroke-accent-100'
+
 
 export const Header = () => {
     const pathname = usePathname()
@@ -41,7 +39,7 @@ export const Header = () => {
                             className="hidden lg:flex"
                         ></Button>
                         <Button
-                            href="https://hubql.notion.site/13ecf350629f80329233ff53c9b436ea?pvs=105"
+                            href="/contact"
                             size="sm"
                             icon="arrow"
                             className="hidden lg:flex"
@@ -192,7 +190,7 @@ const Mobile = ({ header }: { header: any }) => {
                                     GitHub
                                 </Button>
                                 <Button
-                                    href="https://hubql.notion.site/13ecf350629f80329233ff53c9b436ea?pvs=105"
+                                    href="/contact"
                                     size="sm"
                                     icon="arrow"
                                     className="w-full !text-lg"
@@ -215,6 +213,13 @@ export const headerNav = {
         {
             __typename: 'GlobalHeaderNav',
             isExternal: null,
+            label: 'Services',
+            href: 'services',
+            nav: null,
+        },
+        {
+            __typename: 'GlobalHeaderNav',
+            isExternal: null,
             label: 'Products',
             href: 'products',
             nav: null,
@@ -222,15 +227,8 @@ export const headerNav = {
         {
             __typename: 'GlobalHeaderNav',
             isExternal: null,
-            label: 'Projects',
-            href: 'projects',
-            nav: null,
-        },
-        {
-            __typename: 'GlobalHeaderNav',
-            isExternal: null,
-            label: 'Pricing',
-            href: 'pricing',
+            label: 'About',
+            href: 'about',
             nav: null,
         },
         {
@@ -238,6 +236,13 @@ export const headerNav = {
             isExternal: null,
             label: 'Blog',
             href: 'blog',
+            nav: null,
+        },
+        {
+            __typename: 'GlobalHeaderNav',
+            isExternal: null,
+            label: 'Contact',
+            href: 'contact',
             nav: null,
         },
     ],

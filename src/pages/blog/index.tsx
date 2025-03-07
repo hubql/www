@@ -25,7 +25,7 @@ export default function Blog({
                 <div className="px-4 py-8">
                     <div className="flex items-center gap-2 mb-2">
                         <Rss className="w-7 h-7 stroke-accent-100" />
-                        <h1 className="text-3xl text-white font-semibold mb-0">
+                        <h1 className="text-3xl text-white font-semibold mb-0 font-orbitron">
                             Blog
                         </h1>
                     </div>
@@ -63,7 +63,7 @@ export default function Blog({
                                             className="w-full grid grid-cols-1 md:grid-cols-12 gap-2 px-4 pt-8 pb-4"
                                         >
                                             <div className="col-span-12 lg:col-span-8">
-                                                <h2 className="text-zinc-50 text-left lg:text-left leading-tight text-lg font-semibold">
+                                                <h2 className="text-zinc-50 text-left lg:text-left leading-tight text-lg font-semibold font-orbitron">
                                                     {post.data.title}
                                                 </h2>
                                                 <p className="date text-zinc-400 text-right lg:text-left leading-relaxed text-base max-lg:hidden">

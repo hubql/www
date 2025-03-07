@@ -8,7 +8,7 @@ export const PricingAboveFold = () => {
                     <div className="flex items-center gap-2 mb-2">
                         {' '}
                         <Sparkles className="text-accent-100 w-5 h-5" />
-                        <h1 className="text-left text-accent-100 text-base font-semibold mb-0 uppercase">
+                        <h1 className="text-left text-accent-100 text-base font-semibold mb-0 uppercase font-orbitron">
                             Pricing
                         </h1>
                     </div>

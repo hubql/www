@@ -22,7 +22,7 @@ export const TrustedBy = () => {
     ]
     return (
         <Section
-            title="Trusted by developers at innovative companies around the world"
+            title="Trusted by companies around the world"
             contentClassName="grid max-lg:grid-cols-3 lg:grid-cols-3 divide-x divide-neutral-800 border-y border-neutral-800"
             delay={1}
         >

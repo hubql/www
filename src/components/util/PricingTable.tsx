@@ -14,7 +14,7 @@ const PricingTable = () => {
     return (
         <div className="pricingTable w-full ">
             <section className="max-w-7xl mx-auto">
-                <h2 className="text-center text-xl lg:text-2xl font-bold mt-8">
+                <h2 className="text-center text-xl lg:text-2xl font-bold mt-8 font-orbitron">
                     Transparent pricing, no surprises
                 </h2>
                 <div className="grid grid-cols-2 max-w-[200px] mx-auto mb-8 text-sm font-bold mt-4">
@@ -79,7 +79,7 @@ const Plan = ({ plan, monthly }: { plan: any; monthly: boolean }) => {
                                 className={cn('p-8', cardStyle)}
                             >
                                 <div>
-                                    <h3 className="mb-1 text-2xl font-semibold">
+                                    <h3 className="mb-1 text-2xl font-semibold font-orbitron">
                                         {item.type}
                                     </h3>
                                     <p className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
@@ -136,7 +136,7 @@ const Plan = ({ plan, monthly }: { plan: any; monthly: boolean }) => {
             </div>
             <div className="w-full grid grid-cols-12 px-8 py-16 justify-center items-center border-b border-neutral-800">
                 <div className="col-span-12 lg:col-span-3">
-                    <h3 className="text-2xl font-bold">Open Source</h3>
+                    <h3 className="text-2xl font-bold font-orbitron">Open Source</h3>
                 </div>
                 <div className="col-span-12 lg:col-span-9 text-neutral-900 dark:text-neutral-400 text-base">
                     Our tools are available as open source. No subscription
@@ -199,8 +199,8 @@ const pricing = [
         ],
         href: {
             monthly:
-                'https://hubql.notion.site/13ecf350629f80329233ff53c9b436ea?pvs=105',
-            yearly: 'https://hubql.notion.site/13ecf350629f80329233ff53c9b436ea?pvs=105',
+                '/contact',
+            yearly: '/contact',
         },
         featured: false,
     },

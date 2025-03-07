@@ -11,7 +11,7 @@ export default function Error(props: { header: any; footer: any }) {
     return (
         <Layout data={data}>
             <div className="max-w-2xl mx-auto h-[calc(100vh-80px)] flex flex-col items-center justify-center">
-                <h1 className="text-4xl">Sorry, something went wrong.</h1>
+                <h1 className="text-4xl font-orbitron">Sorry, something went wrong.</h1>
                 <p className="text-lg text-center">
                     You can{' '}
                     <Link className="underline" href={'/'}>

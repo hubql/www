@@ -6,7 +6,7 @@ import { Section } from '../kit/Section'
 export const ProductGrid = () => {
     return (
         <Section
-            title="Our tools to elevate developer experience in your team and your API consumers"
+            title="Powerful Open-Source Developer Tools, Built by Hubql."
             contentClassName="grid grid-cols-1 lg:grid-cols-2 gap-0 px-0 w-full divide-y divide-neutral-800 border-b border-neutral-800"
         >
             {cards.map((item, index) => (

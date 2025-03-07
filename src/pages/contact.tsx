@@ -1,19 +1,15 @@
-import { Button } from '../components/kit/Button'
+import { ContactForm } from '../components/homepage/ContactForm'
+
 import { Layout } from '../components/layout/Layout'
 
 export default function Contact() {
 
     return (
         <Layout data={[]}>
-            <h1>Contact</h1>
-            <form>
-                <div className="grid grid-cols-2 gap-4">
-                    <input name="name" />
-                    <input name="email" />
-                </div>
-                <input name="message" />
-                <Button >Send</Button>
-            </form>
+            <h1 className="text-4xl font-bold font-orbitron p-4 text-center my-2 font-orbitron">Contact</h1>
+
+            <ContactForm />
+
         </Layout>
     )
 }

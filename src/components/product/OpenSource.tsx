@@ -44,7 +44,7 @@ export const OpenSource = () => {
                     <div className="group max-md:aspect-square max-lg:aspect-video cursor-container relative overflow-clip w-full row-span-3 md:row-span-4 col-span-2 flex flex-col items-center justify-center border-b border-neutral-800">
                         <div className="relative z-10 flex flex-col items-center justify-center h-fit w-fit">
                             <h3 className="max-w-lg text-center text-xl md:text-3xl font-bold leading-normal px-4">
-                                <span className="text-accent-100">
+                                <span className="text-accent-100 font-orbitron">
                                     open source for impact.
                                 </span>
                                 <br />
@@ -93,7 +93,7 @@ const LinkItem = ({
             className="max-lg:min-h-[140px] col-span-2 lg:col-span-1 max-lg:last:border-t relative group lg:last:border-l border-neutral-800 w-full h-full flex flex-col items-center justify-center row-span-2 md:row-span-1 transition-all ease-in overflow-clip"
             href={link}
         >
-            <span className="font-bold text-white text-2xl lg:text-4xl">
+            <span className="font-bold text-white text-2xl lg:text-4xl font-orbitron">
                 {star && star}
                 {title && title}
             </span>

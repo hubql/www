@@ -92,16 +92,16 @@ const testimonials = [
     {
         name: 'Dan Starns',
         company: 'rconnect.tech',
-        text: 'Fantastic work! MVPforge delivered a stunning logo and website. Highly recommended for top-notch design and implementation!',
+        text: 'Fantastic work! Hubql Labs delivered a stunning logo and website. Highly recommended for top-notch design and implementation!',
     },
     {
         name: 'Patrick Wings',
         company: 'GrowSaaS',
-        text: 'I highly recommend MVPforge for their fast and perfect execution in redesigning and implementing our website. They delivered a design and software that perfectly captured our brand essence, contributing significantly to our business success.',
+        text: 'I highly recommend Hubql Labs for their fast and perfect execution in redesigning and implementing our website. They delivered a design and software that perfectly captured our brand essence, contributing significantly to our business success.',
     },
     {
-        name: 'Dan Starns',
-        company: 'rconnect.tech',
-        text: 'Fantastic work! MVPforge delivered a stunning logo and website. Highly recommended for top-notch design and implementation!',
+        name: 'Darius',
+        company: 'Fintech',
+        text: 'Hubql Labs has been an excellent long-term partner for us to build APIs and backend systems.',
     },
 ]
