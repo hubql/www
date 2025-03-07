@@ -13,6 +13,7 @@ import {
     Grid,
     Network,
 } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -20,24 +21,44 @@ export const SubNav = () => {
     const router = useRouter()
     const navLinks = [
         {
-            name: 'Hubql Grid',
+            // name: 'Hubql Grid',
             path: '/product/hubql-grid',
-            icon: <Grid className="h-5" />,
+            icon: <Image
+                src="/product-logos/hubql-grid.svg"
+                alt="Hubql Grid"
+                width={75}
+                height={15}
+            />,
         },
         {
-            name: 'Hubql Client',
+            // name: 'Hubql Client',
             path: '/product/api-client',
-            icon: <ArrowUpDown className="h-5" />,
+            icon: <Image
+                src="/product-logos/hubql-client.svg"
+                alt="Hubql Grid"
+                width={100}
+                height={15}
+            />,
         },
         {
-            name: 'Hubql Ref',
+            // name: 'Hubql Ref',
             path: '/product/api-reference-hosting',
-            icon: <BookMarked className="h-5" />,
+            icon: <Image
+                src="/product-logos/hubql-ref.svg"
+                alt="Hubql Grid"
+                width={75}
+                height={15}
+            />,
         },
         {
-            name: 'Hubql Lens',
+            // name: 'Hubql Lens',
             path: '/product/schema-visualizer',
-            icon: <Network className="h-5" />,
+            icon: <Image
+                src="/product-logos/hubql-lens.svg"
+                alt="Hubql Grid"
+                width={80}
+                height={15}
+            />,
         },
     ]
 
@@ -47,11 +68,10 @@ export const SubNav = () => {
                 {navLinks.map((link) => (
                     <Link key={link.path} href={link.path} className="relative">
                         <div
-                            className={`inline-flex text-neutral-400  text-sm hover:text-neutral-300 py-4 px-2 gap-2 items-center ${
-                                router.pathname === link.path
-                                    ? 'text-white'
-                                    : ''
-                            }`}
+                            className={`inline-flex text-neutral-400  text-sm hover:text-neutral-300 py-4 px-2 gap-2 items-center ${router.pathname === link.path
+                                ? 'text-white'
+                                : ''
+                                }`}
                         >
                             {link.icon} {link.name}
                         </div>

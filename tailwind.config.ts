@@ -27,6 +27,10 @@ const config: Config = {
                 },
                 black: '#000000',
             },
+            fontFamily: {
+                noto: ['var(--font-noto)'],
+                orbitron: ['var(--font-orbitron)'],
+            },
             animation: {
                 spotlight: 'spotlight 2s ease .75s 1 forwards',
                 aurora: 'aurora 120s linear infinite',

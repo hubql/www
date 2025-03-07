@@ -15,8 +15,8 @@ export const Faq = ({
 }) => {
     return (
         <div className="w-full">
-            <div className="border-b border-neutral-800 py-4">
-                <h2 className="text-2xl px-4">Frequently Asked Questions</h2>
+            <div className=" border-neutral-800 py-4">
+                <h2 className="text-2xl px-4 font-orbitron">Frequently Asked Questions</h2>
             </div>
             <Accordion type="single" collapsible className="w-full">
                 {faqs.map((item: any, index: number) => (

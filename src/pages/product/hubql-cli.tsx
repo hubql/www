@@ -23,7 +23,7 @@ export default function ApiClient() {
         // videoUrl: 'https://www.youtube.com/watch?v=KAsjv4w66Yo',
         ctaButtonText: 'Contact Us',
         ctaButtonUrl:
-            'https://hubql.notion.site/13ecf350629f80329233ff53c9b436ea?pvs=105',
+            '/contact',
         ctaTitle: 'Ready?',
         ctaDescription:
             'Use Hubql CLI to build your documentation with a single command. No need to write boilerplate code or copy-paste your API requests.',

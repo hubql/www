@@ -22,7 +22,7 @@ export default function ApiClient() {
         // videoUrl: 'https://www.youtube.com/watch?v=KAsjv4w66Yo',
         ctaButtonText: 'Contact Us',
         ctaButtonUrl:
-            'https://hubql.notion.site/13ecf350629f80329233ff53c9b436ea?pvs=105',
+            '/contact',
         ctaTitle: 'Ready?',
         ctaDescription:
             'Streamline onboarding, improve collaboration, and prepare your codebase for the age of AI with Hubql’s internal documentation solutions.',

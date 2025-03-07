@@ -52,7 +52,7 @@ export default function ApiClient() {
             {
                 title: 'How can I learn more about Hubql?',
                 description:
-                    'Reach out to us at https://hubql.notion.site/13ecf350629f80329233ff53c9b436ea?pvs=105',
+                    'Reach out to us at https://www.hubql.com/contact',
             },
         ],
         section: [

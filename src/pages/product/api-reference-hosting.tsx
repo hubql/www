@@ -20,7 +20,7 @@ export default function ApiReference() {
         // tryNowUrl: 'https://cloud.hubql.com',
         ctaButtonText: 'Contact Us',
         ctaButtonUrl:
-            'https://hubql.notion.site/13ecf350629f80329233ff53c9b436ea?pvs=105',
+            '/contact',
         ctaTitle: 'Ready?',
         ctaDescription:
             'Use Hubql Ref to publish your API documentation today.',
@@ -36,7 +36,7 @@ export default function ApiReference() {
                     <p>
                         Reach out to us here:
                         <br />
-                        <a href="https://hubql.notion.site/13ecf350629f80329233ff53c9b436ea?pvs=105">
+                        <a href="/contact">
                             Join now
                         </a>
                     </p>

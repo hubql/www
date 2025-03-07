@@ -20,7 +20,7 @@ export const SectionCta = ({
                     {data.title && (
                         <h2
                             data-tina-field={tinaField(data, 'title')}
-                            className={`w-full relative text-3xl lg:text-4xl leading-tight lg:leading-tight font-medium   text-black dark:text-white`}
+                            className={`w-full relative text-3xl lg:text-4xl leading-tight lg:leading-tight font-medium   text-black dark:text-white font-orbitron`}
                         >
                             {data.title}
                         </h2>

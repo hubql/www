@@ -82,7 +82,7 @@ export const AboutCards = ({
     return (
         <div className="w-full max-w-7xl px-8 mx-auto py-28">
             <div className="max-w-2xl mx-auto pb-16">
-                <h1 className="text-zinc-50 text-4xl text-center">
+                <h1 className="text-zinc-50 text-4xl text-center font-orbitron">
                     {data?.title}
                 </h1>
                 <p className="text-zinc-400 text-xl text-center">

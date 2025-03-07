@@ -124,7 +124,7 @@ export const PostTemplate = (props: {
     return (
         <div className=" mx-auto max-w-3xl px-4 lg:px-8 pb-16">
             <div className="title-section pt-32 pb-10">
-                <h1 className="text-left text-2xl lg:text-4xl font-bold   text-black dark:text-white">
+                <h1 className="text-left text-2xl lg:text-4xl font-bold   text-black dark:text-white font-orbitron">
                     {props.content.title}
                 </h1>
                 <p className=" text-[14px]   text-zinc-400">

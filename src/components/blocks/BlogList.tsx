@@ -22,7 +22,7 @@ export const FeaturedBlog = ({
                 <div className="flex flex-row gap-2 justify-start items-center">
                     <Rss className="w-7 h-7 stroke-accent-100" />
                     <h2
-                        className="text-left text-2xl lg:text-3xl font-bold   text-black dark:text-white"
+                        className="text-left text-2xl lg:text-3xl font-bold   text-black dark:text-white font-orbitron"
                         data-tina-field={tinaField(data, 'title')}
                     >
                         {data.title}
@@ -60,7 +60,7 @@ const BlogCard = ({ item }: { item: any }) => {
                 <div className="p-6 flex flex-col h-full">
                     {' '}
                     {/* Added flex flex-col and h-full */}
-                    <h3 className="text-xl text-black dark:text-white ">
+                    <h3 className="text-xl text-black dark:text-white font-orbitron">
                         {item.title}
                     </h3>
                     <p className="text-base text-neutral-900 dark:text-neutral-400 line-clamp-3 font-normal">
