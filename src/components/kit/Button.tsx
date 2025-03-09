@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 type sizeVariant = 'sm' | 'md' | 'lg'
 type iconVariant = 'arrow' | 'discord' | undefined | 'github'
-type styleVariant = 'contain' | 'outlined' | 'ghost'
+export type styleVariant = 'contain' | 'outlined' | 'ghost'
 
 export const Button = ({
     children,
@@ -21,8 +21,8 @@ export const Button = ({
     icon?: iconVariant
     variant?: styleVariant
 }) => {
-    const sizeSm = size === 'sm' && 'text-sm py-2  font-normal'
-    const sizeMd = size === 'md' && 'text-base py-3  font-normal'
+    const sizeSm = size === 'sm' && 'text-sm py-2 !px-2 font-normal gap-2'
+    const sizeMd = size === 'md' && 'text-base py-3  font-normal gap-8'
     const sizeLg = size === 'lg' && 'text-base py-4 font-normal'
     const variantContain = variant === 'contain' && 'bg-accent-500 !text-white'
     const variantOutlined =
@@ -48,14 +48,12 @@ export const Button = ({
     const buttonContent = (
         <>
             {children}
-            <div className="icon absolute inset-y-auto right-4">
-                {iconLoader(icon)}
-            </div>
+            <div className="icon ">{iconLoader(icon)}</div>
         </>
     )
 
     const buttonClasses = clsx(
-        'button relative w-fit hover:decoration-none transition-transform ease-in hover:scale-95 hover:icon:-translate-x-1 min-h-[34px] pl-4 pr-16 rounded-sm flex flex-row items-center justify-between',
+        'button relative w-fit hover:decoration-none transition-transform ease-in hover:scale-95 hover:icon:-translate-x-1 min-h-[34px] px-4 rounded-sm flex flex-row items-center justify-between',
         variantContain,
         variantOutlined,
         variantGhost,
