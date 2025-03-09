@@ -38,7 +38,7 @@ export const Section = ({
                     animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : 0 }}
                     transition={{
                         duration: 0.2,
-                        delay: delay ? delay : isInView ? 0.5 : 0,
+                        delay: delay ? delay : isInView ? 0.2 : 0,
                         ease: 'easeIn',
                     }}
                 >

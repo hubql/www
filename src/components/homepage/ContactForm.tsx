@@ -40,9 +40,10 @@ export const ContactForm = () => {
             if (!response.ok) throw new Error(data.message || data.error)
 
             setSuccess(true)
-
         } catch (err) {
-            setError(err instanceof Error ? err.message : 'Failed to send message')
+            setError(
+                err instanceof Error ? err.message : 'Failed to send message'
+            )
         } finally {
             setLoading(false)
         }
@@ -51,17 +52,15 @@ export const ContactForm = () => {
     if (success) {
         return (
             <div className="w-full flex-1 p-8 text-center">
-                <p className="text-accent-500 text-lg">Thank you, your message has been sent successfully!</p>
+                <p className="text-accent-500 text-lg">
+                    Thank you, your message has been sent successfully!
+                </p>
             </div>
         )
     }
 
     return (
         <div className="w-full flex-1 pt-8">
-            <p className="text-center text-[16px] pb-8 border-b border-neutral-800">
-                Reach out to us below and we will get back to you as soon as possible.
-            </p>
-
             <form onSubmit={handleSubmit}>
                 <div className="w-full flex flex-col gap-4 justify-start items-start max-w-screen-sm mx-auto pb-12 pt-4">
                     <div className="w-full grid grid-cols-1 gap-4 ">
@@ -100,13 +99,13 @@ export const ContactForm = () => {
                         placeholder="Your message"
                     />
                     <Turnstile
-                        siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''}
+                        siteKey={
+                            process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ''
+                        }
                         onSuccess={(token) => setToken(token)}
                     />
 
-
                     <div className="w-full flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
-
                         <button
                             type="submit"
                             disabled={loading}
@@ -119,20 +118,28 @@ export const ContactForm = () => {
                         </button>
                     </div>
 
-                    {error && (
-                        <p className="text-red-500 text-sm">{error}</p>
-                    )}
+                    {error && <p className="text-red-500 text-sm">{error}</p>}
 
-
-                    <div className="mb-8 text-left text-[16px] pb-8 pt-12">
-                        <p className="mb-0">or email us at <a href="mailto:hello@hubql.com" className="underline">hello@hubql.com</a>, you can also&nbsp;
-                            <a href="https://cal.com/hubql-tobias/hubql-contact" className="underline">schedule a meeting here</a>
+                    <div className="mb-8 text-left text-[16px] pb-8 pt-2">
+                        <p className="mb-0 text-neutral-400">
+                            or email us at{' '}
+                            <a
+                                href="mailto:hello@hubql.com"
+                                className="underline text-white"
+                            >
+                                hello@hubql.com
+                            </a>
+                            , you can also&nbsp;
+                            <a
+                                href="https://cal.com/hubql-tobias/hubql-contact"
+                                className="underline text-white"
+                            >
+                                schedule a meeting here
+                            </a>
                         </p>
                     </div>
                 </div>
-
             </form>
-
         </div>
     )
 }
