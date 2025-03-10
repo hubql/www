@@ -24,7 +24,7 @@ export const TrustedBy = () => {
         <Section
             title="Trusted by companies around the world"
             contentClassName="grid max-lg:grid-cols-3 lg:grid-cols-3 divide-x divide-neutral-800 border-y border-neutral-800"
-            delay={1}
+            delay={0.2}
         >
             {companies.map((item, index) => (
                 <div
@@ -37,7 +37,7 @@ export const TrustedBy = () => {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
                             duration: 0.5,
-                            delay: 1.5 + index * 0.09,
+                            delay: 0.3 + index * 0.09,
                             type: 'spring',
                             stiffness: 100,
                             damping: 10,

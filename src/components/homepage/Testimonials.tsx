@@ -1,22 +1,7 @@
-import { useEffect } from 'react'
 import { Section } from '../kit/Section'
-import { motion, useAnimation, useMotionValue } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 export const Testimonials = () => {
-    const controls = useAnimation()
-    const x = useMotionValue(0)
-
-    useEffect(() => {
-        controls.start({
-            x: [0, -800],
-            transition: {
-                duration: 30,
-                ease: 'linear',
-                repeat: Infinity,
-            },
-        })
-    }, [controls])
-
     return (
         <Section
             title="Our results"
@@ -24,46 +9,28 @@ export const Testimonials = () => {
             contentClassName="!flex !flex-row overflow-hidden justify-center items-center !divide-none pb-8"
         >
             <div className="absolute z-10 top-0 left-0 w-[300px] h-full bg-gradient-to-r from-black to-transparent" />
-            <motion.div
-                className="flex flex-row gap-4 items-center"
-                style={{ x }}
-                animate={controls}
-                initial={{ x: 0 }}
-                onMouseEnter={() => {
-                    controls.stop()
-                }}
-                onMouseLeave={() => {
-                    const currentX = x.get()
-                    controls.start({
-                        x: [currentX, -800],
-                        transition: {
-                            duration: 30 * (1 + currentX / 1000),
-                            ease: 'linear',
-                            repeat: Infinity,
-                        },
-                    })
-                }}
-            >
+            <div className="flex flex-row gap-4 items-center">
                 <div className="flex gap-4 min-w-max flex-row items-center">
                     {testimonials.map((testimonial, index) => (
-                        <Testimonial
-                            key={'testimonial-' + testimonial.name + index}
-                            {...testimonial}
-                        />
-                    ))}
-                    {testimonials.map((testimonial, index) => (
-                        <Testimonial
-                            key={
-                                'testimonial-' +
-                                testimonial.name +
-                                index +
-                                '-clone'
-                            }
-                            {...testimonial}
-                        />
+                        <motion.div
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.3 + index * 0.1,
+                                type: 'spring',
+                                stiffness: 100,
+                                damping: 10,
+                            }}
+                        >
+                            <Testimonial
+                                key={'testimonial-' + testimonial.name + index}
+                                {...testimonial}
+                            />
+                        </motion.div>
                     ))}
                 </div>
-            </motion.div>
+            </div>
             <div className="absolute z-10 top-0 right-0 w-[300px] h-full bg-gradient-to-l from-black to-transparent" />
         </Section>
     )
@@ -79,10 +46,12 @@ const Testimonial = ({
     text: string
 }) => {
     return (
-        <div className="flex flex-col gap-4 bg-neutral-950 p-4 pb-0 border border-neutral-800 w-full max-w-sm text-neutral-400 items-center justify-center">
-            <p className="hyphens-auto break-all text-sm">{text}</p>
+        <div className="flex flex-col gap-4 bg-neutral-950 p-4 pb-0 border border-neutral-800  w-[334px] text-neutral-400 items-center justify-center">
+            <p className="hyphens-auto text-sm">{text}</p>
             <div className="flex flex-row items-center gap-2 text-white text-sm">
-                <p>{name}</p> - <p>{company}</p>
+                <p>
+                    {name} @ {company}
+                </p>
             </div>
         </div>
     )
