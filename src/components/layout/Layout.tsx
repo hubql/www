@@ -88,16 +88,20 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
             <div
                 className={`bg-black ${noto.variable} ${orbitron.variable} font-noto`}
             >
-                <Header />
-                <div className="w-full">
-                    <div className="relative w-full overflow-x-hidden  bg-grid-neutral-800 ">
-                        <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-gradient-to-r from-black/90 from-[0.2%] via-transparent via-50% to-black/90 to-[99.2%] z-0"></div>
-                        <div className="relative z-10 w-full max-w-screen-xl mx-auto border-x border-neutral-800 bg-black divide-y divide-neutral-800">
-                            {children}{' '}
+                <div className="relative w-full overflow-x-hidden  bg-grid-neutral-800 flex h-full">
+                    <div
+                        className="relative pointer-events-none flex  z-0  flex-1
+                        bg-gradient-to-r from-black/10 to-black"
+                    />
+                    <div className="w-full  max-w-screen-xl mx-auto flex flex-col h-full">
+                        <Header />
+                        <div className="relative z-10 w-full  border-x border-neutral-800 bg-black divide-y divide-neutral-800">
+                            {children}
                         </div>
+                        <Footer />
                     </div>
+                    <div className="relative pointer-events-none z-0 flex-1   bg-gradient-to-l from-black/10  to-black" />
                 </div>
-                <Footer />
             </div>
         </>
     )

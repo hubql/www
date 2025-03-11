@@ -43,15 +43,15 @@ export const OpenSource = () => {
                 <div className="w-full flex flex-col lg:grid lg:grid-cols-2 grid-rows-5 lg:aspect-video ">
                     <div className="group max-md:aspect-square max-lg:aspect-video cursor-container relative overflow-clip w-full row-span-3 md:row-span-4 col-span-2 flex flex-col items-center justify-center border-b border-neutral-800">
                         <div className="relative z-10 flex flex-col items-center justify-center h-fit w-fit">
-                            <h3 className="max-w-lg text-center text-xl md:text-3xl font-bold leading-normal px-4">
-                                <span className="text-accent-100 font-orbitron">
-                                    open source for impact.
-                                </span>
-                                <br />
-                                <br />
-                                Hubql is Apache 2.0 licensed with source
-                                available to view, contribute and self-host.
-                            </h3>
+                            <div className="max-w-lg text-center text-xl md:text-3xl px-4 font-bold leading-normal">
+                                <h3 className="text-accent-100 font-orbitron font-bold leading-normal tracking-widest pb-2 text-xl md:text-3xl">
+                                    Open source for impact
+                                </h3>
+                                <p className="mb-0">
+                                    Hubql is Apache 2.0 licensed with source
+                                    available to view, contribute and self-host.
+                                </p>
+                            </div>
                         </div>
                         <div
                             className="max-md:hidden absolute z-0 w-[420px] h-[420px] rounded-full opacity-30  group-hover:scale-105 transition-all ease-in duration-300"

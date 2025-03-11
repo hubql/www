@@ -58,15 +58,15 @@ export const AboutCards = ({
                     <div>
                         <div
                             className={clsx(
-                                'flex flex-col w-full gap-3 border border-transparent rounded-lg p-4'
+                                'flex flex-col w-full gap-3 border border-transparent rounded-lg p-2'
                             )}
                             data-tina-field={tinaField(data, 'cards', index)}
                         >
                             <div>
-                                <p className="text-zinc-50 text-2xl">
+                                <p className="text-zinc-50 text-2xl font-orbitron font-bold tracking-widest mb-0">
                                     {card?.cards?.label}
                                 </p>
-                                <p className="text-zinc-400 text-4xl mb-0">
+                                <p className="text-zinc-400 text-2xl mb-0">
                                     {card?.cards?.number}
                                 </p>
                             </div>
@@ -82,7 +82,7 @@ export const AboutCards = ({
     return (
         <div className="w-full max-w-7xl px-8 mx-auto py-28">
             <div className="max-w-2xl mx-auto pb-16">
-                <h1 className="text-zinc-50 text-4xl text-center font-orbitron">
+                <h1 className="text-zinc-50 text-4xl text-center font-orbitron font-bold tracking-widest">
                     {data?.title}
                 </h1>
                 <p className="text-zinc-400 text-xl text-center">
