@@ -11,14 +11,13 @@ export const AboveFold = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.2, delay: 0.1, ease: 'easeIn' }}
             >
-                <h1 className="text-white text-3xl lg:text-5xl font-bold lg:font-medium text-left font-orbitron tracking-wide">
-                    Intelligent Software Solutions
-                    <br /> for Companies that Move Fast
+                <h1 className="text-white text-3xl lg:text-5xl font-bold lg:font-medium text-left font-orbitron tracking-wide max-w-4xl">
+                    Intelligent Software Solutions for Fast-Moving Companies
                 </h1>
                 <p className="max-w-xl text-neutral-400 text-base lg:text-xl">
-                    Hubql Labs is a software services company delivering
-                    excellent web applications, APIs, and open-source tools. We
-                    help fast-moving teams build software with precision.
+                    Hubql is a software services company delivering excellent
+                    web applications, APIs, and open-source tools. We help
+                    fast-moving teams build software with precision.
                 </p>
                 <div className="flex flex-wrap items-start w-fit gap-y-2 gap-x-2 justify-center p-[2px] rounded-sm mt-4">
                     <Button href="/contact" icon={'arrow'}>
