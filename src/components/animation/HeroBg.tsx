@@ -17,7 +17,7 @@ export const HeroBg = () => {
                         height={500}
                         loop
                         autoplay
-                        className="max-lg:mt-[120px] h-[500px] absolute top-[10%] right-0 scale-150"
+                        className="max-lg:mt-[120px] h-[500px] absolute top-[10%] right-0 scale-150 opacity-40"
                     />
                 </motion.div>
                 <div className="absolute  top-[10%] right-20 max-lg:mt-[120px] h-[500px]">
@@ -30,6 +30,10 @@ export const HeroBg = () => {
                         loading="eager"
                     />
                 </div>
+                <svg className="absolute -bottom-[5rem] -right-[1rem] w-[500px] h-[500px] blur-3xl z-0 opacity-[.10]">
+                    <circle cx="50%" cy="50%" r="50%" fill="#13C6FF" />
+                </svg>
+                <div className="h-[500px] w-[5px] bg-[#00FF85] absolute bottom-[2.3rem] right-[11.2rem] z-10 blur-md" />
             </div>
         </div>
     )

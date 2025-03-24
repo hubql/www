@@ -1,8 +1,9 @@
 import clsx from 'clsx'
-import { Github } from 'lucide-react'
+import { ChevronRightIcon, Github } from 'lucide-react'
 import Link from 'next/link'
+import { cn } from '../util/cn'
 
-type sizeVariant = 'sm' | 'md' | 'lg'
+type sizeVariant = 'sm' | 'md' | 'lg' | 'icon'
 type iconVariant = 'arrow' | 'discord' | undefined | 'github'
 export type styleVariant = 'contain' | 'outlined' | 'ghost'
 
@@ -21,19 +22,23 @@ export const Button = ({
     icon?: iconVariant
     variant?: styleVariant
 }) => {
-    const sizeSm = size === 'sm' && 'text-sm py-2 !px-2 font-normal gap-2'
+    const sizeSm = size === 'sm' && 'text-sm py-2 !px-3 font-normal gap-2'
     const sizeMd = size === 'md' && 'text-base py-3  font-normal gap-8'
     const sizeLg = size === 'lg' && 'text-base py-4 font-normal'
-    const variantContain = variant === 'contain' && 'bg-accent-500 !text-white'
+    const sizeIcon =
+        size === 'icon' && 'text-base py-3 !px-0 aspect-square font-normal'
+    const variantContain =
+        variant === 'contain' && 'bg-accent-500 !text-white hover:bg-accent-300'
     const variantOutlined =
         variant === 'outlined' &&
         'bg-transparent !text-white hover:underline border border-border'
-    const variantGhost = variant === 'ghost' && 'bg-transparent !text-white'
+    const variantGhost =
+        variant === 'ghost' && 'bg-transparent !text-white hover:bg-neutral-800'
 
     const iconLoader = (icon: iconVariant) => {
         switch (icon) {
             case 'arrow':
-                return <ArrowIcon />
+                return <ChevronRightIcon className={'w-5 h-5'} />
             case 'discord':
                 return <DiscordIcon />
             case 'github':
@@ -48,12 +53,22 @@ export const Button = ({
     const buttonContent = (
         <>
             {children}
-            <div className="icon ">{iconLoader(icon)}</div>
+            {icon && (
+                <div
+                    className={cn(
+                        'icon ',
+                        !sizeIcon &&
+                            'group-hover:translate-x-1 transition-transform ease-in'
+                    )}
+                >
+                    {iconLoader(icon)}
+                </div>
+            )}
         </>
     )
 
     const buttonClasses = clsx(
-        'button relative w-fit hover:decoration-none transition-transform ease-in hover:scale-95 hover:icon:-translate-x-1 min-h-[34px] px-4 rounded-sm flex flex-row items-center justify-between',
+        'button group relative w-fit hover:decoration-none transition-all ease-in  focus:scale-95 min-h-[34px] px-4 rounded-sm flex flex-row items-center justify-between font-orbitron font-semibold tracking-widest',
         variantContain,
         variantOutlined,
         variantGhost,

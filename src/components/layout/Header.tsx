@@ -6,8 +6,6 @@ import { HubqlLogo } from '../kit/HubqlLogo'
 import { cn } from '../util/cn'
 import { NavigationMenu } from './NavigationMenu'
 
-
-
 export const Header = () => {
     const pathname = usePathname()
     if (!pathname) return null
@@ -21,27 +19,26 @@ export const Header = () => {
                     isDocs && 'max-w-full'
                 )}
             >
-                <nav className="w-full mx-auto flex items-center justify-between h-14">
+                <nav className="w-full mx-auto flex items-center justify-between h-14 relative">
                     <div className="w-fit h-full flex items-center justify-start">
                         <div className="pl-2 mr-4 ">
                             <Link href="/" title="Go to the main page" passHref>
                                 <HubqlLogo className={'w-[110px]'} />
                             </Link>
                         </div>
-                        <NavigationMenu data={headerNav.nav} />
                     </div>
+                    <NavigationMenu data={headerNav.nav} />
                     <div className="h-full flex items-center lg:gap-2 gap-1">
                         <Button
                             href="https://github.com/hubql/hubql"
                             variant="ghost"
-                            size="sm"
+                            size="icon"
                             icon="github"
                             className="hidden lg:flex"
                         ></Button>
                         <Button
                             href="/contact"
                             size="sm"
-                            icon="arrow"
                             className="hidden lg:flex"
                         >
                             {headerNav?.ctaLabel}
@@ -238,13 +235,6 @@ export const headerNav = {
             href: 'blog',
             nav: null,
         },
-        {
-            __typename: 'GlobalHeaderNav',
-            isExternal: null,
-            label: 'Contact',
-            href: 'contact',
-            nav: null,
-        },
     ],
-    ctaLabel: 'Get in touch',
+    ctaLabel: 'Build with us',
 }
