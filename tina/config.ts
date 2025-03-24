@@ -171,6 +171,115 @@ export default defineConfig({
                 },
             },
             {
+                name: 'events',
+                label: 'Events',
+                path: 'src/content/events',
+                format: 'mdx',
+                fields: [
+                    {
+                        type: 'string',
+                        name: 'title',
+                        label: 'Title',
+                        isTitle: true,
+                        required: true,
+                    },
+                    {
+                        type: 'string',
+                        name: 'seoTitle',
+                        label: 'Seo - Title',
+                        required: true,
+                    },
+                    {
+                        type: 'string',
+                        name: 'seoDescription',
+                        label: 'SEO - Description',
+                        required: true,
+                        ui: {
+                            component: 'textarea',
+                        },
+                    },
+                    {
+                        type: 'datetime',
+                        name: 'pubDate',
+                        label: 'Published At',
+                        ui: {
+                            timeFormat: 'HH:mm',
+                        },
+                    },
+                    {
+                        type: 'datetime',
+                        name: 'eventDate',
+                        label: 'Event Date',
+                    },
+                    {
+                        type: 'string',
+                        name: 'eventStartTime',
+                        label: 'Event Start Time',
+                    },
+                    {
+                        type: 'string',
+                        name: 'eventEndTime',
+                        label: 'Event End Time',
+                    },
+                    {
+                        type: 'image',
+                        label: 'Hero image',
+                        name: 'heroImage',
+                    },
+                    {
+                        type: 'string',
+                        name: 'location',
+                        label: 'Location',
+                    },
+                    {
+                        type: 'string',
+                        name: 'city',
+                        label: 'City',
+                    },
+                    {
+                        type: 'string',
+                        name: 'country',
+                        label: 'Country',
+                    },
+                    {
+                        type: 'string',
+                        name: 'map',
+                        label: 'Map',
+                    },
+                    {
+                        type: 'string',
+                        name: 'description',
+                        label: 'Description',
+                    },
+                    {
+                        type: 'string',
+                        name: 'url',
+                        label: 'URL',
+                    },
+                    {
+                        type: 'string',
+                        name: 'image',
+                        label: 'Image',
+                    },
+                    {
+                        label: 'Event Category',
+                        name: 'eventCategory',
+                        type: 'reference',
+                        collections: ['category'],
+                    },
+                    {
+                        type: 'rich-text',
+                        name: 'body',
+                        label: 'Body',
+                        isBody: true,
+                    },
+                ],
+                ui: {
+                    router: ({ document }) =>
+                        `/events/${document._sys.filename}`,
+                },
+            },
+            {
                 name: 'docs',
                 label: 'Docs',
                 path: 'src/content/docs',
