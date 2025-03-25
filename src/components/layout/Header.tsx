@@ -235,6 +235,13 @@ export const headerNav = {
             href: 'blog',
             nav: null,
         },
+        {
+            __typename: 'GlobalHeaderNav',
+            isExternal: null,
+            label: 'Events',
+            href: 'events',
+            nav: null,
+        },
     ],
     ctaLabel: 'Build with us',
 }
