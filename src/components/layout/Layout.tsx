@@ -93,9 +93,9 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                         className="relative pointer-events-none flex  z-0  flex-1
                         bg-gradient-to-r from-black/10 to-black"
                     />
-                    <div className="w-full  max-w-screen-xl mx-auto flex flex-col h-full">
+                    <div className="w-full  max-w-screen-xl mx-auto flex flex-col h-full min-h-screen">
                         <Header />
-                        <div className="relative z-10 w-full  border-x border-neutral-800 bg-black divide-y divide-neutral-800">
+                        <div className="relative z-10 w-full  border-x border-neutral-800 bg-black divide-y divide-neutral-800 flex-1">
                             {children}
                         </div>
                         <Footer />

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import { Tweet } from 'react-tweet'
 import { TinaMarkdown, TinaMarkdownContent } from 'tinacms/dist/rich-text'
+import { AddToCalendar } from '../calendar/AddToCalendar'
 
 const components = {
     JumpTarget: (props: { target: string }) => {
@@ -116,7 +117,8 @@ export const EventTemplate = (props: {
         body: TinaMarkdownContent | TinaMarkdownContent[]
         title: string
         pubDate: string
-        category: { name: string }
+        eventDate: string
+        eventCategory: { name: string; color: string }
         heroImage: string
         eventStartTime: string
         eventEndTime: string
@@ -129,54 +131,76 @@ export const EventTemplate = (props: {
         map: string
     }
 }) => {
-    const isoString = props.content?.pubDate?.substring(0, 10)
-    console.log(props.content?.map)
     return (
-        <div className=" mx-auto max-w-3xl px-4 lg:px-8 pb-16">
-            <div className="title-section pt-32 pb-10">
-                <h1 className="text-left text-2xl lg:text-4xl font-bold   text-black dark:text-white font-orbitron">
-                    {props.content.title}
-                </h1>
-                <p className=" text-[14px]   text-zinc-400">
-                    Published: {isoString}
-                </p>
-                <p className=" text-[14px]   text-zinc-400">
-                    {props.content?.eventStartTime}
-                </p>
-                <p className=" text-[14px]   text-zinc-400">
-                    {props.content?.eventEndTime}
-                </p>
-                <p className=" text-[14px]   text-zinc-400">
-                    {props.content?.location}
-                </p>
-                <p className=" text-[14px]   text-zinc-400">
-                    {`${props.content?.city}, ${props.content?.country}`}
-                </p>
-                <p className="select-none px-4 py-1 rounded-full bg-zinc-700 w-fit text-[12px]   text-zinc-300">
-                    {props.content?.category?.name}
-                </p>
-                <div>
-                    <div
-                        dangerouslySetInnerHTML={{ __html: props.content?.map }}
-                    />
-                </div>
-                {props.content?.heroImage && (
-                    <div className="relative w-full aspect-square border border-neutral-800 mt-12">
-                        <Image
-                            src={props.content?.heroImage}
-                            alt="logo"
-                            fill={true}
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            style={{ objectFit: 'cover' }}
+        <div className="">
+            <div className="title-section grid grid-cols-3 gap-4 border-b border-neutral-800 divide-x divide-neutral-800">
+                <div className="col-span-2 flex flex-col px-4 py-16">
+                    {props.content?.eventCategory?.name && (
+                        <p
+                            className="select-none px-4 py-1 rounded-full w-fit text-sm bg-neutral-800 font-semibold"
+                            style={{
+                                color: props.content?.eventCategory?.color,
+                            }}
+                        >
+                            {props.content?.eventCategory?.name}
+                        </p>
+                    )}
+                    <h1 className="text-left text-2xl lg:text-4xl font-bold   text-black dark:text-white font-orbitron">
+                        {props.content.title}
+                    </h1>
+
+                    <div className="flex items-center gap-4 mb-4">
+                        <AddToCalendar
+                            event={{
+                                title: props.content.title,
+                                eventDate: props.content.eventDate,
+                                startTime: props.content.eventStartTime,
+                                endTime: props.content.eventEndTime,
+                                location: `${props.content.location}, ${props.content.city}, ${props.content.country}`,
+                                description: props.content.description,
+                            }}
                         />
                     </div>
-                )}
+                    <a href={`#venue-location`}>
+                        <div className="hover:bg-neutral-800 rounded-md hover:px-4 py-2 w-fit text-[14px] font-semibold text-neutral-400 transition-all duration-300">
+                            <span className="text-white">
+                                {props.content?.location}
+                            </span>{' '}
+                            <br />
+                            {`${props.content?.city}, ${props.content?.country}`}
+                        </div>
+                    </a>
+                </div>
+                <div>
+                    <div className="w-full flex flex-col gap-4">
+                        {props.content?.heroImage && (
+                            <div className="relative w-full aspect-square">
+                                <Image
+                                    src={props.content?.heroImage}
+                                    alt="logo"
+                                    fill={true}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    style={{ objectFit: 'cover' }}
+                                />
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
-            <div className="w-full max-w-4xl prose prose-headings:text-black dark:prose-headings:text-zinc-50 dark:prose-p:text-zinc-300 prose-p:text-zinc-800 prose-a:text-accent-500 prose-p:text-md prose-p:font-normal    prose-li:text-md prose-li:text-zinc-800 dark:prose-li:text-zinc-300">
+            <div className="w-full max-w-3xl mx-auto prose prose-headings:text-black dark:prose-headings:text-zinc-50 dark:prose-p:text-zinc-300 prose-p:text-zinc-800 prose-a:text-accent-500 prose-p:text-md prose-p:font-normal    prose-li:text-md prose-li:text-zinc-800 dark:prose-li:text-zinc-300 prose-p:text-zinc-800 prose-p:text-md prose-p:font-normal    prose-li:text-md prose-li:text-zinc-800 dark:prose-li:text-zinc-300 pt-16">
                 <TinaMarkdown
                     content={props.content.body}
                     components={components}
                 />
+                <div
+                    id="venue-location"
+                    className="w-full h-[280px] relative rounded-md overflow-hidden mt-8 mb-16"
+                >
+                    <div
+                        className="absolute inset-0 [&>iframe]:w-full [&>iframe]:h-full"
+                        dangerouslySetInnerHTML={{ __html: props.content?.map }}
+                    />
+                </div>
             </div>
         </div>
     )

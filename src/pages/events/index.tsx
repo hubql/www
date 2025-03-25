@@ -48,7 +48,7 @@ export default function Blog({
                                             heroImage: string | undefined
                                             title: string
                                             pubDate: any
-                                            category: any
+                                            eventCategory: any
                                             seoDescription: string
                                             eventDate: any
                                         }
@@ -71,12 +71,23 @@ export default function Blog({
                                                     {post.data.seoDescription}
                                                 </p>
                                             </div>
-                                            <div className="col-span-12 lg:col-span-2 flex lg:justify-end h-full items-center">
-                                                <div className="select-none bg-zinc-800 rounded-full px-3 py-1 text-base text-zinc-50 flex items-center justify-center w-fit h-fit">
-                                                    {post?.data?.category
-                                                        ?.name ?? ''}
+                                            {post?.data?.eventCategory
+                                                ?.name && (
+                                                <div className="col-span-12 lg:col-span-2 flex lg:justify-end h-full items-center">
+                                                    <div
+                                                        className="select-none bg-neutral-800 rounded-full px-3 py-1 text-base text-zinc-50 flex items-center justify-center w-fit h-fit"
+                                                        style={{
+                                                            color: post?.data
+                                                                ?.eventCategory
+                                                                ?.color,
+                                                        }}
+                                                    >
+                                                        {post?.data
+                                                            ?.eventCategory
+                                                            ?.name ?? ''}
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            )}
                                             <div className="col-span-12 lg:col-span-2 flex lg:justify-end h-full items-center">
                                                 <p className="date text-zinc-400 text-right leading-relaxed text-base">
                                                     <FormattedDate

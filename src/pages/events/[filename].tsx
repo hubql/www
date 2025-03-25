@@ -10,24 +10,15 @@ import { useTina } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import client from '../../../tina/__generated__/client'
 
-const EventsPage = (props: {
-    query: any
-    variables: any
-    data: any
-    footer: any
-    header: any
-}) => {
+const EventsPage = (props: { query: any; variables: any; data: any }) => {
     const { data } = useTina({
         query: props.query,
         variables: props.variables,
         data: props.data,
     })
-    const header = props.header
-    const footer = props.footer
 
     return (
         <Layout data={data.events}>
-            <div className="progress"></div>
             <EventTemplate content={data.events} />
             <div className="fixed bottom-[80px] right-[16px]">
                 <Link passHref href={'/events'}>
@@ -59,19 +50,11 @@ export const getStaticProps = async ({ params }: { params: any }) => {
         variables = res.variables
     } catch {}
 
-    const resSetting = await client.queries.global({
-        relativePath: 'settings.json',
-    })
-    const header = resSetting.data.global.header
-    const footer = resSetting.data.global.footer
-
     return {
         props: {
             variables: variables,
             data: data,
             query: query,
-            header,
-            footer,
         },
     }
 }

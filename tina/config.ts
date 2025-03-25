@@ -248,11 +248,6 @@ export default defineConfig({
                     },
                     {
                         type: 'string',
-                        name: 'description',
-                        label: 'Description',
-                    },
-                    {
-                        type: 'string',
                         name: 'url',
                         label: 'URL',
                     },
@@ -265,7 +260,7 @@ export default defineConfig({
                         label: 'Event Category',
                         name: 'eventCategory',
                         type: 'reference',
-                        collections: ['category'],
+                        collections: ['eventType'],
                     },
                     {
                         type: 'rich-text',
@@ -788,6 +783,28 @@ export default defineConfig({
                     {
                         label: 'Name',
                         name: 'name',
+                        type: 'string',
+                    },
+                    {
+                        label: 'Order',
+                        name: 'order',
+                        type: 'number',
+                    },
+                ],
+            },
+            {
+                label: 'Event Type',
+                name: 'eventType',
+                path: 'src/content/eventType',
+                fields: [
+                    {
+                        label: 'Name',
+                        name: 'name',
+                        type: 'string',
+                    },
+                    {
+                        label: 'Color',
+                        name: 'color',
                         type: 'string',
                     },
                     {
