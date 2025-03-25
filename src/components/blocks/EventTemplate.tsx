@@ -25,8 +25,8 @@ export const EventTemplate = (props: {
 }) => {
     return (
         <div className="">
-            <div className="title-section grid grid-cols-3 gap-4 border-b border-neutral-800 divide-x divide-neutral-800">
-                <div className="col-span-2 flex flex-col px-4 py-16">
+            <div className="title-section grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 border-b border-neutral-800 divide-x divide-neutral-800">
+                <div className="xl:col-span-2 flex flex-col pl-4 lg:pl-16 pr-4 py-16">
                     {props.content?.eventCategory?.name && (
                         <p
                             className="select-none px-4 py-1 rounded-full w-fit text-sm bg-neutral-800 font-semibold mb-2"
@@ -44,12 +44,10 @@ export const EventTemplate = (props: {
                     <div className="flex items-center gap-4 mb-4">
                         <AddToCalendar
                             event={{
-                                title: props.content.title,
                                 eventDate: props.content.eventDate,
                                 startTime: props.content.eventStartTime,
                                 endTime: props.content.eventEndTime,
-                                location: `${props.content.location}, ${props.content.city}, ${props.content.country}`,
-                                description: props.content.description,
+                                url: props.content.url,
                             }}
                         />
                     </div>
@@ -74,23 +72,21 @@ export const EventTemplate = (props: {
                         />
                     </div>
                 </div>
-                <div>
-                    <div className="w-full flex flex-col gap-4">
-                        {props.content?.heroImage && (
-                            <div className="relative w-full aspect-square">
-                                <Image
-                                    src={props.content?.heroImage}
-                                    alt="logo"
-                                    fill={true}
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    style={{ objectFit: 'cover' }}
-                                />
-                            </div>
-                        )}
+
+                {props.content?.heroImage && (
+                    <div className="relative w-full h-full aspect-square">
+                        <Image
+                            src={props.content?.heroImage}
+                            alt="logo"
+                            fill={true}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            style={{ objectFit: 'cover' }}
+                            className="max-lg:p-3"
+                        />
                     </div>
-                </div>
+                )}
             </div>
-            <div className="w-full max-w-3xl mx-auto prose prose-headings:text-black dark:prose-headings:text-zinc-50 dark:prose-p:text-zinc-300 prose-p:text-zinc-800 prose-a:text-accent-500 prose-p:text-md prose-p:font-normal    prose-li:text-md prose-li:text-zinc-800 dark:prose-li:text-zinc-300 prose-p:text-zinc-800 prose-p:text-md prose-p:font-normal    prose-li:text-md prose-li:text-zinc-800 dark:prose-li:text-zinc-300 pt-16">
+            <div className="w-full max-w-3xl px-4 mx-auto prose prose-headings:text-black dark:prose-headings:text-zinc-50 dark:prose-p:text-zinc-300 prose-p:text-zinc-800 prose-a:text-accent-500 prose-p:text-md prose-p:font-normal    prose-li:text-md prose-li:text-zinc-800 dark:prose-li:text-zinc-300 prose-p:text-zinc-800 prose-p:text-md prose-p:font-normal    prose-li:text-md prose-li:text-zinc-800 dark:prose-li:text-zinc-300 pt-16">
                 <TinaMarkdown content={props.content.body} />
                 <div
                     id="venue-location"

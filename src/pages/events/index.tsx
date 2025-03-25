@@ -61,10 +61,10 @@ export default function Blog({
                                     >
                                         <Link
                                             href={`/events/${post?.data?._sys?.filename}`}
-                                            className="w-full grid grid-cols-1 md:grid-cols-12 gap-2 px-4 pt-8 pb-4"
+                                            className="w-full grid grid-cols-1 md:grid-cols-12 gap-2 px-4 py-8"
                                         >
                                             <div className="col-span-12 lg:col-span-8">
-                                                <h2 className="text-zinc-50 text-left lg:text-left leading-tight text-lg font-semibold font-orbitron">
+                                                <h2 className="text-zinc-50 text-left lg:text-left leading-tight text-lg font-semibold font-orbitron tracking-widest">
                                                     {post.data.title}
                                                 </h2>
                                                 <p className="date text-zinc-400 text-right lg:text-left leading-relaxed text-base max-lg:hidden">
