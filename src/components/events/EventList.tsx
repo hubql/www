@@ -15,7 +15,7 @@ export const EventList = ({ events, sectionTitle }: EventListProps) => {
             <ul className="w-full grid grid-cols-1 divide-y divide-neutral-800 border-y border-neutral-800">
                 {events.map((post, index) => (
                     <li
-                        className="blog-card w-full hover:bg-zinc-900 transition-all ease-in cursor-pointer"
+                        className="blog-card w-full hover:bg-neutral-900 transition-all ease-in cursor-pointer"
                         key={`${sectionTitle
                             .toLowerCase()
                             .replace(' ', '-')}-event-${index}`}
@@ -25,10 +25,10 @@ export const EventList = ({ events, sectionTitle }: EventListProps) => {
                             className="w-full grid grid-cols-1 md:grid-cols-12 gap-2 px-4 py-8"
                         >
                             <div className="col-span-12 lg:col-span-7">
-                                <h2 className="text-zinc-50 text-left lg:text-left leading-tight text-lg font-semibold font-orbitron tracking-widest">
+                                <h2 className="text-neutral-50 text-left lg:text-left leading-tight text-lg font-semibold font-orbitron tracking-widest">
                                     {post.title}
                                 </h2>
-                                <p className="date text-zinc-400 text-right lg:text-left leading-relaxed text-base max-lg:hidden">
+                                <p className="date text-neutral-400 text-right lg:text-left leading-relaxed text-base max-lg:hidden">
                                     {post.seoDescription}
                                 </p>
                             </div>
@@ -45,7 +45,7 @@ export const EventList = ({ events, sectionTitle }: EventListProps) => {
                                 </div>
                             )}
                             <div className="col-span-12 lg:col-span-2 flex lg:justify-end h-full items-center">
-                                <p className="date text-zinc-400 text-right leading-relaxed text-base">
+                                <p className="date text-neutral-400 text-right leading-relaxed text-base">
                                     <FormattedDate date={post.eventDate} />
                                 </p>
                             </div>
