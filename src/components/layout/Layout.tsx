@@ -2,19 +2,20 @@ import Head from 'next/head'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import { useRouter } from 'next/router'
-import { Noto_Sans } from 'next/font/google'
-import { Orbitron } from 'next/font/google'
+import { Noto_Sans, Orbitron } from 'next/font/google'
 
 const noto = Noto_Sans({
     subsets: ['latin'],
     weight: ['400', '500', '600', '700'],
     variable: '--font-noto',
+    display: 'swap',
 })
 
 const orbitron = Orbitron({
     subsets: ['latin'],
     weight: ['400', '500', '600', '700'],
     variable: '--font-orbitron',
+    display: 'swap',
 })
 
 export const Layout = ({ children, data }: { children: any; data?: any }) => {
@@ -86,9 +87,9 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                 <meta property="twitter:locale" content="en_US" />
             </Head>
             <div
-                className={`bg-black ${noto.variable} ${orbitron.variable} font-noto`}
+                className={`bg-black min-h-screen ${noto.variable} ${orbitron.variable} font-noto`}
             >
-                <div className="relative w-full overflow-x-hidden  bg-grid-neutral-800 flex h-full">
+                <div className="relative w-full overflow-x-hidden bg-grid-neutral-800 flex h-full">
                     <div
                         className="relative pointer-events-none flex  z-0  flex-1
                         bg-gradient-to-r from-black/10 to-black"

@@ -1,10 +1,18 @@
+import { useRouter } from 'next/router'
+
 interface ShareButtonsProps {
     title: string
-    url: string
+    url?: string
 }
 
 export const ShareButtons = ({ title, url }: ShareButtonsProps) => {
-    const encodedUrl = encodeURIComponent(url)
+    const router = useRouter()
+
+    const fullUrl = process.env.NEXT_PUBLIC_SITE_URL
+        ? `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`
+        : url || ''
+
+    const encodedUrl = encodeURIComponent(fullUrl)
     const encodedTitle = encodeURIComponent(title)
 
     const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`
