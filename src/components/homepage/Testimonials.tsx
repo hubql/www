@@ -22,11 +22,9 @@ export const Testimonials = () => {
                                 stiffness: 100,
                                 damping: 10,
                             }}
+                            key={'testimonial-' + testimonial.name + index}
                         >
-                            <Testimonial
-                                key={'testimonial-' + testimonial.name + index}
-                                {...testimonial}
-                            />
+                            <Testimonial {...testimonial} />
                         </motion.div>
                     ))}
                 </div>
