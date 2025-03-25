@@ -1,5 +1,5 @@
-import { Calendar } from 'lucide-react'
-import React, { useState } from 'react'
+import { format } from 'date-fns'
+import { Popover, PopoverContent, PopoverTrigger } from '../kit/popover'
 
 interface CalendarEvent {
     title: string
@@ -11,8 +11,6 @@ interface CalendarEvent {
 }
 
 export const AddToCalendar = ({ event }: { event: CalendarEvent }) => {
-    const [isOpen, setIsOpen] = useState(false)
-
     const generateGoogleCalendarUrl = () => {
         const params = new URLSearchParams({
             action: 'TEMPLATE',
@@ -51,38 +49,39 @@ END:VCALENDAR`
         document.body.removeChild(link)
         window.URL.revokeObjectURL(url)
     }
-    const isoString = event.eventDate?.substring(0, 10)
+
+    const formatEventDate = (dateString: string) => {
+        const date = new Date(dateString)
+        return format(date, 'EEEE, MMMM do yyyy')
+    }
 
     return (
-        <div className="relative">
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 hover:px-4 py-2 text-sm bg-transparent text-neutral-400 rounded-md hover:bg-neutral-800 font-orbitron font-semibold transition-all duration-300"
-            >
-                <Calendar className="w-4 h-4" />
-                <p className="text-[14px] text-white mb-0">
-                    {`${isoString} ${event.startTime} to ${event.endTime} GMT`}
+        <Popover>
+            <PopoverTrigger className="flex flex-col items-start hover:px-4 py-2 text-sm bg-transparent text-neutral-400 rounded-md hover:bg-neutral-800 font-orbitron font-semibold transition-all duration-300 text-[14px] text-white text-left data-[state=open]:bg-neutral-800 data-[state=open]:px-4">
+                <p className="font-semibold mb-0 text-lg">
+                    {formatEventDate(event.eventDate)}{' '}
                 </p>
-            </button>
-
-            {isOpen && (
-                <div className="absolute top-full mt-2 w-48 bg-white dark:bg-zinc-800 rounded-md shadow-lg border border-zinc-200 dark:border-zinc-700">
-                    <a
-                        href={generateGoogleCalendarUrl()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block px-4 py-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-700"
-                    >
-                        Google Calendar
-                    </a>
-                    <button
-                        onClick={generateIcsFile}
-                        className="block w-full text-left px-4 py-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-700"
-                    >
-                        Other Calendars
-                    </button>
-                </div>
-            )}
-        </div>
+                <p className="text-neutral-400 mb-0">
+                    {' '}
+                    {`${event.startTime} to ${event.endTime} GMT`}
+                </p>
+            </PopoverTrigger>
+            <PopoverContent>
+                <a
+                    href={generateGoogleCalendarUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-2 text-sm hover:bg-neutral-800"
+                >
+                    Google Calendar
+                </a>
+                <button
+                    onClick={generateIcsFile}
+                    className="block w-full text-left px-4 py-2 text-sm hover:bg-neutral-800"
+                >
+                    Other Calendars
+                </button>
+            </PopoverContent>
+        </Popover>
     )
 }
