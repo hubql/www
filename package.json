@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "dev": "doppler run --project=tinacms --config=development --mount .env --  tinacms dev -c 'next dev'",
+        "dev": "npx tinacms dev -c 'next dev'",
         "build": "npx tinacms build",
         "lint": "next lint",
         "local": "tinacms dev -c 'next dev'",
