@@ -19,6 +19,7 @@ import { imageBlockSchema } from '../src/components/blocks/Image'
 import { paragraphBlockSchema } from '../src/components/blocks/Paragraph'
 import { templateApiReferenceBlockSchema } from '../src/components/blocks/TemplateApiReference'
 import { vsHeroBlockSchema } from '../src/components/blocks/VsHero'
+import { sectionTeamBlock } from '../src/components/blocks/SectionTeam'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -378,6 +379,7 @@ export default defineConfig({
                             vsHeroBlockSchema,
                             paragraphBlockSchema,
                             imageBlockSchema,
+                            sectionTeamBlock,
                         ],
                     },
                 ],
