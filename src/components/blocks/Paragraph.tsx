@@ -6,6 +6,7 @@ import { Template } from 'tinacms'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { cn } from '../util/cn'
 import { ColoredText } from './ColoredText'
+import { tinaField } from 'tinacms/dist/react'
 
 export const Paragraph = ({
     data,
@@ -22,6 +23,7 @@ export const Paragraph = ({
                 'w-full max-w-4xl mx-auto px-8 flex justify-center',
                 data.css
             )}
+            data-tina-field={tinaField(data, 'content')}
         >
             <TinaMarkdown content={data.content} components={components} />
         </div>

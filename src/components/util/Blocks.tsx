@@ -21,6 +21,8 @@ import { SectionCta } from '../blocks/SectionCta'
 import { SectionHeading } from '../blocks/SectionHeading'
 import { TemplateApiReference } from '../blocks/TemplateApiReference'
 import { VsHero } from '../blocks/VsHero'
+import { SectionTeam } from '../blocks/SectionTeam'
+import { SectionAccordion } from '../blocks/SectionAccordion'
 
 type BlocksProps =
     | Omit<Pages, 'id' | '_sys' | '_values'>
@@ -103,6 +105,10 @@ const Block = ({
             return <AboutCards data={block} blockIndex={blockIndex} />
         case `${collectionType}BlocksHubqlDemoFile`:
             return <HubqlDemoFile fileId={block?.fileId} />
+        case `${collectionType}BlocksSectionTeam`:
+            return <SectionTeam data={block} />
+        case `${collectionType}BlocksSectionAccordion`:
+            return <SectionAccordion data={block} />
         default:
             return null
     }
