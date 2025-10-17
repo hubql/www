@@ -20,6 +20,7 @@ import { paragraphBlockSchema } from '../src/components/blocks/Paragraph'
 import { templateApiReferenceBlockSchema } from '../src/components/blocks/TemplateApiReference'
 import { vsHeroBlockSchema } from '../src/components/blocks/VsHero'
 import { sectionTeamBlock } from '../src/components/blocks/SectionTeam'
+import { sectionAccordionBlock } from '../src/components/blocks/SectionAccordion'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -380,6 +381,7 @@ export default defineConfig({
                             paragraphBlockSchema,
                             imageBlockSchema,
                             sectionTeamBlock,
+                            sectionAccordionBlock,
                         ],
                     },
                 ],

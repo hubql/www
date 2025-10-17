@@ -61,7 +61,7 @@ export const SectionTeam = ({ data }: { data: PagesBlocksSectionTeam }) => {
                                                     {member?.name}
                                                 </h3>
                                                 <p
-                                                    className="text-sm text-muted-foreground text-left w-full"
+                                                    className="text-base text-muted-foreground text-left w-full"
                                                     data-tina-field={tinaField(
                                                         member,
                                                         'description'
@@ -71,7 +71,7 @@ export const SectionTeam = ({ data }: { data: PagesBlocksSectionTeam }) => {
                                                 </p>
                                             </div>
                                             <p
-                                                className="text-sm text-foreground text-left w-full font-bold"
+                                                className="text-lg text-foreground text-left w-full font-bold"
                                                 data-tina-field={tinaField(
                                                     member,
                                                     'role'

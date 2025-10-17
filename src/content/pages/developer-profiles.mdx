@@ -18,10 +18,8 @@ blocks:
       and smooth collaboration between design and development.
     css: flex-col py-20 mx-0
     _template: paragraph
-  - content: >
-      ## Our Work
-
-
+  - sectionAccordiontitle: Our Work
+    sectionAccordionDescription: >-
       We’ve worked on projects ranging from marketing dashboards and content
       platforms to internal tools and SaaS products.
 
@@ -30,8 +28,37 @@ blocks:
 
       Recent work includes design systems for creative teams, Supabase-powered
       web apps, and interactive dashboards for tech startups.
-    css: 'flex-col mx-0 py-8 '
-    _template: paragraph
+    sectionAccordionItems:
+      - value: futuristic-web-app-fintech
+        title: Futuristic Web App for FinTech
+        description: >-
+          The client approached us with the vision of creating a next-generation
+          web application for managing and subscribing to AI-powered trading
+          bots in the cryptocurrency market. 
+        imageList:
+          - image: /projects/fintech - register.jpg
+          - image: /projects/fintech - home dashboard.jpg
+          - image: /projects/fintech - home dashboard.jpg
+          - image: /projects/fintech - empty state illustration.jpg
+          - image: /projects/fintech - UI part 2.jpg
+          - image: /projects/fintech - UI.jpg
+      - value: apipt
+        title: APIPT - API interactions with natural language Homepage
+        description: >-
+          The client envisioned a next-generation developer tool that makes
+          interacting with any API as simple as asking a plain-text question.
+          The platform leverages AI to generate GraphQL, REST, and SQL queries,
+          while providing schema intelligence, vector embeddings, and caching.
+          Our role was to design and develop a modern, trustworthy web
+          experience that communicates technical sophistication while remaining
+          accessible to developers of all levels.
+        imageList:
+          - image: /projects/apipt - overview.jpg
+          - image: /projects/apipt - pricing.jpg
+          - image: /projects/apipt - feature list.jpg
+          - image: /projects/apipt - documentation link.jpg
+          - image: /projects/apipt - Above the fold.jpg
+    _template: SectionAccordion
   - heading:
       text: Developer Profiles
     teamContent:
