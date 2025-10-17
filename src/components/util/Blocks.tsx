@@ -5,6 +5,7 @@ import {
     PagesBlocks,
 } from '../../../tina/__generated__/types'
 import { AboutCards } from '../blocks/AboutCard'
+import { AboveFold } from '../blocks/AboveFold'
 import { FeaturedBlog } from '../blocks/BlogList'
 import { Cards } from '../blocks/Cards'
 import { Content } from '../blocks/Content'
@@ -103,6 +104,8 @@ const Block = ({
             return <AboutCards data={block} blockIndex={blockIndex} />
         case `${collectionType}BlocksHubqlDemoFile`:
             return <HubqlDemoFile fileId={block?.fileId} />
+        case `${collectionType}BlocksAboveFold`:
+            return <AboveFold data={block}/>
         default:
             return null
     }
