@@ -21,6 +21,7 @@ import { ScrollCard } from '../blocks/ScrollCard'
 import { SectionCta } from '../blocks/SectionCta'
 import { SectionHeading } from '../blocks/SectionHeading'
 import { TemplateApiReference } from '../blocks/TemplateApiReference'
+import { TrustedBy } from '../blocks/TrustedBy'
 import { VsHero } from '../blocks/VsHero'
 
 type BlocksProps =
@@ -106,6 +107,8 @@ const Block = ({
             return <HubqlDemoFile fileId={block?.fileId} />
         case `${collectionType}BlocksAboveFold`:
             return <AboveFold data={block}/>
+        case `${collectionType}BlocksTrustedBy`:
+            return <TrustedBy data={block}/>
         default:
             return null
     }
