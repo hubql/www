@@ -4,7 +4,6 @@ import { Button } from '../kit/Button'
 import { tinaField } from 'tinacms/dist/react'
 import type { Template } from 'tinacms'
 import type { PagesBlocksAboveFold } from '../../../tina/__generated__/types'
-import { fdatasync } from 'fs'
 
 export const AboveFold = ({
     data,

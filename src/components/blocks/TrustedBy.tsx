@@ -13,7 +13,7 @@ export const TrustedBy = ({
 }) => {
     return (
         <Section
-            title={data.title ?? ''}
+            title={data.title ?? 'Trusted by companies around the world'}
             data-tina-field={tinaField(data, 'title')}
             contentClassName="grid max-lg:grid-cols-3 lg:grid-cols-3 divide-x divide-neutral-800 border-y border-neutral-800"
             delay={0.2}

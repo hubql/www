@@ -21,6 +21,7 @@ import { templateApiReferenceBlockSchema } from '../src/components/blocks/Templa
 import { vsHeroBlockSchema } from '../src/components/blocks/VsHero'
 import { aboveFoldBlockSchema } from '@/src/components/blocks/AboveFold'
 import { trustedByBlockSchema } from '../src/components/blocks/TrustedBy'
+import { servicesBlockSchema } from '../src/components/blocks/Services'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -382,6 +383,7 @@ export default defineConfig({
                             imageBlockSchema,
                             aboveFoldBlockSchema,
                             trustedByBlockSchema,
+                            servicesBlockSchema,
                         ],
                     },
                 ],

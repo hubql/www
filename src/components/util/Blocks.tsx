@@ -22,6 +22,7 @@ import { SectionCta } from '../blocks/SectionCta'
 import { SectionHeading } from '../blocks/SectionHeading'
 import { TemplateApiReference } from '../blocks/TemplateApiReference'
 import { TrustedBy } from '../blocks/TrustedBy'
+import { Services } from '../blocks/Services'
 import { VsHero } from '../blocks/VsHero'
 
 type BlocksProps =
@@ -109,6 +110,9 @@ const Block = ({
             return <AboveFold data={block}/>
         case `${collectionType}BlocksTrustedBy`:
             return <TrustedBy data={block}/>
+        case `${collectionType}BlocksServices`:
+            return <Services data={block}/>
+
         default:
             return null
     }
