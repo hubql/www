@@ -24,6 +24,7 @@ import { TemplateApiReference } from '../blocks/TemplateApiReference'
 import { TrustedBy } from '../blocks/TrustedBy'
 import { Services } from '../blocks/Services'
 import { VsHero } from '../blocks/VsHero'
+import { ProductGrid } from '../blocks/ProductGrid'
 
 type BlocksProps =
     | Omit<Pages, 'id' | '_sys' | '_values'>
@@ -112,7 +113,8 @@ const Block = ({
             return <TrustedBy data={block}/>
         case `${collectionType}BlocksServices`:
             return <Services data={block}/>
-
+        case `${collectionType}BlocksProductGrid`:
+            return <ProductGrid data={block}/>
         default:
             return null
     }

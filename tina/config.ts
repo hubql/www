@@ -22,6 +22,7 @@ import { vsHeroBlockSchema } from '../src/components/blocks/VsHero'
 import { aboveFoldBlockSchema } from '@/src/components/blocks/AboveFold'
 import { trustedByBlockSchema } from '../src/components/blocks/TrustedBy'
 import { servicesBlockSchema } from '../src/components/blocks/Services'
+import { productGridBlockSchema } from '../src/components/blocks/ProductGrid'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -384,6 +385,7 @@ export default defineConfig({
                             aboveFoldBlockSchema,
                             trustedByBlockSchema,
                             servicesBlockSchema,
+                            productGridBlockSchema
                         ],
                     },
                 ],
