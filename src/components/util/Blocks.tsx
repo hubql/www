@@ -25,6 +25,7 @@ import { TrustedBy } from '../blocks/TrustedBy'
 import { Services } from '../blocks/Services'
 import { VsHero } from '../blocks/VsHero'
 import { ProductGrid } from '../blocks/ProductGrid'
+import { WhyHubql } from '../blocks/WhyHubql'
 
 type BlocksProps =
     | Omit<Pages, 'id' | '_sys' | '_values'>
@@ -115,6 +116,8 @@ const Block = ({
             return <Services data={block}/>
         case `${collectionType}BlocksProductGrid`:
             return <ProductGrid data={block}/>
+        case `${collectionType}BlocksWhyHubq`:
+            return <WhyHubql data={block}/>
         default:
             return null
     }

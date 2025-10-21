@@ -23,6 +23,7 @@ import { aboveFoldBlockSchema } from '@/src/components/blocks/AboveFold'
 import { trustedByBlockSchema } from '../src/components/blocks/TrustedBy'
 import { servicesBlockSchema } from '../src/components/blocks/Services'
 import { productGridBlockSchema } from '../src/components/blocks/ProductGrid'
+import { whyHubqlBlockSchema } from '../src/components/blocks/WhyHubql'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -385,7 +386,8 @@ export default defineConfig({
                             aboveFoldBlockSchema,
                             trustedByBlockSchema,
                             servicesBlockSchema,
-                            productGridBlockSchema
+                            productGridBlockSchema,
+                            whyHubqlBlockSchema,
                         ],
                     },
                 ],
