@@ -26,6 +26,8 @@ import { Services } from '../blocks/Services'
 import { VsHero } from '../blocks/VsHero'
 import { ProductGrid } from '../blocks/ProductGrid'
 import { WhyHubql } from '../blocks/WhyHubql'
+import { TechStack } from '../blocks/TechStack'
+
 
 type BlocksProps =
     | Omit<Pages, 'id' | '_sys' | '_values'>
@@ -118,6 +120,8 @@ const Block = ({
             return <ProductGrid data={block}/>
         case `${collectionType}BlocksWhyHubq`:
             return <WhyHubql data={block}/>
+        case `${collectionType}BlocksTechStack`:
+            return <TechStack data={block}/>
         default:
             return null
     }

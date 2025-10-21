@@ -24,6 +24,8 @@ import { trustedByBlockSchema } from '../src/components/blocks/TrustedBy'
 import { servicesBlockSchema } from '../src/components/blocks/Services'
 import { productGridBlockSchema } from '../src/components/blocks/ProductGrid'
 import { whyHubqlBlockSchema } from '../src/components/blocks/WhyHubql'
+import { techStackBlockSchema } from '../src/components/blocks/TechStack'
+
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -388,6 +390,7 @@ export default defineConfig({
                             servicesBlockSchema,
                             productGridBlockSchema,
                             whyHubqlBlockSchema,
+                            techStackBlockSchema,
                         ],
                     },
                 ],
