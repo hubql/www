@@ -25,6 +25,7 @@ import { servicesBlockSchema } from '../src/components/blocks/Services'
 import { productGridBlockSchema } from '../src/components/blocks/ProductGrid'
 import { whyHubqlBlockSchema } from '../src/components/blocks/WhyHubql'
 import { techStackBlockSchema } from '../src/components/blocks/TechStack'
+import { testimonialsBlockSchema } from '../src/components/blocks/Testimonials'
 
 
 // Your hosting provider likely exposes this as an environment variable
@@ -391,6 +392,7 @@ export default defineConfig({
                             productGridBlockSchema,
                             whyHubqlBlockSchema,
                             techStackBlockSchema,
+                            testimonialsBlockSchema,
                         ],
                     },
                 ],
