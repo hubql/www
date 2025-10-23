@@ -3,17 +3,10 @@ import Image from 'next/image'
 import * as React from 'react'
 import type { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
-import {
-    LandingsBlocksFeaturefocus,
-    PagesBlocksFeaturefocus,
-} from '../../../tina/__generated__/types'
+import { PagesBlocksFeaturefocus } from '../../../tina/__generated__/types'
 import { Chevron } from '../icons/Chevron'
 
-export const FeatureFocus = ({
-    data,
-}: {
-    data: PagesBlocksFeaturefocus | LandingsBlocksFeaturefocus
-}) => {
+export const FeatureFocus = ({ data }: { data: PagesBlocksFeaturefocus }) => {
     const items =
         data.actions &&
         data.actions.map((action, index) => {

@@ -20,14 +20,6 @@ export default async function handler(
             },
         },
     })
-    const landingPagesConnection = await client.queries.landingsConnection({
-        first: 100,
-        filter: {
-            title: {
-                startsWith: '',
-            },
-        },
-    })
     const postConnection = await client.queries.postConnection({
         first: 100,
         filter: {
@@ -50,10 +42,7 @@ export default async function handler(
     }
 
     const urls = getUrls(
-        [
-            ...(pagesConnection.data?.pagesConnection?.edges ?? []),
-            ...(landingPagesConnection.data?.landingsConnection?.edges ?? []),
-        ],
+        pagesConnection.data?.pagesConnection?.edges ?? [],
         postConnection.data?.postConnection?.edges ?? []
     )
     // generate sitemap here

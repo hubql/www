@@ -3,11 +3,9 @@
 
 import { PostTemplate } from '@/src/components/blocks/PostTemplate'
 import { Layout } from '@/src/components/layout/Layout'
-import Head from 'next/head'
 import Link from 'next/link'
 import { ChevronLeftIcon } from 'tinacms'
 import { useTina } from 'tinacms/dist/react'
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import client from '../../../tina/__generated__/client'
 
 const BlogPage = (props: {

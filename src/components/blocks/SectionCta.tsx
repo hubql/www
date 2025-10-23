@@ -1,18 +1,10 @@
 import * as React from 'react'
 import type { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
-import type {
-    LandingsBlocksSectionCta,
-    PagesBlocksSectionCta,
-} from '../../../tina/__generated__/types'
+import type { PagesBlocksSectionCta } from '../../../tina/__generated__/types'
 import { Actions } from '../util/Actions'
 
-export const SectionCta = ({
-    data,
-}: {
-    data: PagesBlocksSectionCta | LandingsBlocksSectionCta
-}) => {
+export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
     return (
         <div className="relative w-full flex justify-center  pt-32 pb-24 border-t border-zinc-100 dark:border-zinc-800 overflow-clip">
             <div className=" w-full max-w-5xl mx-auto  ">

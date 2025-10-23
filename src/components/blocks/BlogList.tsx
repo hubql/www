@@ -2,10 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
-import {
-    LandingsBlocksFeaturedblog,
-    PagesBlocksFeaturedblog,
-} from '../../../tina/__generated__/types'
+import { PagesBlocksFeaturedblog } from '../../../tina/__generated__/types'
 import { Chevron } from '../icons/Chevron'
 import { Rss } from 'lucide-react'
 
@@ -13,7 +10,7 @@ export const FeaturedBlog = ({
     data,
     posts,
 }: {
-    data: PagesBlocksFeaturedblog | LandingsBlocksFeaturedblog
+    data: PagesBlocksFeaturedblog
     posts: any
 }) => {
     return (

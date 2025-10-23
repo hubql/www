@@ -4,16 +4,9 @@ import Link from 'next/link'
 import * as React from 'react'
 import type { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
-import {
-    LandingsBlocksCards,
-    PagesBlocksCards,
-} from '../../../tina/__generated__/types'
+import { PagesBlocksCards } from '../../../tina/__generated__/types'
 
-export const Cards = ({
-    data,
-}: {
-    data: PagesBlocksCards | LandingsBlocksCards
-}) => {
+export const Cards = ({ data }: { data: PagesBlocksCards }) => {
     const items =
         data.cards &&
         data.cards.map((action, index) => {

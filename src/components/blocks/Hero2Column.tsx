@@ -2,17 +2,10 @@ import Image from 'next/image'
 import * as React from 'react'
 import type { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
-import {
-    LandingsBlocksHero2Column,
-    PagesBlocksHero2Column,
-} from '../../../tina/__generated__/types'
+import { PagesBlocksHero2Column } from '../../../tina/__generated__/types'
 import { Actions } from '../util/Actions'
 
-export const Hero2Column = ({
-    data,
-}: {
-    data: PagesBlocksHero2Column | LandingsBlocksHero2Column
-}) => {
+export const Hero2Column = ({ data }: { data: PagesBlocksHero2Column }) => {
     return (
         <div className="relative w-full overflow-hidden flex justify-center  border-zinc-100 dark:border-zinc-800">
             <div className="w-full max-w-7xl px-8 mx-auto pt-32  grid lg:grid-cols-2 gap-16 ">

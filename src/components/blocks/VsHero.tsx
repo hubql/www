@@ -1,18 +1,11 @@
-import {
-    LandingsBlocksVshero,
-    PagesBlocksVshero,
-} from '@/tina/__generated__/types'
+import { PagesBlocksVshero } from '@/tina/__generated__/types'
 import { Template } from 'tinacms'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { SparklesCore } from '../kit/Sparkles'
 import { Spotlight } from '../kit/Spotlight'
 import { ColoredText } from './ColoredText'
 
-export const VsHero = ({
-    data,
-}: {
-    data: PagesBlocksVshero | LandingsBlocksVshero
-}) => {
+export const VsHero = ({ data }: { data: PagesBlocksVshero }) => {
     const components = {
         ColoredText,
     }

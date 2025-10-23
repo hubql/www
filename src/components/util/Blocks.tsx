@@ -1,10 +1,6 @@
-import {
-    Landings,
-    LandingsBlocks,
-    Pages,
-    PagesBlocks,
-} from '../../../tina/__generated__/types'
+import { Pages, PagesBlocks } from '../../../tina/__generated__/types'
 import { AboutCards } from '../blocks/AboutCard'
+import { AboveFold } from '../blocks/AboveFold'
 import { FeaturedBlog } from '../blocks/BlogList'
 import { Cards } from '../blocks/Cards'
 import { Content } from '../blocks/Content'
@@ -20,15 +16,19 @@ import { ScrollCard } from '../blocks/ScrollCard'
 import { SectionCta } from '../blocks/SectionCta'
 import { SectionHeading } from '../blocks/SectionHeading'
 import { TemplateApiReference } from '../blocks/TemplateApiReference'
+import { TrustedBy } from '../blocks/TrustedBy'
+import { Services } from '../blocks/Services'
 import { VsHero } from '../blocks/VsHero'
+import { ProductGrid } from '../blocks/ProductGrid'
+import { WhyHubql } from '../blocks/WhyHubql'
+import { TechStack } from '../blocks/TechStack'
+import { Testimonials } from '../blocks/Testimonials'
 
-type BlocksProps =
-    | Omit<Pages, 'id' | '_sys' | '_values'>
-    | Omit<Landings, 'id' | '_sys' | '_values'>
+type BlocksProps = Omit<Pages, 'id' | '_sys' | '_values'>
 export const Blocks = (
     props: BlocksProps & {
         __typename: string
-        blocks: (PagesBlocks | LandingsBlocks | null)[] | null
+        blocks: (PagesBlocks | null)[] | null
         posts?: any
     }
 ) => {
@@ -63,7 +63,7 @@ const Block = ({
     blockIndex,
     posts,
 }: {
-    block: PagesBlocks | LandingsBlocks | any
+    block: PagesBlocks | any
     collectionType: any
     blockIndex: number
     posts?: any
@@ -103,7 +103,27 @@ const Block = ({
             return <AboutCards data={block} blockIndex={blockIndex} />
         case `${collectionType}BlocksHubqlDemoFile`:
             return <HubqlDemoFile fileId={block?.fileId} />
+        case `${collectionType}BlocksAboveFold`:
+            return <AboveFold data={block} />
+        case `${collectionType}BlocksTrustedBy`:
+            return <TrustedBy data={block} />
+        case `${collectionType}BlocksServices`:
+            return <Services data={block} />
+        case `${collectionType}BlocksProductGrid`:
+            return <ProductGrid data={block} />
+        case `${collectionType}BlocksWhyHubql`:
+            return <WhyHubql data={block} />
+        case `${collectionType}BlocksTechStack`:
+            return <TechStack data={block} />
+        case `${collectionType}BlocksTestimonials`:
+            return <Testimonials data={block} />
         default:
+            console.warn(
+                'Unknown block type:',
+                block.__typename,
+                'for collection:',
+                collectionType
+            )
             return null
     }
 }

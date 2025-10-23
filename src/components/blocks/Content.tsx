@@ -4,10 +4,7 @@ import React from 'react'
 import type { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
-import type {
-    LandingsBlocksContent,
-    PagesBlocksContent,
-} from '../../../tina/__generated__/types'
+import type { PagesBlocksContent } from '../../../tina/__generated__/types'
 import { Button } from '../kit/Button'
 
 import PricingTable from '../util/PricingTable'
@@ -32,11 +29,7 @@ const components = {
     },
 }
 
-export const Content = ({
-    data,
-}: {
-    data: PagesBlocksContent | LandingsBlocksContent
-}) => {
+export const Content = ({ data }: { data: PagesBlocksContent }) => {
     return (
         <div
             className={clsx(

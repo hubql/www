@@ -61,7 +61,7 @@ export async function getData() {
 
 export const getStaticProps = async () => {
     const { data, query, variables } = await client.queries.pages({
-        relativePath: 'home.mdx',
+        relativePath: 'products.mdx',
     })
 
     const res = await client.queries.global({ relativePath: 'settings.json' })

@@ -3,16 +3,9 @@ import Image from 'next/image'
 import * as React from 'react'
 import type { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
-import {
-    LandingsBlocksGallery,
-    PagesBlocksGallery,
-} from '../../../tina/__generated__/types'
+import { PagesBlocksGallery } from '../../../tina/__generated__/types'
 
-export const ImageGallery = ({
-    data,
-}: {
-    data: PagesBlocksGallery | LandingsBlocksGallery
-}) => {
+export const ImageGallery = ({ data }: { data: PagesBlocksGallery }) => {
     const items =
         data.gallery &&
         data.gallery.map((photo, index) => {

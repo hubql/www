@@ -1,17 +1,10 @@
-import {
-    LandingsBlocksParagraph,
-    PagesBlocksParagraph,
-} from '@/tina/__generated__/types'
+import { PagesBlocksParagraph } from '@/tina/__generated__/types'
 import { Template } from 'tinacms'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { cn } from '../util/cn'
 import { ColoredText } from './ColoredText'
 
-export const Paragraph = ({
-    data,
-}: {
-    data: PagesBlocksParagraph | LandingsBlocksParagraph
-}) => {
+export const Paragraph = ({ data }: { data: PagesBlocksParagraph }) => {
     const components = {
         ColoredText,
     }

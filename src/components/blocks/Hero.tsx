@@ -3,10 +3,7 @@ import Image from 'next/image'
 import * as React from 'react'
 import type { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
-import {
-    LandingsBlocksHero,
-    PagesBlocksHero,
-} from '../../../tina/__generated__/types'
+import { PagesBlocksHero } from '../../../tina/__generated__/types'
 import { Actions } from '../util/Actions'
 
 const shimmer = (w: number, h: number) => `
@@ -28,11 +25,7 @@ const toBase64 = (str: string) =>
         ? Buffer.from(str).toString('base64')
         : window.btoa(str)
 
-export const Hero = ({
-    data,
-}: {
-    data: PagesBlocksHero | LandingsBlocksHero
-}) => {
+export const Hero = ({ data }: { data: PagesBlocksHero }) => {
     return (
         <div className="relative w-full overflow-hidden flex justify-center">
             <div className="w-full max-w-7xl mx-auto py-16 lg:pt-20 border-x border-zinc-100 dark:border-zinc-800">
