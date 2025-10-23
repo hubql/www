@@ -6,11 +6,7 @@ import type { Template } from 'tinacms'
 import type { PagesBlocksServices } from '../../../tina/__generated__/types'
 import { tinaField } from 'tinacms/dist/react'
 
-export const Services = ({
-    data,
-}: {
-    data: PagesBlocksServices
-}) => {
+export const Services = ({ data }: { data: PagesBlocksServices }) => {
     return (
         <Section
             title={data.title ?? 'Our Services'}
@@ -20,64 +16,64 @@ export const Services = ({
             delay={0}
             data-tina-field={tinaField(data, 'title')}
         >
-            {data.servicesCards?.map((card, index)=>(
-                    <motion.div
-                        key={'cardService-' + index}
-                        className="relative z-10 grid grid-cols-1 lg:grid-cols-2 bg-black/40 backdrop-blur-lg max-w-screen-lg !border border-neutral-800 mx-auto"
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 0.2 + index * 0.2,
-                            type: 'spring',
-                            stiffness: 100,
-                            damping: 10,
-                        }}
-                        data-tina-field={tinaField(card)}
-                    >
-                        <div className="flex flex-col justify-center items-start p-8 h-full">
-                            {card?.title && (
-                                <h2
-                                    className="text-lg font-bold font-orbitron tracking-wide"
-                                    data-tina-field={tinaField(card, 'title')}
-                                >
-                                    {card.title}
-                                </h2>
-                            )}
-
-                            {card?.description && (
-                                <p
-                                    className="text-neutral-400 text-base"
-                                    data-tina-field={tinaField(card, 'description')}
-                                >
-                                    {card.description}
-                                </p>
-                            )}
-
-                            {index % 2 !== 0 && (
-                                <Cta
-                                    ctaButtonText={data.cta?.label ?? 'Contact Us'}
-                                    ctaButtonUrl={data.cta?.link ?? '/contact'}
-                                    className="py-0 justify-start"
-                                    titleClassName="text-lg font-bold font-orbitron tracking-wide"
-                                    containerClassName="justify-start items-start px-0"
-                                    blob={false}
-                                />
-                            )}
-                        </div>
-
-                        {card?.list && (
-                            <ul
-                                className="flex flex-col gap-2 text-neutral-400 text-base list-disc p-8 h-full"
-                                data-tina-field={tinaField(card, 'list')}
+            {data.servicesCards?.map((card, index) => (
+                <motion.div
+                    key={'cardService-' + index}
+                    className="relative z-10 grid grid-cols-1 lg:grid-cols-2 bg-black/40 backdrop-blur-lg max-w-screen-lg !border border-neutral-800 mx-auto"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                        duration: 0.5,
+                        delay: 0.2 + index * 0.2,
+                        type: 'spring',
+                        stiffness: 100,
+                        damping: 10,
+                    }}
+                    data-tina-field={tinaField(card)}
+                >
+                    <div className="flex flex-col justify-center items-start p-8 h-full">
+                        {card?.title && (
+                            <h2
+                                className="text-lg font-bold font-orbitron tracking-wide"
+                                data-tina-field={tinaField(card, 'title')}
                             >
-                                {card.list.filter(Boolean).map((item, itemIndex) => (
+                                {card.title}
+                            </h2>
+                        )}
+
+                        {card?.description && (
+                            <p
+                                className="text-neutral-400 text-base"
+                                data-tina-field={tinaField(card, 'description')}
+                            >
+                                {card.description}
+                            </p>
+                        )}
+
+                        <Cta
+                            ctaButtonText={data.cta?.label ?? 'Contact Us'}
+                            ctaButtonUrl={data.cta?.link ?? '/contact'}
+                            className="py-0 justify-start"
+                            titleClassName="text-lg font-bold font-orbitron tracking-wide"
+                            containerClassName="justify-start items-start px-0"
+                            blob={false}
+                        />
+                    </div>
+
+                    {card?.list && (
+                        <ul
+                            className="flex flex-col gap-2 text-neutral-400 text-base list-disc p-8 h-full"
+                            data-tina-field={tinaField(card, 'list')}
+                        >
+                            {card.list
+                                .filter(Boolean)
+                                .map((item, itemIndex) => (
                                     <li key={itemIndex}>{item}</li>
                                 ))}
-                            </ul>
-                        )}
-                    </motion.div>
-                ))}
+                        </ul>
+                    )}
+                </motion.div>
+            ))}
 
             <BlurredBlob className="-right-60 -bottom-60" />
         </Section>

@@ -17,7 +17,7 @@ export default function Index(props: {
         data: props.data,
     })
 
-    const content = data.pages ?? data.landings
+    const content = data.pages
 
     return (
         <Layout data={content}>
@@ -34,35 +34,17 @@ const customPages = [
     'contact',
     'events',
     'products',
-    'services'
+    'services',
 ]
 export const getStaticPaths = async () => {
-    const [result, resultLanding] = await Promise.all([
-        client.queries.pagesConnection({
-            filter: {
-                title: {
-                    startsWith: '',
-                },
+    const result = await client.queries.pagesConnection({
+        filter: {
+            title: {
+                startsWith: '',
             },
-        }),
-        client.queries.landingsConnection({
-            filter: {
-                title: {
-                    startsWith: '',
-                },
-            },
-        }),
-    ])
-    const landingPaths =
-        resultLanding?.data?.landingsConnection?.edges?.map((page) => {
-            return {
-                params: {
-                    filename: [
-                        page?.node?._sys.relativePath.replace('.mdx', ''),
-                    ],
-                },
-            }
-        }) ?? []
+        },
+    })
+
     const pagePaths =
         result?.data?.pagesConnection?.edges
             ?.filter((page) => {
@@ -82,21 +64,45 @@ export const getStaticPaths = async () => {
             }) ?? []
 
     return {
-        paths: [...landingPaths, ...pagePaths],
+        paths: pagePaths,
         fallback: 'blocking',
     }
 }
 
 export const getStaticProps = async ({ params }: { params: any }) => {
+    // Filter out Next.js internal paths and system files
+    const filename = params.filename.join('/')
+
+    // Exclude Next.js internal paths and system files
+    if (
+        filename.startsWith('_next/') ||
+        filename.startsWith('_') ||
+        filename.includes('.webpack.') ||
+        filename.includes('.hot-update.') ||
+        filename.includes('.json') ||
+        filename.includes('.js') ||
+        filename.includes('.css') ||
+        filename.includes('.map') ||
+        filename.includes('.ico') ||
+        filename.includes('.png') ||
+        filename.includes('.jpg') ||
+        filename.includes('.jpeg') ||
+        filename.includes('.gif') ||
+        filename.includes('.svg') ||
+        filename.includes('.woff') ||
+        filename.includes('.woff2') ||
+        filename.includes('.ttf') ||
+        filename.includes('.eot')
+    ) {
+        return {
+            notFound: true,
+        }
+    }
+
     try {
-        const { query, data, variables } = await Promise.any([
-            client.queries.pages({
-                relativePath: `${params.filename.join('/')}.mdx`,
-            }),
-            client.queries.landings({
-                relativePath: `${params.filename.join('/')}.mdx`,
-            }),
-        ])
+        const { query, data, variables } = await client.queries.pages({
+            relativePath: `${filename}.mdx`,
+        })
         const resSetting = await client.queries.global({
             relativePath: 'settings.json',
         })

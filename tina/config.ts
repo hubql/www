@@ -27,7 +27,6 @@ import { whyHubqlBlockSchema } from '../src/components/blocks/WhyHubql'
 import { techStackBlockSchema } from '../src/components/blocks/TechStack'
 import { testimonialsBlockSchema } from '../src/components/blocks/Testimonials'
 
-
 // Your hosting provider likely exposes this as an environment variable
 const branch =
     process.env.HEAD ||
@@ -401,71 +400,6 @@ export default defineConfig({
                         if (document._sys.filename === 'home') {
                             return `/`
                         }
-                        return `/${document._sys.relativePath.replace(
-                            '.mdx',
-                            ''
-                        )}`
-                    },
-                },
-            },
-            {
-                name: 'landings',
-                label: 'Landing Pages',
-                path: 'src/content/landings',
-                format: 'mdx',
-                fields: [
-                    {
-                        type: 'string',
-                        name: 'title',
-                        label: 'Title',
-                        isTitle: true,
-                        required: true,
-                    },
-                    {
-                        type: 'string',
-                        name: 'seoTitle',
-                        label: 'SEO - Title',
-                    },
-                    {
-                        type: 'string',
-                        name: 'seoDescription',
-                        label: 'SEO - Description',
-                        ui: {
-                            component: 'textarea',
-                        },
-                    },
-                    {
-                        type: 'object',
-                        list: true,
-                        name: 'blocks',
-                        label: 'Sections',
-                        ui: {
-                            visualSelector: true,
-                        },
-                        templates: [
-                            heroBlockSchema,
-                            featureFocusBlockSchema,
-                            sectionHeadingBlockSchema,
-                            sectionCtaBlockSchema,
-                            hero2ColumnBlockSchema,
-                            featureFocusSimpleBlockSchema,
-                            contentBlockSchema,
-                            cardsBlockSchema,
-                            featuredBlog,
-                            imageGalleryBlockSchema,
-                            aboutCardsBlockSchema,
-                            hubqlDemoFileSchema,
-
-                            scrollCardBlockSchema,
-                            templateApiReferenceBlockSchema,
-                            vsHeroBlockSchema,
-                            paragraphBlockSchema,
-                            imageBlockSchema,
-                        ],
-                    },
-                ],
-                ui: {
-                    router: ({ document }) => {
                         return `/${document._sys.relativePath.replace(
                             '.mdx',
                             ''

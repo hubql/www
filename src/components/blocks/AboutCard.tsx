@@ -2,16 +2,13 @@ import clsx from 'clsx'
 import * as React from 'react'
 import type { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
-import {
-    LandingsBlocksAboutCards,
-    PagesBlocksAboutCards,
-} from '../../../tina/__generated__/types'
+import { PagesBlocksAboutCards } from '../../../tina/__generated__/types'
 
 export const AboutCards = ({
     data,
     blockIndex,
 }: {
-    data: PagesBlocksAboutCards | LandingsBlocksAboutCards
+    data: PagesBlocksAboutCards
     blockIndex: number
 }) => {
     const items =

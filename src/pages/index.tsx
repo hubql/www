@@ -2,13 +2,7 @@ import { useTina } from 'tinacms/dist/react'
 import client from '../../tina/__generated__/client'
 import { Layout } from '../components/layout/Layout'
 import { Blocks } from '../components/util/Blocks'
-import { TrustedBy } from '../components/homepage/TrustedBy'
-import { AboveFold } from '../components/homepage/AboveFold'
-import { ProductGrid } from '../components/homepage/ProductGrid'
-import { WhyHubql } from '../components/homepage/WhyHubql'
-import { Services } from '../components/homepage/Services'
-import { TechStack } from '../components/homepage/TechStack'
-import { Testimonials } from '../components/homepage/Testimonials'
+
 export default function Home(props: {
     query: any
     variables: any
@@ -27,13 +21,6 @@ export default function Home(props: {
 
     return (
         <Layout data={data.pages}>
-            <AboveFold />
-            <TrustedBy />
-            <Services />
-            <ProductGrid />
-            <WhyHubql />
-            <TechStack />
-            <Testimonials />
             <Blocks {...data.pages} posts={posts} />
         </Layout>
     )

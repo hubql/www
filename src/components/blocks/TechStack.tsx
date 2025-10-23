@@ -1,19 +1,14 @@
 import Image from 'next/image'
 import { Section } from '../kit/Section'
 import { cn } from '../util/cn'
-import { classNames } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
 import type { Template } from 'tinacms'
 import type { PagesBlocksTechStack } from '../../../tina/__generated__/types'
 
-export const TechStack = ({
-    data,
-}: {
-    data: PagesBlocksTechStack
-}) => {
+export const TechStack = ({ data }: { data: PagesBlocksTechStack }) => {
     return (
         <Section
-            title = {data.title ?? 'Tech Stack'}
+            title={data.title ?? 'Tech Stack'}
             contentClassName="grid grid-cols-4 gap-0 divide-x divide-y divide-neutral-800"
             data-tina-field={tinaField(data, 'title')}
         >
@@ -39,19 +34,19 @@ const TechStackItem = ({
             <div className="flex flex-row items-center justify-start gap-2">
                 {item.image?.map((img, index) => (
                     <Image
-                    key={`techstackLogo-${index}`}
-                    src={img}
-                    alt={item.name ?? ''}
-                    width={28}
-                    height={28}
-                    className={cn('h-10 w-10', item.className)}
-                    data-tina-field={tinaField(item, 'image')}
-                />
+                        key={`techstackLogo-${index}`}
+                        src={img}
+                        alt={item.name ?? ''}
+                        width={28}
+                        height={28}
+                        className={cn('h-10 w-10', item.className)}
+                        data-tina-field={tinaField(item, 'image')}
+                    />
                 ))}
             </div>
 
             {item.name && (
-                <h2 
+                <h2
                     className="text-base font-bold font-orbitron tracking-wide mb-0"
                     data-tina-field={tinaField(item, 'name')}
                 >

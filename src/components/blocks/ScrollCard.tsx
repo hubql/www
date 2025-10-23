@@ -4,18 +4,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Template } from 'tinacms'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
-import {
-    LandingsBlocksScrollCard,
-    PagesBlocksScrollCard,
-} from '../../../tina/__generated__/types'
+import { PagesBlocksScrollCard } from '../../../tina/__generated__/types'
 import { Button } from '../kit/Button'
 import { ColoredText } from './ColoredText'
 
-export const ScrollCard = ({
-    data,
-}: {
-    data: PagesBlocksScrollCard | LandingsBlocksScrollCard
-}) => {
+export const ScrollCard = ({ data }: { data: PagesBlocksScrollCard }) => {
     const cardVariants: Variants = {
         offscreen: {
             opacity: 0.3,

@@ -1,16 +1,9 @@
-import {
-    LandingsBlocksImage,
-    PagesBlocksImage,
-} from '@/tina/__generated__/types'
+import { PagesBlocksImage } from '@/tina/__generated__/types'
 import Image from 'next/image'
 import { Template } from 'tinacms'
 import { cn } from '../util/cn'
 
-export const ImageComponent = ({
-    data,
-}: {
-    data: PagesBlocksImage | LandingsBlocksImage
-}) => {
+export const ImageComponent = ({ data }: { data: PagesBlocksImage }) => {
     return (
         <div
             className={cn(

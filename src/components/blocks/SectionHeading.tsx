@@ -1,17 +1,13 @@
 import * as React from 'react'
 import type { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
-import type {
-    LandingsBlocksSectionheading,
-    PagesBlocksSectionheading,
-} from '../../../tina/__generated__/types'
+import type { PagesBlocksSectionheading } from '../../../tina/__generated__/types'
 import { Actions } from '../util/Actions'
 
 export const SectionHeading = ({
     data,
 }: {
-    data: PagesBlocksSectionheading | LandingsBlocksSectionheading
+    data: PagesBlocksSectionheading
 }) => {
     return (
         <div className="relative w-full overflow-hidden flex justify-center pt-32 border-t border-zinc-800">

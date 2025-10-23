@@ -4,10 +4,7 @@ import * as React from 'react'
 import type { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
-import type {
-    LandingsBlocksFeaturefocusSimple,
-    PagesBlocksFeaturefocusSimple,
-} from '../../../tina/__generated__/types'
+import type { PagesBlocksFeaturefocusSimple } from '../../../tina/__generated__/types'
 import { Actions } from '../util/Actions'
 
 const shimmer = (w: number, h: number) => `
@@ -32,7 +29,7 @@ const toBase64 = (str: string) =>
 export const FeatureFocusSimple = ({
     data,
 }: {
-    data: PagesBlocksFeaturefocusSimple | LandingsBlocksFeaturefocusSimple
+    data: PagesBlocksFeaturefocusSimple
 }) => {
     const markdown = data.richtext && data.richtext !== ''
     return (
