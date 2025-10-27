@@ -30,6 +30,7 @@ const config: Config = {
             fontFamily: {
                 noto: ['var(--font-noto)'],
                 orbitron: ['var(--font-orbitron)'],
+                lexend: ['var(--font-lexend)'],
             },
             animation: {
                 spotlight: 'spotlight 2s ease .75s 1 forwards',

@@ -7,7 +7,7 @@ import type { PagesBlocksAboveFold } from '../../../tina/__generated__/types'
 
 export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
     return (
-        <div className="flex flex-wrap items-start w-fit gap-y-2 gap-x-2 justify-start p-[2px] rounded-sm mt-4 w-full overflow-hidden relative z-0">
+        <div className="flex flex-wrap items-start w-fit gap-y-2 gap-x-2 justify-start p-[2px] rounded-sm mt-6 w-full overflow-hidden relative z-0">
             <motion.div
                 className="pt-24 pb-24 absolute top-0 left-0 lg:relative w-fit h-fit flex flex-col z-10 px-8 max-lg:bg-black/10 max-lg:backdrop-blur-sm h-full"
                 initial={{ opacity: 0, x: -10 }}
@@ -16,7 +16,7 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
             >
                 {data.title && (
                     <h1
-                        className="text-white text-3xl lg:text-5xl font-bold lg:font-medium text-left font-orbitron tracking-wide max-w-4xl"
+                        className="text-white text-[42px] font-bold text-left font-orbitron tracking-wide max-w-4xl mb-[16px]"
                         data-tina-field={tinaField(data, 'title')}
                     >
                         {data.title}
@@ -25,26 +25,41 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
 
                 {data.paragraph && (
                     <p
-                        className="max-w-xl text-neutral-400 text-base lg:text-xl"
-                        data-tine-field={tinaField(data, 'paragraph')}
+                        className="max-w-2xl text-white-400 text-[16px] font-lexend"
+                        data-tina-field={tinaField(data, 'paragraph')}
                     >
                         {data.paragraph}
                     </p>
                 )}
 
-                {data.button && (
-                    <div className="flex flex-wrap items-start w-fit gap-y-2 gap-x-2 justify-center p-[2px] rounded-sm mt-4">
-                        <Button
-                            href={data.button.link ?? '/'}
-                            icon={'arrow'}
-                            data-tina-field={tinaField(data, 'button')}
-                        >
-                            {data.button.label}
-                        </Button>
+                {(data.buttonOne || data.buttonTwo) && (
+                    <div className="flex flex-wrap text-[14px] items-start w-fit gap-y-2 gap-x-2 justify-center p-[2px] rounded-sm mt-4">
+                        {data.buttonOne && (
+                            <Button
+                                href={data.buttonOne.link ?? '/'}
+                                data-tina-field={tinaField(data, 'buttonOne')}
+                                size="sm"
+                            >
+                                {data.buttonOne.label}
+                            </Button>
+                        )}
+
+                        {data.buttonTwo && (
+                            <Button
+                                href={data.buttonTwo.link ?? '/'}
+                                data-tina-field={tinaField(data, 'buttonTwo')}
+                                size="sm"
+                                variant="grey"
+                            >
+                                {data.buttonTwo.label}
+                            </Button>
+                        )}
                     </div>
                 )}
             </motion.div>
+
             <HeroBg />
+
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-0 bottom-[0] px-0 w-full lg:divide-x divide-neutral-800 border-0 border-neutral-800"></div>
         </div>
     )
@@ -56,12 +71,16 @@ export const aboveFoldBlockSchema: Template = {
     ui: {
         previewSrc: '',
         defaultItem: {
-            title: 'Intelligent Software Solutions for Fast-Moving Companies',
+            title: 'We Build Your Ideas into Scalable Web Apps with Supabase.',
             paragraph:
-                'Hubql is a software services company delivering excellent web applications, APIs, and open-source tools. We help fast-moving teams build software with precision.',
-            button: {
-                label: 'Build with us',
+                'Hubql specializes in Supabase development, creating collaboration platforms and 3D web experiences that help startups move fast—from prototype to launch.',
+            buttonOne: {
+                label: 'Start your project',
                 link: '/contact',
+            },
+            buttonTwo: {
+                label: 'Learn more',
+                link: '/about',
             },
         },
     },
@@ -81,18 +100,34 @@ export const aboveFoldBlockSchema: Template = {
             },
         },
         {
-            label: 'Button',
-            name: 'button',
+            label: 'Button One',
+            name: 'buttonOne',
             type: 'object',
             fields: [
                 {
-                    label: 'label',
+                    label: 'Label',
                     name: 'label',
                     type: 'string',
                 },
-
                 {
-                    label: 'link',
+                    label: 'Link',
+                    name: 'link',
+                    type: 'string',
+                },
+            ],
+        },
+        {
+            label: 'Button Two',
+            name: 'buttonTwo',
+            type: 'object',
+            fields: [
+                {
+                    label: 'Label',
+                    name: 'label',
+                    type: 'string',
+                },
+                {
+                    label: 'Link',
                     name: 'link',
                     type: 'string',
                 },

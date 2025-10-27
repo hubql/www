@@ -5,7 +5,7 @@ import { cn } from '../util/cn'
 
 type sizeVariant = 'sm' | 'md' | 'lg' | 'icon'
 type iconVariant = 'arrow' | 'discord' | undefined | 'github'
-export type styleVariant = 'contain' | 'outlined' | 'ghost'
+export type styleVariant = 'contain' | 'outlined' | 'ghost' | 'grey'
 
 export const Button = ({
     children,
@@ -34,6 +34,8 @@ export const Button = ({
         'bg-transparent !text-white hover:underline border border-border'
     const variantGhost =
         variant === 'ghost' && 'bg-transparent !text-white hover:bg-neutral-800'
+    const variantGrey =
+        variant === 'grey' && 'bg-[#404040] text-white hover:bg-[#505050]'
 
     const iconLoader = (icon: iconVariant) => {
         switch (icon) {
@@ -68,10 +70,11 @@ export const Button = ({
     )
 
     const buttonClasses = clsx(
-        'button group relative w-fit hover:decoration-none transition-all ease-in  focus:scale-95 min-h-[34px] px-4 rounded-sm flex flex-row items-center justify-between font-orbitron font-semibold tracking-widest',
+        'button group relative w-fit hover:decoration-none transition-all ease-in  focus:scale-95 min-h-[34px] px-4 rounded-md flex flex-row items-center justify-between font-lexend font-normal',
         variantContain,
         variantOutlined,
         variantGhost,
+        variantGrey,
         className,
         sizeSm,
         sizeMd,

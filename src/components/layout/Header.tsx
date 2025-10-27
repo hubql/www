@@ -21,21 +21,14 @@ export const Header = () => {
             >
                 <nav className="w-full mx-auto flex items-center justify-between h-14 relative">
                     <div className="w-fit h-full flex items-center justify-start">
-                        <div className="pl-2 mr-4 ">
+                        <div className="pl-2 mr-2 ">
                             <Link href="/" title="Go to the main page" passHref>
-                                <HubqlLogo className={'w-[110px]'} />
+                                <HubqlLogo className={'w-[90px]'} />
                             </Link>
                         </div>
                     </div>
                     <NavigationMenu data={headerNav.nav} />
                     <div className="h-full flex items-center lg:gap-2 gap-1">
-                        <Button
-                            href="https://github.com/hubql/hubql"
-                            variant="ghost"
-                            size="icon"
-                            icon="github"
-                            className="hidden lg:flex"
-                        ></Button>
                         <Button
                             href="/contact"
                             size="sm"
@@ -217,13 +210,6 @@ export const headerNav = {
         {
             __typename: 'GlobalHeaderNav',
             isExternal: null,
-            label: 'Products',
-            href: 'products',
-            nav: null,
-        },
-        {
-            __typename: 'GlobalHeaderNav',
-            isExternal: null,
             label: 'About',
             href: 'about',
             nav: null,
@@ -236,5 +222,5 @@ export const headerNav = {
             nav: null,
         },
     ],
-    ctaLabel: 'Build with us',
+    ctaLabel: 'Start your project',
 }

@@ -4,6 +4,8 @@ import { Header } from './Header'
 import { useRouter } from 'next/router'
 import { Noto_Sans } from 'next/font/google'
 import { Orbitron } from 'next/font/google'
+import { Lexend } from 'next/font/google'
+
 
 const noto = Noto_Sans({
     subsets: ['latin'],
@@ -15,6 +17,12 @@ const orbitron = Orbitron({
     subsets: ['latin'],
     weight: ['400', '500', '600', '700'],
     variable: '--font-orbitron',
+})
+
+const lexend = Lexend({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    variable: '--font-lexend',
 })
 
 export const Layout = ({ children, data }: { children: any; data?: any }) => {
@@ -86,7 +94,7 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                 <meta property="twitter:locale" content="en_US" />
             </Head>
             <div
-                className={`bg-black ${noto.variable} ${orbitron.variable} font-noto`}
+                className={`bg-black ${noto.variable} ${orbitron.variable} ${lexend.variable} font-noto`}
             >
                 <div className="relative w-full overflow-x-hidden  bg-grid-neutral-800 flex h-full">
                     <div
