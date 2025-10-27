@@ -6,7 +6,7 @@ import { Actions } from '../util/Actions'
 
 export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
     return (
-        <div className="relative w-full flex justify-center  pt-32 pb-24 border-t border-zinc-100 dark:border-zinc-800 overflow-clip">
+        <div className="relative w-full flex justify-center pt-32 pb-24 border-t border-zinc-100 dark:border-zinc-800 overflow-clip">
             <div className=" w-full max-w-5xl mx-auto  ">
                 <div className="flex flex-col gap-6 items-center text-center px-8">
                     {data.title && (
