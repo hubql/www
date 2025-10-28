@@ -13,32 +13,37 @@ export const Testimonials = ({
         <Section
             title={data.title ?? 'Our Results'}
             className="!divide-none"
-            contentClassName="!flex !flex-row overflow-hidden justify-center items-center !divide-none pb-8"
+            titleClassName="pt-20 text-[18px] text-normal font-thin"
+            contentClassName="!flex !flex-col justify-center items-center !divide-none pb-24"
             data-tina-field={tinaField(data, 'title')}
         >
-            {/* gradient overlays */}
-            <div className="absolute z-10 top-0 left-0 w-[300px] h-full bg-gradient-to-r from-black to-transparent" />
-            <div className="flex flex-row gap-4 items-center">
-                <div className="flex gap-4 min-w-max flex-row items-center">
-                    {data.testimonials?.map((testimonial: any, index: number) => (
-                        <motion.div
-                            key={`testimonial-${testimonial?.name}-${index}`}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{
-                                duration: 0.5,
-                                delay: 0.3 + index * 0.1,
-                                type: 'spring',
-                                stiffness: 100,
-                                damping: 10,
-                            }}
-                        >
-                            <Testimonial item={testimonial} />
-                        </motion.div>
-                    ))}
-                </div>
+            {data.subtitle && (
+                <p
+                    className="text-neutral-400 text-[14px] max-w-[300px] text-center mx-auto"
+                    data-tina-field={tinaField(data, 'subtitle')}
+                >
+                    {data.subtitle}
+                </p>
+            )}
+
+            <div className="flex flex-row gap-4 overflow-x-auto items-center mt-2">
+                {data.testimonials?.map((testimonial: any, index: number) => (
+                    <motion.div
+                        key={`testimonial-${testimonial?.name}-${index}`}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                            duration: 0.5,
+                            delay: 0.3 + index * 0.1,
+                            type: 'spring',
+                            stiffness: 100,
+                            damping: 10,
+                        }}
+                    >
+                        <Testimonial item={testimonial} />
+                    </motion.div>
+                ))}
             </div>
-            <div className="absolute z-10 top-0 right-0 w-[300px] h-full bg-gradient-to-l from-black to-transparent" />
         </Section>
     )
 }
@@ -53,7 +58,7 @@ const Testimonial = ({
     }
 }) => {
     return (
-        <div className="flex flex-col gap-4 bg-neutral-950 p-4 pb-0 border border-neutral-800 w-[334px] text-neutral-400 items-center justify-center">
+        <div className="flex flex-col gap-2 bg-neutral-900 p-6 pb-0 w-[334px] text-neutral-400 justify-center">
             {item.text && (
                 <p
                     className="hyphens-auto text-sm"
@@ -105,6 +110,14 @@ export const testimonialsBlockSchema: Template = {
             type: 'string',
             label: 'Title',
             name: 'title',
+        },
+        {
+            type: 'string',
+            label: 'Subtitle',
+            name: 'subtitle',
+            ui: {
+                component: 'textarea',
+            },
         },
         {
             type: 'object',
