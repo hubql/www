@@ -11,12 +11,21 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
         <Section
             title={data.title ?? 'What We Build for Founders and Startups'}
             className="divide-none"
-            titleClassName="py-6 text-[16px] text-normal"
+            titleClassName="pt-16 pb-2 text-[16px] text-normal font-thin"
             contentClassName="z-10 flex flex-col gap-4 pb-12 px-2 pt-0"
             delay={0}
             data-tina-field={tinaField(data, 'title')}
         >
-            <Accordion type="single" collapsible className="w-full space-y-4">
+            {data.subtitle && (
+                <p
+                    className="text-neutral-400 text-[14px] max-w-md text-center mx-auto"
+                    data-tina-field={tinaField(data, 'subtitle')}
+                >
+                    {data.subtitle}
+                </p>
+            )}
+
+            <Accordion type="single" collapsible className="w-full">
                 {data.servicesCards?.map((card, index) => (
                     <AccordionItem
                         key={'service-' + index}
@@ -24,14 +33,14 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                         className="relative z-10 bg-[#171717] max-w-screen-lg mx-auto rounded"
                         data-tina-field={tinaField(card)}
                     >
-                        <AccordionTrigger className="py-4 px-8 flex justify-between items-center">
+                        <AccordionTrigger className="py-6 px-8 flex justify-between items-center">
                             <h3 className="text-[16px] font-normal font-lexend break-words m-0">
                                 {card?.title}
                             </h3>
                         </AccordionTrigger>
 
                         <AccordionContent>
-                            <div className="flex flex-col lg:flex-row gap-8 px-8 py-2 pb-4">
+                            <div className="flex flex-col lg:flex-row gap-8 px-8 pb-8">
                                 <div className="flex-1 flex flex-col gap-2">
                                     {card?.description && (
                                         <p
@@ -44,10 +53,11 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                                     <Cta
                                         ctaButtonText={data.cta?.label ?? 'Contact Us'}
                                         ctaButtonUrl={data.cta?.link ?? '/contact'}
-                                        className="py-0 justify-start"
+                                        className="py-0 justify-start text-normal hover:opacity-80"
                                         titleClassName="text-md font-bol4d font-lexend"
                                         containerClassName="justify-start items-start px-0"
                                         blob={false}
+                                        inlineStyle
                                     />
                                 </div>
 
@@ -81,6 +91,7 @@ export const servicesBlockSchema: Template = {
         previewSrc: '',
         defaultItem: {
             title: 'What We Build for Founders and Startups',
+            subtitle: 'We help startups and founders by building innovative solutions that scale and make an impact.', // new default subtitle
             servicesCards: [
                 {
                     title: 'Research & Development',
@@ -116,6 +127,14 @@ export const servicesBlockSchema: Template = {
             type: 'string',
             label: 'Title',
             name: 'title',
+        },
+        {
+            type: 'string',
+            label: 'Subtitle',
+            name: 'subtitle',
+            ui: {
+                component: 'textarea',
+            },
         },
         {
             label: 'Service Cards',

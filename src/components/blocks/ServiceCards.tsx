@@ -1,4 +1,4 @@
-import { MoveRight } from 'lucide-react'
+import { Cta } from '../templates/Cta'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Section } from '../kit/Section'
@@ -57,10 +57,15 @@ export const ServiceCards = ({
                                     )}
                             </div>
 
-                            <div className="flex items-center gap-4 text-sm text-zinc-50">
-                                Learn more
-                                <MoveRight className="text-accent-500 w-5 h-5" />
-                            </div>
+                            <Cta
+                                ctaButtonText="Learn more"
+                                ctaButtonUrl="#"
+                                className="py-0 justify-start"
+                                titleClassName="text-sm font-lexend"
+                                containerClassName="justify-start items-start px-0"
+                                blob={false}
+                                inlineStyle
+                            />
                         </div>
                     </div>
                 </Link>
