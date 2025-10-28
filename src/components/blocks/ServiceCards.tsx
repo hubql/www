@@ -14,7 +14,7 @@ export const ServiceCards = ({
     return (
         <Section
             title={data.title ?? 'Specialized in Collaboration and 3D Experiences on the Web.'}
-            titleClassName="pt-20"
+            titleClassName="pt-20 text-[16px]"
             contentClassName="grid grid-cols-1 lg:grid-cols-2 px-0 w-full py-4"
             data-tina-field={tinaField(data, 'title')}
         >
