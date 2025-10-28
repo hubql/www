@@ -2,6 +2,7 @@ import { Section } from '../kit/Section'
 import { BlurredBlob } from '../kit/BlurredBlob'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../kit/Accordion'
 import { Cta } from '../templates/Cta'
+import Image from 'next/image'
 import type { Template } from 'tinacms'
 import type { PagesBlocksServices } from '../../../tina/__generated__/types'
 import { tinaField } from 'tinacms/dist/react'
@@ -34,9 +35,20 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                         data-tina-field={tinaField(card)}
                     >
                         <AccordionTrigger className="py-6 px-8 flex justify-between items-center">
-                            <h3 className="text-[16px] font-normal font-lexend break-words m-0">
-                                {card?.title}
-                            </h3>
+                            <div className="flex items-center gap-4">
+                                {card?.icon && (
+                                    <Image
+                                        src={card.icon}
+                                        alt={card.title ?? 'Service icon'}
+                                        width={20}
+                                        height={20}
+                                        data-tina-field={tinaField(card, 'icon')}
+                                    />
+                                )}
+                                <h3 className="text-[16px] font-normal font-lexend break-words m-0">
+                                    {card?.title}
+                                </h3>
+                            </div>
                         </AccordionTrigger>
 
                         <AccordionContent>
@@ -91,7 +103,7 @@ export const servicesBlockSchema: Template = {
         previewSrc: '',
         defaultItem: {
             title: 'What We Build for Founders and Startups',
-            subtitle: 'We help startups and founders by building innovative solutions that scale and make an impact.', // new default subtitle
+            subtitle: 'We help startups and founders by building innovative solutions that scale and make an impact.',
             servicesCards: [
                 {
                     title: 'Research & Development',
@@ -103,6 +115,7 @@ export const servicesBlockSchema: Template = {
                         'Technical feasibility studies and software architecture validation.',
                         'Building internal tools and experimental software products.',
                     ],
+                    icon: '',
                 },
                 {
                     title: 'Web Development',
@@ -114,6 +127,7 @@ export const servicesBlockSchema: Template = {
                         'API development and third-party integrations for seamless connectivity.',
                         'Performance optimization and security best practices for scalable web apps.',
                     ],
+                    icon: '',
                 },
             ],
             cta: {
@@ -165,6 +179,11 @@ export const servicesBlockSchema: Template = {
                     name: 'list',
                     type: 'string',
                     list: true,
+                },
+                {
+                    type: 'image',
+                    label: 'Icon',
+                    name: 'icon',
                 },
             ],
         },
