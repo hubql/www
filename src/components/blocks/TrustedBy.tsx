@@ -13,13 +13,13 @@ export const TrustedBy = ({
 }) => {
     return (
         <Section
-            title={data.title ?? 'Trusted by companies around the world'}
+            title=""
             data-tina-field={tinaField(data, 'title')}
             contentClassName="grid max-lg:grid-cols-3 lg:grid-cols-3"
             delay={0.2}
         >
             {data.companies?.map((item, index) => (
-                <div key={index} className="flex items-center justify-center p-2">
+                <div key={index} className="flex items-center justify-center">
                     <motion.div
                         className="relative w-full aspect-video h-10"
                         initial={{ opacity: 0, x: -10 }}
@@ -46,6 +46,20 @@ export const TrustedBy = ({
                     </motion.div>
                 </div>
             ))}
+
+            <motion.h2
+                className="col-span-full text-[12px] font-normal text-center font-lexend text-[#ABABAB]"
+                data-tina-field={tinaField(data, 'title')}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                    duration: 0.3,
+                    delay: 0.6,
+                    ease: 'easeInOut',
+                }}
+            >
+                {data.title ?? 'Trusted by companies around the world'}
+            </motion.h2>
         </Section>
     )
 }
@@ -70,7 +84,7 @@ export const trustedByBlockSchema: Template = {
                 },
                 {
                     name: 'GrowSaaS',
-                    logo: '/customers/GrowSaas',
+                    logo: '/customers/GrowSaas.png',
                     filter: 'saturate-0 brightness-100',
                 },
             ],

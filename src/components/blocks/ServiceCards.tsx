@@ -13,8 +13,9 @@ export const ServiceCards = ({
 }) => {
     return (
         <Section
-            title={data.title ?? 'Powerful Open-Source Developer Tools, Built by Hubql.'}
-            contentClassName="grid grid-cols-1 lg:grid-cols-2 gap-0 px-0 w-full"
+            title={data.title ?? 'Specialized in Collaboration and 3D Experiences on the Web.'}
+            titleClassName="pt-20"
+            contentClassName="grid grid-cols-1 lg:grid-cols-2 px-0 w-full py-4"
             data-tina-field={tinaField(data, 'title')}
         >
             {data.serviceCards?.map((item: any, index: number) => (
@@ -24,7 +25,7 @@ export const ServiceCards = ({
                     className="w-full h-full"
                     data-tina-field={tinaField(item)}
                 >
-                    <div className='lg:bg-black py-20 px-4 w-full transition-transform ease-in h-full flex flex-col justify-between'>
+                    <div className='lg:bg-black px-4 w-full transition-transform ease-in h-full flex flex-col justify-between'>
                         <div className="flex flex-col bg-[#171717] p-10 rounded-md lg:hover:bg-neutral-900 flex-1 w-full min-h-[250px]">
                             <div className="flex flex-col">
                                 <div className="flex flex-row items-center gap-3 mb-2">
@@ -39,7 +40,7 @@ export const ServiceCards = ({
                                     )}
                                     {item?.title && (
                                         <h3
-                                            className="text-zinc-50 font-lexend pt-2 text-[16px]"
+                                            className="text-zinc-50 font-lexend text-[16px]"
                                             data-tina-field={tinaField(item, 'title')}
                                         >
                                             {item.title}
