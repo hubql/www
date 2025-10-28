@@ -9,19 +9,21 @@ export const WhyHubql = ({
     data: PagesBlocksWhyHubql
 }) => {
     return (
-        <Section
-            title={data.title ?? 'Why choose Hubql'}
-            contentClassName="grid max-lg:grid-cols-1 lg:grid-cols-3 gap-4 divide-x divide-neutral-800"
-            data-tina-field={tinaField(data, 'title')}
-        >
-            {data.WhyHubqlCards?.map((card: any, index: number) => (
-                <WhyHubqlCard
-                    key={`whyhubql-${card?.title ?? 'card'}-${index}`}
-                    card={card}
-                    index={index}
-                />
-            ))}
-        </Section>
+        <div className='pt-24'>
+            <Section
+                title={data.title ?? 'Why choose Hubql'}
+                contentClassName="max-lg:grid-cols-1 lg:grid-cols-3 gap-4 divide-x divide-neutral-800 pb-24"
+                data-tina-field={tinaField(data, 'title')}
+            >
+                {data.WhyHubqlCards?.map((card: any, index: number) => (
+                    <WhyHubqlCard
+                        key={`whyhubql-${card?.title ?? 'card'}-${index}`}
+                        card={card}
+                        index={index}
+                    />
+                ))}
+            </Section>
+        </div>
     )
 }
 
@@ -33,10 +35,10 @@ const WhyHubqlCard = ({
     index: number
 }) => {
     return (
-        <div className="flex flex-col justify-between items-start p-4">
+        <div className="flex flex-col items-center justify-center p-4 text-center">
             {card?.title && (
                 <h3
-                    className="text-lg font-bold font-orbitron"
+                    className="text-[18px] font-bold font-lexend font-thin"
                     data-tina-field={tinaField(card, 'title')}
                 >
                     {card.title}
@@ -45,7 +47,7 @@ const WhyHubqlCard = ({
 
             {card?.description && (
                 <p
-                    className="text-sm text-neutral-400"
+                    className="text-[14px] text-neutral-400 max-w-xs"
                     data-tina-field={tinaField(card, 'description')}
                 >
                     {card.description}

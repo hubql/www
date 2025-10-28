@@ -35,7 +35,7 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                         data-tina-field={tinaField(card)}
                     >
                         <AccordionTrigger className="py-6 px-8 flex justify-between items-center">
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-6">
                                 {card?.icon && (
                                     <Image
                                         src={card.icon}
@@ -45,7 +45,7 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                                         data-tina-field={tinaField(card, 'icon')}
                                     />
                                 )}
-                                <h3 className="text-[16px] font-normal font-lexend break-words m-0">
+                                <h3 className="text-[18px] font-normal font-lexend break-words m-0">
                                     {card?.title}
                                 </h3>
                             </div>

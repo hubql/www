@@ -26,7 +26,7 @@ export const ServiceCards = ({
                     data-tina-field={tinaField(item)}
                 >
                     <div className='lg:bg-black px-4 w-full transition-transform ease-in h-full flex flex-col justify-between'>
-                        <div className="flex flex-col bg-[#171717] p-10 rounded-md lg:hover:bg-neutral-900 flex-1 w-full min-h-[250px]">
+                        <div className="flex flex-col bg-[#171717] p-10 rounded-md lg:hover:bg-neutral-900 flex-1 w-full">
                             <div className="flex flex-col">
                                 <div className="flex flex-row items-center gap-3 mb-2">
                                     {item?.icon && (
@@ -40,7 +40,7 @@ export const ServiceCards = ({
                                     )}
                                     {item?.title && (
                                         <h3
-                                            className="text-zinc-50 font-lexend text-[16px]"
+                                            className="text-zinc-50 font-lexend text-[18px]"
                                             data-tina-field={tinaField(item, 'title')}
                                         >
                                             {item.title}

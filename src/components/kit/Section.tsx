@@ -30,7 +30,7 @@ export const Section = ({
         >
             <motion.h2
                 className={cn(
-                    'text-sm font-normal py-2 text-center px-4 mb-0 font-lexend text-[#ABABAB]',
+                    'text-[16px] font-normal py-2 text-center px-4 mb-0 font-lexend text-[#ABABAB]',
                     titleClassName
                 )}
                 initial={{ opacity: 0, x: -10 }}
