@@ -60,7 +60,7 @@ export const trustedByBlockSchema: Template = {
             companies: [
                 {
                     name: 'RevitPay',
-                    logo: '/revitpay-logo.png',
+                    logo: '/customers/RevitPay.png',
                     filter: 'contrast-[0%] saturate-0 brightness-100',
                 },
                 {
