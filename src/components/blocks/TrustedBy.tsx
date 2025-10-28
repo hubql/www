@@ -65,12 +65,12 @@ export const trustedByBlockSchema: Template = {
                 },
                 {
                     name: 'Rocket Connect',
-                    logo: '/rocket-connect-logo.png',
+                    logo: '/customers/RConnect.png',
                     filter: 'contrast-[100%] saturate-0 brightness-[50%]',
                 },
                 {
-                    name: 'Soon, your team?',
-                    logo: '/green-mess.png',
+                    name: 'GrowSaaS',
+                    logo: '/customers/GrowSaas',
                     filter: 'saturate-0 brightness-100',
                 },
             ],

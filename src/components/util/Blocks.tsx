@@ -23,6 +23,7 @@ import { ProductGrid } from '../blocks/ProductGrid'
 import { WhyHubql } from '../blocks/WhyHubql'
 import { TechStack } from '../blocks/TechStack'
 import { Testimonials } from '../blocks/Testimonials'
+import { ServiceCards } from '../blocks/ServiceCards'
 
 type BlocksProps = Omit<Pages, 'id' | '_sys' | '_values'>
 export const Blocks = (
@@ -117,6 +118,8 @@ const Block = ({
             return <TechStack data={block} />
         case `${collectionType}BlocksTestimonials`:
             return <Testimonials data={block} />
+        case `${collectionType}BlocksServiceCards`:
+            return <ServiceCards data={block} />
         default:
             console.warn(
                 'Unknown block type:',
