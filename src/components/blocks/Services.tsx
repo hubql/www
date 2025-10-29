@@ -31,7 +31,7 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                     <AccordionItem
                         key={'service-' + index}
                         value={'service-' + index}
-                        className="relative z-10 bg-[#171717] max-w-screen-lg mx-auto rounded"
+                        className="relative z-10 bg-[#171717] hover:bg-neutral-800 max-w-[1240px] mx-auto rounded"
                         data-tina-field={tinaField(card)}
                     >
                         <AccordionTrigger className="py-6 px-8 flex justify-between items-center">
@@ -65,7 +65,7 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                                     <Cta
                                         ctaButtonText={data.cta?.label ?? 'Contact Us'}
                                         ctaButtonUrl={data.cta?.link ?? '/contact'}
-                                        className="py-0 justify-start text-normal hover:opacity-80"
+                                        className="py-0 justify-start text-normal"
                                         titleClassName="text-md font-bol4d font-lexend"
                                         containerClassName="justify-start items-start px-0"
                                         blob={false}

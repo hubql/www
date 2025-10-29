@@ -1,10 +1,8 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
 import { PagesBlocksFeaturedblog } from '../../../tina/__generated__/types'
-import { Chevron } from '../icons/Chevron'
-import { Rss } from 'lucide-react'
+import { MoveRight } from 'lucide-react'
 
 export const FeaturedBlog = ({
     data,
@@ -15,36 +13,33 @@ export const FeaturedBlog = ({
 }) => {
     return (
         <div className="max-w-7xl mx-auto">
-            <div className="max-w-xl mx-r py-16 px-8">
-                <div className="flex flex-row gap-2 justify-start items-center">
-                    <Rss className="w-7 h-7 stroke-accent-100" />
+            <div className="flex flex-col items-center justify-center text-center py-2 px-8">
+                <div className="flex flex-row gap-2 justify-center items-center">
                     <h2
-                        className="text-left text-2xl lg:text-3xl font-bold   text-black dark:text-white font-orbitron"
+                        className="text-[16px] font-normal text-black dark:text-white font-lexend pt-6"
                         data-tina-field={tinaField(data, 'title')}
                     >
                         {data.title}
                     </h2>
                 </div>
                 <p
-                    className="text-left text-neutral-400 text-base mb-0 "
+                    className="font-lexend text-neutral-400 text-[14px] max-w-[420px]"
                     data-tina-field={tinaField(data, 'paragraph')}
                 >
                     {data.paragraph}
                 </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3  divide-x divide-neutral-800 border-y border-neutral-800">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 justify-center px-6 items-center font-lexend">
                 {posts?.map((item: any, index: number) => (
                     <BlogCard item={item} key={'blog-card' + index} />
                 ))}
             </div>
             <Link
                 href={'/blog'}
-                className="text-neutral-50 hover:text-neutral-400 visited:text-neutral-50 text-center text-lg"
+                className="text-center text-[14px] w-full flex justify-center items-center gap-2 text-black dark:text-white py-8 font-lexend hover:opacity-80"
             >
-                <div className="w-full flex justify-center items-center gap-2  text-black dark:text-white  py-8">
-                    See all our blog articles
-                    <Chevron className="text-accent-500 w-4 h-4" />
-                </div>
+                See all our blog articles
+                <MoveRight className="w-4 h-4 text-[#3ECF8E]" />
             </Link>
         </div>
     )
@@ -53,21 +48,17 @@ export const FeaturedBlog = ({
 const BlogCard = ({ item }: { item: any }) => {
     return (
         <Link href={`/blog/${item._sys.filename}`}>
-            <div className="bg-black hover:bg-neutral-900 rounded-sm cursor-pointer h-full w-full">
+            <div className="bg-neutral-900 hover:bg-neutral-800 rounded-sm gap-2 cursor-pointer h-full w-full">
                 <div className="p-6 flex flex-col h-full">
-                    {' '}
-                    {/* Added flex flex-col and h-full */}
-                    <h3 className="text-lg font-bold text-black dark:text-white ">
+                    <h3 className="text-[18px] font-normal font-lexend text-black dark:text-white">
                         {item.title}
                     </h3>
-                    <p className="text-base text-neutral-900 dark:text-neutral-400 line-clamp-3 font-normal">
+                    <p className="font-lexend text-[14px] text-neutral-400 dark:text-neutral-400 line-clamp-3 font-normal">
                         {item.seoDescription}
                     </p>
-                    <div className="flex items-center gap-1 text-sm text-black dark:text-white mt-auto">
-                        {' '}
-                        {/* Added mt-auto */}
-                        View article
-                        <Chevron className="text-accent-500 w-4 h-4" />
+                    <div className="flex items-center gap-2 text-sm text-black dark:text-white mt-auto font-lexend pt-6 hover:opacity-80">
+                        Learn more
+                        <MoveRight className="w-4 h-4 text-[#3ECF8E] " />
                     </div>
                 </div>
             </div>

@@ -60,7 +60,7 @@ const Testimonial = ({
     }
 }) => {
     return (
-        <div className="flex flex-col gap-3 bg-neutral-900 p-6 w-[360px] text-neutral-400">
+        <div className="flex flex-col gap-3 bg-neutral-900 p-4 w-[400px] text-neutral-400">
             {item.image && (
                 <div className="w-14 h-14 relative">
                     <Image
