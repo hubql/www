@@ -7,6 +7,7 @@ import {
     AccordionTrigger,
 } from '../kit/Accordion'
 import { Cta } from '../templates/Cta'
+import Image from 'next/image'
 import type { Template } from 'tinacms'
 import type { PagesBlocksServices } from '../../../tina/__generated__/types'
 import { tinaField } from 'tinacms/dist/react'
@@ -19,6 +20,11 @@ const getIcon = (iconName: string | undefined): LucideIcon | null => {
         LucideIcons as unknown as Record<string, LucideIcon>
     )[iconName]
     return IconComponent || null
+}
+
+const isImageUrl = (icon: string | undefined): boolean => {
+    if (!icon) return false
+    return icon.startsWith('/') || icon.startsWith('http') || icon.includes('.')
 }
 
 export const Services = ({ data }: { data: PagesBlocksServices }) => {
@@ -51,18 +57,33 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                         <AccordionTrigger className="py-6 px-8 flex justify-between items-center">
                             <div className="flex items-center gap-8">
                                 {card?.icon &&
-                                    (() => {
-                                        const IconComponent = getIcon(card.icon)
-                                        return IconComponent ? (
-                                            <IconComponent
-                                                className="w-5 h-5 text-primary"
-                                                data-tina-field={tinaField(
-                                                    card,
-                                                    'icon'
-                                                )}
-                                            />
-                                        ) : null
-                                    })()}
+                                    (isImageUrl(card.icon) ? (
+                                        <Image
+                                            src={card.icon}
+                                            alt={card.title ?? 'Service icon'}
+                                            width={20}
+                                            height={20}
+                                            data-tina-field={tinaField(
+                                                card,
+                                                'icon'
+                                            )}
+                                        />
+                                    ) : (
+                                        (() => {
+                                            const IconComponent = getIcon(
+                                                card.icon
+                                            )
+                                            return IconComponent ? (
+                                                <IconComponent
+                                                    className="w-5 h-5 text-primary"
+                                                    data-tina-field={tinaField(
+                                                        card,
+                                                        'icon'
+                                                    )}
+                                                />
+                                            ) : null
+                                        })()
+                                    ))}
                                 <h3 className="text-[18px] font-normal font-lexend break-words m-0">
                                     {card?.title}
                                 </h3>
@@ -213,7 +234,7 @@ export const servicesBlockSchema: Template = {
                     name: 'icon',
                     ui: {
                         description:
-                            'Enter a Lucide icon name (e.g., Code, Rocket, Zap, Database)',
+                            'Enter an image URL/path (e.g., /image.png) or a Lucide icon name (e.g., Code, Rocket, Zap, Database)',
                     },
                 },
             ],

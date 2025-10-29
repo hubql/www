@@ -33,7 +33,7 @@ export const Button = ({
         variant === 'outlined' &&
         'bg-transparent !text-white hover:underline border border-border'
     const variantGhost =
-        variant === 'ghost' && 'bg-transparent !text-white hover:bg-neutral-800'
+        variant === 'ghost' && 'bg-transparent !text-white hover:bg-primary'
     const variantGrey =
         variant === 'grey' && 'bg-[#404040] text-white hover:bg-[#505050]'
 

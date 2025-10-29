@@ -18,7 +18,7 @@ export function NavigationMenu({ data }: { data: any }) {
                             ) : (
                                 <Link
                                     href={`/${item.href}`}
-                                    className="block px-2 py-1 cursor-pointer hover:bg-neutral-800 text-sm font-normal tracking-wide font-lexend-400 rounded-sm"
+                                    className="block px-2 py-1 cursor-pointer hover:text-primary text-sm font-normal tracking-wide font-lexend-400 rounded-sm"
                                 >
                                     {item.label}
                                 </Link>

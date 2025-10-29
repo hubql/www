@@ -2900,7 +2900,7 @@
                                                 "label": "Icon",
                                                 "name": "icon",
                                                 "ui": {
-                                                    "description": "Enter a Lucide icon name (e.g., Code, Rocket, Zap, Database)"
+                                                    "description": "Enter an image URL/path (e.g., /image.png) or a Lucide icon name (e.g., Code, Rocket, Zap, Database)"
                                                 },
                                                 "namespace": [
                                                     "pages",
@@ -3521,9 +3521,12 @@
                                                 ]
                                             },
                                             {
-                                                "type": "image",
+                                                "type": "string",
                                                 "label": "Icon",
                                                 "name": "icon",
+                                                "ui": {
+                                                    "description": "Enter an image URL/path (e.g., /image.png) or a Lucide icon name (e.g., Code, Rocket, Zap, Database)"
+                                                },
                                                 "namespace": [
                                                     "pages",
                                                     "blocks",
@@ -11384,7 +11387,7 @@
                         "name": { "kind": "Name", "value": "icon" },
                         "type": {
                             "kind": "NamedType",
-                            "name": { "kind": "Name", "value": "ImageFilter" }
+                            "name": { "kind": "Name", "value": "StringFilter" }
                         }
                     }
                 ]

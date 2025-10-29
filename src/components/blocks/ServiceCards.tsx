@@ -5,6 +5,21 @@ import { Section } from '../kit/Section'
 import { tinaField } from 'tinacms/dist/react'
 import type { Template } from 'tinacms'
 import type { PagesBlocksServiceCards } from '../../../tina/__generated__/types'
+import * as LucideIcons from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
+
+const getIcon = (iconName: string | undefined): LucideIcon | null => {
+    if (!iconName) return null
+    const IconComponent = (
+        LucideIcons as unknown as Record<string, LucideIcon>
+    )[iconName]
+    return IconComponent || null
+}
+
+const isImageUrl = (icon: string | undefined): boolean => {
+    if (!icon) return false
+    return icon.startsWith('/') || icon.startsWith('http') || icon.includes('.')
+}
 
 export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
     return (
@@ -24,24 +39,40 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
                     className="lg:bg-background px-4 w-full transition-transform ease-in h-full flex flex-col justify-between"
                     data-tina-field={tinaField(item)}
                 >
-                    <span className="flex flex-col bg-[#171717] p-10 rounded-md lg:hover:bg-neutral-800 flex-1 w-full">
-                        <span className="flex flex-col">
+                    <span className="flex flex-col bg-[#171717] p-10 rounded-md lg:hover:bg-neutral-800 flex-1 w-full items-end h-full">
+                        <span className="flex flex-col h-full">
                             <span className="flex flex-row items-center gap-3 mb-2">
-                                {item?.icon && (
-                                    <Image
-                                        src={item.icon}
-                                        alt={item.title ?? 'Service logo'}
-                                        width={20}
-                                        height={20}
-                                        data-tina-field={tinaField(
-                                            item,
-                                            'icon'
-                                        )}
-                                    />
-                                )}
+                                {item?.icon &&
+                                    (isImageUrl(item.icon) ? (
+                                        <Image
+                                            src={item.icon}
+                                            alt={item.title ?? 'Service logo'}
+                                            width={20}
+                                            height={20}
+                                            data-tina-field={tinaField(
+                                                item,
+                                                'icon'
+                                            )}
+                                        />
+                                    ) : (
+                                        (() => {
+                                            const IconComponent = getIcon(
+                                                item.icon
+                                            )
+                                            return IconComponent ? (
+                                                <IconComponent
+                                                    className="w-5 h-5 text-primary"
+                                                    data-tina-field={tinaField(
+                                                        item,
+                                                        'icon'
+                                                    )}
+                                                />
+                                            ) : null
+                                        })()
+                                    ))}
                                 {item?.title && (
                                     <h3
-                                        className="text-zinc-50 font-lexend text-[18px]"
+                                        className="text-zinc-50 font-lexend text-[18px] mb-0"
                                         data-tina-field={tinaField(
                                             item,
                                             'title'
@@ -141,9 +172,13 @@ export const serviceCardsBlockSchema: Template = {
                     name: 'link',
                 },
                 {
-                    type: 'image',
+                    type: 'string',
                     label: 'Icon',
                     name: 'icon',
+                    ui: {
+                        description:
+                            'Enter an image URL/path (e.g., /image.png) or a Lucide icon name (e.g., Code, Rocket, Zap, Database)',
+                    },
                 },
             ],
         },
