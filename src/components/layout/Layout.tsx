@@ -6,7 +6,6 @@ import { Noto_Sans } from 'next/font/google'
 import { Orbitron } from 'next/font/google'
 import { Lexend } from 'next/font/google'
 
-
 const noto = Noto_Sans({
     subsets: ['latin'],
     weight: ['400', '500', '600', '700'],
@@ -94,21 +93,14 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                 <meta property="twitter:locale" content="en_US" />
             </Head>
             <div
-                className={`bg-black ${noto.variable} ${orbitron.variable} ${lexend.variable} font-noto`}
+                className={`bg-background ${noto.variable} ${orbitron.variable} ${lexend.variable} font-noto`}
             >
-                <div className="relative w-full overflow-x-hidden  bg-grid-neutral-800 flex h-full">
-                    <div
-                        className="relative pointer-events-none flex  z-0  flex-1
-                        bg-gradient-to-r from-black/10 to-black"
-                    />
+                <div className="relative w-full overflow-x-hidden flex h-full">
                     <div className="w-full  max-w-screen-xl mx-auto flex flex-col h-full">
                         <Header />
-                        <div className="relative z-10 w-full  border-x border-neutral-800 bg-black divide-y divide-neutral-800">
-                            {children}
-                        </div>
+                        <div className="relative z-10 w-full">{children}</div>
                         <Footer />
                     </div>
-                    <div className="relative pointer-events-none z-0 flex-1   bg-gradient-to-l from-black/10  to-black" />
                 </div>
             </div>
         </>
