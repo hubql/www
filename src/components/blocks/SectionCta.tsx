@@ -30,7 +30,10 @@ export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
                             {data.buttonOne && (
                                 <Button
                                     href={data.buttonOne.link ?? '/'}
-                                    data-tina-field={tinaField(data, 'buttonOne')}
+                                    data-tina-field={tinaField(
+                                        data,
+                                        'buttonOne'
+                                    )}
                                     size="sm"
                                 >
                                     {data.buttonOne.label}
@@ -39,7 +42,10 @@ export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
                             {data.buttonTwo && (
                                 <Button
                                     href={data.buttonTwo.link ?? '/'}
-                                    data-tina-field={tinaField(data, 'buttonTwo')}
+                                    data-tina-field={tinaField(
+                                        data,
+                                        'buttonTwo'
+                                    )}
                                     size="sm"
                                     variant="grey"
                                 >
@@ -50,7 +56,6 @@ export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
                     )}
                 </div>
             </div>
-            <div className="absolute -bottom-60 -left-60 z-10 bg-accent-100 opacity-10 blur-[100px] rounded-full w-[600px] h-[600px]" />
         </div>
     )
 }

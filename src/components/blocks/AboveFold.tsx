@@ -10,7 +10,7 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
         <div className="flex flex-wrap items-start w-fit justify-start overflow-hidden relative z-0 w-full border-b border-border min-h-[500px]">
             <div className="relative z-10 w-full max-w-7xl mx-auto">
                 <motion.div
-                    className="py-32 absolute top-0 left-0 lg:relative w-fit h-fit flex flex-col z-10 px-8 max-lg:bg-black/10 max-lg:backdrop-blur-sm h-full"
+                    className="py-32 relative w-fit h-fit flex flex-col z-10 px-8 h-full"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.2, delay: 0.1, ease: 'easeIn' }}

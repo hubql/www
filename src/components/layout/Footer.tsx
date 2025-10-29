@@ -14,11 +14,11 @@ export const Footer = () => {
         <footer className="w-full relative z-50">
             <div
                 className={cn(
-                    'flex w-full pb-16 bg-black max-w-screen-xl flex-col mx-auto gap-8 pb-4 border-t border-neutral-800 border-x',
+                    'flex w-full pb-16 bg-background max-w-screen-xl flex-col mx-auto gap-8 pb-4',
                     isDocs && 'max-w-full'
                 )}
             >
-                <ul className="w-full flex max-xl:gap-4 text-sm h-full items-start justify-between xl:grid grid-cols-5 lg:divide-x max-lg:divide-y divide-neutral-800 flex-col border-b border-neutral-800">
+                <ul className="w-full flex max-xl:gap-4 text-sm h-full items-start justify-between xl:grid grid-cols-5 flex-col">
                     {footerNav?.nav?.map((category, index) => {
                         return (
                             <li
@@ -28,7 +28,10 @@ export const Footer = () => {
                                 <div>
                                     <p className="text-white text-lg font-semibold py-1 mb-1 font-orbitron">
                                         {category?.href ? (
-                                            <Link href={category?.href} className='font-orbitron'>
+                                            <Link
+                                                href={category?.href}
+                                                className="font-orbitron"
+                                            >
                                                 {category?.label}
                                             </Link>
                                         ) : (
@@ -200,7 +203,6 @@ export const footerNav = {
                 //     label: 'Training',
                 //     href: 'services/training',
                 // },
-
                 // {
                 //     __typename: 'GlobalFooterNavNav',
                 //     isExternal: null,
@@ -213,7 +215,6 @@ export const footerNav = {
                 //     label: 'Custom Development',
                 //     href: 'services/custom-development',
                 // },
-
             ],
         },
         {

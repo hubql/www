@@ -1,19 +1,33 @@
 import { Section } from '../kit/Section'
 import { BlurredBlob } from '../kit/BlurredBlob'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../kit/Accordion'
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from '../kit/Accordion'
 import { Cta } from '../templates/Cta'
-import Image from 'next/image'
 import type { Template } from 'tinacms'
 import type { PagesBlocksServices } from '../../../tina/__generated__/types'
 import { tinaField } from 'tinacms/dist/react'
+import * as LucideIcons from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
+
+const getIcon = (iconName: string | undefined): LucideIcon | null => {
+    if (!iconName) return null
+    const IconComponent = (
+        LucideIcons as unknown as Record<string, LucideIcon>
+    )[iconName]
+    return IconComponent || null
+}
 
 export const Services = ({ data }: { data: PagesBlocksServices }) => {
     return (
         <Section
             title={data.title ?? 'What We Build for Founders and Startups'}
             className="divide-none"
-            titleClassName="pt-16 pb-2 text-[16px] text-normal font-thin"
-            contentClassName="z-10 flex flex-col gap-4 pb-12 px-2 pt-0"
+            titleClassName="pt-32 pb-2 text-[16px] text-normal font-thin"
+            contentClassName="z-10 flex flex-col gap-4 pb-12 px-2"
             delay={0}
             data-tina-field={tinaField(data, 'title')}
         >
@@ -36,15 +50,19 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                     >
                         <AccordionTrigger className="py-6 px-8 flex justify-between items-center">
                             <div className="flex items-center gap-8">
-                                {card?.icon && (
-                                    <Image
-                                        src={card.icon}
-                                        alt={card.title ?? 'Service icon'}
-                                        width={20}
-                                        height={20}
-                                        data-tina-field={tinaField(card, 'icon')}
-                                    />
-                                )}
+                                {card?.icon &&
+                                    (() => {
+                                        const IconComponent = getIcon(card.icon)
+                                        return IconComponent ? (
+                                            <IconComponent
+                                                className="w-5 h-5 text-primary"
+                                                data-tina-field={tinaField(
+                                                    card,
+                                                    'icon'
+                                                )}
+                                            />
+                                        ) : null
+                                    })()}
                                 <h3 className="text-[18px] font-normal font-lexend break-words m-0">
                                     {card?.title}
                                 </h3>
@@ -57,14 +75,21 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                                     {card?.description && (
                                         <p
                                             className="text-neutral-400 text-lexend text-[14px]"
-                                            data-tina-field={tinaField(card, 'description')}
+                                            data-tina-field={tinaField(
+                                                card,
+                                                'description'
+                                            )}
                                         >
                                             {card?.description}
                                         </p>
                                     )}
                                     <Cta
-                                        ctaButtonText={data.cta?.label ?? 'Contact Us'}
-                                        ctaButtonUrl={data.cta?.link ?? '/contact'}
+                                        ctaButtonText={
+                                            data.cta?.label ?? 'Contact Us'
+                                        }
+                                        ctaButtonUrl={
+                                            data.cta?.link ?? '/contact'
+                                        }
                                         className="py-0 justify-start text-normal"
                                         titleClassName="text-md font-bol4d font-lexend"
                                         containerClassName="justify-start items-start px-0"
@@ -76,7 +101,10 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                                 {card?.list && (
                                     <ul
                                         className="flex-1 flex flex-col gap-0 text-neutral-400 text-lexend list-disc"
-                                        data-tina-field={tinaField(card, 'list')}
+                                        data-tina-field={tinaField(
+                                            card,
+                                            'list'
+                                        )}
                                     >
                                         {card?.list
                                             .filter(Boolean)
@@ -90,8 +118,6 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                     </AccordionItem>
                 ))}
             </Accordion>
-
-            <BlurredBlob className="-right-60 -bottom-60" />
         </Section>
     )
 }
@@ -103,7 +129,8 @@ export const servicesBlockSchema: Template = {
         previewSrc: '',
         defaultItem: {
             title: 'What We Build for Founders and Startups',
-            subtitle: 'We help startups and founders by building innovative solutions that scale and make an impact.',
+            subtitle:
+                'We help startups and founders by building innovative solutions that scale and make an impact.',
             servicesCards: [
                 {
                     title: 'Research & Development',
@@ -115,7 +142,7 @@ export const servicesBlockSchema: Template = {
                         'Technical feasibility studies and software architecture validation.',
                         'Building internal tools and experimental software products.',
                     ],
-                    icon: '',
+                    icon: 'Code',
                 },
                 {
                     title: 'Web Development',
@@ -127,7 +154,7 @@ export const servicesBlockSchema: Template = {
                         'API development and third-party integrations for seamless connectivity.',
                         'Performance optimization and security best practices for scalable web apps.',
                     ],
-                    icon: '',
+                    icon: 'Globe',
                 },
             ],
             cta: {
@@ -181,9 +208,13 @@ export const servicesBlockSchema: Template = {
                     list: true,
                 },
                 {
-                    type: 'image',
+                    type: 'string',
                     label: 'Icon',
                     name: 'icon',
+                    ui: {
+                        description:
+                            'Enter a Lucide icon name (e.g., Code, Rocket, Zap, Database)',
+                    },
                 },
             ],
         },

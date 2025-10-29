@@ -21,7 +21,7 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
                 <Link
                     href={item?.link ?? '#'}
                     key={'servicecards-' + (item?.title ?? '') + index}
-                    className="lg:bg-black px-4 w-full transition-transform ease-in h-full flex flex-col justify-between"
+                    className="lg:bg-background px-4 w-full transition-transform ease-in h-full flex flex-col justify-between"
                     data-tina-field={tinaField(item)}
                 >
                     <span className="flex flex-col bg-[#171717] p-10 rounded-md lg:hover:bg-neutral-800 flex-1 w-full">

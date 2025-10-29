@@ -6,46 +6,49 @@ import { tinaField } from 'tinacms/dist/react'
 import type { Template } from 'tinacms'
 import type { PagesBlocksTrustedBy } from '../../../tina/__generated__/types'
 
-export const TrustedBy = ({
-    data,
-}: {
-    data: PagesBlocksTrustedBy
-}) => {
+export const TrustedBy = ({ data }: { data: PagesBlocksTrustedBy }) => {
     return (
         <Section
             title=""
             data-tina-field={tinaField(data, 'title')}
-            contentClassName="grid max-lg:grid-cols-3 lg:grid-cols-3"
+            contentClassName="flex flex-col gap-4 py-12"
             delay={0.2}
         >
-            {data.companies?.map((item, index) => (
-                <div key={index} className="flex items-center justify-center">
-                    <motion.div
-                        className="relative w-full aspect-video h-10"
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 0.3 + index * 0.09,
-                            type: 'spring',
-                            stiffness: 100,
-                            damping: 10,
-                        }}
-                        data-tina-field={tinaField(item)}
+            <div className="flex flex-col md:flex-row gap-16 justify-center items-center">
+                {data.companies?.map((item, index) => (
+                    <div
+                        key={index}
+                        className="flex items-center justify-center w-[130px]"
                     >
-                        <Image
-                            title={item?.name ?? ''}
-                            className={cn(item?.filter ?? '', 'p-2')}
-                            src={item?.logo ?? ''}
-                            alt={item?.name ?? ''}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            style={{ objectFit: 'contain' }}
-                            loading="eager"
-                        />
-                    </motion.div>
-                </div>
-            ))}
+                        <motion.div
+                            className="relative w-full aspect-video h-10"
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{
+                                duration: 0.5,
+                                delay: 0.3 + index * 0.09,
+                                type: 'spring',
+                                stiffness: 100,
+                                damping: 10,
+                            }}
+                            data-tina-field={tinaField(item)}
+                        >
+                            <Image
+                                title={item?.name ?? ''}
+                                className={cn(
+                                    item?.filter ?? '',
+                                    'object-contain'
+                                )}
+                                src={item?.logo ?? ''}
+                                alt={item?.name ?? ''}
+                                fill
+                                sizes="100vh"
+                                loading="eager"
+                            />
+                        </motion.div>
+                    </div>
+                ))}
+            </div>
 
             <motion.h2
                 className="col-span-full text-[12px] font-normal text-center font-lexend text-[#ABABAB]"
