@@ -16,10 +16,11 @@ export function NavigationMenu({ data }: { data: any }) {
                             {item.isExternal ? (
                                 <a href={`/${item.href}`}>{item.label}</a>
                             ) : (
-                                <Link href={`/${item.href}`}>
-                                    <div className="px-2 py-1 cursor-pointer hover:bg-neutral-800 text-sm font-normal tracking-wide font-lexend-400 rounded-sm">
-                                        {item.label}
-                                    </div>
+                                <Link
+                                    href={`/${item.href}`}
+                                    className="block px-2 py-1 cursor-pointer hover:bg-neutral-800 text-sm font-normal tracking-wide font-lexend-400 rounded-sm"
+                                >
+                                    {item.label}
                                 </Link>
                             )}
                         </div>
