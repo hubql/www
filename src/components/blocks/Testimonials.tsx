@@ -1,6 +1,7 @@
 import { Section } from '../kit/Section'
 import { motion } from 'framer-motion'
 import { tinaField } from 'tinacms/dist/react'
+import Image from 'next/image'
 import type { Template } from 'tinacms'
 import type { PagesBlocksTestimonials } from '../../../tina/__generated__/types'
 
@@ -55,13 +56,26 @@ const Testimonial = ({
         name?: string
         company?: string
         text?: string
+        image?: string
     }
 }) => {
     return (
-        <div className="flex flex-col gap-2 bg-neutral-900 p-6 pb-0 w-[334px] text-neutral-400 justify-center">
+        <div className="flex flex-col gap-3 bg-neutral-900 p-6 w-[360px] text-neutral-400">
+            {item.image && (
+                <div className="w-14 h-14 relative">
+                    <Image
+                        src={item.image}
+                        alt={item.name ?? 'Testimonial image'}
+                        fill
+                        className="object-cover"
+                        data-tina-field={tinaField(item, 'image')}
+                    />
+                </div>
+            )}
+
             {item.text && (
                 <p
-                    className="hyphens-auto text-sm"
+                    className="hyphens-auto text-sm m-0 py-2"
                     data-tina-field={tinaField(item, 'text')}
                 >
                     {item.text}
@@ -69,11 +83,18 @@ const Testimonial = ({
             )}
 
             {(item.name || item.company) && (
-                <div className="flex flex-row items-center gap-2 text-white text-sm">
-                    <p data-tina-field={tinaField(item, 'name')}>
-                        {item.name} {item.company && `@ ${item.company}`}
-                    </p>
-                </div>
+                <p
+                    className="text-white text-sm m-0"
+                    data-tina-field={tinaField(item, 'name')}
+                >
+                    {item.name}{''} 
+                    {item.company && (
+                        <>
+                        <span className = "text-[#3ECF8E]"> @</span>{' '}
+                            {item.company}
+                        </>
+                    )}
+                </p>
             )}
         </div>
     )
@@ -85,22 +106,25 @@ export const testimonialsBlockSchema: Template = {
     ui: {
         previewSrc: '',
         defaultItem: {
-            title: 'Our results',
+            title: 'Our Results',
             testimonials: [
                 {
                     name: 'Dan Starns',
                     company: 'rconnect.tech',
-                    text: 'Fantastic work! Hubql Labs delivered a stunning logo and website. Highly recommended for top-notch design and implementation!',
+                    text: 'Fantastic work! Hubql Labs delivered a stunning logo and website. Highly recommended!',
+                    image: '',
                 },
                 {
                     name: 'Patrick Wings',
-                    company: 'GrowSaaS',
-                    text: 'I highly recommend Hubql Labs for their fast and perfect execution in redesigning and implementing our website. They delivered a design and software that perfectly captured our brand essence, contributing significantly to our business success.',
+                    company: 'GROWSaaS',
+                    text: 'I highly recommend Hubql Labs for their fast and perfect execution.',
+                    image: '',
                 },
                 {
                     name: 'Darius',
                     company: 'Fintech',
-                    text: 'Hubql Labs has been an excellent long-term partner for us to build APIs and backend systems.',
+                    text: 'Hubql Labs has been an excellent long-term partner for us.',
+                    image: '',
                 },
             ],
         },
@@ -145,6 +169,11 @@ export const testimonialsBlockSchema: Template = {
                     label: 'Text',
                     name: 'text',
                     ui: { component: 'textarea' },
+                },
+                {
+                    type: 'image',
+                    label: 'Image',
+                    name: 'image',
                 },
             ],
         },
