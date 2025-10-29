@@ -12,10 +12,10 @@ export const Header = () => {
     const isDocs = pathname.includes('/docs/')
 
     return (
-        <header className="w-full sticky top-0 z-50 lg:top-0 left-0 z-50 h-14">
+        <header className="w-full sticky top-0 z-50 lg:top-0 left-0 z-50 h-fit  border-b border-border">
             <div
                 className={cn(
-                    'w-full max-w-7xl mx-auto bg-black/70 backdrop-blur-lg border-b border-neutral-800 border-x px-2',
+                    'w-full max-w-7xl mx-auto bg-background px-2 py-2',
                     isDocs && 'max-w-full'
                 )}
             >

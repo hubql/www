@@ -1,66 +1,79 @@
 import { motion } from 'framer-motion'
-import { HeroBg } from '../animation/HeroBg'
 import { Button } from '../kit/Button'
 import { tinaField } from 'tinacms/dist/react'
 import type { Template } from 'tinacms'
 import type { PagesBlocksAboveFold } from '../../../tina/__generated__/types'
+import Image from 'next/image'
 
 export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
     return (
-        <div className="flex flex-wrap items-start w-fit gap-y-2 gap-x-2 justify-start p-[2px] rounded-sm mt-6 w-full overflow-hidden relative z-0">
-            <motion.div
-                className="pt-24 pb-24 absolute top-0 left-0 lg:relative w-fit h-fit flex flex-col z-10 px-8 max-lg:bg-black/10 max-lg:backdrop-blur-sm h-full"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.2, delay: 0.1, ease: 'easeIn' }}
-            >
-                {data.title && (
-                    <h1
-                        className="text-white text-[42px] font-bold text-left font-orbitron tracking-wide max-w-4xl mb-[16px]"
-                        data-tina-field={tinaField(data, 'title')}
-                    >
-                        {data.title}
-                    </h1>
-                )}
+        <div className="flex flex-wrap items-start w-fit justify-start overflow-hidden relative z-0 w-full border-b border-border min-h-[500px]">
+            <div className="relative z-10 w-full max-w-7xl mx-auto">
+                <motion.div
+                    className="py-32 absolute top-0 left-0 lg:relative w-fit h-fit flex flex-col z-10 px-8 max-lg:bg-black/10 max-lg:backdrop-blur-sm h-full"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: 0.1, ease: 'easeIn' }}
+                >
+                    {data.title && (
+                        <h1
+                            className="text-white text-[42px] font-bold text-left font-orbitron tracking-wide max-w-4xl mb-[16px]"
+                            data-tina-field={tinaField(data, 'title')}
+                        >
+                            {data.title}
+                        </h1>
+                    )}
 
-                {data.paragraph && (
-                    <p
-                        className="max-w-2xl text-white-400 text-[16px] font-lexend"
-                        data-tina-field={tinaField(data, 'paragraph')}
-                    >
-                        {data.paragraph}
-                    </p>
-                )}
+                    {data.paragraph && (
+                        <p
+                            className="max-w-2xl text-white-400 text-[16px] font-lexend"
+                            data-tina-field={tinaField(data, 'paragraph')}
+                        >
+                            {data.paragraph}
+                        </p>
+                    )}
 
-                {(data.buttonOne || data.buttonTwo) && (
-                    <div className="flex flex-wrap text-[14px] items-start w-fit gap-y-2 gap-x-2 justify-center p-[2px] rounded-sm mt-4">
-                        {data.buttonOne && (
-                            <Button
-                                href={data.buttonOne.link ?? '/'}
-                                data-tina-field={tinaField(data, 'buttonOne')}
-                                size="sm"
-                            >
-                                {data.buttonOne.label}
-                            </Button>
-                        )}
+                    {(data.buttonOne || data.buttonTwo) && (
+                        <div className="flex flex-wrap text-[14px] items-start w-fit gap-y-2 gap-x-2 justify-center p-[2px] rounded-sm mt-4">
+                            {data.buttonOne && (
+                                <Button
+                                    href={data.buttonOne.link ?? '/'}
+                                    data-tina-field={tinaField(
+                                        data,
+                                        'buttonOne'
+                                    )}
+                                    size="sm"
+                                >
+                                    {data.buttonOne.label}
+                                </Button>
+                            )}
 
-                        {data.buttonTwo && (
-                            <Button
-                                href={data.buttonTwo.link ?? '/'}
-                                data-tina-field={tinaField(data, 'buttonTwo')}
-                                size="sm"
-                                variant="grey"
-                            >
-                                {data.buttonTwo.label}
-                            </Button>
-                        )}
-                    </div>
-                )}
-            </motion.div>
-
-            <HeroBg />
-
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-0 bottom-[0] px-0 w-full lg:divide-x divide-neutral-800 border-0 border-neutral-800"></div>
+                            {data.buttonTwo && (
+                                <Button
+                                    href={data.buttonTwo.link ?? '/'}
+                                    data-tina-field={tinaField(
+                                        data,
+                                        'buttonTwo'
+                                    )}
+                                    size="sm"
+                                    variant="grey"
+                                >
+                                    {data.buttonTwo.label}
+                                </Button>
+                            )}
+                        </div>
+                    )}
+                </motion.div>
+            </div>
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/home/hero-above-fold.svg"
+                    alt="Above Fold"
+                    fill
+                    priority
+                    objectFit="cover"
+                />
+            </div>
         </div>
     )
 }
