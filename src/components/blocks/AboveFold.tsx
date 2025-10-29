@@ -71,7 +71,7 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
                     alt="Above Fold"
                     fill
                     priority
-                    objectFit="cover"
+                    className="object-cover"
                 />
             </div>
         </div>

@@ -56,15 +56,15 @@ export const Button = ({
         <>
             {children}
             {icon && (
-                <div
+                <span
                     className={cn(
-                        'icon ',
+                        'icon inline-flex items-center',
                         !sizeIcon &&
                             'group-hover:translate-x-1 transition-transform ease-in'
                     )}
                 >
                     {iconLoader(icon)}
-                </div>
+                </span>
             )}
         </>
     )

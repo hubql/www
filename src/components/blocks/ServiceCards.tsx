@@ -6,14 +6,13 @@ import { tinaField } from 'tinacms/dist/react'
 import type { Template } from 'tinacms'
 import type { PagesBlocksServiceCards } from '../../../tina/__generated__/types'
 
-export const ServiceCards = ({
-    data,
-}: {
-    data: PagesBlocksServiceCards
-}) => {
+export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
     return (
         <Section
-            title={data.title ?? 'Specialized in Collaboration and 3D Experiences on the Web.'}
+            title={
+                data.title ??
+                'Specialized in Collaboration and 3D Experiences on the Web.'
+            }
             titleClassName="pt-20 text-[16px]"
             contentClassName="grid grid-cols-1 lg:grid-cols-2 px-0 w-full py-4"
             data-tina-field={tinaField(data, 'title')}
@@ -22,52 +21,59 @@ export const ServiceCards = ({
                 <Link
                     href={item?.link ?? '#'}
                     key={'servicecards-' + (item?.title ?? '') + index}
-                    className="w-full h-full"
+                    className="lg:bg-black px-4 w-full transition-transform ease-in h-full flex flex-col justify-between"
                     data-tina-field={tinaField(item)}
                 >
-                    <div className='lg:bg-black px-4 w-full transition-transform ease-in h-full flex flex-col justify-between'>
-                        <div className="flex flex-col bg-[#171717] p-10 rounded-md lg:hover:bg-neutral-800 flex-1 w-full">
-                            <div className="flex flex-col">
-                                <div className="flex flex-row items-center gap-3 mb-2">
-                                    {item?.icon && (
-                                        <Image
-                                            src={item.icon}
-                                            alt={item.title ?? 'Service logo'}
-                                            width={20}
-                                            height={20}
-                                            data-tina-field={tinaField(item, 'icon')}
-                                        />
+                    <span className="flex flex-col bg-[#171717] p-10 rounded-md lg:hover:bg-neutral-800 flex-1 w-full">
+                        <span className="flex flex-col">
+                            <span className="flex flex-row items-center gap-3 mb-2">
+                                {item?.icon && (
+                                    <Image
+                                        src={item.icon}
+                                        alt={item.title ?? 'Service logo'}
+                                        width={20}
+                                        height={20}
+                                        data-tina-field={tinaField(
+                                            item,
+                                            'icon'
+                                        )}
+                                    />
+                                )}
+                                {item?.title && (
+                                    <h3
+                                        className="text-zinc-50 font-lexend text-[18px]"
+                                        data-tina-field={tinaField(
+                                            item,
+                                            'title'
+                                        )}
+                                    >
+                                        {item.title}
+                                    </h3>
+                                )}
+                            </span>
+                            {item?.description && (
+                                <p
+                                    className="text-neutral-400 font-lexend text-[14px]"
+                                    data-tina-field={tinaField(
+                                        item,
+                                        'description'
                                     )}
-                                    {item?.title && (
-                                        <h3
-                                            className="text-zinc-50 font-lexend text-[18px]"
-                                            data-tina-field={tinaField(item, 'title')}
-                                        >
-                                            {item.title}
-                                        </h3>
-                                    )}
-                                </div>
-                                    {item?.description && (
-                                        <p
-                                            className="text-neutral-400 font-lexend text-[14px]"
-                                            data-tina-field={tinaField(item, 'description')}
-                                        >
-                                            {item.description}
-                                        </p>
-                                    )}
-                            </div>
+                                >
+                                    {item.description}
+                                </p>
+                            )}
+                        </span>
 
-                            <Cta
-                                ctaButtonText="Learn more"
-                                ctaButtonUrl="#"
-                                className="py-0 justify-start"
-                                titleClassName="text-sm font-lexend"
-                                containerClassName="justify-start items-start px-0"
-                                blob={false}
-                                inlineStyle
-                            />
-                        </div>
-                    </div>
+                        <Cta
+                            ctaButtonText="Learn more"
+                            ctaButtonUrl="#"
+                            className="py-0 justify-start"
+                            titleClassName="text-sm font-lexend"
+                            containerClassName="justify-start items-start px-0"
+                            blob={false}
+                            inlineStyle
+                        />
+                    </span>
                 </Link>
             ))}
         </Section>

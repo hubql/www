@@ -22,7 +22,7 @@ export const Header = () => {
                 <nav className="w-full mx-auto flex items-center justify-between h-14 relative">
                     <div className="w-fit h-full flex items-center justify-start">
                         <div className="pl-2 mr-2 ">
-                            <Link href="/" title="Go to the main page" passHref>
+                            <Link href="/" title="Go to the main page">
                                 <HubqlLogo className={'w-[90px]'} />
                             </Link>
                         </div>

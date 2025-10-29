@@ -42,7 +42,12 @@ export const Cta = ({
                     )}
                 >
                     {ctaTitle && (
-                        <h2 className={cn('text-4xl mb-0 font-orbitron', titleClassName)}>
+                        <h2
+                            className={cn(
+                                'text-4xl mb-0 font-orbitron',
+                                titleClassName
+                            )}
+                        >
                             {ctaTitle}
                         </h2>
                     )}
@@ -54,15 +59,17 @@ export const Cta = ({
                     )}
 
                     {inlineStyle ? (
-                        <a
-                            href={ctaButtonUrl}
-                            className="flex items-center gap-2 text-sm text-normal font-lexend cursor-pointer hover:opacity-80"
-                        >
+                        <span className="flex items-center gap-2 text-sm text-normal font-lexend cursor-pointer hover:opacity-80">
                             {ctaButtonText}
                             <MoveRight className="w-5 h-5 text-[#3ECF8E]" />
-                        </a>
+                        </span>
                     ) : (
-                        <Button icon="arrow" href={ctaButtonUrl} variant={buttonVariant} size="sm">
+                        <Button
+                            icon="arrow"
+                            href={ctaButtonUrl}
+                            variant={buttonVariant}
+                            size="sm"
+                        >
                             {ctaButtonText}
                         </Button>
                     )}

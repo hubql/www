@@ -49,19 +49,17 @@ const BlogCard = ({ item }: { item: any }) => {
     return (
         <Link
             href={`/blog/${item._sys.filename}`}
-            className="block bg-neutral-900 hover:bg-neutral-800 rounded-sm gap-2 cursor-pointer h-full w-full"
+            className="block bg-neutral-900 hover:bg-neutral-800 rounded-sm gap-2 cursor-pointer h-full w-full p-6 flex flex-col"
         >
-            <div className="p-6 flex flex-col h-full">
-                <h3 className="text-[18px] font-normal font-lexend text-black dark:text-white">
-                    {item.title}
-                </h3>
-                <p className="font-lexend text-[14px] text-neutral-400 dark:text-neutral-400 line-clamp-3 font-normal">
-                    {item.seoDescription}
-                </p>
-                <div className="flex items-center gap-2 text-sm text-black dark:text-white mt-auto font-lexend pt-6 hover:opacity-80">
-                    Learn more
-                    <MoveRight className="w-4 h-4 text-[#3ECF8E] " />
-                </div>
+            <h3 className="text-[18px] font-normal font-lexend text-black dark:text-white">
+                {item.title}
+            </h3>
+            <p className="font-lexend text-[14px] text-neutral-400 dark:text-neutral-400 line-clamp-3 font-normal">
+                {item.seoDescription}
+            </p>
+            <div className="flex items-center gap-2 text-sm text-black dark:text-white mt-auto font-lexend pt-6 hover:opacity-80">
+                Learn more
+                <MoveRight className="w-4 h-4 text-[#3ECF8E] " />
             </div>
         </Link>
     )
