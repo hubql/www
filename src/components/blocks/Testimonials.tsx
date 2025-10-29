@@ -5,11 +5,7 @@ import Image from 'next/image'
 import type { Template } from 'tinacms'
 import type { PagesBlocksTestimonials } from '../../../tina/__generated__/types'
 
-export const Testimonials = ({
-    data,
-}: {
-    data: PagesBlocksTestimonials
-}) => {
+export const Testimonials = ({ data }: { data: PagesBlocksTestimonials }) => {
     return (
         <Section
             title={data.title ?? 'Our Results'}
@@ -27,7 +23,7 @@ export const Testimonials = ({
                 </p>
             )}
 
-            <div className="flex flex-row gap-4 overflow-x-auto items-center mt-2">
+            <div className="flex xl:flex-row flex-col gap-4 items-center mt-2">
                 {data.testimonials?.map((testimonial: any, index: number) => (
                     <motion.div
                         key={`testimonial-${testimonial?.name}-${index}`}
@@ -87,10 +83,11 @@ const Testimonial = ({
                     className="text-white text-sm m-0"
                     data-tina-field={tinaField(item, 'name')}
                 >
-                    {item.name}{''} 
+                    {item.name}
+                    {''}
                     {item.company && (
                         <>
-                        <span className = "text-[#3ECF8E]"> @</span>{' '}
+                            <span className="text-[#3ECF8E]"> @</span>{' '}
                             {item.company}
                         </>
                     )}
@@ -150,7 +147,9 @@ export const testimonialsBlockSchema: Template = {
             list: true,
             ui: {
                 itemProps: (item) => ({
-                    label: item?.name ? `${item.name} (${item.company})` : 'Testimonial',
+                    label: item?.name
+                        ? `${item.name} (${item.company})`
+                        : 'Testimonial',
                 }),
             },
             fields: [
