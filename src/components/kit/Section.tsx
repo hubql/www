@@ -12,7 +12,7 @@ export const Section = ({
 }: {
     children: React.ReactNode
     className?: string
-    title: string
+    title?: string
     contentClassName?: string
     titleClassName?: string
     delay?: number
@@ -29,24 +29,26 @@ export const Section = ({
             )}
         >
             <div className="w-full max-w-7xl mx-auto">
-                <motion.h2
-                    className={cn(
-                        'text-[16px] font-normal py-2 text-center px-4 mb-0 font-lexend text-[#ABABAB]',
-                        titleClassName
-                    )}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{
-                        opacity: isInView ? 1 : 0,
-                        x: isInView ? 0 : -10,
-                    }}
-                    transition={{
-                        duration: 0.2,
-                        delay: delay ? delay : 0.2,
-                        ease: 'easeIn',
-                    }}
-                >
-                    {title}
-                </motion.h2>
+                {title && (
+                    <motion.h2
+                        className={cn(
+                            'text-[16px] font-normal py-2 text-center px-4 mb-0 font-lexend text-[#ABABAB]',
+                            titleClassName
+                        )}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                            opacity: isInView ? 1 : 0,
+                            x: isInView ? 0 : -10,
+                        }}
+                        transition={{
+                            duration: 0.2,
+                            delay: delay ? delay : 0.2,
+                            ease: 'easeIn',
+                        }}
+                    >
+                        {title}
+                    </motion.h2>
+                )}
 
                 <motion.div
                     className={cn(

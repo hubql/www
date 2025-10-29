@@ -96,9 +96,11 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                 className={`bg-background ${noto.variable} ${orbitron.variable} ${lexend.variable} font-noto`}
             >
                 <div className="relative w-full overflow-x-hidden flex h-full">
-                    <div className="w-full flex flex-col h-full">
+                    <div className="w-full flex flex-col h-full min-h-screen items-start">
                         <Header />
-                        <div className="relative z-10 w-full">{children}</div>
+                        <div className="relative z-10 w-full flex-1">
+                            {children}
+                        </div>
                         <Footer />
                     </div>
                 </div>
