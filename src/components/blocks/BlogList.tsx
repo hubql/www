@@ -13,7 +13,7 @@ export const FeaturedBlog = ({
 }) => {
     return (
         <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col items-center justify-center text-center py-2 px-8">
+            <div className="flex flex-col items-center justify-center text-center py-2 pt-14 px-8">
                 <div className="flex flex-row gap-2 justify-center items-center">
                     <h2
                         className="text-[16px] font-normal text-black dark:text-white font-lexend pt-6"
@@ -36,7 +36,7 @@ export const FeaturedBlog = ({
             </div>
             <Link
                 href={'/blog'}
-                className="text-center text-[14px] w-full flex justify-center items-center gap-2 text-black dark:text-white py-8 font-lexend hover:opacity-80"
+                className="text-center text-[14px] w-full flex justify-center items-center gap-2 text-black dark:text-white py-8 pb-16 font-lexend hover:opacity-80"
             >
                 See all our blog articles
                 <MoveRight className="w-4 h-4 text-[#3ECF8E]" />
