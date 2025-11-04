@@ -5,7 +5,7 @@ import * as React from 'react'
 
 export function NavigationMenu({ data }: { data: any }) {
     return (
-        <div className="hidden lg:block absolute left-[14%] -translate-x-1/4">
+        <div className="hidden lg:block relative">
             <div className=" flex items-center justify-start gap-1">
                 {data.map((item: any, index: number) => {
                     return (

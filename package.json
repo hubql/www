@@ -18,6 +18,8 @@
         "@radix-ui/react-dropdown-menu": "^2.0.6",
         "@radix-ui/react-navigation-menu": "^1.1.4",
         "@radix-ui/react-tabs": "^1.0.4",
+        "@splinetool/react-spline": "^4.1.0",
+        "@splinetool/runtime": "^1.10.90",
         "@tinacms/cli": "^1.9.2",
         "@tsparticles/engine": "^3.4.0",
         "@tsparticles/react": "^3.0.0",

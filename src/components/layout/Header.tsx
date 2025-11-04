@@ -21,13 +21,14 @@ export const Header = () => {
             >
                 <nav className="w-full mx-auto flex items-center justify-between h-14 relative">
                     <div className="w-fit h-full flex items-center justify-start">
-                        <div className="pl-2 mr-2 ">
+                        <div className="pl-2 mr-8">
                             <Link href="/" title="Go to the main page">
                                 <HubqlLogo className={'w-[90px]'} />
                             </Link>
                         </div>
+                        <NavigationMenu data={headerNav.nav} />
                     </div>
-                    <NavigationMenu data={headerNav.nav} />
+
                     <div className="h-full flex items-center lg:gap-2 gap-1">
                         <Button
                             href="/contact"
