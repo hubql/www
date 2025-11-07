@@ -34,7 +34,6 @@ export const ProductPagesTemplate = ({ content }: { content: ProductPage }) => {
     const ref = useRef(null)
     return (
         <div className="w-full rselative flex items-center justify-center overflow-clip ">
-            <SubNav />
             <div className="w-full relative z-0 grid gri-cols-1 divide-y divide-neutral-800 lg:mt-[52px]">
                 <div className="relative w-full p-4 min-h-[400px] flex flex-col justify-center items-center overflow-clip">
                     <h1 className="text-center max-w-xl mx-auto text-2xl lg:text-4xl font-orbitron">
@@ -77,7 +76,9 @@ export const ProductPagesTemplate = ({ content }: { content: ProductPage }) => {
                 {content.videoTitle && (
                     <div className="w-full grid grid-cols-1 lg:grid-cols-3  divide-x divide-neutral-800 min-h-[400px]">
                         <div className="w-full p-[50px] h-full flex flex-col justify-center items-start col-span-1">
-                            <h2 className="text-2xl font-orbitron">{content.videoTitle}</h2>
+                            <h2 className="text-2xl font-orbitron">
+                                {content.videoTitle}
+                            </h2>
                             <p className="text-base text-neutral-400">
                                 {content.videoDescription}
                             </p>
@@ -104,12 +105,14 @@ export const ProductPagesTemplate = ({ content }: { content: ProductPage }) => {
                             className={cn(
                                 ' w-full grid grid-cols-1 lg:grid-cols-2 gap-[50px] border-l border-b border-neutral-800',
                                 section.imageUrl === undefined &&
-                                'lg:grid-cols-1'
+                                    'lg:grid-cols-1'
                             )}
                             key={'prd-section-' + index}
                         >
                             <div className="w-full p-8">
-                                <h2 className="text-2xl font-orbitron">{section.title}</h2>
+                                <h2 className="text-2xl font-orbitron">
+                                    {section.title}
+                                </h2>
                                 <div className="text-base text-neutral-400 prose">
                                     {section.description}
                                 </div>

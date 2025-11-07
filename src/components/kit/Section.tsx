@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { cn } from '../util/cn'
 import { motion, useInView } from 'framer-motion'
+
 export const Section = ({
     children,
     className,
@@ -11,55 +12,63 @@ export const Section = ({
 }: {
     children: React.ReactNode
     className?: string
-    title: string
+    title?: string
     contentClassName?: string
     titleClassName?: string
     delay?: number
 }) => {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true })
+
     return (
         <div
+            ref={ref}
             className={cn(
-                'relative w-full flex flex-col items-center justify-center divide-y divide-neutral-800 overflow-hidden',
+                'relative w-full flex flex-col items-center justify-center overflow-hidden',
                 className
             )}
         >
-            <div
-                ref={ref}
-                className={cn(
-                    'w-full flex flex-row items-center justify-center',
-                    titleClassName
+            <div className="w-full max-w-7xl mx-auto">
+                {title && (
+                    <motion.h2
+                        className={cn(
+                            'text-[16px] font-normal py-2 text-center px-4 mb-0 font-lexend text-[#ABABAB]',
+                            titleClassName
+                        )}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                            opacity: isInView ? 1 : 0,
+                            x: isInView ? 0 : -10,
+                        }}
+                        transition={{
+                            duration: 0.2,
+                            delay: delay ? delay : 0.2,
+                            ease: 'easeIn',
+                        }}
+                    >
+                        {title}
+                    </motion.h2>
                 )}
-            >
-                <motion.h2
-                    className="text-lg font-bold text-center py-6 px-4 mb-0 font-orbitron tracking-wide"
-                    initial={{ opacity: 0, x: isInView ? -10 : -10 }}
-                    animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : 0 }}
+
+                <motion.div
+                    className={cn(
+                        'w-full grid max-lg:grid-cols-1 lg:grid-cols-4',
+                        contentClassName
+                    )}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{
+                        opacity: isInView ? 1 : 0,
+                        x: isInView ? 0 : -10,
+                    }}
                     transition={{
                         duration: 0.2,
-                        delay: delay ? delay : isInView ? 0.2 : 0,
+                        delay: delay ? delay : 0.5,
                         ease: 'easeIn',
                     }}
                 >
-                    {title}
-                </motion.h2>
+                    {children}
+                </motion.div>
             </div>
-            <motion.div
-                className={cn(
-                    'w-full grid max-lg:grid-cols-1 lg:grid-cols-4 gap-4 max-lg:divide-y max-lg:divide-neutral-800 lg:divide-x divide-neutral-800',
-                    contentClassName
-                )}
-                initial={{ opacity: 0, x: isInView ? -10 : -10 }}
-                animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : 0 }}
-                transition={{
-                    duration: 0.2,
-                    delay: delay ? delay : isInView ? 0.5 : 0,
-                    ease: 'easeIn',
-                }}
-            >
-                {children}
-            </motion.div>
         </div>
     )
 }

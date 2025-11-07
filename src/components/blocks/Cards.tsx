@@ -46,38 +46,31 @@ export const Cards = ({ data }: { data: PagesBlocksCards }) => {
                     {hasLink && (
                         <Link
                             href={action?.link ?? ''}
-                            className={clsx('w-full', colSpan())}
+                            className={clsx(
+                                'w-full flex flex-col gap-3 border border-transparent hover:border-zinc-700 rounded-lg p-4',
+                                colSpan()
+                            )}
+                            data-tina-field={tinaField(data, 'cards', index)}
                         >
-                            <div
-                                className={clsx(
-                                    'flex flex-col w-full gap-3 border border-transparent hover:border-zinc-700 rounded-lg p-4'
-                                )}
-                                data-tina-field={tinaField(
-                                    data,
-                                    'cards',
-                                    index
-                                )}
-                            >
-                                {action?.icon?.src && (
-                                    <div className=" relative w-12 h-12 rounded-lg  bg-zinc-800 p-1">
-                                        <Image
-                                            fill={true}
-                                            src={action?.icon?.src ?? ''}
-                                            alt={action?.icon?.alt ?? ''}
-                                            style={{
-                                                maxWidth: '100%',
-                                                height: 'auto',
-                                            }}
-                                        />
-                                    </div>
-                                )}
-                                <h3 className="text-zinc-50 text-lg">
-                                    {action?.title}
-                                </h3>
-                                <p className="text-zinc-400 text-lg">
-                                    {action?.paragraph}
-                                </p>
-                            </div>
+                            {action?.icon?.src && (
+                                <div className=" relative w-12 h-12 rounded-lg  bg-zinc-800 p-1">
+                                    <Image
+                                        fill={true}
+                                        src={action?.icon?.src ?? ''}
+                                        alt={action?.icon?.alt ?? ''}
+                                        style={{
+                                            maxWidth: '100%',
+                                            height: 'auto',
+                                        }}
+                                    />
+                                </div>
+                            )}
+                            <h3 className="text-zinc-50 text-lg">
+                                {action?.title}
+                            </h3>
+                            <p className="text-zinc-400 text-lg">
+                                {action?.paragraph}
+                            </p>
                         </Link>
                     )}
                     {!hasLink && (

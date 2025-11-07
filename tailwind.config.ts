@@ -26,10 +26,17 @@ const config: Config = {
                     700: '#097631',
                 },
                 black: '#000000',
+                background: '#121212',
+                muted: '#404040',
+                primary: '#3ECF8E',
+                'muted-foreground': '#ABABAB',
+                card: '#171717',
+                border: '#2E2E2E',
             },
             fontFamily: {
                 noto: ['var(--font-noto)'],
                 orbitron: ['var(--font-orbitron)'],
+                lexend: ['var(--font-lexend)'],
             },
             animation: {
                 spotlight: 'spotlight 2s ease .75s 1 forwards',

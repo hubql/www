@@ -14,11 +14,11 @@ export const Footer = () => {
         <footer className="w-full relative z-50">
             <div
                 className={cn(
-                    'flex w-full pb-16 bg-black max-w-screen-xl flex-col mx-auto gap-8 pb-4 border-t border-neutral-800 border-x',
+                    'flex w-full pb-16 bg-background max-w-screen-xl flex-col mx-auto gap-8 pb-4',
                     isDocs && 'max-w-full'
                 )}
             >
-                <ul className="w-full flex max-xl:gap-4 text-sm h-full items-start justify-between xl:grid grid-cols-5 lg:divide-x max-lg:divide-y divide-neutral-800 flex-col border-b border-neutral-800">
+                <ul className="w-full flex max-xl:gap-4 text-sm h-full items-start justify-between xl:grid grid-cols-5 flex-col">
                     {footerNav?.nav?.map((category, index) => {
                         return (
                             <li
@@ -26,9 +26,12 @@ export const Footer = () => {
                                 className="text-left w-full h-full px-8 py-8"
                             >
                                 <div>
-                                    <p className="text-white text-lg font-semibold py-1 mb-1 font-orbitron">
+                                    <p className="text-white text-lg font-semibold py-1 mb-1 font-lexend">
                                         {category?.href ? (
-                                            <Link href={category?.href} className='font-orbitron'>
+                                            <Link
+                                                href={category?.href}
+                                                className="font-lexend"
+                                            >
                                                 {category?.label}
                                             </Link>
                                         ) : (
@@ -188,19 +191,18 @@ export const footerNav = {
             label: 'Services',
             href: '/services',
             nav: [
-                // {
-                //     __typename: 'GlobalFooterNavNav',
-                //     isExternal: null,
-                //     label: 'Consulting',
-                //     href: 'services/consulting',
-                // },
-                // {
-                //     __typename: 'GlobalFooterNavNav',
-                //     isExternal: null,
-                //     label: 'Training',
-                //     href: 'services/training',
-                // },
-
+                {
+                    __typename: 'GlobalFooterNavNav',
+                    isExternal: null,
+                    label: 'Collaborative Web App',
+                    href: 'contact',
+                },
+                {
+                    __typename: 'GlobalFooterNavNav',
+                    isExternal: null,
+                    label: '3D Web App',
+                    href: 'contact',
+                },
                 // {
                 //     __typename: 'GlobalFooterNavNav',
                 //     isExternal: null,
@@ -213,91 +215,90 @@ export const footerNav = {
                 //     label: 'Custom Development',
                 //     href: 'services/custom-development',
                 // },
-
             ],
         },
-        {
-            __typename: 'GlobalFooterNav',
-            label: 'Products',
-            href: '/products',
-            nav: [
-                {
-                    __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'Hubql Grid',
-                    href: 'product/hubql-grid',
-                },
-                {
-                    __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'Hubql Client',
-                    href: 'product/api-client',
-                },
+        // {
+        //     __typename: 'GlobalFooterNav',
+        //     label: 'Products',
+        //     href: '/products',
+        //     nav: [
+        //         {
+        //             __typename: 'GlobalFooterNavNav',
+        //             isExternal: null,
+        //             label: 'Hubql Grid',
+        //             href: 'product/hubql-grid',
+        //         },
+        //         {
+        //             __typename: 'GlobalFooterNavNav',
+        //             isExternal: null,
+        //             label: 'Hubql Client',
+        //             href: 'product/api-client',
+        //         },
 
-                {
-                    __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'Hubql Ref',
-                    href: 'product/api-reference-hosting',
-                },
-                {
-                    __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'Hubql Lens',
-                    href: 'product/schema-visualizer',
-                },
-                {
-                    __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'Pricing',
-                    href: 'pricing',
-                },
-            ],
-        },
-        {
-            __typename: 'GlobalFooterNav',
-            label: 'Use Cases',
-            href: null,
-            nav: [
-                {
-                    __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'Docs for LLMs',
-                    href: 'for-llms',
-                },
-                {
-                    __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'Docs for AI Code Editors',
-                    href: 'solutions/ai-code-editor-context',
-                },
-                {
-                    __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'Doc Automation',
-                    href: 'product/hubql-grid',
-                },
-                {
-                    __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'API Testing',
-                    href: 'product/api-client',
-                },
+        //         {
+        //             __typename: 'GlobalFooterNavNav',
+        //             isExternal: null,
+        //             label: 'Hubql Ref',
+        //             href: 'product/api-reference-hosting',
+        //         },
+        //         {
+        //             __typename: 'GlobalFooterNavNav',
+        //             isExternal: null,
+        //             label: 'Hubql Lens',
+        //             href: 'product/schema-visualizer',
+        //         },
+        //         {
+        //             __typename: 'GlobalFooterNavNav',
+        //             isExternal: null,
+        //             label: 'Pricing',
+        //             href: 'pricing',
+        //         },
+        //     ],
+        // },
+        // {
+        //     __typename: 'GlobalFooterNav',
+        //     label: 'Use Cases',
+        //     href: null,
+        //     nav: [
+        //         {
+        //             __typename: 'GlobalFooterNavNav',
+        //             isExternal: null,
+        //             label: 'Docs for LLMs',
+        //             href: 'for-llms',
+        //         },
+        //         {
+        //             __typename: 'GlobalFooterNavNav',
+        //             isExternal: null,
+        //             label: 'Docs for AI Code Editors',
+        //             href: 'solutions/ai-code-editor-context',
+        //         },
+        //         {
+        //             __typename: 'GlobalFooterNavNav',
+        //             isExternal: null,
+        //             label: 'Doc Automation',
+        //             href: 'product/hubql-grid',
+        //         },
+        //         {
+        //             __typename: 'GlobalFooterNavNav',
+        //             isExternal: null,
+        //             label: 'API Testing',
+        //             href: 'product/api-client',
+        //         },
 
-                {
-                    __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'API Reference Hosting',
-                    href: 'product/api-reference-hosting',
-                },
-                {
-                    __typename: 'GlobalFooterNavNav',
-                    isExternal: null,
-                    label: 'API Visualization',
-                    href: 'product/schema-visualizer',
-                },
-            ],
-        },
+        //         {
+        //             __typename: 'GlobalFooterNavNav',
+        //             isExternal: null,
+        //             label: 'API Reference Hosting',
+        //             href: 'product/api-reference-hosting',
+        //         },
+        //         {
+        //             __typename: 'GlobalFooterNavNav',
+        //             isExternal: null,
+        //             label: 'API Visualization',
+        //             href: 'product/schema-visualizer',
+        //         },
+        //     ],
+        // },
         {
             __typename: 'GlobalFooterNav',
             label: 'Developers',

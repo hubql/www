@@ -5,7 +5,7 @@ import * as React from 'react'
 
 export function NavigationMenu({ data }: { data: any }) {
     return (
-        <div className="hidden lg:block absolute left-1/2 -translate-x-1/2">
+        <div className="hidden lg:block relative">
             <div className=" flex items-center justify-start gap-1">
                 {data.map((item: any, index: number) => {
                     return (
@@ -16,10 +16,11 @@ export function NavigationMenu({ data }: { data: any }) {
                             {item.isExternal ? (
                                 <a href={`/${item.href}`}>{item.label}</a>
                             ) : (
-                                <Link href={`/${item.href}`}>
-                                    <div className="px-2 py-1 cursor-pointer hover:bg-neutral-800 text-sm font-bold tracking-wide  font-orbitron rounded-sm">
-                                        {item.label}
-                                    </div>
+                                <Link
+                                    href={`/${item.href}`}
+                                    className="block px-2 py-1 cursor-pointer hover:text-primary text-sm font-normal tracking-wide font-lexend-400 rounded-sm"
+                                >
+                                    {item.label}
                                 </Link>
                             )}
                         </div>

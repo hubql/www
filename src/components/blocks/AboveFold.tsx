@@ -1,51 +1,91 @@
 import { motion } from 'framer-motion'
-import { HeroBg } from '../animation/HeroBg'
 import { Button } from '../kit/Button'
 import { tinaField } from 'tinacms/dist/react'
 import type { Template } from 'tinacms'
 import type { PagesBlocksAboveFold } from '../../../tina/__generated__/types'
+import Image from 'next/image'
 
 export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
     return (
-        <div className="flex flex-wrap items-start w-fit gap-y-2 gap-x-2 justify-start p-[2px] rounded-sm mt-4 w-full overflow-hidden relative z-0">
-            <motion.div
-                className="pt-24 pb-24 absolute top-0 left-0 lg:relative w-fit h-fit flex flex-col z-10 px-8 max-lg:bg-black/10 max-lg:backdrop-blur-sm h-full"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.2, delay: 0.1, ease: 'easeIn' }}
-            >
-                {data.title && (
-                    <h1
-                        className="text-white text-3xl lg:text-5xl font-bold lg:font-medium text-left font-orbitron tracking-wide max-w-4xl"
-                        data-tina-field={tinaField(data, 'title')}
-                    >
-                        {data.title}
-                    </h1>
-                )}
-
-                {data.paragraph && (
-                    <p
-                        className="max-w-xl text-neutral-400 text-base lg:text-xl"
-                        data-tine-field={tinaField(data, 'paragraph')}
-                    >
-                        {data.paragraph}
-                    </p>
-                )}
-
-                {data.button && (
-                    <div className="flex flex-wrap items-start w-fit gap-y-2 gap-x-2 justify-center p-[2px] rounded-sm mt-4">
-                        <Button
-                            href={data.button.link ?? '/'}
-                            icon={'arrow'}
-                            data-tina-field={tinaField(data, 'button')}
+        <div className="flex flex-wrap items-start w-fit justify-start overflow-hidden relative z-0 w-full  min-h-[500px]">
+            <div className="relative z-10 w-full max-w-7xl mx-auto">
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-0">
+                    <div className="w-full h-full flex items-center justify-center">
+                        <motion.div
+                            className="py-32 relative w-fit h-fit flex flex-col z-10 px-8 h-full"
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{
+                                duration: 0.2,
+                                delay: 0.1,
+                                ease: 'easeIn',
+                            }}
                         >
-                            {data.button.label}
-                        </Button>
+                            {data.title && (
+                                <h1
+                                    className="text-white text-[42px] font-bold text-left font-orbitron tracking-wide max-w-4xl mb-[16px]"
+                                    data-tina-field={tinaField(data, 'title')}
+                                >
+                                    {data.title}
+                                </h1>
+                            )}
+
+                            {data.paragraph && (
+                                <p
+                                    className="max-w-2xl text-white-400 text-[16px] font-lexend"
+                                    data-tina-field={tinaField(
+                                        data,
+                                        'paragraph'
+                                    )}
+                                >
+                                    {data.paragraph}
+                                </p>
+                            )}
+
+                            {(data.buttonOne || data.buttonTwo) && (
+                                <div className="flex flex-wrap text-[14px] items-start w-fit gap-y-2 gap-x-2 justify-center p-[2px] rounded-sm mt-4">
+                                    {data.buttonOne && (
+                                        <Button
+                                            href={data.buttonOne.link ?? '/'}
+                                            data-tina-field={tinaField(
+                                                data,
+                                                'buttonOne'
+                                            )}
+                                            size="sm"
+                                        >
+                                            {data.buttonOne.label}
+                                        </Button>
+                                    )}
+
+                                    {data.buttonTwo && (
+                                        <Button
+                                            href={data.buttonTwo.link ?? '/'}
+                                            data-tina-field={tinaField(
+                                                data,
+                                                'buttonTwo'
+                                            )}
+                                            size="sm"
+                                            variant="grey"
+                                        >
+                                            {data.buttonTwo.label}
+                                        </Button>
+                                    )}
+                                </div>
+                            )}
+                        </motion.div>
                     </div>
-                )}
-            </motion.div>
-            <HeroBg />
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-0 bottom-[0] px-0 w-full lg:divide-x divide-neutral-800 border-0 border-neutral-800"></div>
+                </div>
+            </div>
+            <div className="absolute z-0 bottom-0 left-0 w-full h-full ">
+                <Image
+                    src="/home/hero-above-fold.svg"
+                    alt="Above Fold Hero"
+                    fill
+                    sizes="100vw"
+                    priority
+                    className="object-cover object-center"
+                />
+            </div>
         </div>
     )
 }
@@ -56,12 +96,16 @@ export const aboveFoldBlockSchema: Template = {
     ui: {
         previewSrc: '',
         defaultItem: {
-            title: 'Intelligent Software Solutions for Fast-Moving Companies',
+            title: 'We Build Your Ideas into Scalable Web Apps with Supabase.',
             paragraph:
-                'Hubql is a software services company delivering excellent web applications, APIs, and open-source tools. We help fast-moving teams build software with precision.',
-            button: {
-                label: 'Build with us',
+                'Hubql specializes in Supabase development, creating collaboration platforms and 3D web experiences that help startups move fast—from prototype to launch.',
+            buttonOne: {
+                label: 'Start your project',
                 link: '/contact',
+            },
+            buttonTwo: {
+                label: 'Learn more',
+                link: '/about',
             },
         },
     },
@@ -81,18 +125,34 @@ export const aboveFoldBlockSchema: Template = {
             },
         },
         {
-            label: 'Button',
-            name: 'button',
+            label: 'Button One',
+            name: 'buttonOne',
             type: 'object',
             fields: [
                 {
-                    label: 'label',
+                    label: 'Label',
                     name: 'label',
                     type: 'string',
                 },
-
                 {
-                    label: 'link',
+                    label: 'Link',
+                    name: 'link',
+                    type: 'string',
+                },
+            ],
+        },
+        {
+            label: 'Button Two',
+            name: 'buttonTwo',
+            type: 'object',
+            fields: [
+                {
+                    label: 'Label',
+                    name: 'label',
+                    type: 'string',
+                },
+                {
+                    label: 'Link',
                     name: 'link',
                     type: 'string',
                 },

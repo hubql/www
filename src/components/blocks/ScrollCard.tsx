@@ -63,40 +63,36 @@ export const ScrollCard = ({ data }: { data: PagesBlocksScrollCard }) => {
                                     {item?.externalLink && (
                                         <Link
                                             href={item?.externalLink?.url ?? ''}
+                                            className="w-full flex items-center justify-start gap-4 text-lg hover:opacity-80"
                                         >
-                                            <div className="w-full flex items-center justify-start gap-4 text-lg hover:opacity-80">
-                                                {item?.externalLink?.image && (
-                                                    <Image
-                                                        src={
-                                                            item?.externalLink
-                                                                ?.image?.src ??
-                                                            ''
-                                                        }
-                                                        alt={
-                                                            item?.externalLink
-                                                                ?.image?.alt ??
-                                                            ''
-                                                        }
-                                                        width={64}
-                                                        height={64}
-                                                        className="rounded-lg border-2 border-neutral-700 h-16 w-16"
-                                                        style={{
-                                                            maxWidth: '100%',
-                                                            height: 'auto',
-                                                        }}
-                                                    />
-                                                )}
-                                                <div className="flex gap-2 items-center prose prose-strong:font-semibold prose-strong:text-neutral-400 text-left text-white">
-                                                    <TinaMarkdown
-                                                        content={
-                                                            item.externalLink
-                                                                .label
-                                                        }
-                                                        components={components}
-                                                    />
-                                                </div>
-                                                <ArrowRight className="w-5 h-5" />
+                                            {item?.externalLink?.image && (
+                                                <Image
+                                                    src={
+                                                        item?.externalLink
+                                                            ?.image?.src ?? ''
+                                                    }
+                                                    alt={
+                                                        item?.externalLink
+                                                            ?.image?.alt ?? ''
+                                                    }
+                                                    width={64}
+                                                    height={64}
+                                                    className="rounded-lg border-2 border-neutral-700 h-16 w-16"
+                                                    style={{
+                                                        maxWidth: '100%',
+                                                        height: 'auto',
+                                                    }}
+                                                />
+                                            )}
+                                            <div className="flex gap-2 items-center prose prose-strong:font-semibold prose-strong:text-neutral-400 text-left text-white">
+                                                <TinaMarkdown
+                                                    content={
+                                                        item.externalLink.label
+                                                    }
+                                                    components={components}
+                                                />
                                             </div>
+                                            <ArrowRight className="w-5 h-5" />
                                         </Link>
                                     )}
                                     {item?.button && (

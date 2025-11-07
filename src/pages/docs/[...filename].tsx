@@ -51,11 +51,13 @@ export const getStaticPaths = async () => {
     ])
     const pagePaths =
         result?.data?.docsConnection?.edges?.map((page) => {
+            const relativePath = page?.node?._sys.relativePath.replace(
+                '.mdx',
+                ''
+            )
             return {
                 params: {
-                    filename: [
-                        page?.node?._sys.relativePath.replace('.mdx', ''),
-                    ],
+                    filename: relativePath ? relativePath.split('/') : [],
                 },
             }
         }) ?? []
@@ -67,10 +69,20 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }: { params: any }) => {
+    if (!params || !params.filename) {
+        return {
+            notFound: true,
+        }
+    }
+
+    const filename = Array.isArray(params.filename)
+        ? params.filename.join('/')
+        : params.filename
+
     try {
         const { query, data, variables } = await Promise.any([
             client.queries.docs({
-                relativePath: `${params.filename.join('/')}.mdx`,
+                relativePath: `${filename}.mdx`,
             }),
         ])
         const resSetting = await client.queries.global({

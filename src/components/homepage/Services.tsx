@@ -98,7 +98,7 @@ const ServicesCards = [
 const ServicesCard = ({ card, index }: { card: any; index: number }) => {
     return (
         <motion.div
-            className="relative z-10 grid grid-cols-1 lg:grid-cols-2 bg-black/40 backdrop-blur-lg max-w-screen-lg !border border-neutral-800 mx-auto"
+            className="relative z-10 grid grid-cols-1 lg:grid-cols-2 bg-background max-w-screen-lg !border border-neutral-800 mx-auto"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
