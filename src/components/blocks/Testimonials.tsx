@@ -63,6 +63,8 @@ const Testimonial = ({
                         src={item.image}
                         alt={item.name ?? 'Testimonial image'}
                         fill
+                        sizes="100vh"
+                        loading="eager"
                         className="object-cover"
                         data-tina-field={tinaField(item, 'image')}
                     />
