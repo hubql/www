@@ -3,7 +3,7 @@ import { Button } from '../kit/Button'
 import { tinaField } from 'tinacms/dist/react'
 import type { Template } from 'tinacms'
 import type { PagesBlocksAboveFold } from '../../../tina/__generated__/types'
-import { SplineScene } from './SplineScene'
+import Image from 'next/image'
 
 export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
     return (
@@ -74,10 +74,17 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
                             )}
                         </motion.div>
                     </div>
-                    <div className="relative ">
-                        <SplineScene scene="https://prod.spline.design/uidwARTH3CIy9UR0/scene.splinecode" />
-                    </div>
                 </div>
+            </div>
+            <div className="absolute z-0 bottom-0 left-0 w-full h-full ">
+                <Image
+                    src="/home/hero-above-fold.svg"
+                    alt="Above Fold Hero"
+                    fill
+                    sizes="100vw"
+                    priority
+                    className="object-cover object-center"
+                />
             </div>
         </div>
     )
