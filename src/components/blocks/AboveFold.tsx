@@ -3,7 +3,7 @@ import { Button } from '../kit/Button'
 import { tinaField } from 'tinacms/dist/react'
 import type { Template } from 'tinacms'
 import type { PagesBlocksAboveFold } from '../../../tina/__generated__/types'
-import Spline from '@splinetool/react-spline'
+import { SplineScene } from './SplineScene'
 
 export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
     return (
@@ -75,7 +75,7 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
                         </motion.div>
                     </div>
                     <div className="relative ">
-                        <Spline scene="https://prod.spline.design/uidwARTH3CIy9UR0/scene.splinecode" />
+                        <SplineScene scene="https://prod.spline.design/uidwARTH3CIy9UR0/scene.splinecode" />
                     </div>
                 </div>
             </div>
