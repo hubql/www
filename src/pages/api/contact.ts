@@ -1,14 +1,18 @@
 export const runtime = 'edge'
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: Request) {
     if (req.method !== 'POST') {
-        return res.status(405).end()
+        return new Response(null, { status: 405 })
     }
 
     try {
-        const { email, firstName, company, message, token } = req.body
+        const body = await req.json()
+        const { email, firstName, company, message, token } = body
         if (!email || !firstName || !company || !message || !token) {
-            return res.status(400).json({ error: 'Missing required fields' })
+            return new Response(
+                JSON.stringify({ error: 'Missing required fields' }),
+                { status: 400, headers: { 'Content-Type': 'application/json' } }
+            )
         }
 
         // Validate Turnstile token
@@ -23,16 +27,19 @@ export default async function handler(req: any, res: any) {
                     secret: process.env.TURNSTILE_SECRET,
                     response: token,
                     remoteip:
-                        req.headers['CF-Connecting-IP'] ||
-                        req.headers['x-forwarded-for'] ||
-                        req.connection.remoteAddress,
+                        req.headers.get('CF-Connecting-IP') ||
+                        req.headers.get('x-forwarded-for') ||
+                        '',
                 }),
             }
         )
 
         const turnstileData = await turnstileResponse.json()
         if (!turnstileData.success) {
-            return res.status(400).json({ error: 'Invalid token' })
+            return new Response(JSON.stringify({ error: 'Invalid token' }), {
+                status: 400,
+                headers: { 'Content-Type': 'application/json' },
+            })
         }
 
         const notionDatabaseId = process.env.NOTION_DB_ID
@@ -71,16 +78,29 @@ export default async function handler(req: any, res: any) {
         })
 
         if (!response.ok) {
-            throw new Error(`Error: ${response.statusText}`)
+            const errorText = await response.text()
+            throw new Error(`Error: ${response.statusText} - ${errorText}`)
         }
 
         const data = await response.json()
-        return res
-            .status(200)
-            .json({ message: 'Success! Entry added to Notion.', data })
+        return new Response(
+            JSON.stringify({
+                message: 'Success! Entry added to Notion.',
+                data,
+            }),
+            { status: 200, headers: { 'Content-Type': 'application/json' } }
+        )
     } catch (error) {
+        console.error('Contact form error:', error)
         if (error instanceof Error) {
-            return res.status(500).json({ error: error.message })
+            return new Response(JSON.stringify({ error: error.message }), {
+                status: 500,
+                headers: { 'Content-Type': 'application/json' },
+            })
         }
+        return new Response(
+            JSON.stringify({ error: 'Unknown error occurred' }),
+            { status: 500, headers: { 'Content-Type': 'application/json' } }
+        )
     }
 }
