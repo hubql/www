@@ -21,9 +21,6 @@ const components = {
     Divider: () => {
         return <hr className="py-4 border-zinc-700" />
     },
-    Termly: (props: { termlyId: string }) => {
-        return <TermlyScriptWrapper dataId={props.termlyId} />
-    },
     PricingTable: () => {
         return <PricingTable />
     },
@@ -61,7 +58,6 @@ export const contentBlockSchema: Template = {
             type: 'rich-text',
             name: 'body',
             label: 'Body',
-            isBody: true,
             templates: [
                 {
                     name: 'Button',
@@ -86,33 +82,6 @@ export const contentBlockSchema: Template = {
                         {
                             name: 'divider',
                             label: 'Divider',
-                            type: 'string',
-                        },
-                    ],
-                },
-                {
-                    name: 'Termly',
-                    label: 'Termly',
-                    fields: [
-                        {
-                            name: 'termlyId',
-                            label: 'Termly Id',
-                            type: 'string',
-                        },
-                    ],
-                },
-                {
-                    name: 'HubSpot',
-                    label: 'HubSpot',
-                    fields: [
-                        {
-                            name: 'portalId',
-                            label: 'Portal Id',
-                            type: 'string',
-                        },
-                        {
-                            name: 'formId',
-                            label: 'Form Id',
                             type: 'string',
                         },
                     ],
