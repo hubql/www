@@ -364,6 +364,11 @@ export const footerNav = {
             href: '/imprint',
             label: 'Imprint',
         },
+        // {
+        //     __typename: 'GlobalFooterLegalNav',
+        //     href: '/terms',
+        //     label: 'Terms of service',
+        // },
         {
             __typename: 'GlobalFooterLegalNav',
             href: '/privacy-policy',
