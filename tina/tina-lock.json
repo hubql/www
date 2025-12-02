@@ -1,10 +1,10 @@
 {
     "schema": {
         "version": {
-            "fullVersion": "1.5.14",
-            "major": "1",
-            "minor": "5",
-            "patch": "14"
+            "fullVersion": "2.0.0",
+            "major": "2",
+            "minor": "0",
+            "patch": "0"
         },
         "meta": { "flags": ["experimentalData"] },
         "collections": [
@@ -1356,7 +1356,6 @@
                                         "type": "rich-text",
                                         "name": "body",
                                         "label": "Body",
-                                        "isBody": true,
                                         "templates": [
                                             {
                                                 "name": "Button",
@@ -1421,71 +1420,6 @@
                                                     "content",
                                                     "body",
                                                     "Divider"
-                                                ]
-                                            },
-                                            {
-                                                "name": "Termly",
-                                                "label": "Termly",
-                                                "fields": [
-                                                    {
-                                                        "name": "termlyId",
-                                                        "label": "Termly Id",
-                                                        "type": "string",
-                                                        "namespace": [
-                                                            "pages",
-                                                            "blocks",
-                                                            "content",
-                                                            "body",
-                                                            "Termly",
-                                                            "termlyId"
-                                                        ]
-                                                    }
-                                                ],
-                                                "namespace": [
-                                                    "pages",
-                                                    "blocks",
-                                                    "content",
-                                                    "body",
-                                                    "Termly"
-                                                ]
-                                            },
-                                            {
-                                                "name": "HubSpot",
-                                                "label": "HubSpot",
-                                                "fields": [
-                                                    {
-                                                        "name": "portalId",
-                                                        "label": "Portal Id",
-                                                        "type": "string",
-                                                        "namespace": [
-                                                            "pages",
-                                                            "blocks",
-                                                            "content",
-                                                            "body",
-                                                            "HubSpot",
-                                                            "portalId"
-                                                        ]
-                                                    },
-                                                    {
-                                                        "name": "formId",
-                                                        "label": "Form Id",
-                                                        "type": "string",
-                                                        "namespace": [
-                                                            "pages",
-                                                            "blocks",
-                                                            "content",
-                                                            "body",
-                                                            "HubSpot",
-                                                            "formId"
-                                                        ]
-                                                    }
-                                                ],
-                                                "namespace": [
-                                                    "pages",
-                                                    "blocks",
-                                                    "content",
-                                                    "body",
-                                                    "HubSpot"
                                                 ]
                                             },
                                             {
@@ -9359,48 +9293,6 @@
                 "kind": "InputObjectTypeDefinition",
                 "name": {
                     "kind": "Name",
-                    "value": "PagesBlocksContentBodyTermlyFilter"
-                },
-                "fields": [
-                    {
-                        "kind": "InputValueDefinition",
-                        "name": { "kind": "Name", "value": "termlyId" },
-                        "type": {
-                            "kind": "NamedType",
-                            "name": { "kind": "Name", "value": "StringFilter" }
-                        }
-                    }
-                ]
-            },
-            {
-                "kind": "InputObjectTypeDefinition",
-                "name": {
-                    "kind": "Name",
-                    "value": "PagesBlocksContentBodyHubSpotFilter"
-                },
-                "fields": [
-                    {
-                        "kind": "InputValueDefinition",
-                        "name": { "kind": "Name", "value": "portalId" },
-                        "type": {
-                            "kind": "NamedType",
-                            "name": { "kind": "Name", "value": "StringFilter" }
-                        }
-                    },
-                    {
-                        "kind": "InputValueDefinition",
-                        "name": { "kind": "Name", "value": "formId" },
-                        "type": {
-                            "kind": "NamedType",
-                            "name": { "kind": "Name", "value": "StringFilter" }
-                        }
-                    }
-                ]
-            },
-            {
-                "kind": "InputObjectTypeDefinition",
-                "name": {
-                    "kind": "Name",
                     "value": "PagesBlocksContentBodyPricingTableFilter"
                 },
                 "fields": [
@@ -9440,28 +9332,6 @@
                             "name": {
                                 "kind": "Name",
                                 "value": "PagesBlocksContentBodyDividerFilter"
-                            }
-                        }
-                    },
-                    {
-                        "kind": "InputValueDefinition",
-                        "name": { "kind": "Name", "value": "Termly" },
-                        "type": {
-                            "kind": "NamedType",
-                            "name": {
-                                "kind": "Name",
-                                "value": "PagesBlocksContentBodyTermlyFilter"
-                            }
-                        }
-                    },
-                    {
-                        "kind": "InputValueDefinition",
-                        "name": { "kind": "Name", "value": "HubSpot" },
-                        "type": {
-                            "kind": "NamedType",
-                            "name": {
-                                "kind": "Name",
-                                "value": "PagesBlocksContentBodyHubSpotFilter"
                             }
                         }
                     },
