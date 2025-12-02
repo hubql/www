@@ -28,7 +28,10 @@ export const Footer = () => {
                                 <div>
                                     <p className="text-white text-lg font-semibold py-1 mb-1 font-orbitron">
                                         {category?.href ? (
-                                            <Link href={category?.href} className='font-orbitron'>
+                                            <Link
+                                                href={category?.href}
+                                                className="font-orbitron"
+                                            >
                                                 {category?.label}
                                             </Link>
                                         ) : (
@@ -200,7 +203,6 @@ export const footerNav = {
                 //     label: 'Training',
                 //     href: 'services/training',
                 // },
-
                 // {
                 //     __typename: 'GlobalFooterNavNav',
                 //     isExternal: null,
@@ -213,7 +215,6 @@ export const footerNav = {
                 //     label: 'Custom Development',
                 //     href: 'services/custom-development',
                 // },
-
             ],
         },
         {
@@ -362,11 +363,6 @@ export const footerNav = {
             __typename: 'GlobalFooterLegalNav',
             href: '/imprint',
             label: 'Imprint',
-        },
-        {
-            __typename: 'GlobalFooterLegalNav',
-            href: '/terms',
-            label: 'Terms of service',
         },
         {
             __typename: 'GlobalFooterLegalNav',
