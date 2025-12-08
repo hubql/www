@@ -20,7 +20,7 @@
         "@radix-ui/react-tabs": "^1.0.4",
         "@splinetool/react-spline": "^4.1.0",
         "@splinetool/runtime": "^1.10.90",
-        "@tinacms/cli": "^1.9.2",
+        "@tinacms/cli": "^2.0.0",
         "@tsparticles/engine": "^3.4.0",
         "@tsparticles/react": "^3.0.0",
         "@tsparticles/slim": "^3.4.0",

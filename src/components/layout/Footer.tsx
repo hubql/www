@@ -29,8 +29,8 @@ export const Footer = () => {
                                     <p className="text-white text-lg font-semibold py-1 mb-1 font-lexend">
                                         {category?.href ? (
                                             <Link
-                                                href={category?.href}
-                                                className="font-lexend"
+                                                href={category?.href}                                                
+                                                className="font-orbitron"
                                             >
                                                 {category?.label}
                                             </Link>
@@ -206,6 +206,18 @@ export const footerNav = {
                 // {
                 //     __typename: 'GlobalFooterNavNav',
                 //     isExternal: null,
+                //     label: 'Consulting',
+                //     href: 'services/consulting',
+                // },
+                // {
+                //     __typename: 'GlobalFooterNavNav',
+                //     isExternal: null,
+                //     label: 'Training',
+                //     href: 'services/training',
+                // },
+                // {
+                //     __typename: 'GlobalFooterNavNav',
+                //     isExternal: null,
                 //     label: 'Workshops',
                 //     href: 'services/workshops',
                 // },
@@ -364,11 +376,11 @@ export const footerNav = {
             href: '/imprint',
             label: 'Imprint',
         },
-        {
-            __typename: 'GlobalFooterLegalNav',
-            href: '/terms',
-            label: 'Terms of service',
-        },
+        // {
+        //     __typename: 'GlobalFooterLegalNav',
+        //     href: '/terms',
+        //     label: 'Terms of service',
+        // },
         {
             __typename: 'GlobalFooterLegalNav',
             href: '/privacy-policy',
