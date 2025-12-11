@@ -211,6 +211,13 @@ export const headerNav = {
         {
             __typename: 'GlobalHeaderNav',
             isExternal: null,
+            label: 'Portfolio',
+            href: 'portfolio',
+            nav: null,
+        },
+        {
+            __typename: 'GlobalHeaderNav',
+            isExternal: null,
             label: 'About',
             href: 'about',
             nav: null,
@@ -223,5 +230,5 @@ export const headerNav = {
             nav: null,
         },
     ],
-    ctaLabel: 'Start your project',
+    ctaLabel: 'Contact Us',
 }

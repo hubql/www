@@ -26,10 +26,10 @@ export const Footer = () => {
                                 className="text-left w-full h-full px-8 py-8"
                             >
                                 <div>
-                                    <p className="text-white text-lg font-semibold py-1 mb-1 font-lexend">
+                                    <p className="text-white text-lg font-semibold py-1 mb-1 font-orbitron">
                                         {category?.href ? (
                                             <Link
-                                                href={category?.href}                                                
+                                                href={category?.href}
                                                 className="font-orbitron"
                                             >
                                                 {category?.label}
@@ -87,7 +87,7 @@ export const Footer = () => {
                                 </span>
                             </div>
                             <p className=" text-sm my-4 font-orbitron">
-                                Elevating DX beyond code.
+                                Your vision - brought to life.
                             </p>
 
                             <div className="flex gap-4 mt-2 items-center">
@@ -194,134 +194,65 @@ export const footerNav = {
                 {
                     __typename: 'GlobalFooterNavNav',
                     isExternal: null,
-                    label: 'Collaborative Web App',
-                    href: 'contact',
+                    label: 'Collaborative Web Application',
+                    href: 'services/collaborative-web-application',
                 },
                 {
                     __typename: 'GlobalFooterNavNav',
                     isExternal: null,
-                    label: '3D Web App',
-                    href: 'contact',
+                    label: 'Visual & 3D Web Apps',
+                    href: 'services/3d-web-application',
                 },
-                // {
-                //     __typename: 'GlobalFooterNavNav',
-                //     isExternal: null,
-                //     label: 'Consulting',
-                //     href: 'services/consulting',
-                // },
-                // {
-                //     __typename: 'GlobalFooterNavNav',
-                //     isExternal: null,
-                //     label: 'Training',
-                //     href: 'services/training',
-                // },
-                // {
-                //     __typename: 'GlobalFooterNavNav',
-                //     isExternal: null,
-                //     label: 'Workshops',
-                //     href: 'services/workshops',
-                // },
-                // {
-                //     __typename: 'GlobalFooterNavNav',
-                //     isExternal: null,
-                //     label: 'Custom Development',
-                //     href: 'services/custom-development',
-                // },
+                {
+                    __typename: 'GlobalFooterNavNav',
+                    isExternal: null,
+                    label: 'APIs & Documentation',
+                    href: 'services/apis',
+                },
+                {
+                    __typename: 'GlobalFooterNavNav',
+                    isExternal: null,
+                    label: 'Intelligent Automation Systems',
+                    href: 'services/intelligent-automation-systems',
+                },
+                {
+                    __typename: 'GlobalFooterNavNav',
+                    isExternal: null,
+                    label: 'Web Design',
+                    href: 'services/web-design',
+                },
+                {
+                    __typename: 'GlobalFooterNavNav',
+                    isExternal: null,
+                    label: 'Supabase MVPs',
+                    href: 'services/supabase-mvp',
+                },
             ],
         },
-        // {
-        //     __typename: 'GlobalFooterNav',
-        //     label: 'Products',
-        //     href: '/products',
-        //     nav: [
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Hubql Grid',
-        //             href: 'product/hubql-grid',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Hubql Client',
-        //             href: 'product/api-client',
-        //         },
-
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Hubql Ref',
-        //             href: 'product/api-reference-hosting',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Hubql Lens',
-        //             href: 'product/schema-visualizer',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Pricing',
-        //             href: 'pricing',
-        //         },
-        //     ],
-        // },
-        // {
-        //     __typename: 'GlobalFooterNav',
-        //     label: 'Use Cases',
-        //     href: null,
-        //     nav: [
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Docs for LLMs',
-        //             href: 'for-llms',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Docs for AI Code Editors',
-        //             href: 'solutions/ai-code-editor-context',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'Doc Automation',
-        //             href: 'product/hubql-grid',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'API Testing',
-        //             href: 'product/api-client',
-        //         },
-
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'API Reference Hosting',
-        //             href: 'product/api-reference-hosting',
-        //         },
-        //         {
-        //             __typename: 'GlobalFooterNavNav',
-        //             isExternal: null,
-        //             label: 'API Visualization',
-        //             href: 'product/schema-visualizer',
-        //         },
-        //     ],
-        // },
+        {
+            __typename: 'GlobalFooterNav',
+            label: 'Tech Stack',
+            href: '/tech-stack',
+            nav: [
+                {
+                    __typename: 'GlobalFooterNavNav',
+                    isExternal: null,
+                    label: 'Supabase',
+                    href: 'supabase',
+                },
+                {
+                    __typename: 'GlobalFooterNavNav',
+                    isExternal: null,
+                    label: 'n8n',
+                    href: 'n8n',
+                },
+            ],
+        },
         {
             __typename: 'GlobalFooterNav',
             label: 'Developers',
             href: null,
             nav: [
-                // {
-                //     __typename: 'GlobalFooterNavNav',
-                //     isExternal: null,
-                //     label: 'Docs',
-                //     href: 'docs',
-                // },
                 {
                     __typename: 'GlobalFooterNavNav',
                     isExternal: false,
@@ -376,11 +307,6 @@ export const footerNav = {
             href: '/imprint',
             label: 'Imprint',
         },
-        // {
-        //     __typename: 'GlobalFooterLegalNav',
-        //     href: '/terms',
-        //     label: 'Terms of service',
-        // },
         {
             __typename: 'GlobalFooterLegalNav',
             href: '/privacy-policy',

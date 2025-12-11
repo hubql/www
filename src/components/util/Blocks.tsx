@@ -24,6 +24,7 @@ import { WhyHubql } from '../blocks/WhyHubql'
 import { TechStack } from '../blocks/TechStack'
 import { Testimonials } from '../blocks/Testimonials'
 import { ServiceCards } from '../blocks/ServiceCards'
+import { ProjectReferences } from '../blocks/ProjectReferences'
 
 type BlocksProps = Omit<Pages, 'id' | '_sys' | '_values'>
 export const Blocks = (
@@ -120,6 +121,8 @@ const Block = ({
             return <Testimonials data={block} />
         case `${collectionType}BlocksServiceCards`:
             return <ServiceCards data={block} />
+        case `${collectionType}BlocksProjectReferences`:
+            return <ProjectReferences data={block} />
         default:
             console.warn(
                 'Unknown block type:',

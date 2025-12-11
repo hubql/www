@@ -27,6 +27,7 @@ import { whyHubqlBlockSchema } from '../src/components/blocks/WhyHubql'
 import { techStackBlockSchema } from '../src/components/blocks/TechStack'
 import { testimonialsBlockSchema } from '../src/components/blocks/Testimonials'
 import { serviceCardsBlockSchema } from '../src/components/blocks/ServiceCards'
+import { projectReferencesBlockSchema } from '../src/components/blocks/ProjectReferences'
 
 
 // Your hosting provider likely exposes this as an environment variable
@@ -395,6 +396,7 @@ export default defineConfig({
                             techStackBlockSchema,
                             testimonialsBlockSchema,
                             serviceCardsBlockSchema,
+                            projectReferencesBlockSchema,
                         ],
                     },
                 ],
