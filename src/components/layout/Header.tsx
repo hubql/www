@@ -12,30 +12,24 @@ export const Header = () => {
     const isDocs = pathname.includes('/docs/')
 
     return (
-        <header className="w-full sticky top-0 z-50 lg:top-0 left-0 z-50 h-14">
+        <header className="w-full sticky top-0 z-50 lg:top-0 left-0 z-50 h-fit  border-b border-border">
             <div
                 className={cn(
-                    'w-full max-w-7xl mx-auto bg-black/70 backdrop-blur-lg border-b border-neutral-800 border-x px-2',
+                    'w-full max-w-7xl mx-auto bg-background px-2 py-2',
                     isDocs && 'max-w-full'
                 )}
             >
                 <nav className="w-full mx-auto flex items-center justify-between h-14 relative">
                     <div className="w-fit h-full flex items-center justify-start">
-                        <div className="pl-2 mr-4 ">
-                            <Link href="/" title="Go to the main page" passHref>
-                                <HubqlLogo className={'w-[110px]'} />
+                        <div className="pl-2 mr-8">
+                            <Link href="/" title="Go to the main page">
+                                <HubqlLogo className={'w-[90px]'} />
                             </Link>
                         </div>
+                        <NavigationMenu data={headerNav.nav} />
                     </div>
-                    <NavigationMenu data={headerNav.nav} />
+
                     <div className="h-full flex items-center lg:gap-2 gap-1">
-                        <Button
-                            href="https://github.com/hubql/hubql"
-                            variant="ghost"
-                            size="icon"
-                            icon="github"
-                            className="hidden lg:flex"
-                        ></Button>
                         <Button
                             href="/contact"
                             size="sm"
@@ -217,8 +211,8 @@ export const headerNav = {
         {
             __typename: 'GlobalHeaderNav',
             isExternal: null,
-            label: 'Products',
-            href: 'products',
+            label: 'Portfolio',
+            href: 'portfolio',
             nav: null,
         },
         {
@@ -236,5 +230,5 @@ export const headerNav = {
             nav: null,
         },
     ],
-    ctaLabel: 'Build with us',
+    ctaLabel: 'Contact Us',
 }

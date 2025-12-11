@@ -1,81 +1,144 @@
 import { Section } from '../kit/Section'
 import { BlurredBlob } from '../kit/BlurredBlob'
-import { motion } from 'framer-motion'
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from '../kit/Accordion'
 import { Cta } from '../templates/Cta'
+import Image from 'next/image'
 import type { Template } from 'tinacms'
 import type { PagesBlocksServices } from '../../../tina/__generated__/types'
 import { tinaField } from 'tinacms/dist/react'
+import * as LucideIcons from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
+
+const getIcon = (iconName: string | undefined): LucideIcon | null => {
+    if (!iconName) return null
+    const IconComponent = (
+        LucideIcons as unknown as Record<string, LucideIcon>
+    )[iconName]
+    return IconComponent || null
+}
+
+const isImageUrl = (icon: string | undefined): boolean => {
+    if (!icon) return false
+    return icon.startsWith('/') || icon.startsWith('http') || icon.includes('.')
+}
 
 export const Services = ({ data }: { data: PagesBlocksServices }) => {
     return (
         <Section
-            title={data.title ?? 'Our Services'}
+            title={data.title ?? 'What We Build for Founders and Startups'}
             className="divide-none"
-            titleClassName="py-6"
-            contentClassName="z-10 grid grid-cols-1 lg:grid-cols-1 gap-4 pb-12 px-2 pt-0 flex flex-col"
+            titleClassName="pt-32 pb-2 text-[16px] text-normal font-thin"
+            contentClassName="z-10 flex flex-col gap-4 pb-12 px-2"
             delay={0}
             data-tina-field={tinaField(data, 'title')}
         >
-            {data.servicesCards?.map((card, index) => (
-                <motion.div
-                    key={'cardService-' + index}
-                    className="relative z-10 grid grid-cols-1 lg:grid-cols-2 bg-black/40 backdrop-blur-lg max-w-screen-lg !border border-neutral-800 mx-auto"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                        duration: 0.5,
-                        delay: 0.2 + index * 0.2,
-                        type: 'spring',
-                        stiffness: 100,
-                        damping: 10,
-                    }}
-                    data-tina-field={tinaField(card)}
+            {data.subtitle && (
+                <p
+                    className="text-neutral-400 text-[14px] max-w-md text-center mx-auto"
+                    data-tina-field={tinaField(data, 'subtitle')}
                 >
-                    <div className="flex flex-col justify-center items-start p-8 h-full">
-                        {card?.title && (
-                            <h2
-                                className="text-lg font-bold font-orbitron tracking-wide"
-                                data-tina-field={tinaField(card, 'title')}
-                            >
-                                {card.title}
-                            </h2>
-                        )}
+                    {data.subtitle}
+                </p>
+            )}
 
-                        {card?.description && (
-                            <p
-                                className="text-neutral-400 text-base"
-                                data-tina-field={tinaField(card, 'description')}
-                            >
-                                {card.description}
-                            </p>
-                        )}
+            <Accordion type="single" collapsible className="w-full">
+                {data.servicesCards?.map((card, index) => (
+                    <AccordionItem
+                        key={'service-' + index}
+                        value={'service-' + index}
+                        className="relative z-10 bg-[#171717] hover:bg-neutral-800 max-w-[1240px] mx-auto rounded"
+                        data-tina-field={tinaField(card)}
+                    >
+                        <AccordionTrigger className="py-6 px-8 flex justify-between items-center">
+                            <div className="flex items-center gap-8">
+                                {card?.icon &&
+                                    (isImageUrl(card.icon) ? (
+                                        <Image
+                                            src={card.icon}
+                                            alt={card.title ?? 'Service icon'}
+                                            width={20}
+                                            height={20}
+                                            data-tina-field={tinaField(
+                                                card,
+                                                'icon'
+                                            )}
+                                        />
+                                    ) : (
+                                        (() => {
+                                            const IconComponent = getIcon(
+                                                card.icon
+                                            )
+                                            return IconComponent ? (
+                                                <IconComponent
+                                                    className="w-5 h-5 text-primary"
+                                                    data-tina-field={tinaField(
+                                                        card,
+                                                        'icon'
+                                                    )}
+                                                />
+                                            ) : null
+                                        })()
+                                    ))}
+                                <h3 className="text-[18px] font-normal font-lexend break-words m-0">
+                                    {card?.title}
+                                </h3>
+                            </div>
+                        </AccordionTrigger>
 
-                        <Cta
-                            ctaButtonText={data.cta?.label ?? 'Contact Us'}
-                            ctaButtonUrl={data.cta?.link ?? '/contact'}
-                            className="py-0 justify-start"
-                            titleClassName="text-lg font-bold font-orbitron tracking-wide"
-                            containerClassName="justify-start items-start px-0"
-                            blob={false}
-                        />
-                    </div>
+                        <AccordionContent>
+                            <div className="flex flex-col lg:flex-row gap-8 px-8 pb-8">
+                                <div className="flex-1 flex flex-col gap-10">
+                                    {card?.description && (
+                                        <p
+                                            className="text-neutral-400 text-lexend text-[14px]"
+                                            data-tina-field={tinaField(
+                                                card,
+                                                'description'
+                                            )}
+                                        >
+                                            {card?.description}
+                                        </p>
+                                    )}
+                                    <Cta
+                                        ctaButtonText={
+                                            data.cta?.label ?? 'Contact Us'
+                                        }
+                                        ctaButtonUrl={
+                                            data.cta?.link ?? '/contact'
+                                        }
+                                        className="py-0 justify-start text-normal"
+                                        titleClassName="text-md font-bol4d font-lexend"
+                                        containerClassName="justify-start items-start px-0"
+                                        blob={false}
+                                        inlineStyle
+                                    />
+                                </div>
 
-                    {card?.list && (
-                        <ul
-                            className="flex flex-col gap-2 text-neutral-400 text-base list-disc p-8 h-full"
-                            data-tina-field={tinaField(card, 'list')}
-                        >
-                            {card.list
-                                .filter(Boolean)
-                                .map((item, itemIndex) => (
-                                    <li key={itemIndex}>{item}</li>
-                                ))}
-                        </ul>
-                    )}
-                </motion.div>
-            ))}
-
-            <BlurredBlob className="-right-60 -bottom-60" />
+                                {card?.list && (
+                                    <ul
+                                        className="flex-1 flex flex-col gap-0 text-neutral-400 text-lexend list-disc"
+                                        data-tina-field={tinaField(
+                                            card,
+                                            'list'
+                                        )}
+                                    >
+                                        {card?.list
+                                            .filter(Boolean)
+                                            .map((item, itemIndex) => (
+                                                <li key={itemIndex}>{item}</li>
+                                            ))}
+                                    </ul>
+                                )}
+                            </div>
+                        </AccordionContent>
+                    </AccordionItem>
+                ))}
+            </Accordion>
         </Section>
     )
 }
@@ -86,7 +149,9 @@ export const servicesBlockSchema: Template = {
     ui: {
         previewSrc: '',
         defaultItem: {
-            title: 'Our Services',
+            title: 'What We Build for Founders and Startups',
+            subtitle:
+                'We help startups and founders by building innovative solutions that scale and make an impact.',
             servicesCards: [
                 {
                     title: 'Research & Development',
@@ -98,6 +163,7 @@ export const servicesBlockSchema: Template = {
                         'Technical feasibility studies and software architecture validation.',
                         'Building internal tools and experimental software products.',
                     ],
+                    icon: 'Code',
                 },
                 {
                     title: 'Web Development',
@@ -109,6 +175,7 @@ export const servicesBlockSchema: Template = {
                         'API development and third-party integrations for seamless connectivity.',
                         'Performance optimization and security best practices for scalable web apps.',
                     ],
+                    icon: 'Globe',
                 },
             ],
             cta: {
@@ -122,6 +189,14 @@ export const servicesBlockSchema: Template = {
             type: 'string',
             label: 'Title',
             name: 'title',
+        },
+        {
+            type: 'string',
+            label: 'Subtitle',
+            name: 'subtitle',
+            ui: {
+                component: 'textarea',
+            },
         },
         {
             label: 'Service Cards',
@@ -152,6 +227,15 @@ export const servicesBlockSchema: Template = {
                     name: 'list',
                     type: 'string',
                     list: true,
+                },
+                {
+                    type: 'string',
+                    label: 'Icon',
+                    name: 'icon',
+                    ui: {
+                        description:
+                            'Enter an image URL/path (e.g., /image.png) or a Lucide icon name (e.g., Code, Rocket, Zap, Database)',
+                    },
                 },
             ],
         },

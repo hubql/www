@@ -47,18 +47,20 @@ export const getStaticPaths = async () => {
 
     const pagePaths =
         result?.data?.pagesConnection?.edges
-            ?.filter((page) => {
+            ?.filter((page: any) => {
                 if (customPages.includes(page?.node?._sys.filename ?? '')) {
                     return false
                 }
                 return true
             })
-            .map((page) => {
+            .map((page: any) => {
+                const relativePath = page?.node?._sys.relativePath.replace(
+                    '.mdx',
+                    ''
+                )
                 return {
                     params: {
-                        filename: [
-                            page?.node?._sys.relativePath.replace('.mdx', ''),
-                        ],
+                        filename: relativePath ? relativePath.split('/') : [],
                     },
                 }
             }) ?? []
@@ -70,8 +72,15 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }: { params: any }) => {
-    // Filter out Next.js internal paths and system files
-    const filename = params.filename.join('/')
+    if (!params || !params.filename) {
+        return {
+            notFound: true,
+        }
+    }
+
+    const filename = Array.isArray(params.filename)
+        ? params.filename.join('/')
+        : params.filename
 
     // Exclude Next.js internal paths and system files
     if (

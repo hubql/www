@@ -11,9 +11,47 @@ export const FeatureFocus = ({ data }: { data: PagesBlocksFeaturefocus }) => {
         data.actions &&
         data.actions.map((action, index) => {
             const hasLink = action?.link !== ''
-            const content = (
+            if (hasLink) {
+                return (
+                    <a
+                        key={'feature-focus' + index}
+                        href={action?.link ?? ''}
+                        className="w-full flex flex-col gap-3 border border-transparent hover:border-zinc-700 rounded-lg p-4"
+                        data-tina-field={tinaField(data, 'actions', index)}
+                    >
+                        {action?.icon?.src && (
+                            <div className=" relative w-8 h-8 rounded-lg  bg-zinc-800 p-1">
+                                <Image
+                                    fill={true}
+                                    src={action?.icon?.src ?? ''}
+                                    alt={action?.icon?.alt ?? ''}
+                                    priority={false}
+                                    quality={100}
+                                    style={{
+                                        maxWidth: '100%',
+                                        height: 'auto',
+                                    }}
+                                />
+                            </div>
+                        )}
+                        <div className="flex gap-1 items-center">
+                            <h3 className="text-zinc-50 text-lg mb-0">
+                                {action?.title}
+                            </h3>
+                            <div className="w-5 h-5 flex items-center justify-center">
+                                <Chevron className="stroke-accent-500 w-4 h-4" />
+                            </div>
+                        </div>
+                        <p className="text-zinc-400 text-lg">
+                            {action?.paragraph}
+                        </p>
+                    </a>
+                )
+            }
+            return (
                 <div
-                    className="flex flex-col w-full  gap-3 border border-transparent hover:border-zinc-700 rounded-lg p-4"
+                    key={'feature-focus' + index}
+                    className="w-full flex flex-col gap-3 border border-transparent hover:border-zinc-700 rounded-lg p-4"
                     data-tina-field={tinaField(data, 'actions', index)}
                 >
                     {action?.icon?.src && (
@@ -40,22 +78,6 @@ export const FeatureFocus = ({ data }: { data: PagesBlocksFeaturefocus }) => {
                         </div>
                     </div>
                     <p className="text-zinc-400 text-lg">{action?.paragraph}</p>
-                </div>
-            )
-            if (hasLink) {
-                return (
-                    <a
-                        key={'feature-focus' + index}
-                        href={action?.link ?? ''}
-                        className="w-full"
-                    >
-                        {content}
-                    </a>
-                )
-            }
-            return (
-                <div key={'feature-focus' + index} className="w-full">
-                    {content}
                 </div>
             )
         })

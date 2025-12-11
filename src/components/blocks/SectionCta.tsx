@@ -1,18 +1,18 @@
 import * as React from 'react'
-import type { Template } from 'tinacms'
+import { Button } from '../kit/Button'
 import { tinaField } from 'tinacms/dist/react'
+import type { Template } from 'tinacms'
 import type { PagesBlocksSectionCta } from '../../../tina/__generated__/types'
-import { Actions } from '../util/Actions'
 
 export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
     return (
-        <div className="relative w-full flex justify-center  pt-32 pb-24 border-t border-zinc-100 dark:border-zinc-800 overflow-clip">
+        <div className="relative w-full flex justify-center py-44 font-lexend">
             <div className=" w-full max-w-5xl mx-auto  ">
-                <div className="flex flex-col gap-6 items-center text-center px-8">
+                <div className="flex flex-col items-center text-center px-8">
                     {data.title && (
                         <h2
                             data-tina-field={tinaField(data, 'title')}
-                            className={`w-full relative text-3xl lg:text-4xl leading-tight lg:leading-tight font-medium   text-black dark:text-white font-orbitron`}
+                            className={`w-full relative text-[24px] font-lexend`}
                         >
                             {data.title}
                         </h2>
@@ -20,21 +20,42 @@ export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
                     {data.paragraph && (
                         <p
                             data-tina-field={tinaField(data, 'paragraph')}
-                            className={`text-lg text-zinc-900 dark:text-zinc-400 mx-auto max-w-3xl`}
+                            className={`text-[14px] text-neutral-400 mx-auto m-0 max-w-[300px] font-lexend`}
                         >
                             {data.paragraph}
                         </p>
                     )}
-                    {data.actions && (
-                        <Actions
-                            className="justify-center py-2"
-                            actions={data.actions}
-                            data-tina-field={tinaField(data, 'actions')}
-                        />
+                    {(data.buttonOne || data.buttonTwo) && (
+                        <div className="flex flex-wrap items-start w-fit gap-y-2 gap-x-2 justify-center p-2 rounded-sm mt-4">
+                            {data.buttonOne && (
+                                <Button
+                                    href={data.buttonOne.link ?? '/'}
+                                    data-tina-field={tinaField(
+                                        data,
+                                        'buttonOne'
+                                    )}
+                                    size="sm"
+                                >
+                                    {data.buttonOne.label}
+                                </Button>
+                            )}
+                            {data.buttonTwo && (
+                                <Button
+                                    href={data.buttonTwo.link ?? '/'}
+                                    data-tina-field={tinaField(
+                                        data,
+                                        'buttonTwo'
+                                    )}
+                                    size="sm"
+                                    variant="grey"
+                                >
+                                    {data.buttonTwo.label}
+                                </Button>
+                            )}
+                        </div>
                     )}
                 </div>
             </div>
-            <div className="absolute -bottom-60 -left-60 z-10 bg-accent-100 opacity-10 blur-[100px] rounded-full w-[600px] h-[600px]" />
         </div>
     )
 }
@@ -73,17 +94,26 @@ export const sectionCtaBlockSchema: Template = {
             },
         },
         {
-            label: 'Actions',
-            name: 'actions',
+            label: 'Button One',
+            name: 'buttonOne',
             type: 'object',
-            list: true,
-            ui: {
-                defaultItem: {
-                    label: 'Action title',
-                    link: 'https://cloud.hubql.com',
+            fields: [
+                {
+                    label: 'Label',
+                    name: 'label',
+                    type: 'string',
                 },
-                itemProps: (item) => ({ label: item.label }),
-            },
+                {
+                    label: 'Link',
+                    name: 'link',
+                    type: 'string',
+                },
+            ],
+        },
+        {
+            label: 'Button Two',
+            name: 'buttonTwo',
+            type: 'object',
             fields: [
                 {
                     label: 'Label',
