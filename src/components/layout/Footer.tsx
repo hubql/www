@@ -23,7 +23,7 @@ export const Footer = () => {
                         return (
                             <li
                                 key={'footer' + index}
-                                className="text-left w-full h-full px-8 py-8"
+                                className="text-left w-full h-full px-8 py-8 first:col-span-2"
                             >
                                 <div>
                                     <p className="text-white text-lg font-semibold py-1 mb-1 font-orbitron">
