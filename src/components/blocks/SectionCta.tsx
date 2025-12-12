@@ -8,7 +8,7 @@ export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
     return (
         <div className="relative w-full flex justify-center py-44 font-lexend">
             <div className=" w-full max-w-5xl mx-auto  ">
-                <div className="flex flex-col items-center text-center bg-zinc-900 py-20 px-8 rounded-lg border border-zinc-800">
+                <div className="flex flex-col items-center text-center bg-neutral-900 py-20 px-8 rounded-lg border border-neutral-800">
                     {data.title && (
                         <h2
                             data-tina-field={tinaField(data, 'title')}

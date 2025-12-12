@@ -39,7 +39,7 @@ export const ProjectReferences = ({
             const cardContent = (
                 <>
                     {project?.image?.src && (
-                        <div className="relative w-full aspect-video rounded-lg bg-zinc-800 overflow-hidden mb-4">
+                        <div className="relative w-full aspect-video rounded-lg bg-neutral-800 overflow-hidden mb-4">
                             <Image
                                 fill={true}
                                 src={project?.image?.src ?? ''}
@@ -55,15 +55,15 @@ export const ProjectReferences = ({
                     )}
                     <div className="flex flex-col gap-3">
                         <div className="flex items-start justify-between gap-2">
-                            <h3 className="text-zinc-50 text-xl font-semibold">
+                            <h3 className="text-neutral-50 text-xl font-semibold">
                                 {project?.title}
                             </h3>
                             {hasUrl && (
-                                <ExternalLink className="w-5 h-5 text-zinc-400 flex-shrink-0 mt-1" />
+                                <ExternalLink className="w-5 h-5 text-neutral-400 flex-shrink-0 mt-1" />
                             )}
                         </div>
                         {project?.description && (
-                            <p className="text-zinc-400 text-base leading-relaxed">
+                            <p className="text-neutral-400 text-base leading-relaxed">
                                 {project?.description}
                             </p>
                         )}
@@ -72,7 +72,7 @@ export const ProjectReferences = ({
                                 {project.tags.map((tag, tagIndex) => (
                                     <span
                                         key={`tag-${index}-${tagIndex}`}
-                                        className="px-3 py-1 text-xs font-medium bg-zinc-800 text-zinc-300 rounded-full border border-zinc-700"
+                                        className="px-3 py-1 text-xs font-medium bg-neutral-800 text-neutral-300 rounded-full border border-neutral-700"
                                     >
                                         {tag}
                                     </span>
@@ -94,12 +94,12 @@ export const ProjectReferences = ({
                             href={project.url ?? '#'}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block w-full h-full border border-zinc-800 hover:border-zinc-700 rounded-lg p-6 bg-zinc-900 hover:bg-zinc-800 transition-all duration-200"
+                            className="block w-full h-full border border-neutral-800 hover:border-neutral-700 rounded-lg p-6 bg-neutral-900 hover:bg-neutral-800 transition-all duration-200"
                         >
                             {cardContent}
                         </Link>
                     ) : (
-                        <div className="block w-full h-full border border-zinc-800 rounded-lg p-6 bg-zinc-900">
+                        <div className="block w-full h-full border border-neutral-800 rounded-lg p-6 bg-neutral-900">
                             {cardContent}
                         </div>
                     )}
