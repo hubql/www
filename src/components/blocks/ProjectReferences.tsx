@@ -43,7 +43,9 @@ export const ProjectReferences = ({
                             <Image
                                 fill={true}
                                 src={project?.image?.src ?? ''}
-                                alt={project?.image?.alt ?? project?.title ?? ''}
+                                alt={
+                                    project?.image?.alt ?? project?.title ?? ''
+                                }
                                 className="object-cover"
                                 style={{
                                     maxWidth: '100%',
@@ -109,7 +111,7 @@ export const ProjectReferences = ({
         'w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 items-stretch'
 
     return (
-        <div className="w-full max-w-7xl px-8 mx-auto">
+        <div className="w-full max-w-7xl px-8 mx-auto py-16">
             <div className="flex h-full w-full items-center">
                 <div className={clsx(gridLayout)}>{items}</div>
             </div>
@@ -203,4 +205,3 @@ export const projectReferencesBlockSchema: Template = {
         },
     ],
 }
-
