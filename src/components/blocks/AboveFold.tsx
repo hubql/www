@@ -9,8 +9,8 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
     return (
         <div className="flex flex-wrap items-start w-fit justify-start overflow-hidden relative z-0 w-full  min-h-[500px]">
             <div className="relative z-10 w-full max-w-7xl mx-auto">
-                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-0">
-                    <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-0">
+                    <div className="w-full h-full flex items-center justify-center col-span-2">
                         <motion.div
                             className="py-32 relative w-fit h-fit flex flex-col z-10 px-8 h-full"
                             initial={{ opacity: 0, x: -10 }}
@@ -23,7 +23,7 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
                         >
                             {data.title && (
                                 <h1
-                                    className="text-white text-[42px] font-bold text-left font-orbitron tracking-wide max-w-4xl mb-[16px]"
+                                    className="text-white text-[48px] font-bold text-left font-orbitron tracking-wide max-w-4xl mb-[16px]"
                                     data-tina-field={tinaField(data, 'title')}
                                 >
                                     {data.title}
@@ -83,7 +83,7 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
                     fill
                     sizes="100vw"
                     priority
-                    className="object-cover object-center"
+                    className="object-cover object-bottom"
                 />
             </div>
         </div>

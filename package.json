@@ -6,7 +6,6 @@
         "dev": "npx tinacms dev -c 'next dev'",
         "build": "npx tinacms build",
         "lint": "next lint",
-        "local": "tinacms dev -c 'next dev'",
         "prepare": "husky"
     },
     "dependencies": {
