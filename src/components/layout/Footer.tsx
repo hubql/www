@@ -11,7 +11,7 @@ export const Footer = () => {
     const isDocs = pathname.includes('/docs/')
 
     return (
-        <footer className="w-full relative z-50">
+        <footer className="w-full relative z-50  border-t border-zinc-800">
             <div
                 className={cn(
                     'flex w-full pb-16 bg-background max-w-screen-xl flex-col mx-auto gap-8 pb-4',
