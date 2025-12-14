@@ -25,6 +25,7 @@ import { TechStack } from '../blocks/TechStack'
 import { Testimonials } from '../blocks/Testimonials'
 import { ServiceCards } from '../blocks/ServiceCards'
 import { ProjectReferences } from '../blocks/ProjectReferences'
+import { AboveFold2 } from '../blocks/AboveFold2'
 
 type BlocksProps = Omit<Pages, 'id' | '_sys' | '_values'>
 export const Blocks = (
@@ -123,6 +124,8 @@ const Block = ({
             return <ServiceCards data={block} />
         case `${collectionType}BlocksProjectReferences`:
             return <ProjectReferences data={block} />
+        case `${collectionType}BlocksAboveFold2`:
+            return <AboveFold2 data={block} />
         default:
             console.warn(
                 'Unknown block type:',
