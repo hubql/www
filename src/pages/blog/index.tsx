@@ -21,11 +21,11 @@ export default function Blog({
 
     return (
         <Layout data={data}>
-            <section className="w-full lg:max-w-7xl mx-auto">
+            <section className="w-full lg:max-w-7xl mx-auto min-h-screen">
                 <div className="px-4 py-8">
                     <div className="flex items-center gap-2 mb-2">
                         <Rss className="w-7 h-7 stroke-accent-100" />
-                        <h1 className="text-3xl text-white font-semibold mb-0 font-orbitron">
+                        <h1 className="text-3xl text-white font-semibold mb-0 font-lexend">
                             Blog
                         </h1>
                     </div>
@@ -55,7 +55,7 @@ export default function Blog({
                                     index: Key | null | undefined
                                 ) => (
                                     <li
-                                        className="blog-card w-full hover:bg-zinc-900 transition-all ease-in cursor-pointer"
+                                        className="blog-card w-full hover:bg-neutral-900 transition-all ease-in cursor-pointer"
                                         key={'blog-link' + index}
                                     >
                                         <Link
@@ -63,21 +63,21 @@ export default function Blog({
                                             className="w-full grid grid-cols-1 md:grid-cols-12 gap-2 px-4 pt-8 pb-4"
                                         >
                                             <div className="col-span-12 lg:col-span-8">
-                                                <h2 className="text-zinc-50 text-left lg:text-left leading-tight text-lg font-semibold font-orbitron">
+                                                <h2 className="text-neutral-50 text-left lg:text-left leading-tight text-lg font-semibold font-lexend">
                                                     {post.data.title}
                                                 </h2>
-                                                <p className="date text-zinc-400 text-right lg:text-left leading-relaxed text-base max-lg:hidden">
+                                                <p className="date text-neutral-400 text-right lg:text-left leading-relaxed text-base max-lg:hidden">
                                                     {post.data.seoDescription}
                                                 </p>
                                             </div>
                                             <div className="col-span-12 lg:col-span-2 flex lg:justify-end h-full items-center">
-                                                <div className="select-none bg-zinc-800 rounded-full px-3 py-1 text-base text-zinc-50 flex items-center justify-center w-fit h-fit">
+                                                <div className="select-none bg-neutral-800 rounded-full px-3 py-1 text-base text-neutral-50 flex items-center justify-center w-fit h-fit">
                                                     {post?.data?.category
                                                         ?.name ?? ''}
                                                 </div>
                                             </div>
                                             <div className="col-span-12 lg:col-span-2 flex lg:justify-end h-full items-center">
-                                                <p className="date text-zinc-400 text-right leading-relaxed text-base">
+                                                <p className="date text-neutral-400 text-right leading-relaxed text-base">
                                                     <FormattedDate
                                                         date={post.data.pubDate}
                                                     />
