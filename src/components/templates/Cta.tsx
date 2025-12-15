@@ -61,7 +61,15 @@ export const Cta = ({
                     {inlineStyle ? (
                         <span className="flex items-center gap-2 text-sm text-normal font-lexend cursor-pointer hover:opacity-80">
                             {ctaButtonText}
-                            <MoveRight className="w-5 h-5 text-[#3ECF8E]" />
+                            {
+                                ctaButtonUrl !== '#' ?
+                                    <a href={ctaButtonUrl}>
+                                        <MoveRight className="w-5 h-5 text-[#3ECF8E]" />
+                                    </a>
+                                    :
+                                    <MoveRight className="w-5 h-5 text-[#3ECF8E]" />
+                            }
+
                         </span>
                     ) : (
                         <Button

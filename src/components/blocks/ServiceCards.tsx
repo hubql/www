@@ -97,7 +97,7 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
 
                         <Cta
                             ctaButtonText="Learn more"
-                            ctaButtonUrl="#"
+                            ctaButtonUrl={'#'}
                             className="py-0 justify-start"
                             titleClassName="text-sm font-lexend"
                             containerClassName="justify-start items-start px-0"
