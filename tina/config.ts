@@ -30,6 +30,7 @@ import { testimonialsBlockSchema } from '../src/components/blocks/Testimonials'
 import { serviceCardsBlockSchema } from '../src/components/blocks/ServiceCards'
 import { projectReferencesBlockSchema } from '../src/components/blocks/ProjectReferences'
 import { aboveFoldBlockSchema2 } from '@/src/components/blocks/AboveFold2'
+import { teamMembersBlockSchema } from '../src/components/blocks/TeamMembers'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -400,6 +401,7 @@ export default defineConfig({
                             projectReferencesBlockSchema,
                             aboveFoldBlockSchema2,
                             imageGridBlockSchema,
+                            teamMembersBlockSchema,
                         ],
                     },
                 ],

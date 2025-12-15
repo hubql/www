@@ -3850,6 +3850,191 @@
                                     }
                                 ],
                                 "namespace": ["pages", "blocks", "imageGrid"]
+                            },
+                            {
+                                "name": "TeamMembers",
+                                "label": "Team Members",
+                                "ui": { "previewSrc": "" },
+                                "fields": [
+                                    {
+                                        "label": "Columns",
+                                        "name": "columns",
+                                        "type": "number",
+                                        "ui": {
+                                            "description": "Number of columns on large screens (2-4, default: 3)"
+                                        },
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "TeamMembers",
+                                            "columns"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "label": "Heading",
+                                        "name": "heading",
+                                        "type": "string",
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "TeamMembers",
+                                            "heading"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "label": "Subheading",
+                                        "name": "subheading",
+                                        "type": "string",
+                                        "ui": { "component": "textarea" },
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "TeamMembers",
+                                            "subheading"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "label": "Members",
+                                        "name": "members",
+                                        "type": "object",
+                                        "list": true,
+                                        "ui": {
+                                            "defaultItem": {
+                                                "name": "Team Member",
+                                                "role": "Role",
+                                                "bio": "Short bio",
+                                                "tags": []
+                                            }
+                                        },
+                                        "fields": [
+                                            {
+                                                "type": "object",
+                                                "label": "Image",
+                                                "name": "image",
+                                                "fields": [
+                                                    {
+                                                        "name": "src",
+                                                        "label": "Image Source",
+                                                        "type": "image",
+                                                        "namespace": [
+                                                            "pages",
+                                                            "blocks",
+                                                            "TeamMembers",
+                                                            "members",
+                                                            "image",
+                                                            "src"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "alt",
+                                                        "label": "Alt Text",
+                                                        "type": "string",
+                                                        "namespace": [
+                                                            "pages",
+                                                            "blocks",
+                                                            "TeamMembers",
+                                                            "members",
+                                                            "image",
+                                                            "alt"
+                                                        ]
+                                                    }
+                                                ],
+                                                "namespace": [
+                                                    "pages",
+                                                    "blocks",
+                                                    "TeamMembers",
+                                                    "members",
+                                                    "image"
+                                                ]
+                                            },
+                                            {
+                                                "label": "Name",
+                                                "name": "name",
+                                                "type": "string",
+                                                "namespace": [
+                                                    "pages",
+                                                    "blocks",
+                                                    "TeamMembers",
+                                                    "members",
+                                                    "name"
+                                                ]
+                                            },
+                                            {
+                                                "label": "Role",
+                                                "name": "role",
+                                                "type": "string",
+                                                "namespace": [
+                                                    "pages",
+                                                    "blocks",
+                                                    "TeamMembers",
+                                                    "members",
+                                                    "role"
+                                                ]
+                                            },
+                                            {
+                                                "label": "Bio",
+                                                "name": "bio",
+                                                "type": "string",
+                                                "ui": {
+                                                    "component": "textarea"
+                                                },
+                                                "namespace": [
+                                                    "pages",
+                                                    "blocks",
+                                                    "TeamMembers",
+                                                    "members",
+                                                    "bio"
+                                                ]
+                                            },
+                                            {
+                                                "label": "External URL",
+                                                "name": "url",
+                                                "type": "string",
+                                                "ui": {
+                                                    "description": "Optional external link for this member (e.g. LinkedIn, personal site)"
+                                                },
+                                                "namespace": [
+                                                    "pages",
+                                                    "blocks",
+                                                    "TeamMembers",
+                                                    "members",
+                                                    "url"
+                                                ]
+                                            },
+                                            {
+                                                "label": "Tags",
+                                                "name": "tags",
+                                                "type": "string",
+                                                "list": true,
+                                                "ui": {
+                                                    "description": "Add tags or skills for this member"
+                                                },
+                                                "namespace": [
+                                                    "pages",
+                                                    "blocks",
+                                                    "TeamMembers",
+                                                    "members",
+                                                    "tags"
+                                                ]
+                                            }
+                                        ],
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "TeamMembers",
+                                            "members"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    }
+                                ],
+                                "namespace": ["pages", "blocks", "TeamMembers"]
                             }
                         ],
                         "namespace": ["pages", "blocks"],
@@ -4348,7 +4533,8 @@
                 "ServiceCards": "PagesBlocksServiceCards",
                 "projectReferences": "PagesBlocksProjectReferences",
                 "AboveFold2": "PagesBlocksAboveFold2",
-                "imageGrid": "PagesBlocksImageGrid"
+                "imageGrid": "PagesBlocksImageGrid",
+                "TeamMembers": "PagesBlocksTeamMembers"
             }
         },
         "Pages": {
@@ -9484,6 +9670,156 @@
                 ]
             },
             {
+                "kind": "ObjectTypeDefinition",
+                "interfaces": [],
+                "directives": [],
+                "name": {
+                    "kind": "Name",
+                    "value": "PagesBlocksTeamMembersMembersImage"
+                },
+                "fields": [
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "src" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "alt" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    }
+                ]
+            },
+            {
+                "kind": "ObjectTypeDefinition",
+                "interfaces": [],
+                "directives": [],
+                "name": {
+                    "kind": "Name",
+                    "value": "PagesBlocksTeamMembersMembers"
+                },
+                "fields": [
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "image" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": {
+                                "kind": "Name",
+                                "value": "PagesBlocksTeamMembersMembersImage"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "name" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "role" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "bio" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "url" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "tags" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "ListType",
+                            "type": {
+                                "kind": "NamedType",
+                                "name": { "kind": "Name", "value": "String" }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "kind": "ObjectTypeDefinition",
+                "interfaces": [],
+                "directives": [],
+                "name": { "kind": "Name", "value": "PagesBlocksTeamMembers" },
+                "fields": [
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "columns" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "Float" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "heading" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "subheading" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "members" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "ListType",
+                            "type": {
+                                "kind": "NamedType",
+                                "name": {
+                                    "kind": "Name",
+                                    "value": "PagesBlocksTeamMembersMembers"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
                 "kind": "UnionTypeDefinition",
                 "name": { "kind": "Name", "value": "PagesBlocks" },
                 "directives": [],
@@ -9670,6 +10006,13 @@
                         "name": {
                             "kind": "Name",
                             "value": "PagesBlocksImageGrid"
+                        }
+                    },
+                    {
+                        "kind": "NamedType",
+                        "name": {
+                            "kind": "Name",
+                            "value": "PagesBlocksTeamMembers"
                         }
                     }
                 ]
@@ -12298,6 +12641,135 @@
             },
             {
                 "kind": "InputObjectTypeDefinition",
+                "name": {
+                    "kind": "Name",
+                    "value": "PagesBlocksTeamMembersMembersImageFilter"
+                },
+                "fields": [
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "src" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "ImageFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "alt" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    }
+                ]
+            },
+            {
+                "kind": "InputObjectTypeDefinition",
+                "name": {
+                    "kind": "Name",
+                    "value": "PagesBlocksTeamMembersMembersFilter"
+                },
+                "fields": [
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "image" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": {
+                                "kind": "Name",
+                                "value": "PagesBlocksTeamMembersMembersImageFilter"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "name" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "role" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "bio" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "url" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "tags" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    }
+                ]
+            },
+            {
+                "kind": "InputObjectTypeDefinition",
+                "name": {
+                    "kind": "Name",
+                    "value": "PagesBlocksTeamMembersFilter"
+                },
+                "fields": [
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "columns" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "NumberFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "heading" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "subheading" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "members" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": {
+                                "kind": "Name",
+                                "value": "PagesBlocksTeamMembersMembersFilter"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "kind": "InputObjectTypeDefinition",
                 "name": { "kind": "Name", "value": "PagesBlocksFilter" },
                 "fields": [
                     {
@@ -12614,6 +13086,17 @@
                             "name": {
                                 "kind": "Name",
                                 "value": "PagesBlocksImageGridFilter"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "TeamMembers" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": {
+                                "kind": "Name",
+                                "value": "PagesBlocksTeamMembersFilter"
                             }
                         }
                     }
@@ -16963,6 +17446,141 @@
             },
             {
                 "kind": "InputObjectTypeDefinition",
+                "name": {
+                    "kind": "Name",
+                    "value": "PagesBlocksTeamMembersMembersImageMutation"
+                },
+                "fields": [
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "src" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "alt" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    }
+                ]
+            },
+            {
+                "kind": "InputObjectTypeDefinition",
+                "name": {
+                    "kind": "Name",
+                    "value": "PagesBlocksTeamMembersMembersMutation"
+                },
+                "fields": [
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "image" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": {
+                                "kind": "Name",
+                                "value": "PagesBlocksTeamMembersMembersImageMutation"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "name" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "role" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "bio" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "url" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "tags" },
+                        "type": {
+                            "kind": "ListType",
+                            "type": {
+                                "kind": "NamedType",
+                                "name": { "kind": "Name", "value": "String" }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "kind": "InputObjectTypeDefinition",
+                "name": {
+                    "kind": "Name",
+                    "value": "PagesBlocksTeamMembersMutation"
+                },
+                "fields": [
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "columns" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "Float" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "heading" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "subheading" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "members" },
+                        "type": {
+                            "kind": "ListType",
+                            "type": {
+                                "kind": "NamedType",
+                                "name": {
+                                    "kind": "Name",
+                                    "value": "PagesBlocksTeamMembersMembersMutation"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "kind": "InputObjectTypeDefinition",
                 "name": { "kind": "Name", "value": "PagesBlocksMutation" },
                 "fields": [
                     {
@@ -17279,6 +17897,17 @@
                             "name": {
                                 "kind": "Name",
                                 "value": "PagesBlocksImageGridMutation"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "TeamMembers" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": {
+                                "kind": "Name",
+                                "value": "PagesBlocksTeamMembersMutation"
                             }
                         }
                     }
