@@ -1,3 +1,5 @@
+import { AboveFold2 } from '../components/blocks/AboveFold2'
+import { SectionCta } from '../components/blocks/SectionCta'
 import { ContactForm } from '../components/homepage/ContactForm'
 
 import { Layout } from '../components/layout/Layout'
@@ -5,16 +7,26 @@ import { Layout } from '../components/layout/Layout'
 export default function Contact() {
     return (
         <Layout data={[]}>
-            <div>
-                <h1 className="text-4xl font-bold tracking-widest pt-4 text-center mt-2 font-orbitron">
-                    Contact
-                </h1>
-                <p className="text-center text-[16px] pb-8 border-neutral-800 text-neutral-400">
-                    Reach out to us below and we will get back to you as soon as
-                    possible.
-                </p>
-            </div>
+            <AboveFold2 data={dataAboveFold2} />
             <ContactForm />
+            <SectionCta data={dataCta} />
         </Layout>
     )
+}
+
+const dataAboveFold2 = {
+    tag: 'Contact Us',
+    title: 'Think software.Think Hubql.',
+    paragraph:
+        'We’re here to help. Whether you have questions about your web project, our development and automation services, availability, pricing, or potential partnerships, our team is ready to talk.',
+}
+
+const dataCta = {
+    title: 'What kind of web solution are you looking to build?',
+    paragraph:
+        'Explore our portfolio to see how we design and build web platforms, Supabase-powered systems, and automated workflows. If our work resonates with you, reach out below and we’ll get back to you shortly.',
+    buttonOne: {
+        label: 'Our Work',
+        link: '/portfolio',
+    },
 }

@@ -11,6 +11,7 @@ import {
     hubqlDemoFileSchema,
 } from '../src/components/blocks/Hero2Column'
 import { imageGalleryBlockSchema } from '../src/components/blocks/ImageGallery'
+import { imageGridBlockSchema } from '../src/components/blocks/ImageGrid'
 import { scrollCardBlockSchema } from '../src/components/blocks/ScrollCard'
 import { sectionCtaBlockSchema } from '../src/components/blocks/SectionCta'
 import { sectionHeadingBlockSchema } from '../src/components/blocks/SectionHeading'
@@ -28,7 +29,8 @@ import { techStackBlockSchema } from '../src/components/blocks/TechStack'
 import { testimonialsBlockSchema } from '../src/components/blocks/Testimonials'
 import { serviceCardsBlockSchema } from '../src/components/blocks/ServiceCards'
 import { projectReferencesBlockSchema } from '../src/components/blocks/ProjectReferences'
-
+import { aboveFoldBlockSchema2 } from '@/src/components/blocks/AboveFold2'
+import { teamMembersBlockSchema } from '../src/components/blocks/TeamMembers'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -397,6 +399,9 @@ export default defineConfig({
                             testimonialsBlockSchema,
                             serviceCardsBlockSchema,
                             projectReferencesBlockSchema,
+                            aboveFoldBlockSchema2,
+                            imageGridBlockSchema,
+                            teamMembersBlockSchema,
                         ],
                     },
                 ],

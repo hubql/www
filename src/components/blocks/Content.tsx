@@ -1,14 +1,10 @@
 import clsx from 'clsx'
-import Link from 'next/link'
-import React from 'react'
 import type { Template } from 'tinacms'
 import { tinaField } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import type { PagesBlocksContent } from '../../../tina/__generated__/types'
 import { Button } from '../kit/Button'
-
 import PricingTable from '../util/PricingTable'
-import TermlyScriptWrapper from '../util/TermlyScriptWrapper'
 
 const components = {
     Button: (props: { label: string | undefined; link: string }) => {
@@ -37,7 +33,7 @@ export const Content = ({ data }: { data: PagesBlocksContent }) => {
             <div
                 className={clsx(
                     'w-full max-w-full prose prose-h1:text-5xl prose-h1:leading-normal prose-a:text-accent-500 prose-headings:text-black dark:prose-headings:text-white prose-p:text-zinc-900 dark:prose-p:text-zinc-400 prose-p:text-sans prose-p:mb-1 prose-li:text-sans propse-a:text-sans prose-li:text-zinc-400 prose-blockquote:text-zinc-400 prose-blockquote:text-lg prose-blockquote:leading-loose prose-blockquote:font-normal prose-p:leading-normal prose-strong:text-black dark:prose-strong:text-white',
-                    data.fullWidth ? '' : 'py-20'
+                    data.fullWidth ? '' : 'lg:py-8 py-4'
                 )}
                 data-tina-field={tinaField(data, 'body')}
             >

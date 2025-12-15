@@ -38,7 +38,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
 const navigationMenuTriggerStyle =
-    'group inline-flex h-10 w-max items-center justify-center rounded-sm bg-transparent px-4 py-2 text-sm   font-normal transition-colors  text-black dark:text-white hover:bg-zinc-100 hover:text-black dark:hover:bg-zinc-900/70 dark:hover:text-white dark:focus:bg-black dark:focus:text-white dark:focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-zinc-100 data-[state=open]:bg-zinc-100 dark:data-[active]:bg-zinc-900 dark:data-[state=open]:bg-zinc-900'
+    'group inline-flex h-10 w-max items-center justify-center rounded-sm bg-transparent px-4 py-2 text-sm   font-normal transition-colors  text-black dark:text-white hover:bg-neutral-100 hover:text-black dark:hover:bg-neutral-900/70 dark:hover:text-white dark:focus:bg-neutral-800 dark:focus:text-white dark:focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-neutral-100 data-[state=open]:bg-neutral-100 dark:data-[active]:bg-neutral-900 dark:data-[state=open]:bg-neutral-900'
 const NavigationMenuTrigger = React.forwardRef<
     React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
     React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>
@@ -77,7 +77,7 @@ const NavigationMenuViewport = React.forwardRef<
     <div className={clsx('absolute left-0 top-full flex justify-center')}>
         <NavigationMenuPrimitive.Viewport
             className={clsx(
-                'origin-top-center relative text-black dark:text-white bg-zinc-100 dark:bg-black border-zinc-200 dark:border-zinc-700  mt-1 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-sm border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]',
+                'origin-top-center relative text-black dark:text-white bg-neutral-900 border-neutral-200 dark:border-neutral-700  mt-1 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-lg border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]',
                 className
             )}
             ref={ref}

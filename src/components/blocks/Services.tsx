@@ -84,7 +84,7 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                                             ) : null
                                         })()
                                     ))}
-                                <h3 className="text-[18px] font-normal font-lexend break-words m-0">
+                                <h3 className="text-[18px] font-normal font-lexend break-words m-0 text-left flex-1">
                                     {card?.title}
                                 </h3>
                             </div>

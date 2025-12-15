@@ -51,7 +51,7 @@ export const TrustedBy = ({ data }: { data: PagesBlocksTrustedBy }) => {
             </div>
 
             <motion.h2
-                className="col-span-full text-[12px] font-normal text-center font-lexend text-[#ABABAB]"
+                className="col-span-full text-sm font-normal text-center font-lexend text-[#ABABAB]"
                 data-tina-field={tinaField(data, 'title')}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}

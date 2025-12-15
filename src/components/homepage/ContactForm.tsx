@@ -1,5 +1,5 @@
 import { Turnstile } from '@marsidev/react-turnstile'
-import { ArrowIcon } from '../kit/Button'
+import { ArrowIcon, Button } from '../kit/Button'
 import { useState } from 'react'
 
 export const ContactForm = () => {
@@ -60,7 +60,7 @@ export const ContactForm = () => {
     }
 
     return (
-        <div className="w-full flex-1 pt-8">
+        <div className="w-full flex-1 px-2">
             <form onSubmit={handleSubmit}>
                 <div className="w-full flex flex-col gap-4 justify-start items-start max-w-screen-sm mx-auto pb-12 pt-4">
                     <div className="w-full grid grid-cols-1 gap-4 ">
@@ -69,7 +69,7 @@ export const ContactForm = () => {
                             id="firstName"
                             name="firstName"
                             required
-                            className="py-2 px-3 w-full rounded-sm border border-neutral-700"
+                            className="py-2 px-3 w-full rounded-md border border-neutral-700"
                             placeholder="First Name"
                         />
                         <input
@@ -77,7 +77,7 @@ export const ContactForm = () => {
                             id="company"
                             name="company"
                             required
-                            className="py-2 px-3 w-full rounded-sm border border-neutral-700"
+                            className="py-2 px-3 w-full rounded-md border border-neutral-700"
                             placeholder="Company"
                         />
                     </div>
@@ -87,7 +87,7 @@ export const ContactForm = () => {
                         id="email"
                         name="email"
                         required
-                        className="py-2 px-3 w-full rounded-sm border border-neutral-700"
+                        className="py-2 px-3 w-full rounded-md border border-neutral-700"
                         placeholder="Email"
                     />
 
@@ -95,7 +95,7 @@ export const ContactForm = () => {
                         id="message"
                         name="message"
                         required
-                        className="py-2 px-3 w-full rounded-sm border border-neutral-700 h-32"
+                        className="py-2 px-3 w-full rounded-md border border-neutral-700 h-32"
                         placeholder="Your message"
                     />
                     <Turnstile
@@ -106,16 +106,9 @@ export const ContactForm = () => {
                     />
 
                     <div className="w-full flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
-                        <button
-                            type="submit"
-                            disabled={loading}
-                            className="button relative hover:decoration-none transition-transform ease-in hover:-translate-y-1 hover:icon:-translate-x-1 h-[44px] pl-4 pr-16 rounded-sm flex flex-row items-center justify-between text-base py-3 font-normal bg-accent-500 !text-white w-fit !no-underline disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
+                        <Button type="submit" disabled={loading}>
                             {loading ? 'Sending...' : 'Send Message'}
-                            <div className="icon absolute inset-y-auto right-4">
-                                <ArrowIcon />
-                            </div>
-                        </button>
+                        </Button>
                     </div>
 
                     {error && <p className="text-red-500 text-sm">{error}</p>}

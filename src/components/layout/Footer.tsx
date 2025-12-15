@@ -11,7 +11,7 @@ export const Footer = () => {
     const isDocs = pathname.includes('/docs/')
 
     return (
-        <footer className="w-full relative z-50">
+        <footer className="w-full relative z-50  border-t border-zinc-800">
             <div
                 className={cn(
                     'flex w-full pb-16 bg-background max-w-screen-xl flex-col mx-auto gap-8 pb-4',
@@ -23,7 +23,7 @@ export const Footer = () => {
                         return (
                             <li
                                 key={'footer' + index}
-                                className="text-left w-full h-full px-8 py-8"
+                                className="text-left w-full h-full px-8 py-8 first:col-span-2"
                             >
                                 <div>
                                     <p className="text-white text-lg font-semibold py-1 mb-1 font-orbitron">
@@ -244,7 +244,7 @@ export const footerNav = {
                     __typename: 'GlobalFooterNavNav',
                     isExternal: null,
                     label: 'n8n',
-                    href: 'n8n',
+                    href: 'n8n-workflow-automation',
                 },
             ],
         },
@@ -284,6 +284,12 @@ export const footerNav = {
                     isExternal: false,
                     label: 'About',
                     href: 'about',
+                },
+                {
+                    __typename: 'GlobalFooterNavNav',
+                    isExternal: false,
+                    label: 'Team',
+                    href: 'team',
                 },
                 {
                     __typename: 'GlobalFooterNavNav',

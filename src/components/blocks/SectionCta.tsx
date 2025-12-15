@@ -6,13 +6,13 @@ import type { PagesBlocksSectionCta } from '../../../tina/__generated__/types'
 
 export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
     return (
-        <div className="relative w-full flex justify-center py-44 font-lexend">
+        <div className="relative w-full flex justify-center py-44 font-lexend px-2">
             <div className=" w-full max-w-5xl mx-auto  ">
-                <div className="flex flex-col items-center text-center px-8">
+                <div className="flex flex-col items-center text-center bg-neutral-900 py-20 px-8 rounded-lg border border-neutral-800">
                     {data.title && (
                         <h2
                             data-tina-field={tinaField(data, 'title')}
-                            className={`w-full relative text-[24px] font-lexend`}
+                            className={`w-full relative text-4xl max-w-xl mx-auto`}
                         >
                             {data.title}
                         </h2>
@@ -20,7 +20,7 @@ export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
                     {data.paragraph && (
                         <p
                             data-tina-field={tinaField(data, 'paragraph')}
-                            className={`text-[14px] text-neutral-400 mx-auto m-0 max-w-[300px] font-lexend`}
+                            className={`text-sm text-neutral-400 mx-auto m-0 max-w-xl font-lexend`}
                         >
                             {data.paragraph}
                         </p>
@@ -39,7 +39,7 @@ export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
                                     {data.buttonOne.label}
                                 </Button>
                             )}
-                            {data.buttonTwo && (
+                            {data.buttonTwo && data.buttonTwo.label && (
                                 <Button
                                     href={data.buttonTwo.link ?? '/'}
                                     data-tina-field={tinaField(
