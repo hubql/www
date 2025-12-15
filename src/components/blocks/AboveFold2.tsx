@@ -12,7 +12,7 @@ export const AboveFold2 = ({ data }: { data: PagesBlocksAboveFold2 }) => {
                 <div className="w-full flex flex-col items-center justify-center gap-0">
                     <div className="w-full h-full flex items-center justify-center col-span-2">
                         <motion.div
-                            className="pt-32 pb-24 relative w-fit h-fit flex flex-col z-10 px-8 h-full items-center justify-center"
+                            className="lg:pt-32 lg:pb-24 pt-12 pb-8 relative w-fit h-fit flex flex-col z-10 lg:px-8 px-2 h-full lg:items-center justify-center"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{
@@ -23,7 +23,7 @@ export const AboveFold2 = ({ data }: { data: PagesBlocksAboveFold2 }) => {
                         >
                             {data.tag && (
                                 <div
-                                    className="text-[14px] text-white-400 font-orbitron uppercase font-black  text-primary mb-8 tracking-widest"
+                                    className="text-[14px] font-orbitron uppercase font-black  text-primary mb-4 lg:mb-8 tracking-widest"
                                     data-tina-field={tinaField(data, 'tag')}
                                 >
                                     {data.tag}
@@ -31,7 +31,7 @@ export const AboveFold2 = ({ data }: { data: PagesBlocksAboveFold2 }) => {
                             )}
                             {data.title && (
                                 <h1
-                                    className="text-white text-[40px] font-bold text-center font-lexend max-w-4xl mb-[16px]"
+                                    className="text-white text-[40px] font-bold lg:text-center font-lexend max-w-4xl mb-[16px]"
                                     data-tina-field={tinaField(data, 'title')}
                                 >
                                     {data.title}
@@ -40,7 +40,7 @@ export const AboveFold2 = ({ data }: { data: PagesBlocksAboveFold2 }) => {
 
                             {data.paragraph && (
                                 <p
-                                    className="max-w-2xl text-white-400 font-lexend text-center"
+                                    className="max-w-2xl text-neutral-400 font-lexend lg:text-center"
                                     data-tina-field={tinaField(
                                         data,
                                         'paragraph'

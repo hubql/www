@@ -29,7 +29,7 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
                 'Specialized in Collaboration and 3D Experiences on the Web.'
             }
             titleClassName="pt-20 text-[16px]"
-            contentClassName="grid grid-cols-1 lg:grid-cols-2 px-0 w-full py-4 gap-4"
+            contentClassName="grid grid-cols-1 lg:grid-cols-2 px-0 w-full py-4 gap-4 px-2"
             data-tina-field={tinaField(data, 'title')}
         >
             {data.serviceCards?.map((item: any, index: number) => (

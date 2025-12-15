@@ -14,6 +14,9 @@ export const Button = ({
     size = 'md',
     icon,
     variant = 'contain',
+    type = 'button',
+    disabled = false,
+    loading = false,
 }: {
     children?: any
     href?: string
@@ -21,6 +24,9 @@ export const Button = ({
     size?: sizeVariant
     icon?: iconVariant
     variant?: styleVariant
+    type?: 'button' | 'submit' | 'reset'
+    disabled?: boolean
+    loading?: boolean
 }) => {
     const sizeSm = size === 'sm' && 'text-sm py-2 !px-3 font-normal gap-2'
     const sizeMd = size === 'md' && 'text-base py-3  font-normal gap-8'
