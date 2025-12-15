@@ -11,6 +11,7 @@ import {
     hubqlDemoFileSchema,
 } from '../src/components/blocks/Hero2Column'
 import { imageGalleryBlockSchema } from '../src/components/blocks/ImageGallery'
+import { imageGridBlockSchema } from '../src/components/blocks/ImageGrid'
 import { scrollCardBlockSchema } from '../src/components/blocks/ScrollCard'
 import { sectionCtaBlockSchema } from '../src/components/blocks/SectionCta'
 import { sectionHeadingBlockSchema } from '../src/components/blocks/SectionHeading'
@@ -398,6 +399,7 @@ export default defineConfig({
                             serviceCardsBlockSchema,
                             projectReferencesBlockSchema,
                             aboveFoldBlockSchema2,
+                            imageGridBlockSchema,
                         ],
                     },
                 ],

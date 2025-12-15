@@ -26,6 +26,7 @@ import { Testimonials } from '../blocks/Testimonials'
 import { ServiceCards } from '../blocks/ServiceCards'
 import { ProjectReferences } from '../blocks/ProjectReferences'
 import { AboveFold2 } from '../blocks/AboveFold2'
+import { ImageGrid } from '../blocks/ImageGrid'
 
 type BlocksProps = Omit<Pages, 'id' | '_sys' | '_values'>
 export const Blocks = (
@@ -126,6 +127,8 @@ const Block = ({
             return <ProjectReferences data={block} />
         case `${collectionType}BlocksAboveFold2`:
             return <AboveFold2 data={block} />
+        case `${collectionType}BlocksImageGrid`:
+            return <ImageGrid data={block} />
         default:
             console.warn(
                 'Unknown block type:',
