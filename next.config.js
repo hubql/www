@@ -405,6 +405,11 @@ const nextConfig = {
             destination: '/solutions/api-collaboration',
             permanent: true,
         },
+        {
+            source: '/n8n',
+            destination: '/n8n-workflow-automation',
+            permanent: true,
+        },
     ],
     rewrites: () => [
         {
@@ -417,12 +422,6 @@ const nextConfig = {
         },
     ],
     images: {
-        domains: [
-            'www.hubql.com',
-            '**.vercel.app',
-            'assets.tina.io',
-            'raw.githubusercontent.com',
-        ],
         remotePatterns: [
             {
                 protocol: 'https',
@@ -435,6 +434,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'assets.tina.io',
+            },
+            {
+                protocol: 'https',
+                hostname: 'raw.githubusercontent.com',
             },
         ],
     },

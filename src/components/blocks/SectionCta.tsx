@@ -39,7 +39,7 @@ export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
                                     {data.buttonOne.label}
                                 </Button>
                             )}
-                            {data.buttonTwo && (
+                            {data.buttonTwo && data.buttonTwo.label && (
                                 <Button
                                     href={data.buttonTwo.link ?? '/'}
                                     data-tina-field={tinaField(

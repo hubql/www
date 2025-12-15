@@ -244,7 +244,7 @@ export const footerNav = {
                     __typename: 'GlobalFooterNavNav',
                     isExternal: null,
                     label: 'n8n',
-                    href: 'n8n',
+                    href: 'n8n-workflow-automation',
                 },
             ],
         },

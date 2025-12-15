@@ -12,7 +12,7 @@ export const AboveFold2 = ({ data }: { data: PagesBlocksAboveFold2 }) => {
                 <div className="w-full flex flex-col items-center justify-center gap-0">
                     <div className="w-full h-full flex items-center justify-center col-span-2">
                         <motion.div
-                            className="pt-32 relative w-fit h-fit flex flex-col z-10 px-8 h-full items-center justify-center"
+                            className="pt-32 pb-24 relative w-fit h-fit flex flex-col z-10 px-8 h-full items-center justify-center"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{
