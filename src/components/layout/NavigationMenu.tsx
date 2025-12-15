@@ -1,32 +1,105 @@
 'use client'
 
 import Link from 'next/link'
-import * as React from 'react'
+import { footerNav } from './Footer'
+import {
+    NavigationMenu as NavigationMenuRoot,
+    NavigationMenuContent,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+    navigationMenuTriggerStyle,
+} from '../kit/NavigationMenu'
+import { ChevronDown } from 'lucide-react'
 
-export function NavigationMenu({ data }: { data: any }) {
+export function NavigationMenu({ data }: { data: any[] }) {
+    const servicesCategory = footerNav.nav.find(
+        (category) => category.label === 'Services'
+    )
+
     return (
         <div className="hidden lg:block relative">
-            <div className=" flex items-center justify-start gap-1">
-                {data.map((item: any, index: number) => {
-                    return (
-                        <div
-                            key={`item-${item.label}+${index}`}
-                            className="text-sm font-bold flex items-center justify-center gap-2"
-                        >
-                            {item.isExternal ? (
-                                <a href={`/${item.href}`}>{item.label}</a>
-                            ) : (
-                                <Link
-                                    href={`/${item.href}`}
-                                    className="block px-2 py-1 cursor-pointer hover:text-primary text-sm font-normal tracking-wide font-lexend-400 rounded-sm"
+            <NavigationMenuRoot>
+                <NavigationMenuList className="flex-wrap">
+                    {data.map((item, index) => {
+                        const isServices = item.label === 'Services'
+                        const hasServices =
+                            isServices &&
+                            servicesCategory &&
+                            servicesCategory.nav &&
+                            servicesCategory.nav.length > 0
+
+                        if (hasServices) {
+                            return (
+                                <NavigationMenuItem
+                                    key={`item-${item.label}-${index}`}
                                 >
-                                    {item.label}
-                                </Link>
-                            )}
-                        </div>
-                    )
-                })}
-            </div>
+                                    <NavigationMenuTrigger>
+                                        {item.label}{' '}
+                                        <ChevronDown className="w-4 h-4 ml-4 font-black" />
+                                    </NavigationMenuTrigger>
+                                    <NavigationMenuContent>
+                                        <ul className="grid w-[280px] gap-1 p-2 ">
+                                            <li key="service-all">
+                                                <NavigationMenuLink asChild>
+                                                    <Link
+                                                        href="/services"
+                                                        className="flex flex-col rounded-sm px-3 py-2 text-sm hover:bg-neutral-800"
+                                                    >
+                                                        <span className="font-medium">
+                                                            All services
+                                                        </span>
+                                                    </Link>
+                                                </NavigationMenuLink>
+                                            </li>
+                                            {servicesCategory.nav.map(
+                                                (link: any, i: number) => (
+                                                    <li key={`service-${i}`}>
+                                                        <NavigationMenuLink
+                                                            asChild
+                                                        >
+                                                            <Link
+                                                                href={`/${link.href}`}
+                                                                className="flex flex-col rounded-sm px-3 py-2 text-sm hover:bg-neutral-800"
+                                                            >
+                                                                <span className="font-medium">
+                                                                    {link.label}
+                                                                </span>
+                                                            </Link>
+                                                        </NavigationMenuLink>
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
+                                    </NavigationMenuContent>
+                                </NavigationMenuItem>
+                            )
+                        }
+
+                        return (
+                            <NavigationMenuItem
+                                key={`item-${item.label}-${index}`}
+                            >
+                                <NavigationMenuLink
+                                    asChild
+                                    className={navigationMenuTriggerStyle}
+                                >
+                                    {item.isExternal ? (
+                                        <a href={`/${item.href}`}>
+                                            {item.label}
+                                        </a>
+                                    ) : (
+                                        <Link href={`/${item.href}`}>
+                                            {item.label}
+                                        </Link>
+                                    )}
+                                </NavigationMenuLink>
+                            </NavigationMenuItem>
+                        )
+                    })}
+                </NavigationMenuList>
+            </NavigationMenuRoot>
         </div>
     )
 }
