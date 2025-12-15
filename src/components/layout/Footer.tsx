@@ -287,6 +287,12 @@ export const footerNav = {
                 },
                 {
                     __typename: 'GlobalFooterNavNav',
+                    isExternal: false,
+                    label: 'Team',
+                    href: 'team',
+                },
+                {
+                    __typename: 'GlobalFooterNavNav',
                     isExternal: null,
                     label: 'Blog',
                     href: 'blog',
