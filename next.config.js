@@ -410,6 +410,11 @@ const nextConfig = {
             destination: '/n8n-workflow-automation',
             permanent: true,
         },
+        {
+            source: '/supabase',
+            destination: '/supabase-development-services',
+            permanent: true,
+        },
     ],
     rewrites: () => [
         {

@@ -6,7 +6,7 @@ import type { PagesBlocksSectionCta } from '../../../tina/__generated__/types'
 
 export const SectionCta = ({ data }: { data: PagesBlocksSectionCta }) => {
     return (
-        <div className="relative w-full flex justify-center py-44 font-lexend px-2">
+        <div className="relative w-full flex justify-center lg:py-28 py-20 font-lexend px-2">
             <div className=" w-full max-w-5xl mx-auto  ">
                 <div className="flex flex-col items-center text-center bg-neutral-900 py-20 px-8 rounded-lg border border-neutral-800">
                     {data.title && (
