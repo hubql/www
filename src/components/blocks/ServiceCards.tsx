@@ -6,6 +6,7 @@ import { tinaField } from 'tinacms/dist/react'
 import type { Template } from 'tinacms'
 import type { PagesBlocksServiceCards } from '../../../tina/__generated__/types'
 import * as LucideIcons from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
 const getIcon = (iconName: string | undefined): LucideIcon | null => {
@@ -33,11 +34,16 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
             data-tina-field={tinaField(data, 'title')}
         >
             {data.serviceCards?.map((item: any, index: number) => {
-                const hasLink = Boolean(item?.link && item.link !== '#' && item.link.trim() !== '')
+                const hasLink = Boolean(
+                    item?.link && item.link !== '#' && item.link.trim() !== ''
+                )
                 const key = 'servicecards-' + (item?.title ?? '') + index
-                const wrapperClassName = "lg:bg-background w-full transition-transform ease-in h-full flex flex-col justify-between"
-                const cardClassName = `flex flex-col bg-[#171717] p-10 rounded-md flex-1 w-full items-end h-full ${hasLink ? 'lg:hover:bg-neutral-800' : ''}`
-                
+                const wrapperClassName =
+                    'lg:bg-background w-full transition-transform ease-in h-full flex flex-col justify-between'
+                const cardClassName = `flex flex-col bg-[#171717] p-10 rounded-md flex-1 w-full items-end h-full ${
+                    hasLink ? 'lg:hover:bg-neutral-800' : ''
+                }`
+
                 const cardContent = (
                     <span className={cardClassName}>
                         <span className="flex flex-col h-full w-full">
@@ -96,24 +102,19 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
                         </span>
 
                         {hasLink && (
-                        <Cta
-                            ctaButtonText="Learn more"
-                            ctaButtonUrl={item.link}
-                            className="py-0 justify-start"
-                            titleClassName="text-sm font-lexend"
-                            containerClassName="justify-start items-start px-0"
-                            blob={false}
-                            inlineStyle
-                        />
+                            <span className="flex items-center gap-2 text-sm text-normal font-lexend cursor-pointer hover:opacity-80 w-full text-left">
+                                Learn more{' '}
+                                <ArrowRight className="w-4 h-4 text-primary" />
+                            </span>
                         )}
                     </span>
                 )
 
                 if (hasLink) {
                     return (
-                        <Link 
+                        <Link
                             key={key}
-                            href={item.link} 
+                            href={item.link}
                             className={wrapperClassName}
                             data-tina-field={tinaField(item)}
                         >
@@ -123,7 +124,7 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
                 }
 
                 return (
-                    <div 
+                    <div
                         key={key}
                         className={wrapperClassName}
                         data-tina-field={tinaField(item)}

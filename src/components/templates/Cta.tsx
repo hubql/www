@@ -28,14 +28,14 @@ export const Cta = ({
     if (!ctaButtonUrl) return null
 
     return (
-        <div
+        <span
             className={cn(
                 'relative w-full flex justify-center pt-32 pb-24 overflow-clip',
                 className
             )}
         >
-            <div className="w-full max-w-5xl mx-auto">
-                <div
+            <span className="w-full max-w-5xl mx-auto">
+                <span
                     className={cn(
                         'flex flex-col gap-6 items-center text-center px-8',
                         containerClassName
@@ -61,15 +61,13 @@ export const Cta = ({
                     {inlineStyle ? (
                         <span className="flex items-center gap-2 text-sm text-normal font-lexend cursor-pointer hover:opacity-80">
                             {ctaButtonText}
-                            {
-                                ctaButtonUrl !== '#' ?
-                                    <a href={ctaButtonUrl}>
-                                        <MoveRight className="w-5 h-5 text-[#3ECF8E]" />
-                                    </a>
-                                    :
+                            {ctaButtonUrl !== '#' ? (
+                                <a href={ctaButtonUrl}>
                                     <MoveRight className="w-5 h-5 text-[#3ECF8E]" />
-                            }
-
+                                </a>
+                            ) : (
+                                <MoveRight className="w-5 h-5 text-[#3ECF8E]" />
+                            )}
                         </span>
                     ) : (
                         <Button
@@ -81,12 +79,12 @@ export const Cta = ({
                             {ctaButtonText}
                         </Button>
                     )}
-                </div>
-            </div>
+                </span>
+            </span>
 
             {blob && (
-                <div className="absolute -bottom-60 -left-60 bg-accent-100 opacity-10 blur-[100px] rounded-full w-[600px] h-[600px] z-[-1]" />
+                <span className="absolute -bottom-60 -left-60 bg-accent-100 opacity-10 blur-[100px] rounded-full w-[600px] h-[600px] z-[-1]" />
             )}
-        </div>
+        </span>
     )
 }
