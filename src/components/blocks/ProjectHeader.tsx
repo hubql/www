@@ -25,7 +25,7 @@ export const ProjectHeader = ({ data }: { data: PagesBlocksProjectHeader }) => {
 
                     {data.projectName && (
                         <h1
-                            className="text-5xl font-bold text-white mb-6 font-lexend"
+                            className="lg:text-5xl text-3xl font-bold text-white mb-6 font-lexend text-wrap w-full break-all"
                             data-tina-field={tinaField(data, 'projectName')}
                         >
                             {data.projectName}
