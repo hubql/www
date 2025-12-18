@@ -7,7 +7,7 @@ import { Button } from '../kit/Button'
 export const ProjectHeader = ({ data }: { data: PagesBlocksProjectHeader }) => {
     return (
         <div className="relative w-full overflow-hidden flex justify-center py-16 lg:py-24">
-            <div className="w-full max-w-3xl mx-auto px-4 lg:px-8">
+            <div className="w-full max-w-3xl mx-auto px-4 lg:px-8 border-b border-border pb-20">
                 <motion.div
                     className="flex flex-col items-start text-left"
                     initial={{ opacity: 0, y: 20 }}
