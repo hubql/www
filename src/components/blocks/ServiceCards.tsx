@@ -23,15 +23,22 @@ const isImageUrl = (icon: string | undefined): boolean => {
 }
 
 export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
+    const columns = (data as any).columns ?? 2
+    const gridColsClass = `grid-cols-${columns}`
+
     return (
         <Section
+            data={data}
             title={
                 data.title ??
                 'Specialized in Collaboration and 3D Experiences on the Web.'
             }
-            titleClassName="pt-20 text-[16px]"
-            contentClassName="grid grid-cols-1 lg:grid-cols-2 px-0 w-full py-4 gap-4 px-2"
-            data-tina-field={tinaField(data, 'title')}
+            subtitle={data.subtitle ?? ''}
+            titleClassName={(data as any).titleClassName}
+            subtitleClassName={(data as any).subtitleClassName}
+            contentClassName={`grid grid-cols-1 lg:${gridColsClass} px-0 w-full gap-4 mt-8 mb-4 ${
+                (data as any).contentClassName
+            }`}
         >
             {data.serviceCards?.map((item: any, index: number) => {
                 const hasLink = Boolean(
@@ -47,7 +54,7 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
                 const cardContent = (
                     <span className={cardClassName}>
                         <span className="flex flex-col h-full w-full">
-                            <span className="flex flex-row items-center gap-3 mb-2 max-w-[24x]">
+                            <span className="flex flex-row items-center gap-3  max-w-[24x]">
                                 {item?.icon &&
                                     (isImageUrl(item.icon) ? (
                                         <Image
@@ -90,7 +97,7 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
                             </span>
                             {item?.description && (
                                 <p
-                                    className="text-neutral-400 font-lexend text-[14px]"
+                                    className="text-neutral-400 font-lexend text-sm mt-2"
                                     data-tina-field={tinaField(
                                         item,
                                         'description'
@@ -144,20 +151,22 @@ export const serviceCardsBlockSchema: Template = {
         previewSrc: '',
         defaultItem: {
             title: 'Powerful Open-Source Developer Tools, Built by Hubql.',
+            subtitle: '',
+            columns: 2,
             serviceCards: [
                 {
                     title: 'Collaborative Web Application',
                     description:
                         'We help founders bring collaboration to life online. From live dashboards to shared creative spaces, we design and build web applications that turn teamwork into a product advantage — fast, reliable, and ready to scale.',
-                    link: '/service/hubql-grid',
-                    icon: '/customers/sc_arrow.png',
+                    link: '',
+                    icon: 'Check',
                 },
                 {
                     title: '3D Web Appplication',
                     description:
                         'We help startups bring products and experiences to life with interactive 3D on the web. From immersive product viewers to creative visualization tools, we design and build 3D web applications that turn complex ideas into engaging, high-impact user experiences',
-                    link: '/service/api-client',
-                    icon: '/customers/sc_3D.png',
+                    link: '',
+                    icon: 'Check',
                 },
             ],
         },
@@ -167,6 +176,51 @@ export const serviceCardsBlockSchema: Template = {
             type: 'string',
             label: 'Title',
             name: 'title',
+        },
+        {
+            type: 'string',
+            label: 'SubTitle',
+            name: 'subtitle',
+        },
+        {
+            type: 'string',
+            label: 'Title Class Name',
+            name: 'titleClassName',
+            ui: {
+                description:
+                    'Custom CSS classes for the title (e.g., text-4xl font-bold text-blue-500)',
+            },
+        },
+        {
+            type: 'string',
+            label: 'Subtitle Class Name',
+            name: 'subtitleClassName',
+            ui: {
+                description:
+                    'Custom CSS classes for the subtitle (e.g., text-lg text-gray-600)',
+            },
+        },
+        {
+            type: 'string',
+            label: 'Content Class Name',
+            name: 'contentClassName',
+            ui: {
+                description:
+                    'Custom CSS classes for the content (e.g., grid-cols-1 lg:grid-cols-2)',
+            },
+        },
+        {
+            type: 'number',
+            label: 'Columns (Desktop)',
+            name: 'columns',
+            ui: {
+                description: 'Number of columns on large screens (1-4)',
+                validate: (value) => {
+                    if (value && (value < 1 || value > 4)) {
+                        return 'Please enter a number between 1 and 4'
+                    }
+                },
+            },
         },
         {
             type: 'object',
