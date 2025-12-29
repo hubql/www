@@ -3390,14 +3390,20 @@
                                     "previewSrc": "",
                                     "defaultItem": {
                                         "title": "Powerful Open-Source Developer Tools, Built by Hubql.",
+                                        "subtitle": "",
                                         "columns": 2,
                                         "serviceCards": [
                                             {
                                                 "title": "Collaborative Web Application",
                                                 "description": "We help founders bring collaboration to life online. From live dashboards to shared creative spaces, we design and build web applications that turn teamwork into a product advantage — fast, reliable, and ready to scale.",
                                                 "link": "",
-                                                "image": "",
-                                                "icon": ""
+                                                "icon": "Check"
+                                            },
+                                            {
+                                                "title": "3D Web Appplication",
+                                                "description": "We help startups bring products and experiences to life with interactive 3D on the web. From immersive product viewers to creative visualization tools, we design and build 3D web applications that turn complex ideas into engaging, high-impact user experiences",
+                                                "link": "",
+                                                "icon": "Check"
                                             }
                                         ]
                                     }
@@ -3417,11 +3423,72 @@
                                         "uid": false
                                     },
                                     {
+                                        "type": "string",
+                                        "label": "SubTitle",
+                                        "name": "subtitle",
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "ServiceCards",
+                                            "subtitle"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "type": "string",
+                                        "label": "Title Class Name",
+                                        "name": "titleClassName",
+                                        "ui": {
+                                            "description": "Custom CSS classes for the title (e.g., text-4xl font-bold text-blue-500)"
+                                        },
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "ServiceCards",
+                                            "titleClassName"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "type": "string",
+                                        "label": "Subtitle Class Name",
+                                        "name": "subtitleClassName",
+                                        "ui": {
+                                            "description": "Custom CSS classes for the subtitle (e.g., text-lg text-gray-600)"
+                                        },
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "ServiceCards",
+                                            "subtitleClassName"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "type": "string",
+                                        "label": "Content Class Name",
+                                        "name": "contentClassName",
+                                        "ui": {
+                                            "description": "Custom CSS classes for the content (e.g., grid-cols-1 lg:grid-cols-2)"
+                                        },
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "ServiceCards",
+                                            "contentClassName"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
                                         "type": "number",
-                                        "label": "Columns",
+                                        "label": "Columns (Desktop)",
                                         "name": "columns",
                                         "ui": {
-                                            "description": "Number of columns to display on large screens (2-4, default: 2)"
+                                            "description": "Number of columns on large screens (1-4)"
                                         },
                                         "namespace": [
                                             "pages",
@@ -4092,6 +4159,108 @@
                                     }
                                 ],
                                 "namespace": ["pages", "blocks", "TeamMembers"]
+                            },
+                            {
+                                "name": "projectHeader",
+                                "label": "Project Header",
+                                "ui": {
+                                    "previewSrc": "",
+                                    "defaultItem": {
+                                        "overview": "Case Study",
+                                        "projectName": "SchemaVisualizer.dev",
+                                        "agencyRole": "Design & Development",
+                                        "product": "Web-based data schema visualization and collaboration tool",
+                                        "targetUsers": "Developers, architects, technical teams, product owners, and non-technical stakeholders",
+                                        "website": "https://www.schemavisualizer.dev/"
+                                    }
+                                },
+                                "fields": [
+                                    {
+                                        "type": "string",
+                                        "label": "Overview",
+                                        "name": "overview",
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "projectHeader",
+                                            "overview"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "type": "string",
+                                        "label": "Project Name",
+                                        "name": "projectName",
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "projectHeader",
+                                            "projectName"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "type": "string",
+                                        "label": "Agency Role",
+                                        "name": "agencyRole",
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "projectHeader",
+                                            "agencyRole"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "type": "string",
+                                        "label": "Product",
+                                        "name": "product",
+                                        "ui": { "component": "textarea" },
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "projectHeader",
+                                            "product"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "type": "string",
+                                        "label": "Target Users",
+                                        "name": "targetUsers",
+                                        "ui": { "component": "textarea" },
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "projectHeader",
+                                            "targetUsers"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "type": "string",
+                                        "label": "Website URL",
+                                        "name": "website",
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "projectHeader",
+                                            "website"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    }
+                                ],
+                                "namespace": [
+                                    "pages",
+                                    "blocks",
+                                    "projectHeader"
+                                ]
                             }
                         ],
                         "namespace": ["pages", "blocks"],
@@ -4591,7 +4760,8 @@
                 "projectReferences": "PagesBlocksProjectReferences",
                 "AboveFold2": "PagesBlocksAboveFold2",
                 "imageGrid": "PagesBlocksImageGrid",
-                "TeamMembers": "PagesBlocksTeamMembers"
+                "TeamMembers": "PagesBlocksTeamMembers",
+                "projectHeader": "PagesBlocksProjectHeader"
             }
         },
         "Pages": {
@@ -9402,6 +9572,45 @@
                     },
                     {
                         "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "subtitle" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "titleClassName" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": {
+                            "kind": "Name",
+                            "value": "subtitleClassName"
+                        },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "contentClassName" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
                         "name": { "kind": "Name", "value": "columns" },
                         "arguments": [],
                         "type": {
@@ -9913,6 +10122,68 @@
                 ]
             },
             {
+                "kind": "ObjectTypeDefinition",
+                "interfaces": [],
+                "directives": [],
+                "name": { "kind": "Name", "value": "PagesBlocksProjectHeader" },
+                "fields": [
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "overview" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "projectName" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "agencyRole" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "product" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "targetUsers" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "website" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    }
+                ]
+            },
+            {
                 "kind": "UnionTypeDefinition",
                 "name": { "kind": "Name", "value": "PagesBlocks" },
                 "directives": [],
@@ -10106,6 +10377,13 @@
                         "name": {
                             "kind": "Name",
                             "value": "PagesBlocksTeamMembers"
+                        }
+                    },
+                    {
+                        "kind": "NamedType",
+                        "name": {
+                            "kind": "Name",
+                            "value": "PagesBlocksProjectHeader"
                         }
                     }
                 ]
@@ -12454,6 +12732,41 @@
                     },
                     {
                         "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "subtitle" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "titleClassName" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": {
+                            "kind": "Name",
+                            "value": "subtitleClassName"
+                        },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "contentClassName" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
                         "name": { "kind": "Name", "value": "columns" },
                         "type": {
                             "kind": "NamedType",
@@ -12898,6 +13211,63 @@
             },
             {
                 "kind": "InputObjectTypeDefinition",
+                "name": {
+                    "kind": "Name",
+                    "value": "PagesBlocksProjectHeaderFilter"
+                },
+                "fields": [
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "overview" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "projectName" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "agencyRole" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "product" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "targetUsers" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "website" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    }
+                ]
+            },
+            {
+                "kind": "InputObjectTypeDefinition",
                 "name": { "kind": "Name", "value": "PagesBlocksFilter" },
                 "fields": [
                     {
@@ -13225,6 +13595,17 @@
                             "name": {
                                 "kind": "Name",
                                 "value": "PagesBlocksTeamMembersFilter"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "projectHeader" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": {
+                                "kind": "Name",
+                                "value": "PagesBlocksProjectHeaderFilter"
                             }
                         }
                     }
@@ -17282,6 +17663,41 @@
                     },
                     {
                         "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "subtitle" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "titleClassName" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": {
+                            "kind": "Name",
+                            "value": "subtitleClassName"
+                        },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "contentClassName" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
                         "name": { "kind": "Name", "value": "columns" },
                         "type": {
                             "kind": "NamedType",
@@ -17741,6 +18157,63 @@
             },
             {
                 "kind": "InputObjectTypeDefinition",
+                "name": {
+                    "kind": "Name",
+                    "value": "PagesBlocksProjectHeaderMutation"
+                },
+                "fields": [
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "overview" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "projectName" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "agencyRole" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "product" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "targetUsers" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "website" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    }
+                ]
+            },
+            {
+                "kind": "InputObjectTypeDefinition",
                 "name": { "kind": "Name", "value": "PagesBlocksMutation" },
                 "fields": [
                     {
@@ -18068,6 +18541,17 @@
                             "name": {
                                 "kind": "Name",
                                 "value": "PagesBlocksTeamMembersMutation"
+                            }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "projectHeader" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": {
+                                "kind": "Name",
+                                "value": "PagesBlocksProjectHeaderMutation"
                             }
                         }
                     }

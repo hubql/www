@@ -1,4 +1,3 @@
-import { Cta } from '../templates/Cta'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Section } from '../kit/Section'
@@ -57,29 +56,23 @@ const getIcon = (iconName: string | undefined): LucideIcon | null => {
     return null
 }
 
-const getGridCols = (columns: number | undefined): string => {
-    const cols = columns || 2
-    const colMap: Record<number, string> = {
-        2: 'lg:grid-cols-2',
-        3: 'lg:grid-cols-3',
-        4: 'lg:grid-cols-4',
-    }
-    return `grid grid-cols-1 ${
-        colMap[cols] || colMap[2]
-    } px-0 w-full py-4 gap-4 px-2`
-}
-
 export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
-    const columns = (data as any).columns
+    const columns = (data as any).columns ?? 2
+    const gridColsClass = `grid-cols-${columns}`
+
     return (
         <Section
+            data={data}
             title={
                 data.title ??
                 'Specialized in Collaboration and 3D Experiences on the Web.'
             }
-            titleClassName="pt-20 text-[16px]"
-            contentClassName={getGridCols(columns)}
-            data-tina-field={tinaField(data, 'title')}
+            subtitle={data.subtitle ?? ''}
+            titleClassName={(data as any).titleClassName}
+            subtitleClassName={(data as any).subtitleClassName}
+            contentClassName={`grid grid-cols-1 lg:${gridColsClass} px-0 w-full gap-4 mt-8 mb-4 ${
+                (data as any).contentClassName
+            }`}
         >
             {data.serviceCards?.map((item: any, index: number) => {
                 const hasLink = Boolean(
@@ -189,6 +182,7 @@ export const serviceCardsBlockSchema: Template = {
         previewSrc: '',
         defaultItem: {
             title: 'Powerful Open-Source Developer Tools, Built by Hubql.',
+            subtitle: '',
             columns: 2,
             serviceCards: [
                 {
@@ -196,8 +190,14 @@ export const serviceCardsBlockSchema: Template = {
                     description:
                         'We help founders bring collaboration to life online. From live dashboards to shared creative spaces, we design and build web applications that turn teamwork into a product advantage — fast, reliable, and ready to scale.',
                     link: '',
-                    image: '',
-                    icon: '',
+                    icon: 'Check',
+                },
+                {
+                    title: '3D Web Appplication',
+                    description:
+                        'We help startups bring products and experiences to life with interactive 3D on the web. From immersive product viewers to creative visualization tools, we design and build 3D web applications that turn complex ideas into engaging, high-impact user experiences',
+                    link: '',
+                    icon: 'Check',
                 },
             ],
         },
@@ -209,12 +209,48 @@ export const serviceCardsBlockSchema: Template = {
             name: 'title',
         },
         {
-            type: 'number',
-            label: 'Columns',
-            name: 'columns',
+            type: 'string',
+            label: 'SubTitle',
+            name: 'subtitle',
+        },
+        {
+            type: 'string',
+            label: 'Title Class Name',
+            name: 'titleClassName',
             ui: {
                 description:
-                    'Number of columns to display on large screens (2-4, default: 2)',
+                    'Custom CSS classes for the title (e.g., text-4xl font-bold text-blue-500)',
+            },
+        },
+        {
+            type: 'string',
+            label: 'Subtitle Class Name',
+            name: 'subtitleClassName',
+            ui: {
+                description:
+                    'Custom CSS classes for the subtitle (e.g., text-lg text-gray-600)',
+            },
+        },
+        {
+            type: 'string',
+            label: 'Content Class Name',
+            name: 'contentClassName',
+            ui: {
+                description:
+                    'Custom CSS classes for the content (e.g., grid-cols-1 lg:grid-cols-2)',
+            },
+        },
+        {
+            type: 'number',
+            label: 'Columns (Desktop)',
+            name: 'columns',
+            ui: {
+                description: 'Number of columns on large screens (1-4)',
+                validate: (value) => {
+                    if (value && (value < 1 || value > 4)) {
+                        return 'Please enter a number between 1 and 4'
+                    }
+                },
             },
         },
         {
