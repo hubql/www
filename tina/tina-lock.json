@@ -3394,14 +3394,9 @@
                                             {
                                                 "title": "Collaborative Web Application",
                                                 "description": "We help founders bring collaboration to life online. From live dashboards to shared creative spaces, we design and build web applications that turn teamwork into a product advantage — fast, reliable, and ready to scale.",
-                                                "link": "/service/hubql-grid",
-                                                "icon": "/customers/sc_arrow.png"
-                                            },
-                                            {
-                                                "title": "3D Web Appplication",
-                                                "description": "We help startups bring products and experiences to life with interactive 3D on the web. From immersive product viewers to creative visualization tools, we design and build 3D web applications that turn complex ideas into engaging, high-impact user experiences",
-                                                "link": "/service/api-client",
-                                                "icon": "/customers/sc_3D.png"
+                                                "link": "",
+                                                "image": "",
+                                                "icon": ""
                                             }
                                         ]
                                     }
@@ -3440,12 +3435,9 @@
                                                 ]
                                             },
                                             {
-                                                "type": "string",
+                                                "type": "rich-text",
                                                 "label": "Description",
                                                 "name": "description",
-                                                "ui": {
-                                                    "component": "textarea"
-                                                },
                                                 "namespace": [
                                                     "pages",
                                                     "blocks",
@@ -3467,11 +3459,23 @@
                                                 ]
                                             },
                                             {
+                                                "type": "image",
+                                                "label": "Image",
+                                                "name": "image",
+                                                "namespace": [
+                                                    "pages",
+                                                    "blocks",
+                                                    "ServiceCards",
+                                                    "serviceCards",
+                                                    "image"
+                                                ]
+                                            },
+                                            {
                                                 "type": "string",
                                                 "label": "Icon",
                                                 "name": "icon",
                                                 "ui": {
-                                                    "description": "Enter an image URL/path (e.g., /image.png) or a Lucide icon name (e.g., Code, Rocket, Zap, Database)"
+                                                    "description": "Enter a Lucide icon name (e.g., Code, Rocket, Zap, Database). Only used if no image is provided."
                                                 },
                                                 "namespace": [
                                                     "pages",
@@ -9332,12 +9336,21 @@
                         "arguments": [],
                         "type": {
                             "kind": "NamedType",
-                            "name": { "kind": "Name", "value": "String" }
+                            "name": { "kind": "Name", "value": "JSON" }
                         }
                     },
                     {
                         "kind": "FieldDefinition",
                         "name": { "kind": "Name", "value": "link" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "image" },
                         "arguments": [],
                         "type": {
                             "kind": "NamedType",
@@ -12366,7 +12379,10 @@
                         "name": { "kind": "Name", "value": "description" },
                         "type": {
                             "kind": "NamedType",
-                            "name": { "kind": "Name", "value": "StringFilter" }
+                            "name": {
+                                "kind": "Name",
+                                "value": "RichTextFilter"
+                            }
                         }
                     },
                     {
@@ -12375,6 +12391,14 @@
                         "type": {
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "image" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "ImageFilter" }
                         }
                     },
                     {
@@ -17178,12 +17202,20 @@
                         "name": { "kind": "Name", "value": "description" },
                         "type": {
                             "kind": "NamedType",
-                            "name": { "kind": "Name", "value": "String" }
+                            "name": { "kind": "Name", "value": "JSON" }
                         }
                     },
                     {
                         "kind": "InputValueDefinition",
                         "name": { "kind": "Name", "value": "link" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "image" },
                         "type": {
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "String" }
