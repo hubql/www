@@ -37,7 +37,7 @@ export function NavigationMenu({ data }: { data: any[] }) {
                                 >
                                     <NavigationMenuTrigger>
                                         {item.label}{' '}
-                                        <ChevronDown className="w-4 h-4 ml-4 font-black" />
+                                        <ChevronDown className="w-4 h-4 ml-1.5 font-black" />
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>
                                         <ul className="grid w-[280px] gap-1 p-2 ">

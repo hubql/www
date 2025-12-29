@@ -7,12 +7,12 @@ import Image from 'next/image'
 
 export const AboveFold2 = ({ data }: { data: PagesBlocksAboveFold2 }) => {
     return (
-        <div className="flex flex-wrap items-start w-fit justify-start overflow-hidden relative z-0 w-full">
+        <div className="flex flex-wrap items-start justify-start overflow-hidden relative z-0 w-full">
             <div className="relative z-10 w-full max-w-7xl mx-auto">
                 <div className="w-full flex flex-col items-center justify-center gap-0">
                     <div className="w-full h-full flex items-center justify-center col-span-2">
                         <motion.div
-                            className="lg:pt-32 lg:pb-24 pt-12 pb-8 relative w-fit h-fit flex flex-col z-10 lg:px-8 px-2 h-full lg:items-center justify-center"
+                            className="lg:pt-32 lg:pb-24 pt-12 pb-8 relative w-fit flex flex-col z-10 lg:px-8 px-2 h-full lg:items-center justify-center"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{
@@ -31,7 +31,7 @@ export const AboveFold2 = ({ data }: { data: PagesBlocksAboveFold2 }) => {
                             )}
                             {data.title && (
                                 <h1
-                                    className="text-white text-[40px] font-bold lg:text-center font-lexend max-w-4xl mb-[16px]"
+                                    className="text-white text-[40px] font-bold lg:text-center font-lexend max-w-3xl mb-[16px] text-balance"
                                     data-tina-field={tinaField(data, 'title')}
                                 >
                                     {data.title}
