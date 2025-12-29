@@ -20,7 +20,7 @@ blocks:
       label: View Our Work
       link: /portfolio
     _template: AboveFold2
-  - body: >
+  - content: >
       ## Immersive Digital Experiences
 
 
@@ -33,78 +33,76 @@ blocks:
       photorealistic 3D product configurator, we bridge the gap between creative
       ambition and software engineering. We don't just make "cool visuals"—we
       build data-driven applications that perform at 60 FPS on any device.
+    cards:
+      - image:
+          src: /New-Assets/3D.png
+    _template: imageGrid
+  - title: What We Build
+    serviceCards:
+      - title: 3D Product Configurators
+        description: >
+          Allow your customers to customize, rotate, and inspect your products
+          in real-time. From furniture to industrial machinery, we build WebGL
+          configurators that integrate directly with your inventory and checkout
+          systems.
 
 
-      ![](/New-Assets/3D.png)
+          **Best For:** E-commerce, Real Estate, Automotive.
+        link: ''
+        icon: Rotate3D
+      - title: Complex Data Visualization (Canvas/WebGL)
+        description: >
+          When standard charts aren't enough, we build interactive node graphs,
+          ERD visualizers, and flowcharts that can handle thousands of data
+          points without lagging. We turn spreadsheets into navigable maps.
 
 
-      ## What We Build
+          **Best For:** SaaS Analytics, Database Tools, FinTech.
+        icon: Wallpaper
+      - title: Scrollytelling & Immersive Brand Sites
+        description: >
+          We create narrative-driven websites where scrolling controls the
+          animation. These scroll-linked experiences guide users through a
+          story, perfect for explaining complex hardware or high-concept
+          services.
 
 
-      ### 3D Product Configurators
-
-
-      Allow your customers to customize, rotate, and inspect your products in
-      real-time. From furniture to industrial machinery, we build WebGL
-      configurators that integrate directly with your inventory and checkout
-      systems.
-
-
-      **Best For:** E-commerce, Real Estate, Automotive.
-
-
-      ### Complex Data Visualization (Canvas/WebGL)
-
-
-      When standard charts aren't enough, we build interactive node graphs, ERD
-      visualizers, and flowcharts that can handle thousands of data points
-      without lagging. We turn spreadsheets into navigable maps.
-
-
-      **Best For:** SaaS Analytics, Database Tools, FinTech.
-
-
-      ### Scrollytelling & Immersive Brand Sites
-
-
-      We create narrative-driven websites where scrolling controls the
-      animation. These scroll-linked experiences guide users through a story,
-      perfect for explaining complex hardware or high-concept services.
-
-
-      **Best For:** Product Launches, Brand Storytelling.
-
-
-      ### Interactive Educational Tools
-
-
-      Explorable explanations. We build simulations that allow users to tweak
-      variables and see real-time results, making learning (or sales training)
-      active rather than passive.
-
-
-      ## Technologies We Use: The Graphics Stack
-
-
-      Building 3D for the web requires a specialized skill set that goes far
-      beyond standard HTML/CSS.
-
-
-      * **Three.js & React Three Fiber (R3F):** The industry standard for
-      rendering 3D graphics in the browser.
-
-      * **WebGL & GLSL: **We write custom shaders to create effects (water,
-      fire, metal) that standard libraries can't achieve.
-
-      * **React Flow & D3.js:** For mathematical calculations and rendering
-      complex 2D node graphs.
-
-      * **Spline:** For rapid 3D asset integration and lighter interactive
-      elements.
-
-      * **GSAP (GreenSock):** For high-performance, timeline-based animations.
-
-
+          Best For: Product Launches, Brand Storytelling.
+        icon: BookOpen
+      - title: Interactive Educational Tools
+        description: >
+          Explorable explanations. We build simulations that allow users to
+          tweak variables and see real-time results, making learning (or sales
+          training) active rather than passive.
+        icon: PencilRuler
+    _template: ServiceCards
+  - title: 'Technologies We Use: The Graphics Stack'
+    serviceCards:
+      - title: Three.js & React Three Fiber (R3F)
+        description: |
+          The industry standard for rendering 3D graphics in the browser.
+        link: ''
+        image: /logos/Three.js_Icon_Light.svg
+        icon: ''
+      - title: WebGL & GLSL
+        description: >
+          We write custom shaders to create effects (water, fire, metal) that
+          standard libraries can't achieve.
+        image: /logos/WebGL_Logo.svg
+      - title: React Flow & D3.js
+        description: |
+          For mathematical calculations and rendering complex 2D node graphs.
+        image: /logos/ReactFlow_Logo.svg
+      - title: Spline
+        description: |
+          For rapid 3D asset integration and lighter interactive elements.
+        image: /logos/spline_logo.webp
+      - title: GSAP (GreenSock)
+        description: |
+          For high-performance, timeline-based animations.
+        image: /logos/gsap_logo.svg
+    _template: ServiceCards
+  - body: >
       ## Why Hubql for Visual Apps?
 
 
@@ -112,59 +110,67 @@ blocks:
       connect it to a database or a shopping cart.
 
 
-      * Full-Stack Integration: We connect your 3D configurator directly to
+      * **Full-Stack Integration:** We connect your 3D configurator directly to
       Supabase, Stripe, or your ERP. When a user changes a color in 3D, the SKU
       updates in the backend instantly.
 
-      * Performance First: We understand "draw calls," "poly counts," and
+      * **Performance First:** We understand "draw calls," "poly counts," and
       "texture compression." We ensure your 3D experience loads fast and doesn't
       drain your user's battery and patience.
 
-      * Accessibility: We ensure that even immersive sites remain navigable for
-      screen readers and keyboard users, balancing interactiveness with
+      * **Accessibility:** We ensure that even immersive sites remain navigable
+      for screen readers and keyboard users, balancing interactiveness with
       function.
 
 
       ## From Polygon to Pixel: Our Building Process
 
 
-      1. Technical Feasibility: We assess your 3D assets and data requirements.
-      Can this run in a browser? We define the constraints early.
+      1. **Technical Feasibility:** We assess your 3D assets and data
+      requirements. Can this run in a browser? We define the constraints early.
 
-      2. Asset Optimization: We take your CAD files or high-res models and
+      2. **Asset Optimization:** We take your CAD files or high-res models and
       retopologize (simplify) them for the web, baking textures for maximum
       realism with minimum file size.
 
-      3. Scene Composition: We set up lighting, cameras, and physics in the
+      3. **Scene Composition:** We set up lighting, cameras, and physics in the
       virtual environment.
 
-      4. Interaction Development: We code the logic—what happens when you click,
-      drag, or hover?
+      4. **Interaction Development:** We code the logic—what happens when you
+      click, drag, or hover?
 
-      5. Integration & QA: We connect the visual frontend to your backend data
-      and stress-test performance across mobile, tablet, and desktop.
-
-
-      ## FAQ
-
-
-      * Will 3D slow down my website? Not if built correctly. We use techniques
-      like "lazy loading," texture compression (Draco/KTX2), and level-of-detail
-      management to ensure the site loads quickly, even on mobile networks.
-
-      * Do I need 3D models ready? It helps, but it's not required. We can work
-      with 3D modelers to create assets from scratch or optimize your existing
-      engineering CAD files for the web.
-
-      * Does this work on mobile phones? Yes. Modern mobile browsers support
-      WebGL natively. We design mobile-first controls (touch, pinch-to-zoom) to
-      ensure the experience is intuitive on small screens.
-
-      * What is the difference between WebGL and a video? A video is passive;
-      the user just watches. WebGL is real-time rendering, meaning the user can
-      control the camera, change colors, and interact with the scene. It is an
-      active experience.
+      5. **Integration & QA:** We connect the visual frontend to your backend
+      data and stress-test performance across mobile, tablet, and desktop.
     _template: content
+  - title: FAQ
+    subtitle: ''
+    servicesCards:
+      - title: Will 3D slow down my website?
+        description: >-
+          Not if built correctly. We use techniques like "lazy loading," texture
+          compression (Draco/KTX2), and level-of-detail management to ensure the
+          site loads quickly, even on mobile networks.
+        icon: ''
+      - title: Do I need 3D models ready?
+        description: >-
+          It helps, but it's not required. We can work with 3D modelers to
+          create assets from scratch or optimize your existing engineering CAD
+          files for the web.
+        icon: ''
+      - title: Does this work on mobile phones?
+        description: >-
+          Yes. Modern mobile browsers support WebGL natively. We design
+          mobile-first controls (touch, pinch-to-zoom) to ensure the experience
+          is intuitive on small screens.
+      - title: What is the difference between WebGL and a video?
+        description: >-
+          A video is passive; the user just watches. WebGL is real-time
+          rendering, meaning the user can control the camera, change colors, and
+          interact with the scene. It is an active experience.
+    cta:
+      label: Contact Us
+      link: /contact
+    _template: Services
   - title: Ready to create your visual experience?
     paragraph: ' Let''s build a web experience that your competitors can''t copy.'
     buttonOne:
