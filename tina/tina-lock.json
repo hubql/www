@@ -2843,6 +2843,18 @@
                                                     "servicesCards",
                                                     "icon"
                                                 ]
+                                            },
+                                            {
+                                                "type": "string",
+                                                "label": "Link",
+                                                "name": "link",
+                                                "namespace": [
+                                                    "pages",
+                                                    "blocks",
+                                                    "Services",
+                                                    "servicesCards",
+                                                    "link"
+                                                ]
                                             }
                                         ],
                                         "namespace": [
@@ -8895,6 +8907,15 @@
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "String" }
                         }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "link" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
                     }
                 ]
             },
@@ -11970,6 +11991,14 @@
                     {
                         "kind": "InputValueDefinition",
                         "name": { "kind": "Name", "value": "icon" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "link" },
                         "type": {
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "StringFilter" }
@@ -16756,6 +16785,14 @@
                     {
                         "kind": "InputValueDefinition",
                         "name": { "kind": "Name", "value": "icon" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "link" },
                         "type": {
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "String" }
