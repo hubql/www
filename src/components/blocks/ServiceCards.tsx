@@ -10,15 +10,67 @@ import { ArrowRight } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
+const kebabToPascal = (str: string): string => {
+    return str
+        .split('-')
+        .map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        )
+        .join('')
+}
+
+const extractIconName = (str: string): string => {
+    return str.replace(/^<+/, '').replace(/>+/g, '').replace(/\/+/g, '').trim()
+}
+
 const getIcon = (iconName: string | undefined): LucideIcon | null => {
     if (!iconName) return null
-    const IconComponent = (
-        LucideIcons as unknown as Record<string, LucideIcon>
-    )[iconName]
-    return IconComponent || null
+
+    const icons = LucideIcons as unknown as Record<string, LucideIcon>
+    const cleanedName = extractIconName(iconName)
+    const trimmedName = cleanedName.trim()
+
+    const variations = [
+        trimmedName,
+        kebabToPascal(trimmedName),
+        trimmedName.charAt(0).toUpperCase() + trimmedName.slice(1),
+    ]
+
+    for (const variation of variations) {
+        if (icons[variation]) {
+            return icons[variation]
+        }
+    }
+
+    const iconKeys = Object.keys(icons)
+    const lowerName = trimmedName.toLowerCase()
+    const matchingIcon = iconKeys.find(
+        (key) =>
+            key.toLowerCase() === lowerName ||
+            key.toLowerCase().replace(/-/g, '') === lowerName.replace(/-/g, '')
+    )
+
+    if (matchingIcon && icons[matchingIcon]) {
+        return icons[matchingIcon]
+    }
+
+    return null
+}
+
+const getGridCols = (columns: number | undefined): string => {
+    const cols = columns || 2
+    const colMap: Record<number, string> = {
+        2: 'lg:grid-cols-2',
+        3: 'lg:grid-cols-3',
+        4: 'lg:grid-cols-4',
+    }
+    return `grid grid-cols-1 ${
+        colMap[cols] || colMap[2]
+    } px-0 w-full py-4 gap-4 px-2`
 }
 
 export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
+    const columns = (data as any).columns
     return (
         <Section
             title={
@@ -26,7 +78,7 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
                 'Specialized in Collaboration and 3D Experiences on the Web.'
             }
             titleClassName="pt-20 text-[16px]"
-            contentClassName="grid grid-cols-1 lg:grid-cols-2 px-0 w-full py-4 gap-4 px-2"
+            contentClassName={getGridCols(columns)}
             data-tina-field={tinaField(data, 'title')}
         >
             {data.serviceCards?.map((item: any, index: number) => {
@@ -137,6 +189,7 @@ export const serviceCardsBlockSchema: Template = {
         previewSrc: '',
         defaultItem: {
             title: 'Powerful Open-Source Developer Tools, Built by Hubql.',
+            columns: 2,
             serviceCards: [
                 {
                     title: 'Collaborative Web Application',
@@ -154,6 +207,15 @@ export const serviceCardsBlockSchema: Template = {
             type: 'string',
             label: 'Title',
             name: 'title',
+        },
+        {
+            type: 'number',
+            label: 'Columns',
+            name: 'columns',
+            ui: {
+                description:
+                    'Number of columns to display on large screens (2-4, default: 2)',
+            },
         },
         {
             type: 'object',
@@ -192,7 +254,7 @@ export const serviceCardsBlockSchema: Template = {
                     name: 'icon',
                     ui: {
                         description:
-                            'Enter a Lucide icon name (e.g., Code, Rocket, Zap, Database). Only used if no image is provided.',
+                            'Enter a Lucide icon name (e.g., ChartPie, chart-pie, <Glasses />, Code, Rocket, Zap, Database). Only used if no image is provided.',
                     },
                 },
             ],

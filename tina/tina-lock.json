@@ -3390,6 +3390,7 @@
                                     "previewSrc": "",
                                     "defaultItem": {
                                         "title": "Powerful Open-Source Developer Tools, Built by Hubql.",
+                                        "columns": 2,
                                         "serviceCards": [
                                             {
                                                 "title": "Collaborative Web Application",
@@ -3411,6 +3412,22 @@
                                             "blocks",
                                             "ServiceCards",
                                             "title"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
+                                        "type": "number",
+                                        "label": "Columns",
+                                        "name": "columns",
+                                        "ui": {
+                                            "description": "Number of columns to display on large screens (2-4, default: 2)"
+                                        },
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "ServiceCards",
+                                            "columns"
                                         ],
                                         "searchable": true,
                                         "uid": false
@@ -3475,7 +3492,7 @@
                                                 "label": "Icon",
                                                 "name": "icon",
                                                 "ui": {
-                                                    "description": "Enter a Lucide icon name (e.g., Code, Rocket, Zap, Database). Only used if no image is provided."
+                                                    "description": "Enter a Lucide icon name (e.g., ChartPie, chart-pie, <Glasses />, Code, Rocket, Zap, Database). Only used if no image is provided."
                                                 },
                                                 "namespace": [
                                                     "pages",
@@ -9385,6 +9402,15 @@
                     },
                     {
                         "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "columns" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "Float" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
                         "name": { "kind": "Name", "value": "serviceCards" },
                         "arguments": [],
                         "type": {
@@ -12424,6 +12450,14 @@
                         "type": {
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "columns" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "NumberFilter" }
                         }
                     },
                     {
@@ -17244,6 +17278,14 @@
                         "type": {
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "columns" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "Float" }
                         }
                     },
                     {
