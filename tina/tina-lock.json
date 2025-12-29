@@ -3475,7 +3475,7 @@
                                                 "label": "Icon",
                                                 "name": "icon",
                                                 "ui": {
-                                                    "description": "Enter a Lucide icon name (e.g., Code, Rocket, Zap, Database). Only used if no image is provided."
+                                                    "description": "Enter a Lucide icon name (e.g., ChartPie, chart-pie, <Glasses />, Code, Rocket, Zap, Database). Only used if no image is provided."
                                                 },
                                                 "namespace": [
                                                     "pages",

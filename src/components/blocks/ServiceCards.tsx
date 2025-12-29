@@ -10,12 +10,51 @@ import { ArrowRight } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
+const kebabToPascal = (str: string): string => {
+    return str
+        .split('-')
+        .map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        )
+        .join('')
+}
+
+const extractIconName = (str: string): string => {
+    return str.replace(/^<+/, '').replace(/>+/g, '').replace(/\/+/g, '').trim()
+}
+
 const getIcon = (iconName: string | undefined): LucideIcon | null => {
     if (!iconName) return null
-    const IconComponent = (
-        LucideIcons as unknown as Record<string, LucideIcon>
-    )[iconName]
-    return IconComponent || null
+
+    const icons = LucideIcons as unknown as Record<string, LucideIcon>
+    const cleanedName = extractIconName(iconName)
+    const trimmedName = cleanedName.trim()
+
+    const variations = [
+        trimmedName,
+        kebabToPascal(trimmedName),
+        trimmedName.charAt(0).toUpperCase() + trimmedName.slice(1),
+    ]
+
+    for (const variation of variations) {
+        if (icons[variation]) {
+            return icons[variation]
+        }
+    }
+
+    const iconKeys = Object.keys(icons)
+    const lowerName = trimmedName.toLowerCase()
+    const matchingIcon = iconKeys.find(
+        (key) =>
+            key.toLowerCase() === lowerName ||
+            key.toLowerCase().replace(/-/g, '') === lowerName.replace(/-/g, '')
+    )
+
+    if (matchingIcon && icons[matchingIcon]) {
+        return icons[matchingIcon]
+    }
+
+    return null
 }
 
 export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
@@ -192,7 +231,7 @@ export const serviceCardsBlockSchema: Template = {
                     name: 'icon',
                     ui: {
                         description:
-                            'Enter a Lucide icon name (e.g., Code, Rocket, Zap, Database). Only used if no image is provided.',
+                            'Enter a Lucide icon name (e.g., ChartPie, chart-pie, <Glasses />, Code, Rocket, Zap, Database). Only used if no image is provided.',
                     },
                 },
             ],

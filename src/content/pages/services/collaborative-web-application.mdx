@@ -17,7 +17,7 @@ blocks:
       label: 'View Our Work '
       link: /porfolio
     _template: AboveFold2
-  - body: >
+  - content: >
       ## Real-Time Collaboration and The "Google Docs" Effect
 
 
@@ -31,51 +31,43 @@ blocks:
       beyond standard CRUD (Create, Read, Update, Delete) apps to build
       stateful, synchronized experiences. We make your B2B SaaS feel less like a
       database entry form and more like a shared digital office.
-
-
-      ![](/New-Assets/collaborative-web-app.svg)
-
-
-      ## Core Capabilities Of Our Collaborative Apps
-
-
-      We engineer the specific features that drive team engagement.
-
-
-      ### Real-Time Presence & Awareness
-
-
-      "Who is looking at this right now?" We build presence indicators (avatars,
-      live cursors, typing indicators) that show user activity in real-time,
-      preventing redundant work and fostering a sense of team.
-
-
-      ### Live State Synchronization
-
-
-      When User A updates a status, User B should see it instantly. We implement
-      WebSocket architectures that push updates to all connected clients in
-      milliseconds—no page reloads required.
-
-
-      ### Conflict Resolution & Locking
-
-
-      How do we handle simultaneous edits to the same field? To maintain data
-      integrity, we employ sophisticated locking mechanisms or a
-      "last-write-wins" approach. For text editors, we utilize more complex
-      conflict resolution logic to allow for simultaneous, non-conflicting
-      updates.
-
-
-      ### Contextual Commenting & Threads
-
-
-      We build "Figma-style" commenting systems that allow users to pin
-      discussions directly to specific data points, images, or dashboard
-      widgets, keeping communication contextual.
-
-
+    cards:
+      - image:
+          src: /New-Assets/collaborative-web-app.svg
+          alt: Real time collaboration
+    _template: imageGrid
+  - title: Core Capabilities Of Our Collaborative Apps
+    serviceCards:
+      - title: Real-Time Presence & Awareness
+        description: >
+          "Who is looking at this right now?" We build presence indicators
+          (avatars, live cursors, typing indicators) that show user activity in
+          real-time, preventing redundant work and fostering a sense of team.
+        link: ''
+        image: ''
+        icon: MousePointerClick
+      - title: Live State Synchronization
+        description: >
+          When User A updates a status, User B should see it instantly. We
+          implement WebSocket architectures that push updates to all connected
+          clients in milliseconds—no page reloads required.
+        icon: RadioTower
+      - title: Conflict Resolution & Locking
+        description: >
+          How do we handle simultaneous edits to the same field? To maintain
+          data integrity, we employ sophisticated locking mechanisms or a
+          "last-write-wins" approach. For text editors, we utilize more complex
+          conflict resolution logic to allow for simultaneous, non-conflicting
+          updates.
+        icon: GitCompareArrows
+      - title: Contextual Commenting & Threads
+        description: >
+          We build "Figma-style" commenting systems that allow users to pin
+          discussions directly to specific data points, images, or dashboard
+          widgets, keeping communication contextual.
+        icon: MessagesSquare
+    _template: ServiceCards
+  - body: >
       ## Technologies We Use
 
 
@@ -83,81 +75,89 @@ blocks:
       connections.
 
 
-      * Supabase Realtime: Our core engine. We leverage PostgreSQL's replication
-      log to broadcast database changes instantly to authorized clients.
+      * **Supabase Realtime:** Our core engine. We leverage PostgreSQL's
+      replication log to broadcast database changes instantly to authorized
+      clients.
 
-      * WebSockets: For low-latency, bidirectional communication channels that
-      keep the UI in sync.
+      * **WebSockets:** For low-latency, bidirectional communication channels
+      that keep the UI in sync.
 
-      * React & Next.js: For optimistic UI updates that make the app feel
+      * **React & Next.js:** For optimistic UI updates that make the app feel
       instant, even on slower networks.
 
       * **Node.js:** For scalable backend infrastructure.
-
-
-      ## What We Build
-
-
-      * **Multiplayer Workspaces:** Create shared digital environments where
-      teams can collaborate in real-time. From design tools to project
-      management platforms, we build applications that feel natural and
-      responsive. 
-
-      * **Rich Data Dashboards**: Transform complex data into intuitive,
-      interactive dashboards. Our applications make it easy for teams to
-      visualize, analyze, and collaborate around data-driven insights. 
-
-      * **Custom Workflows:** Every team works differently. We build custom
-      workflows that match your processes, automating repetitive tasks and
-      enabling your team to focus on what matters most.
-
-
+    _template: content
+  - title: What We Build
+    serviceCards:
+      - title: Multiplayer Workspaces
+        description: >
+          Create shared digital environments where teams can collaborate in
+          real-time. From design tools to project management platforms, we build
+          applications that feel natural and responsive.
+        link: ''
+        image: ''
+        icon: Gamepad2
+      - title: Rich Data Dashboards
+        description: >
+          Transform complex data into intuitive, interactive dashboards. Our
+          applications make it easy for teams to visualize, analyze, and
+          collaborate around data-driven insights.
+        icon: <ChartNoAxesCombined />
+      - title: Custom Workflows
+        description: >
+          Every team works differently. We build custom workflows that match
+          your processes, automating repetitive tasks and enabling your team to
+          focus on what matters most.
+        icon: <Workflow />
+    _template: ServiceCards
+  - body: >
       ## Where Collaboration Drives Value? Real-World Use Cases.
 
 
       The possibilities for collaborative applications are vast today. To offer
       a glimpse of what can be built, here are some of the most frequent use
       cases.
+    _template: content
+  - title: ''
+    serviceCards:
+      - title: Collaborative CRM & Pipelines
+        description: >
+          **Scenario:** Sales teams working on the same leads.
 
 
-      ### Collaborative CRM & Pipelines
+          **The Feature:** When one rep opens a lead, others see their avatar.
+          If the status is changed to "Closed," the pipeline board updates for
+          the entire team are instantly reflected.
+        icon: <Mails />
+      - title: Multi-User Dashboards
+        description: >
+          **Scenario:** Executives analyzing quarterly data.
 
 
-      * **Scenario:** Sales teams working on the same leads. 
-
-      * **The Feature:** When one rep opens a lead, others see their avatar. If
-      the status is changed to "Closed," the pipeline board updates for the
-      entire team are instantly reflected.
-
-
-      ### Multi-User Dashboards
-
-
-      * **Scenario: **Executives analyzing quarterly data. 
-
-      * **The Feature:** Users can highlight specific charts, leave comments on
-      data spikes, and filter views that synchronize across everyone's screen
-      during a presentation.
+          **The Feature:** Users can highlight specific charts, leave comments
+          on data spikes, and filter views that synchronize across everyone's
+          screen during a presentation.
+        icon: <MousePointerClick />
+      - title: Shared Document & Content Management
+        description: >
+          **Scenario:** Marketing teams drafting content.
 
 
-      ### Shared Document & Content Management
+          **The Feature:** Lock sections while editing, see who is typing, and
+          track version history in real-time.
+        link: ''
+        image: ''
+        icon: File
+      - title: Inventory & Logistics Management
+        description: >
+          **Scenario:** Warehouse staff managing stock.
 
 
-      * **Scenario:** Marketing teams drafting content. 
-
-      * **The Feature: **Lock sections while editing, see who is typing, and
-      track version history in real-time.
-
-
-      ### Inventory & Logistics Management
-
-
-      * **Scenario:** Warehouse staff managing stock. 
-
-      * **The Feature:** Prevents double-booking. If Item X is scanned by Worker
-      A, it instantly disappears from Worker B's list.
-
-
+          **The Feature:** Prevents double-booking. If Item X is scanned by
+          Worker A, it instantly disappears from Worker B's list.
+        icon: Boxes
+    _template: ServiceCards
+  - body: >
       ## Why Choose Us
 
 
@@ -174,7 +174,7 @@ blocks:
       architect systems that scale to thousands of concurrent connections
       without crashing your database.
 
-      * **Optimistic UI: **We build interfaces that react immediately to user
+      * **Optimistic UI:** We build interfaces that react immediately to user
       input, syncing with the server in the background, so the app feels
       instantaneous.
 
@@ -192,36 +192,44 @@ blocks:
       * **Architecture Design:** We choose the right synchronization strategy
       (Pub/Sub vs. Polling vs. CRDTs) based on your specific use case.
 
-      * **Implementation: **We build the frontend components and backend
+      * **Implementation:** We build the frontend components and backend
       listeners, ensuring rigorous type safety with TypeScript.
 
       * **Stress Testing:** We simulate poor network conditions and concurrent
       user conflicts to ensure the app recovers gracefully.
 
-      * **Deployment: **We launch on edge-enabled infrastructure to minimize
+      * **Deployment:** We launch on edge-enabled infrastructure to minimize
       latency for users globally.
-
-
-      ## FAQ
-
-
-      * **Is "Real-Time" expensive to run?** It can be if not optimized. We use
-      Supabase, which offers a very generous Realtime quota, and we optimize
-      message payloads to keep bandwidth costs low.
-
-      * **Can you add collaboration to my existing app?** Yes. We can inject
-      real-time features (like a notification feed or a live chat) into an
-      existing React application without rewriting the entire backend.
-
-      * **How do you handle "offline" users?** We implement "Optimistic UI" and
-      local storage queues. The app assumes the action succeeded and updates the
-      screen immediately, then syncs with the server once the connection is
-      restored.
-
-      * **Is this secure?** Absolutely. We use Row Level Security (RLS) to
-      ensure that users can only "subscribe" to real-time updates for data they
-      are actually allowed to see.
     _template: content
+  - title: FAQ
+    subtitle: ''
+    servicesCards:
+      - title: Is "Real-Time" expensive to run?
+        description: >-
+          It can be if not optimized. We use Supabase, which offers a very
+          generous Realtime quota, and we optimize message payloads to keep
+          bandwidth costs low.
+        icon: ''
+      - title: Can you add collaboration to my existing app?
+        description: >-
+          Yes. We can inject real-time features (like a notification feed or a
+          live chat) into an existing React application without rewriting the
+          entire backend.
+        icon: ''
+      - title: How do you handle "offline" users?
+        description: >-
+          We implement "Optimistic UI" and local storage queues. The app assumes
+          the action succeeded and updates the screen immediately, then syncs
+          with the server once the connection is restored.
+      - title: Is this secure?
+        description: >-
+          Absolutely. We use Row Level Security (RLS) to ensure that users can
+          only "subscribe" to real-time updates for data they are actually
+          allowed to see.
+    cta:
+      label: Contact Us
+      link: /contact
+    _template: Services
   - title: Ready to build your collaborative application?
     paragraph: >-
       Collaboration creates stickiness. Let's build a workspace your customers
