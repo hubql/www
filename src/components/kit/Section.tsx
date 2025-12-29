@@ -35,7 +35,7 @@ export const Section = ({
                 className
             )}
         >
-            <div className="w-full max-w-7xl mx-auto max-2xl:px-4">
+            <div className="w-full max-w-7xl mx-auto max-2xl:px-4 py-16">
                 {title && (
                     <motion.h2
                         className={cn(

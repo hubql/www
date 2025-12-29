@@ -34,7 +34,7 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
         <Section
             title={data.title ?? 'What We Build for Founders and Startups'}
             className="divide-none"
-            titleClassName=""
+            titleClassName={!data.subtitle ? 'pb-6' : ''}
             contentClassName="z-10 flex flex-col gap-4 pb-12 px-2"
             delay={0}
             data-tina-field={tinaField(data, 'title')}
