@@ -3805,6 +3805,30 @@
                                         "uid": false
                                     },
                                     {
+                                        "label": "Layout",
+                                        "name": "layout",
+                                        "type": "string",
+                                        "options": [
+                                            {
+                                                "label": "Left to Right",
+                                                "value": "left"
+                                            },
+                                            {
+                                                "label": "Right to Left",
+                                                "value": "right"
+                                            }
+                                        ],
+                                        "ui": { "defaultValue": "left" },
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "imageGrid",
+                                            "layout"
+                                        ],
+                                        "searchable": true,
+                                        "uid": false
+                                    },
+                                    {
                                         "label": "Images",
                                         "name": "cards",
                                         "type": "object",
@@ -9675,6 +9699,15 @@
                     },
                     {
                         "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "layout" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
                         "name": { "kind": "Name", "value": "cards" },
                         "arguments": [],
                         "type": {
@@ -12653,6 +12686,14 @@
                                 "kind": "Name",
                                 "value": "RichTextFilter"
                             }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "layout" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
                         }
                     },
                     {
@@ -17463,6 +17504,14 @@
                         "type": {
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "JSON" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "layout" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
                         }
                     },
                     {
