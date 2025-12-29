@@ -1,4 +1,3 @@
-import { Cta } from '../templates/Cta'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Section } from '../kit/Section'
@@ -8,18 +7,53 @@ import type { PagesBlocksServiceCards } from '../../../tina/__generated__/types'
 import * as LucideIcons from 'lucide-react'
 import { ArrowRight } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import { TinaMarkdown } from 'tinacms/dist/rich-text'
+
+const kebabToPascal = (str: string): string => {
+    return str
+        .split('-')
+        .map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        )
+        .join('')
+}
+
+const extractIconName = (str: string): string => {
+    return str.replace(/^<+/, '').replace(/>+/g, '').replace(/\/+/g, '').trim()
+}
 
 const getIcon = (iconName: string | undefined): LucideIcon | null => {
     if (!iconName) return null
-    const IconComponent = (
-        LucideIcons as unknown as Record<string, LucideIcon>
-    )[iconName]
-    return IconComponent || null
-}
 
-const isImageUrl = (icon: string | undefined): boolean => {
-    if (!icon) return false
-    return icon.startsWith('/') || icon.startsWith('http') || icon.includes('.')
+    const icons = LucideIcons as unknown as Record<string, LucideIcon>
+    const cleanedName = extractIconName(iconName)
+    const trimmedName = cleanedName.trim()
+
+    const variations = [
+        trimmedName,
+        kebabToPascal(trimmedName),
+        trimmedName.charAt(0).toUpperCase() + trimmedName.slice(1),
+    ]
+
+    for (const variation of variations) {
+        if (icons[variation]) {
+            return icons[variation]
+        }
+    }
+
+    const iconKeys = Object.keys(icons)
+    const lowerName = trimmedName.toLowerCase()
+    const matchingIcon = iconKeys.find(
+        (key) =>
+            key.toLowerCase() === lowerName ||
+            key.toLowerCase().replace(/-/g, '') === lowerName.replace(/-/g, '')
+    )
+
+    if (matchingIcon && icons[matchingIcon]) {
+        return icons[matchingIcon]
+    }
+
+    return null
 }
 
 export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
@@ -54,35 +88,32 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
                 const cardContent = (
                     <span className={cardClassName}>
                         <span className="flex flex-col h-full w-full">
-                            <span className="flex flex-row items-center gap-3  max-w-[24x]">
-                                {item?.icon &&
-                                    (isImageUrl(item.icon) ? (
-                                        <Image
-                                            src={item.icon}
-                                            alt={item.title ?? 'Service logo'}
-                                            width={20}
-                                            height={20}
-                                            data-tina-field={tinaField(
-                                                item,
-                                                'icon'
-                                            )}
-                                        />
-                                    ) : (
-                                        (() => {
-                                            const IconComponent = getIcon(
-                                                item.icon
-                                            )
-                                            return IconComponent ? (
-                                                <IconComponent
-                                                    className="w-5 h-5 text-primary"
-                                                    data-tina-field={tinaField(
-                                                        item,
-                                                        'icon'
-                                                    )}
-                                                />
-                                            ) : null
-                                        })()
-                                    ))}
+                            <span className="flex flex-row items-center gap-3 mb-2 max-w-[24x]">
+                                {item?.image ? (
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title ?? 'Service logo'}
+                                        width={28}
+                                        height={28}
+                                        data-tina-field={tinaField(
+                                            item,
+                                            'image'
+                                        )}
+                                    />
+                                ) : item?.icon ? (
+                                    (() => {
+                                        const IconComponent = getIcon(item.icon)
+                                        return IconComponent ? (
+                                            <IconComponent
+                                                className="w-5 h-5 text-primary"
+                                                data-tina-field={tinaField(
+                                                    item,
+                                                    'icon'
+                                                )}
+                                            />
+                                        ) : null
+                                    })()
+                                ) : null}
                                 {item?.title && (
                                     <h3
                                         className="text-zinc-50 font-lexend text-[18px] mb-0"
@@ -96,15 +127,15 @@ export const ServiceCards = ({ data }: { data: PagesBlocksServiceCards }) => {
                                 )}
                             </span>
                             {item?.description && (
-                                <p
-                                    className="text-neutral-400 font-lexend text-sm mt-2"
+                                <div
+                                    className="prose text-neutral-400 font-lexend text-[14px]"
                                     data-tina-field={tinaField(
                                         item,
                                         'description'
                                     )}
                                 >
-                                    {item.description}
-                                </p>
+                                    <TinaMarkdown content={item.description} />
+                                </div>
                             )}
                         </span>
 
@@ -239,12 +270,9 @@ export const serviceCardsBlockSchema: Template = {
                     name: 'title',
                 },
                 {
-                    type: 'string',
+                    type: 'rich-text',
                     label: 'Description',
                     name: 'description',
-                    ui: {
-                        component: 'textarea',
-                    },
                 },
                 {
                     type: 'string',
@@ -252,12 +280,17 @@ export const serviceCardsBlockSchema: Template = {
                     name: 'link',
                 },
                 {
+                    type: 'image',
+                    label: 'Image',
+                    name: 'image',
+                },
+                {
                     type: 'string',
                     label: 'Icon',
                     name: 'icon',
                     ui: {
                         description:
-                            'Enter an image URL/path (e.g., /image.png) or a Lucide icon name (e.g., Code, Rocket, Zap, Database)',
+                            'Enter a Lucide icon name (e.g., ChartPie, chart-pie, <Glasses />, Code, Rocket, Zap, Database). Only used if no image is provided.',
                     },
                 },
             ],

@@ -13,6 +13,8 @@ import type { PagesBlocksServices } from '../../../tina/__generated__/types'
 import { tinaField } from 'tinacms/dist/react'
 import * as LucideIcons from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 const getIcon = (iconName: string | undefined): LucideIcon | null => {
     if (!iconName) return null
@@ -104,19 +106,16 @@ export const Services = ({ data }: { data: PagesBlocksServices }) => {
                                             {card?.description}
                                         </p>
                                     )}
-                                    <Cta
-                                        ctaButtonText={
-                                            data.cta?.label ?? 'Contact Us'
-                                        }
-                                        ctaButtonUrl={
-                                            data.cta?.link ?? '/contact'
-                                        }
-                                        className="py-0 justify-start text-normal"
-                                        titleClassName="text-md font-bol4d font-lexend"
-                                        containerClassName="justify-start items-start px-0"
-                                        blob={false}
-                                        inlineStyle
-                                    />
+                                    {card?.link && (
+                                        <Link
+                                            href={card.link}
+                                            className="flex items-center gap-2 text-sm text-normal font-lexend cursor-pointer hover:opacity-80 w-full text-left"
+                                        >
+                                            {' '}
+                                            Learn more{' '}
+                                            <ArrowRight className="w-4 h-4 text-primary" />
+                                        </Link>
+                                    )}
                                 </div>
 
                                 {card?.list && (
@@ -236,6 +235,11 @@ export const servicesBlockSchema: Template = {
                         description:
                             'Enter an image URL/path (e.g., /image.png) or a Lucide icon name (e.g., Code, Rocket, Zap, Database)',
                     },
+                },
+                {
+                    type: 'string',
+                    label: 'Link',
+                    name: 'link',
                 },
             ],
         },

@@ -2843,6 +2843,18 @@
                                                     "servicesCards",
                                                     "icon"
                                                 ]
+                                            },
+                                            {
+                                                "type": "string",
+                                                "label": "Link",
+                                                "name": "link",
+                                                "namespace": [
+                                                    "pages",
+                                                    "blocks",
+                                                    "Services",
+                                                    "servicesCards",
+                                                    "link"
+                                                ]
                                             }
                                         ],
                                         "namespace": [
@@ -3507,12 +3519,9 @@
                                                 ]
                                             },
                                             {
-                                                "type": "string",
+                                                "type": "rich-text",
                                                 "label": "Description",
                                                 "name": "description",
-                                                "ui": {
-                                                    "component": "textarea"
-                                                },
                                                 "namespace": [
                                                     "pages",
                                                     "blocks",
@@ -3534,11 +3543,23 @@
                                                 ]
                                             },
                                             {
+                                                "type": "image",
+                                                "label": "Image",
+                                                "name": "image",
+                                                "namespace": [
+                                                    "pages",
+                                                    "blocks",
+                                                    "ServiceCards",
+                                                    "serviceCards",
+                                                    "image"
+                                                ]
+                                            },
+                                            {
                                                 "type": "string",
                                                 "label": "Icon",
                                                 "name": "icon",
                                                 "ui": {
-                                                    "description": "Enter an image URL/path (e.g., /image.png) or a Lucide icon name (e.g., Code, Rocket, Zap, Database)"
+                                                    "description": "Enter a Lucide icon name (e.g., ChartPie, chart-pie, <Glasses />, Code, Rocket, Zap, Database). Only used if no image is provided."
                                                 },
                                                 "namespace": [
                                                     "pages",
@@ -3869,6 +3890,30 @@
                                         ],
                                         "searchable": true,
                                         "parser": { "type": "mdx" },
+                                        "uid": false
+                                    },
+                                    {
+                                        "label": "Layout",
+                                        "name": "layout",
+                                        "type": "string",
+                                        "options": [
+                                            {
+                                                "label": "Left to Right",
+                                                "value": "left"
+                                            },
+                                            {
+                                                "label": "Right to Left",
+                                                "value": "right"
+                                            }
+                                        ],
+                                        "ui": { "defaultValue": "left" },
+                                        "namespace": [
+                                            "pages",
+                                            "blocks",
+                                            "imageGrid",
+                                            "layout"
+                                        ],
+                                        "searchable": true,
                                         "uid": false
                                     },
                                     {
@@ -9053,6 +9098,15 @@
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "String" }
                         }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "link" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
                     }
                 ]
             },
@@ -9469,12 +9523,21 @@
                         "arguments": [],
                         "type": {
                             "kind": "NamedType",
-                            "name": { "kind": "Name", "value": "String" }
+                            "name": { "kind": "Name", "value": "JSON" }
                         }
                     },
                     {
                         "kind": "FieldDefinition",
                         "name": { "kind": "Name", "value": "link" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "image" },
                         "arguments": [],
                         "type": {
                             "kind": "NamedType",
@@ -9880,6 +9943,15 @@
                         "type": {
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "JSON" }
+                        }
+                    },
+                    {
+                        "kind": "FieldDefinition",
+                        "name": { "kind": "Name", "value": "layout" },
+                        "arguments": [],
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
                         }
                     },
                     {
@@ -12240,6 +12312,14 @@
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "StringFilter" }
                         }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "link" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
+                        }
                     }
                 ]
             },
@@ -12603,7 +12683,10 @@
                         "name": { "kind": "Name", "value": "description" },
                         "type": {
                             "kind": "NamedType",
-                            "name": { "kind": "Name", "value": "StringFilter" }
+                            "name": {
+                                "kind": "Name",
+                                "value": "RichTextFilter"
+                            }
                         }
                     },
                     {
@@ -12612,6 +12695,14 @@
                         "type": {
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "StringFilter" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "image" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "ImageFilter" }
                         }
                     },
                     {
@@ -12966,6 +13057,14 @@
                                 "kind": "Name",
                                 "value": "RichTextFilter"
                             }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "layout" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "StringFilter" }
                         }
                     },
                     {
@@ -17129,6 +17228,14 @@
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "String" }
                         }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "link" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
                     }
                 ]
             },
@@ -17510,12 +17617,20 @@
                         "name": { "kind": "Name", "value": "description" },
                         "type": {
                             "kind": "NamedType",
-                            "name": { "kind": "Name", "value": "String" }
+                            "name": { "kind": "Name", "value": "JSON" }
                         }
                     },
                     {
                         "kind": "InputValueDefinition",
                         "name": { "kind": "Name", "value": "link" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "image" },
                         "type": {
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "String" }
@@ -17879,6 +17994,14 @@
                         "type": {
                             "kind": "NamedType",
                             "name": { "kind": "Name", "value": "JSON" }
+                        }
+                    },
+                    {
+                        "kind": "InputValueDefinition",
+                        "name": { "kind": "Name", "value": "layout" },
+                        "type": {
+                            "kind": "NamedType",
+                            "name": { "kind": "Name", "value": "String" }
                         }
                     },
                     {
