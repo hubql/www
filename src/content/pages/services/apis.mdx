@@ -18,7 +18,7 @@ blocks:
       label: View Our Work
       link: /portfolio
     _template: AboveFold2
-  - body: >
+  - content: >
       ## Your API Is a Product In Itself
 
 
@@ -30,138 +30,185 @@ blocks:
       At Hubql, we take API development seriously. We focus on Developer
       Experience (DX)—ensuring that endpoints are intuitive, error messages are
       helpful, and documentation is interactive.
-
-
-      ![](</New-Assets/api documentation.svg>)
-
-
+    cards:
+      - image:
+          src: /New-Assets/api documentation.svg
+    _template: imageGrid
+  - body: >
       ## We Offer End-to-End API Solutions
 
 
       APIs are part of our company DNA. We offer comprehensive support for every
       stage of your API project, including design, development, and deployment,
       across all project types.
-
-
-      ### REST & GraphQL API Design
-
-
-      We design clean, predictable architectures. Whether you need standard
-      RESTful resources or a flexible GraphQL graph that allows clients to fetch
-      exactly what they need, we structure your data for performance and
-      maintainability.
-
-
-      ### Interactive Documentation
-
-
-      Add "Try it now" buttons, code snippets in multiple languages (Python, JS,
-      curl), and auto-generated changelogs to your API docs. We build live,
-      interactive documentation sites (using tools like Swagger/OpenAPI or
-      Mintlify) where developers can test endpoints directly in the browser.
-
-
-      ### Internal Platforms & SDKs
-
-
-      We build the "glue" code that wraps your API. From TypeScript SDKs that
-      provide type safety for your consumers, to internal admin panels that
-      allow your support team to interact with the API without writing code.
-
-
-      ### Legacy Modernization
-
-
-      Have a slow, monolithic SOAP service? We wrap it or rewrite it into a
-      modern, lightweight JSON API, enabling you to integrate with modern tools
-      without rewriting your entire legacy database.
-
-
+    _template: content
+  - title: ''
+    columns: 2
+    serviceCards:
+      - title: REST & GraphQL API Design
+        description: >
+          We design clean, predictable architectures. Whether you need standard
+          RESTful resources or a flexible GraphQL graph that allows clients to
+          fetch exactly what they need, we structure your data for performance
+          and maintainability.
+        link: ''
+        image: ''
+        icon: <Webhook />
+      - title: Interactive Documentation
+        description: >
+          Add "Try it now" buttons, code snippets in multiple languages (Python,
+          JS, curl), and auto-generated changelogs to your API docs. We build
+          live, interactive documentation sites (using tools like
+          Swagger/OpenAPI or Mintlify) where developers can test endpoints
+          directly in the browser.
+        icon: File
+      - title: Internal Platforms & SDKs
+        description: >
+          We build the "glue" code that wraps your API. From TypeScript SDKs
+          that provide type safety for your consumers, to internal admin panels
+          that allow your support team to interact with the API without writing
+          code.
+        icon: <Cable />
+      - title: Legacy Modernization
+        description: >
+          Have a slow, monolithic SOAP service? We wrap it or rewrite it into a
+          modern, lightweight JSON API, enabling you to integrate with modern
+          tools without rewriting your entire legacy database.
+        icon: <FastForward />
+    _template: ServiceCards
+  - body: >
       ## Tech Stack: We Build on Open Standards
 
 
       We utilize industry-standard protocols to ensure compatibility,
       scalability, and long-term reliability.
-
-
-      * **Spec Definition:** OpenAPI (Swagger) v3.0 for standardizing endpoint
-      definitions.
-
-      * **Server:** Node.js (Express/NestJS) or Supabase Edge Functions (Deno).
-
-      * **Database**: PostgreSQL (via Supabase) or Redis for high-speed caching.
-
-      * **Documentation Tools: **Mintlify, Redoc, Swagger UI, and Nextra.
-
-      * **Security**: OAuth2, JWT, and API Key management with rate limiting.
-
-
+    _template: content
+  - title: ''
+    columns: 2
+    serviceCards:
+      - title: Spec Definition
+        description: |
+          OpenAPI (Swagger) v3.0 for standardizing endpoint definitions.
+        link: ''
+        image: ''
+        icon: File
+      - title: Server
+        description: |
+          Node.js (Express/NestJS) or Supabase Edge Functions (Deno).
+        icon: Server
+      - title: Database
+        description: |
+          PostgreSQL (via Supabase) or Redis for high-speed caching.
+        icon: Database
+      - title: Documentation Tools
+        description: |
+          Mintlify, Redoc, Swagger UI, and Nextra.
+        icon: PencilRuler
+      - title: Security
+        description: |
+          OAuth2, JWT, and API Key management with rate limiting.
+        icon: Shield
+    _template: ServiceCards
+  - body: >
       ## Why Choose Us
 
 
       We understand that APIs are more than just endpoints — they're the
       contract between your services and the rest of the world. We focus on
       creating APIs that are well-designed, well-documented, and built to last.
-
-
-      * **Security by Design:** We implement rate limiting, input validation,
-      and strict CORS policies to prevent abuse. We treat every endpoint as a
-      potential attack vector and secure it accordingly.
-
-      * **Performance Caching: **We implement intelligent caching strategies
-      (Redis/CDN) so that frequent requests don't hammer your database, keeping
-      latency low.
-
-      * **Type-Safe Ecosystems:** We use TypeScript end-to-end. If your database
-      schema changes, your API types update automatically, preventing "silent
-      failures" in production.
-
-
-      ## Our API Development Process: From Spec to Server
-
-
-      * **Contract-First Design:** We write the API Specification (OpenAPI YAML
-      or JSON) before we write code. This allows frontend and backend teams to
-      agree on the structure immediately.
-
-      * **Mocking & Iteration:** We spin up a mock server so your frontend team
-      can start building immediately, while we build the real backend logic in
-      parallel.
-
-      * **Development & Logic: **We implement the business logic, connecting to
-      databases and 3rd party services.
-
-      * **Security Audit:** We stress-test authentication flows and check for
-      OWASP (Open Web Application Security Project) vulnerabilities.
-
-      * **Documentation:** We generate the docs and write the "Getting Started"
-      guides that make onboarding easy.
-
-      * **API Usage & Training:** If necessary, we can implement a real-world
-      project of yours using your new API or guide your team through the
-      implementation process.
-
-
-      ## FAQ
-
-
-      * **REST or GraphQL? Which is better?** It depends. REST is better for
-      caching and simple resource management. GraphQL is better for complex,
-      relational data where you want to minimize network requests. We help you
-      choose the right tool for your specific data model.
-
-      * **How do you handle API versioning? **We never break existing
-      integrations. We use strict versioning strategies (e.g., /v1/, /v2/) to
-      ensure that when we upgrade your system, your old partners don't crash.
-
-      * **Can you document an API that already exists?** Yes. We can audit your
-      existing codebase, reverse-engineer the logic, and generate comprehensive
-      OpenAPI documentation for it.
-
-      * **How do you secure the API?** We use industry standards like OAuth2 or
-      JWT (JSON Web Tokens). For public APIs, we implement API Key management
-      with usage quotas and throttling to prevent DDOS attacks.
     _template: content
+  - title: ''
+    columns: 3
+    serviceCards:
+      - title: Security by Design
+        description: >
+          We implement rate limiting, input validation, and strict CORS policies
+          to prevent abuse. We treat every endpoint as a potential attack vector
+          and secure it accordingly.
+        link: ''
+        image: ''
+        icon: <Radar />
+      - title: Performance Caching
+        description: >
+          We implement intelligent caching strategies (Redis/CDN) so that
+          frequent requests don't hammer your database, keeping latency low.
+        icon: <DatabaseZap />
+      - title: Type-Safe Ecosystems
+        description: >
+          We use TypeScript end-to-end. If your database schema changes, your
+          API types update automatically, preventing "silent failures" in
+          production.
+        icon: <ShieldCheck />
+    _template: ServiceCards
+  - body: |
+      ## Our API Development Process: From Spec to Server
+    _template: content
+  - title: ''
+    columns: 2
+    serviceCards:
+      - title: Contract-First Design
+        description: >
+          We write the API Specification (OpenAPI YAML or JSON) before we write
+          code. This allows frontend and backend teams to agree on the structure
+          immediately.
+        link: ''
+        image: ''
+        icon: PenLine
+      - title: Mocking & Iteration
+        description: >
+          We spin up a mock server so your frontend team can start building
+          immediately, while we build the real backend logic in parallel.
+        icon: Repeat
+      - title: Development & Logic
+        description: >
+          We implement the business logic, connecting to databases and 3rd party
+          services.
+        icon: <FolderCode />
+      - title: Security Audit
+        description: >
+          We stress-test authentication flows and check for OWASP (Open Web
+          Application Security Project) vulnerabilities.
+        icon: Shield
+      - title: Documentation
+        description: >
+          We generate the docs and write the "Getting Started" guides that make
+          onboarding easy.
+        icon: File
+      - title: API Usage & Training
+        description: >
+          If necessary, we can implement a real-world project of yours using
+          your new API or guide your team through the implementation process.
+        icon: Webhook
+    _template: ServiceCards
+  - title: FAQ
+    subtitle: ''
+    servicesCards:
+      - title: REST or GraphQL? Which is better?
+        description: >-
+          It depends. REST is better for caching and simple resource management.
+          GraphQL is better for complex, relational data where you want to
+          minimize network requests. We help you choose the right tool for your
+          specific data model.
+        icon: ''
+      - title: How do you handle API versioning?
+        description: >-
+          We never break existing integrations. We use strict versioning
+          strategies (e.g., /v1/, /v2/) to ensure that when we upgrade your
+          system, your old partners don't crash.
+        icon: ''
+      - title: Can you document an API that already exists?
+        description: >-
+          Yes. We can audit your existing codebase, reverse-engineer the logic,
+          and generate comprehensive OpenAPI documentation for it.
+      - title: How do you secure the API?
+        description: >-
+          We use industry standards like OAuth2 or JWT (JSON Web Tokens). For
+          public APIs, we implement API Key management with usage quotas and
+          throttling to prevent DDOS attacks.
+    cta:
+      label: Contact Us
+      link: /contact
+    _template: Services
   - title: Ready to build your API?
     paragraph: >-
       Let's discuss how we can help you create fast, well-documented APIs that
