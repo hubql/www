@@ -37,7 +37,10 @@ blocks:
       - image:
           src: /New-Assets/3D.png
     _template: imageGrid
-  - title: What We Build
+  - body: |
+      ## What We Build
+    _template: content
+  - title: ''
     serviceCards:
       - title: 3D Product Configurators
         description: >
@@ -76,7 +79,12 @@ blocks:
           training) active rather than passive.
         icon: PencilRuler
     _template: ServiceCards
-  - title: 'Technologies We Use: The Graphics Stack'
+  - body: |
+      ## Technologies We Use: The Graphics Stack
+
+        Building 3D for the web requires a specialized skill set that goes far beyond standard HTML/CSS.
+    _template: content
+  - title: ''
     serviceCards:
       - title: Three.js & React Three Fiber (R3F)
         description: |
@@ -108,40 +116,63 @@ blocks:
 
       Many creative agencies can make a "pretty 3D scene," but they struggle to
       connect it to a database or a shopping cart.
-
-
-      * **Full-Stack Integration:** We connect your 3D configurator directly to
-      Supabase, Stripe, or your ERP. When a user changes a color in 3D, the SKU
-      updates in the backend instantly.
-
-      * **Performance First:** We understand "draw calls," "poly counts," and
-      "texture compression." We ensure your 3D experience loads fast and doesn't
-      drain your user's battery and patience.
-
-      * **Accessibility:** We ensure that even immersive sites remain navigable
-      for screen readers and keyboard users, balancing interactiveness with
-      function.
-
-
-      ## From Polygon to Pixel: Our Building Process
-
-
-      1. **Technical Feasibility:** We assess your 3D assets and data
-      requirements. Can this run in a browser? We define the constraints early.
-
-      2. **Asset Optimization:** We take your CAD files or high-res models and
-      retopologize (simplify) them for the web, baking textures for maximum
-      realism with minimum file size.
-
-      3. **Scene Composition:** We set up lighting, cameras, and physics in the
-      virtual environment.
-
-      4. **Interaction Development:** We code the logic—what happens when you
-      click, drag, or hover?
-
-      5. **Integration & QA:** We connect the visual frontend to your backend
-      data and stress-test performance across mobile, tablet, and desktop.
     _template: content
+  - title: ''
+    columns: 2
+    serviceCards:
+      - title: Full-Stack Integration
+        description: >
+          We connect your 3D configurator directly to Supabase, Stripe, or your
+          ERP. When a user changes a color in 3D, the SKU updates in the backend
+          instantly.
+        link: ''
+        image: ''
+        icon: <Code />
+      - title: Performance First
+        description: >
+          We understand "draw calls," "poly counts," and "texture compression."
+          We ensure your 3D experience loads fast and doesn't drain your user's
+          battery and patience.
+        icon: <TrendingUp />
+      - title: Accessibility
+        description: >
+          We ensure that even immersive sites remain navigable for screen
+          readers and keyboard users, balancing interactiveness with function.
+        icon: <ScanEye />
+    _template: ServiceCards
+  - body: |
+      ## From Polygon to Pixel: Our Building Process
+    _template: content
+  - title: ''
+    columns: 2
+    serviceCards:
+      - title: 1. Technical Feasibility
+        description: >
+          We assess your 3D assets and data requirements. Can this run in a
+          browser? We define the constraints early.
+        link: ''
+        image: ''
+        icon: <Cpu />
+      - title: 2. Asset Optimization
+        description: >
+          We take your CAD files or high-res models and retopologize (simplify)
+          them for the web, baking textures for maximum realism with minimum
+          file size.
+        icon: <CircleCheck />
+      - title: 3. Scene Composition
+        description: |
+          We set up lighting, cameras, and physics in the virtual environment.
+        icon: <Move3d />
+      - title: 4. Interaction Development
+        description: |
+          We code the logic—what happens when you click, drag, or hover?
+        icon: Code
+      - title: 5. Integration & QA
+        description: >
+          We connect the visual frontend to your backend data and stress-test
+          performance across mobile, tablet, and desktop.
+        icon: <Cable />
+    _template: ServiceCards
   - title: FAQ
     subtitle: ''
     servicesCards:
