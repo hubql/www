@@ -9,11 +9,11 @@ import Image from 'next/image'
 export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
     return (
         <div className="flex flex-wrap items-start justify-start overflow-hidden relative z-0 w-full">
-            <div className="relative z-10 w-full max-w-7xl mx-auto py-20 max-lg:px-4 max-lg:py-4">
+            <div className="relative z-10 w-full max-w-7xl mx-auto py-20 max-xl:px-4 max-lg:py-4">
                 <div className="w-full grid grid-cols-1 gap-0">
                     <div className="w-full h-full flex items-center justify-center bg-neutral-900/70 rounded-lg backdrop-blur-lg">
                         <motion.div
-                            className="py-24 relative w-full flex flex-col z-10 px-8 h-full justify-center items-center"
+                            className="py-24 relative w-full flex flex-col z-10 h-full justify-center items-center"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{
@@ -25,7 +25,7 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
                             {data.title && (
                                 <HighlightText
                                     as="h1"
-                                    className="text-white text-[48px] lg:text-center font-medium font-lexend max-w-4xl mb-[16px]"
+                                    className="text-white text-[48px] lg:text-center font-medium font-lexend max-w-4xl mb-[16px] text-balance"
                                     text={data.title}
                                     wordsToHighlight={
                                         data.highlightWords ?? undefined
