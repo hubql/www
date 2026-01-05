@@ -34,7 +34,7 @@ export const Button = ({
     const sizeIcon =
         size === 'icon' && 'text-base py-3 !px-0 aspect-square font-normal'
     const variantContain =
-        variant === 'contain' && 'bg-accent-500 !text-white hover:bg-accent-300'
+        variant === 'contain' && 'bg-primary/60 text-white hover:bg-primary/40'
     const variantOutlined =
         variant === 'outlined' &&
         'bg-transparent !text-white hover:underline border border-border'
