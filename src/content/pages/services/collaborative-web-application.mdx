@@ -36,7 +36,12 @@ blocks:
           src: /New-Assets/collaborative-web-app.svg
           alt: Real time collaboration
     _template: imageGrid
-  - title: Core Capabilities Of Our Collaborative Apps
+  - body: |
+      ## Core Capabilities Of Our Collaborative Apps
+
+      We engineer the specific features that drive team engagement.
+    _template: content
+  - title: ''
     serviceCards:
       - title: Real-Time Presence & Awareness
         description: >
@@ -73,21 +78,37 @@ blocks:
 
       We use battle-tested technologies to handle the complexity of real-time
       connections.
-
-
-      * **Supabase Realtime:** Our core engine. We leverage PostgreSQL's
-      replication log to broadcast database changes instantly to authorized
-      clients.
-
-      * **WebSockets:** For low-latency, bidirectional communication channels
-      that keep the UI in sync.
-
-      * **React & Next.js:** For optimistic UI updates that make the app feel
-      instant, even on slower networks.
-
-      * **Node.js:** For scalable backend infrastructure.
     _template: content
-  - title: What We Build
+  - title: ''
+    columns: 2
+    serviceCards:
+      - title: Supabase Realtime
+        description: >
+          Our core engine. We leverage PostgreSQL's replication log to broadcast
+          database changes instantly to authorized clients.
+        link: ''
+        image: /logos/supabase_logo.svg
+        icon: ''
+      - title: WebSockets
+        description: >
+          For low-latency, bidirectional communication channels that keep the UI
+          in sync.
+        image: /logos/WebSocket_logo.svg
+        icon: ''
+      - title: React & Next.js
+        description: >
+          For optimistic UI updates that make the app feel instant, even on
+          slower networks.
+        image: /logos/logo_dark.svg
+      - title: Node.js
+        description: |
+          For scalable backend infrastructure.
+        image: /logos/nodejs_logo.svg
+    _template: ServiceCards
+  - body: |
+      ## What We Build
+    _template: content
+  - title: ''
     columns: 3
     serviceCards:
       - title: Multiplayer Workspaces
@@ -166,42 +187,67 @@ blocks:
       engineering challenges. These include managing race conditions, preventing
       state desynchronization, and handling massive server loads. Fortunately,
       we possess the expertise to overcome all these involved challenges.
-
-
-      * **State Management Experts:** We know how to manage the "truth" between
-      the client and the server so users never see stale data.
-
-      * **Scalable Architecture:** Real-time connections are expensive. We
-      architect systems that scale to thousands of concurrent connections
-      without crashing your database.
-
-      * **Optimistic UI:** We build interfaces that react immediately to user
-      input, syncing with the server in the background, so the app feels
-      instantaneous.
-
-      * **Offline Tolerance:** We design for the real world. If a user loses
-      internet, our apps queue their changes and sync them back up when they
-      reconnect.
-
-
-      ## Our Development Process: Engineering for Concurrency
-
-
-      * **State Modeling:** We define what needs to be real-time (as not
-      everything needs to be) and prioritize high-value interaction points.
-
-      * **Architecture Design:** We choose the right synchronization strategy
-      (Pub/Sub vs. Polling vs. CRDTs) based on your specific use case.
-
-      * **Implementation:** We build the frontend components and backend
-      listeners, ensuring rigorous type safety with TypeScript.
-
-      * **Stress Testing:** We simulate poor network conditions and concurrent
-      user conflicts to ensure the app recovers gracefully.
-
-      * **Deployment:** We launch on edge-enabled infrastructure to minimize
-      latency for users globally.
     _template: content
+  - title: ''
+    columns: 2
+    serviceCards:
+      - title: State Management Experts
+        description: >
+          We know how to manage the "truth" between the client and the server so
+          users never see stale data.
+        link: ''
+        image: ''
+        icon: <ArrowDownUp />
+      - title: Scalable Architecture
+        description: >
+          Real-time connections are expensive. We architect systems that scale
+          to thousands of concurrent connections without crashing your database.
+        icon: <Scaling />
+      - title: Optimistic UI
+        description: >
+          We build interfaces that react immediately to user input, syncing with
+          the server in the background, so the app feels instantaneous.
+        icon: <Monitor />
+      - title: Offline Tolerance
+        description: >
+          We design for the real world. If a user loses internet, our apps queue
+          their changes and sync them back up when they reconnect.
+        icon: <Target />
+    _template: ServiceCards
+  - body: |
+      ## Our Development Process: Engineering for Concurrency
+    _template: content
+  - title: ''
+    columns: 2
+    serviceCards:
+      - title: State Modeling
+        description: >
+          We define what needs to be real-time (as not everything needs to be)
+          and prioritize high-value interaction points.
+        link: ''
+        image: ''
+        icon: <MousePointerClick />
+      - title: Architecture Design
+        description: >
+          We choose the right synchronization strategy (Pub/Sub vs. Polling vs.
+          CRDTs) based on your specific use case.
+        icon: <DraftingCompass />
+      - title: Implementation
+        description: >
+          We build the frontend components and backend listeners, ensuring
+          rigorous type safety with TypeScript.
+        icon: Code
+      - title: Stress Testing
+        description: >
+          We simulate poor network conditions and concurrent user conflicts to
+          ensure the app recovers gracefully.
+        icon: <FlaskConical />
+      - title: Deployment
+        description: >
+          We launch on edge-enabled infrastructure to minimize latency for users
+          globally.
+        icon: <Rocket />
+    _template: ServiceCards
   - title: FAQ
     subtitle: ''
     servicesCards:
