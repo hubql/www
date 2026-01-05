@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import type { Template } from 'tinacms'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { tinaField } from 'tinacms/dist/react'
@@ -21,6 +22,7 @@ export const ImageGrid = ({ data }: { data: any }) => {
 
     const isSingleImage = cards.length === 1
     const isRightToLeft = data.layout === 'right'
+    const priorityLoading = data.priority ?? false
 
     const contentSection = (
         <div
@@ -46,14 +48,17 @@ export const ImageGrid = ({ data }: { data: any }) => {
                         <div
                             key={i}
                             className={cn(
-                                'relative overflow-hidden rounded-lg col-span-2 row-span-2'
+                                'relative overflow-hidden rounded-lg col-span-2 row-span-2 aspect-video'
                             )}
                             data-tina-field={tinaField(data, 'cards', i)}
                         >
-                            <motion.img
+                            <Image
                                 src={card.src ?? ''}
-                                className="w-full h-auto object-cover"
+                                className="object-cover"
                                 alt={card.alt ?? 'thumbnail'}
+                                fill
+                                priority={priorityLoading}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
                             />
                         </div>
                     ))}
@@ -64,14 +69,17 @@ export const ImageGrid = ({ data }: { data: any }) => {
                         <div
                             key={i}
                             className={cn(
-                                'relative overflow-hidden rounded-lg mb-4 break-inside-avoid'
+                                'relative overflow-hidden rounded-lg mb-4 break-inside-avoid aspect-[4/3]'
                             )}
                             data-tina-field={tinaField(data, 'cards', i)}
                         >
-                            <motion.img
+                            <Image
                                 src={card.src ?? ''}
-                                className="w-full h-auto object-cover"
+                                className="object-cover"
                                 alt={card.alt ?? 'thumbnail'}
+                                fill
+                                priority={priorityLoading}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             />
                         </div>
                     ))}
@@ -113,6 +121,13 @@ export const imageGridBlockSchema: Template = {
             ui: {
                 defaultValue: 'left',
             },
+        },
+        {
+            name: 'priority',
+            label: 'Priority Loading',
+            type: 'boolean',
+            description:
+                'Enable for above-the-fold images to improve performance',
         },
         {
             label: 'Images',
