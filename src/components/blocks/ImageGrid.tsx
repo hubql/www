@@ -1,4 +1,5 @@
 'use client'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import type { Template } from 'tinacms'
@@ -10,6 +11,50 @@ type Card = {
     id: number
     src?: string | null
     alt?: string | null
+}
+
+type ImageWithLoaderProps = {
+    src: string
+    alt: string
+    sizes: string
+    preload: boolean
+    className?: string
+}
+
+const ImageWithLoader = ({
+    src,
+    alt,
+    sizes,
+    preload,
+    className,
+}: ImageWithLoaderProps) => {
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    useEffect(() => {
+        setIsLoaded(false)
+    }, [src])
+
+    return (
+        <>
+            {!isLoaded && (
+                <div className="absolute inset-0 bg-zinc-800 animate-pulse" />
+            )}
+            <Image
+                key={src}
+                src={src}
+                alt={alt}
+                fill
+                preload={preload}
+                sizes={sizes}
+                className={cn(
+                    className,
+                    'transition-opacity duration-300',
+                    isLoaded ? 'opacity-100' : 'opacity-0'
+                )}
+                onLoad={() => setIsLoaded(true)}
+            />
+        </>
+    )
 }
 
 export const ImageGrid = ({ data }: { data: any }) => {
@@ -52,13 +97,11 @@ export const ImageGrid = ({ data }: { data: any }) => {
                             )}
                             data-tina-field={tinaField(data, 'cards', i)}
                         >
-                            <Image
+                            <ImageWithLoader
                                 src={card.src ?? ''}
-                                className="object-cover"
                                 alt={card.alt ?? 'thumbnail'}
-                                fill
-                                priority={priorityLoading}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                                preload={priorityLoading}
+                                sizes="(max-width: 1024px) 100vw, 42vw"
                             />
                         </div>
                     ))}
@@ -73,13 +116,12 @@ export const ImageGrid = ({ data }: { data: any }) => {
                             )}
                             data-tina-field={tinaField(data, 'cards', i)}
                         >
-                            <Image
+                            <ImageWithLoader
                                 src={card.src ?? ''}
                                 className="object-cover"
                                 alt={card.alt ?? 'thumbnail'}
-                                fill
-                                priority={priorityLoading}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                preload={priorityLoading}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 21vw"
                             />
                         </div>
                     ))}
