@@ -42,7 +42,7 @@ const ImageWithLoader = ({
                 src={src}
                 alt={alt}
                 fill
-                preload={preload}
+                priority={preload}
                 sizes={sizes}
                 className={cn(
                     className,
