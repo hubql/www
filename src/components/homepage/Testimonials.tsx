@@ -13,6 +13,7 @@ export const Testimonials = () => {
                 <div className="flex gap-4 min-w-max flex-row items-center">
                     {testimonials.map((testimonial, index) => (
                         <motion.div
+                            key={'testimonial-' + testimonial.name + index}
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{
@@ -23,10 +24,7 @@ export const Testimonials = () => {
                                 damping: 10,
                             }}
                         >
-                            <Testimonial
-                                key={'testimonial-' + testimonial.name + index}
-                                {...testimonial}
-                            />
+                            <Testimonial {...testimonial} />
                         </motion.div>
                     ))}
                 </div>
