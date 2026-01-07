@@ -9,7 +9,8 @@
         "preview": "opennextjs-cloudflare build && wrangler dev",
         "deploy": "opennextjs-cloudflare build && wrangler deploy",
         "lint": "next lint",
-        "prepare": "husky"
+        "prepare": "husky",
+        "sync-secrets": "node scripts/sync-secrets.js"
     },
     "dependencies": {
         "@heroicons/react": "^2.1.1",
