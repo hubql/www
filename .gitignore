@@ -39,3 +39,4 @@ node_modules.dev.vars
 
 .open-next/
 .wrangler/tmp/
+.eslintcache
