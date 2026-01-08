@@ -35,4 +35,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-node_modules
+node_modules.dev.vars
+
+.open-next/
+.wrangler/tmp/
+.eslintcache

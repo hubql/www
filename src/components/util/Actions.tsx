@@ -31,7 +31,7 @@ export const Actions = ({
                               >
                             | Iterable<React.ReactNode>
                             | React.ReactPortal
-                            | React.PromiseLikeOfReactNode
+                            | Promise<React.ReactNode>
                             | null
                             | undefined
                     },
