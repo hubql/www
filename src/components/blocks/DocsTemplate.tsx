@@ -185,8 +185,8 @@ const ContentBlock = ({ child, index }: { child: any; index: number }) => {
                         child.type === 'h1'
                             ? 'text-xl'
                             : child.type === 'h2'
-                            ? 'text-lg'
-                            : 'text-md'
+                              ? 'text-lg'
+                              : 'text-md'
                     } font-bold text-black dark:text-white`}
                 >
                     {child.children?.map((subChild: any, subIndex: number) =>
@@ -245,9 +245,13 @@ export const DocsTemplate = (props: {
         category: { name: string }
     }
 }) => {
-    const body = Array.isArray(props.content.body)
-        ? props.content.body
-        : [props.content.body]
+    const body = useMemo(
+        () =>
+            Array.isArray(props.content.body)
+                ? props.content.body
+                : [props.content.body],
+        [props.content.body]
+    )
 
     const hasHeading = useMemo(
         () =>
