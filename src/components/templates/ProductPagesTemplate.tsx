@@ -17,7 +17,7 @@ export interface ProductPage {
     videoDescription?: string
     section: {
         title: string
-        description: string | JSX.Element
+        description: string | React.JSX.Element
         imageUrl: string | undefined
     }[]
     ctaTitle: string
@@ -26,7 +26,7 @@ export interface ProductPage {
     ctaButtonUrl: string
     faqs: {
         title: string
-        description: string | JSX.Element
+        description: string | React.JSX.Element
     }[]
 }
 

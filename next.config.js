@@ -1,6 +1,26 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     transpilePackages: ['react-tweet'],
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'www.hubql.com',
+            },
+            {
+                protocol: 'https',
+                hostname: '**.vercel.app',
+            },
+            {
+                protocol: 'https',
+                hostname: 'assets.tina.io',
+            },
+            {
+                protocol: 'https',
+                hostname: 'raw.githubusercontent.com',
+            },
+        ],
+    },
     redirects: () => [
         {
             source: '/home',
@@ -426,26 +446,6 @@ const nextConfig = {
             destination: '/api/sitemap',
         },
     ],
-    images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'www.hubql.com',
-            },
-            {
-                protocol: 'https',
-                hostname: '**.vercel.app',
-            },
-            {
-                protocol: 'https',
-                hostname: 'assets.tina.io',
-            },
-            {
-                protocol: 'https',
-                hostname: 'raw.githubusercontent.com',
-            },
-        ],
-    },
 }
 
 module.exports = nextConfig
