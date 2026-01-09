@@ -10,7 +10,7 @@ const config = {
             imageOptimization: 'dummy',
         },
     },
-    buildCommand: 'tinacms build && next build',
+    buildCommand: 'tinacms build --skip-cloud-checks && next build',
     edgeExternals: ['node:crypto'],
     middleware: {
         external: true,
