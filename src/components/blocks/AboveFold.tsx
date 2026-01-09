@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Button } from '../kit/Button'
+import { HighlightText } from '../kit/HighlightText'
 import { tinaField } from 'tinacms/dist/react'
 import type { Template } from 'tinacms'
 import type { PagesBlocksAboveFold } from '../../../tina/__generated__/types'
@@ -7,12 +8,12 @@ import Image from 'next/image'
 
 export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
     return (
-        <div className="flex flex-wrap items-start w-fit justify-start overflow-hidden relative z-0 w-full  min-h-[500px]">
-            <div className="relative z-10 w-full max-w-7xl mx-auto">
-                <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-0">
-                    <div className="w-full h-full flex items-center justify-center col-span-2">
+        <div className="flex flex-wrap items-start justify-start overflow-hidden relative z-0 w-full">
+            <div className="relative z-10 w-full max-w-7xl mx-auto py-20 max-xl:px-4 max-lg:py-4">
+                <div className="w-full grid grid-cols-1 gap-0">
+                    <div className="w-full h-full flex items-center justify-center bg-neutral-900/70 rounded-lg backdrop-blur-lg">
                         <motion.div
-                            className="py-32 relative w-fit h-fit flex flex-col z-10 px-8 h-full"
+                            className="py-24 relative w-full flex flex-col z-10 h-full justify-center items-center"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{
@@ -22,12 +23,15 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
                             }}
                         >
                             {data.title && (
-                                <h1
-                                    className="text-white text-[48px] font-bold text-left font-orbitron tracking-wide max-w-4xl mb-[16px]"
+                                <HighlightText
+                                    as="h1"
+                                    className="text-white text-[48px] lg:text-center font-medium font-lexend max-w-4xl mb-[16px] text-balance"
+                                    text={data.title}
+                                    wordsToHighlight={
+                                        data.highlightWords ?? undefined
+                                    }
                                     data-tina-field={tinaField(data, 'title')}
-                                >
-                                    {data.title}
-                                </h1>
+                                />
                             )}
 
                             {data.paragraph && (
@@ -76,15 +80,18 @@ export const AboveFold = ({ data }: { data: PagesBlocksAboveFold }) => {
                     </div>
                 </div>
             </div>
-            <div className="absolute z-0 bottom-0 left-0 w-full h-full ">
+            <div className="absolute z-0 bottom-0 left-0 w-full h-full">
                 <Image
-                    src="/home/hero-above-fold.svg"
+                    src="/home/hero-forest.jpg"
                     alt="Above Fold Hero"
                     fill
                     sizes="100vw"
                     priority
                     className="object-cover object-bottom"
                 />
+                {/*<div className="relative w-full h-full">
+                    <div className="h-60 w-60 absolute top-20 left-60 rounded-full bg-primary blur-3xl" />
+                </div>*/}
             </div>
         </div>
     )
@@ -115,6 +122,13 @@ export const aboveFoldBlockSchema: Template = {
             type: 'string',
             label: 'Title',
             name: 'title',
+        },
+        {
+            type: 'string',
+            label: 'Highlight Words (comma-separated)',
+            name: 'highlightWords',
+            description:
+                'Enter words to highlight in the heading, separated by commas',
         },
         {
             type: 'string',
