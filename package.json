@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "npx tinacms dev -c 'next dev'",
-        "build": "tinacms build && next build",
+        "build": "tinacms build --skip-cloud-checks && next build",
         "build:worker": "opennextjs-cloudflare build",
         "preview": "opennextjs-cloudflare build && wrangler dev",
         "deploy": "opennextjs-cloudflare build && wrangler deploy",
