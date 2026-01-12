@@ -1,100 +1,118 @@
-# HubQL Labs - Intelligent Software Solutions for Fast-Moving Companies
+# Hubql
 
-> A product-focused software studio building modern web applications, APIs, and intelligent automation systems
+> Product-focused software studio building modern web applications, APIs, and intelligent automation systems for startups and fast-moving companies.
 
 ## Overview
 
-HubQL Labs is a software development agency specializing in building intelligent software solutions for startups, fast-moving companies, and product-focused teams. We help bring visions to life through modern web applications, APIs, collaborative platforms, and intelligent automation systems - crafted with care, focus, and creativity.
+Hubql is a software development agency specializing in building intelligent software solutions for startups, fast-moving companies, and product-focused teams. We help bring visions to life through modern web applications, APIs, collaborative platforms, and intelligent automation systems - crafted with care, focus, and creativity.
 
-## Our Services
+## Services
 
 ### Collaborative Web Applications
-From dashboards to multiplayer workspaces — we design and build web apps that support real-time collaboration, rich data, and custom workflows. Perfect for teams that need seamless coordination and interactive experiences.
 
-**What we deliver:**
+From dashboards to multiplayer workspaces - we design and build web apps that support real-time collaboration, rich data, and custom workflows.
+
+**Deliverables:**
 - Real-time collaborative platforms and dashboards
 - Custom workflow management systems
 - Data-rich interactive applications
 - Multiplayer workspaces and team tools
 
-### Visual & 3D Web Applications
-We design immersive product interfaces — from 2D dashboards to WebGL-powered 3D tools. Ideal for configurators, industrial visualization, or rich design systems.
+Learn more: [Collaborative Web Applications](https://www.hubql.com/collaborative-web-application)
 
-**What we deliver:**
+### Visual & 3D Web Applications
+
+We design immersive product interfaces - from 2D dashboards to WebGL-powered 3D tools. Ideal for configurators, industrial visualization, or rich design systems.
+
+**Deliverables:**
 - WebGL-powered 3D visualizations
 - Product configurators and customization tools
 - Industrial visualization platforms
 - Interactive design systems and rich interfaces
 
-### APIs & Documentation
-We build fast, well-documented APIs and internal platforms that keep teams efficient — perfect for scaling startups or process-heavy SMEs.
+Learn more: [3D Web Applications](https://www.hubql.com/3d-web-application)
 
-**What we deliver:**
+### APIs & Documentation
+
+We build fast, well-documented APIs and internal platforms that keep teams efficient - perfect for scaling startups or process-heavy SMEs.
+
+**Deliverables:**
 - Custom RESTful and GraphQL API development
 - Automated API documentation systems
 - Internal developer platforms
 - Third-party API integrations
 
+Learn more: [APIs & Documentation](https://www.hubql.com/apis)
+
 ### Intelligent Automation Systems
+
 We craft intelligent automation systems that streamline processes, improve efficiency, and enhance productivity through workflow orchestration and smart integrations.
 
-**What we deliver:**
+**Deliverables:**
 - Workflow automation and orchestration with n8n
 - Business process automation
 - API integrations and data transformations
 - Event-driven automation systems
 
-### Web Design
-We create user-centered digital experiences that blend functionality with aesthetics. From wireframes to final UI/UX, we ensure that your product is intuitive, engaging, and built for success.
+Learn more: [Intelligent Automation Systems](https://www.hubql.com/intelligent-automation-systems)
 
-**What we deliver:**
+### Web Design
+
+We create user-centered digital experiences that blend functionality with aesthetics. From wireframes to final UI/UX, we ensure that your product is intuitive and engaging.
+
+**Deliverables:**
 - End-to-end UI/UX design for web applications
 - Wireframing and interactive prototyping
 - Design systems and component libraries
 - User research and usability testing
 
-### Supabase MVPs
-We help early-stage teams launch fast using Supabase as the foundation. From schema planning to production-ready frontends — sprint delivery, zero fluff.
+Learn more: [Web Design](https://www.hubql.com/web-design)
 
-**What we deliver:**
+### Supabase MVPs
+
+We help early-stage teams launch fast using Supabase as the foundation. From schema planning to production-ready frontends - sprint delivery, zero fluff.
+
+**Deliverables:**
 - Rapid MVP development with Supabase
 - PostgreSQL database schema design
 - Authentication and authorization setup
 - Production-ready full-stack applications
 
+Learn more: [Supabase MVP Development](https://www.hubql.com/supabase-mvp)
+
 ## Portfolio & Case Studies
 
 ### Fintech Dashboard
-Fintech trading dashboard to manage trading bots
+Fintech trading dashboard to manage trading bots.
 - Technologies: React, Supabase, Next.js, Custom Design
-- Delivered comprehensive trading management platform
+- Comprehensive trading management platform
 
 ### Schema Visualizer
-SaaS tool marketing website and visualization platform
-- URL: https://www.schemavisualizer.dev/
+SaaS tool marketing website and visualization platform.
+- URL: [schemavisualizer.dev](https://www.schemavisualizer.dev/)
 - Technologies: React, XY Flow, Node.js, Supabase, AWS
 - Full-featured data visualization SaaS product
 
 ### Hoot - Job Portal
-Job portal & dashboard for schools
-- URL: https://www.hoot.org.uk/
+Job portal & dashboard for schools.
+- URL: [hoot.org.uk](https://www.hoot.org.uk/)
 - Technologies: React, Tailwind CSS, Custom Design
 - Complete job management system for educational institutions
 
 ### RConnect
-Developer marketing website
-- URL: https://www.rconnect.tech/
+Developer marketing website.
+- URL: [rconnect.tech](https://www.rconnect.tech/)
 - Technologies: React, Next.js, Web Design
 - Modern developer-focused marketing site
 
 ### APIPT
-Devtool landing page and marketing website
-- URL: https://www.apipt.dev/
+Devtool landing page and marketing website.
+- URL: [apipt.dev](https://www.apipt.dev/)
 - Technologies: React, Next.js, Web Design
 - Developer tool product website
 
 ### Synci
-Two-way sync for Airtable and Webflow
+Two-way sync for Airtable and Webflow.
 - Technologies: React, Next.js, Web Design
 - Integration platform for no-code tools
 
@@ -125,45 +143,34 @@ Two-way sync for Airtable and Webflow
 - **OpenNext for Cloudflare**: Next.js deployment to Cloudflare Workers
 - **PostHog & Koala**: Analytics and user tracking
 
-## Site Map
+## Site Navigation
 
 ### Main Pages
-- **Home** (`/`) - Main landing page
-- **Portfolio** (`/portfolio`) - Project showcase and case studies
-- **Contact** (`/contact`) - Get in touch
-- **About** (`/about`) - About HubQL Labs
-- **Team** (`/team`) - Meet our team
-- **Pricing** (`/pricing`) - Service pricing
-- **Events** (`/events`) - Company events and updates
-- **Blog** (`/blog`) - Articles and insights
+- [Home](https://www.hubql.com/): Main landing page
+- [Portfolio](https://www.hubql.com/portfolio): Project showcase and case studies
+- [Contact](https://www.hubql.com/contact): Get in touch
+- [About](https://www.hubql.com/about): About Hubql
+- [Team](https://www.hubql.com/team): Meet our team
+- [Pricing](https://www.hubql.com/pricing): Service pricing
+- [Events](https://www.hubql.com/events): Company events and updates
+- [Blog](https://www.hubql.com/blog): Articles and insights
 
-### Services
-- `/services` - Services overview
-- `/collaborative-web-application` - Collaborative web app development
-- `/3d-web-application` - 3D and visual web applications
-- `/apis` - API development and documentation
-- `/intelligent-automation-systems` - Automation and workflow systems
-- `/web-design` - UI/UX design services
-- `/supabase-mvp` - Supabase MVP development
-- `/supabase-development-services` - Comprehensive Supabase services
-- `/n8n-workflow-automation` - n8n automation services
+### Services Pages
+- [Services Overview](https://www.hubql.com/services): All services
+- [Collaborative Web Applications](https://www.hubql.com/collaborative-web-application): Real-time web apps
+- [3D Web Applications](https://www.hubql.com/3d-web-application): Visual and 3D tools
+- [APIs](https://www.hubql.com/apis): API development
+- [Intelligent Automation](https://www.hubql.com/intelligent-automation-systems): Automation systems
+- [Web Design](https://www.hubql.com/web-design): UI/UX design
+- [Supabase MVP](https://www.hubql.com/supabase-mvp): Rapid MVP development
+- [Supabase Services](https://www.hubql.com/supabase-development-services): Comprehensive Supabase
+- [n8n Automation](https://www.hubql.com/n8n-workflow-automation): n8n services
 
-### Legal & Support
-- `/privacy-policy` - Privacy policy
-- `/imprint` - Legal imprint
+### Legal
+- [Privacy Policy](https://www.hubql.com/privacy-policy): Privacy policy
+- [Imprint](https://www.hubql.com/imprint): Legal imprint
 
-## Our Approach
-
-### Fast & Easy to Work With
-Our team delivers quick turnaround times with a focus on precision in both work and communication. We understand that speed matters for startups and fast-moving teams.
-
-### Modern Tech Stack for Your Future
-We leverage cutting-edge technologies to build high-performance, scalable applications that grow with your business.
-
-### Experienced Product Builders
-We have a proven track record of building successful products from prototype to launch, helping founders and product leaders bring their visions to life.
-
-## Who We Serve
+## Target Clients
 
 - **Startups**: Early-stage teams needing rapid MVP development and product validation
 - **Fast-Moving Companies**: Organizations requiring quick iterations and scalable solutions
@@ -171,27 +178,6 @@ We have a proven track record of building successful products from prototype to 
 - **SMEs**: Small to medium enterprises needing process automation and custom tools
 - **Founders**: Entrepreneurs bringing new product ideas to life
 - **Educational Institutions**: Schools and organizations needing custom portals and tools
-
-## Key Differentiators
-
-- Sprint delivery approach - zero fluff, maximum velocity
-- Supabase expertise for rapid backend development
-- Real-time collaboration platform experience
-- 3D/WebGL visualization capabilities
-- Full-stack proficiency from design to deployment
-- Modern deployment on Cloudflare Workers for global performance
-
-## Use Cases We Excel At
-
-- Launching MVPs and validating product ideas
-- Building real-time collaborative applications
-- Creating visual configurators and 3D experiences
-- Developing internal tools and automation systems
-- Designing and implementing scalable APIs
-- Migrating to modern tech stacks (React, Next.js, Supabase)
-- Building fintech dashboards and trading platforms
-- Creating SaaS marketing websites and platforms
-- Developing job portals and management systems
 
 ## Technical Capabilities
 
@@ -224,7 +210,7 @@ We have a proven track record of building successful products from prototype to 
 - Accessibility and performance optimization
 - Responsive and mobile-first design
 
-## Infrastructure & Deployment
+## Infrastructure
 
 - **Hosting**: Cloudflare Workers (production), AWS (services)
 - **CDN**: Cloudflare global network
@@ -233,20 +219,13 @@ We have a proven track record of building successful products from prototype to 
 - **Analytics**: PostHog, Koala
 - **Security**: Turnstile CAPTCHA, DDoS protection
 
-## Contact & Getting Started
+## Contact
 
-- **Website**: https://www.hubql.com
-- **Contact**: /contact
-- **Portfolio**: /portfolio
-- **Pricing**: /pricing
-- **Blog**: /blog
-
-**Ready to start?** We'll help you turn your vision into a scalable product. Book a call or reach out to discuss your project.
+- **Website**: [hubql.com](https://www.hubql.com)
+- **Contact Page**: [Contact Us](https://www.hubql.com/contact)
+- **Portfolio**: [View Projects](https://www.hubql.com/portfolio)
+- **Pricing**: [See Pricing](https://www.hubql.com/pricing)
 
 ## Partnership
 
-We partner with **GROWSaaS** for growth and marketing services, offering comprehensive solutions from product development to market launch in the DACH region and beyond.
-
----
-
-*This file provides structured context for LLMs and AI agents to understand HubQL Labs' services, capabilities, and technical expertise. For human-readable information, visit https://www.hubql.com*
+Hubql partners with GROWSaaS for growth and marketing services, offering comprehensive solutions from product development to market launch in the DACH region and beyond.
