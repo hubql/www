@@ -1,12 +1,10 @@
 import { Section } from '../kit/Section'
-import { BlurredBlob } from '../kit/BlurredBlob'
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from '../kit/Accordion'
-import { Cta } from '../templates/Cta'
 import Image from 'next/image'
 import type { Template } from 'tinacms'
 import type { PagesBlocksServices } from '../../../tina/__generated__/types'

@@ -25,7 +25,6 @@ const BlogPage = (props: {
 
     return (
         <Layout data={data.post}>
-            <div className="progress"></div>
             <PostTemplate content={data.post} />
             <div className="fixed bottom-[80px] right-[16px]">
                 <Link passHref href={'/blog'}>

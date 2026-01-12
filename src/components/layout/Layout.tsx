@@ -73,7 +73,7 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                             : `https://www.hubql.com/api/og${
                                   data.seoTitle != ''
                                       ? `?title=${data.seoTitle}`
-                                      : ''
+                                      : 'Your vision brought to life.'
                               }`
                     }
                 />

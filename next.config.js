@@ -435,6 +435,93 @@ const nextConfig = {
             destination: '/supabase-development-services',
             permanent: true,
         },
+        {
+            source: '/api-client',
+            destination: '/product/api-client',
+            permanent: true,
+        },
+        {
+            source: '/schema-visualizer',
+            destination: '/product/schema-visualizer',
+            permanent: true,
+        },
+        // Redirect old comparison pages to homepage
+        {
+            source: '/hubql-vs-postman',
+            destination: '/',
+            permanent: true,
+        },
+        {
+            source: '/hubql-vs-thunderclient',
+            destination: '/',
+            permanent: true,
+        },
+        {
+            source: '/hubql-vs-insomnia',
+            destination: '/',
+            permanent: true,
+        },
+        {
+            source: '/hubql-vs-swaggerui',
+            destination: '/',
+            permanent: true,
+        },
+        {
+            source: '/hubql-vs-scalar',
+            destination: '/',
+            permanent: true,
+        },
+        // Redirect old solution pages to services
+        {
+            source: '/solutions/api-metrics',
+            destination: '/services',
+            permanent: true,
+        },
+        {
+            source: '/api-metrics',
+            destination: '/services',
+            permanent: true,
+        },
+        {
+            source: '/api-visualization',
+            destination: '/services',
+            permanent: true,
+        },
+        {
+            source: '/api-testing',
+            destination: '/services',
+            permanent: true,
+        },
+        {
+            source: '/api-design',
+            destination: '/services',
+            permanent: true,
+        },
+        {
+            source: '/api-collaboration',
+            destination: '/services',
+            permanent: true,
+        },
+        {
+            source: '/api-documentation',
+            destination: '/apis',
+            permanent: true,
+        },
+        {
+            source: '/cursorrules-automation',
+            destination: '/intelligent-automation-systems',
+            permanent: true,
+        },
+        {
+            source: '/solutions/cursorrules-automation',
+            destination: '/intelligent-automation-systems',
+            permanent: true,
+        },
+        {
+            source: '/solutions/ai-code-editor-context',
+            destination: '/intelligent-automation-systems',
+            permanent: true,
+        },
     ],
     rewrites: () => [
         {

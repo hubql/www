@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { Button } from '../kit/Button'
+import Image from 'next/image'
 
 export const Actions = ({
     actions,
@@ -55,13 +56,9 @@ export const Actions = ({
                                 href="https://www.producthunt.com/posts/hubql?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-hubql"
                                 target="_blank"
                             >
-                                <img
+                                <Image
                                     src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=424313&theme=dark"
                                     alt="Hubql - Turn&#0032;data&#0032;models&#0032;and&#0032;APIs&#0032;into&#0032;diagrams&#0032;and&#0032;documentation | Product Hunt"
-                                    style={{
-                                        width: '232px',
-                                        height: '50px',
-                                    }}
                                     width="232"
                                     height="50"
                                 />

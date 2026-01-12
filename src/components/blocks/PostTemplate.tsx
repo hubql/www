@@ -115,7 +115,7 @@ export const PostTemplate = (props: {
         body: TinaMarkdownContent | TinaMarkdownContent[]
         title: string
         pubDate: string
-        category: { name: string }
+        category: string
         heroImage: string
     }
 }) => {
@@ -130,7 +130,7 @@ export const PostTemplate = (props: {
                     Published: {isoString}
                 </p>
                 <p className="select-none px-4 py-1 rounded-full bg-zinc-700 w-fit text-[12px]   text-zinc-300">
-                    {props.content.category.name}
+                    {props.content.category}
                 </p>
                 <div className="relative w-full aspect-square border border-neutral-800 mt-12">
                     <Image
@@ -138,7 +138,7 @@ export const PostTemplate = (props: {
                         alt="logo"
                         fill={true}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        style={{ objectFit: 'cover' }}
+                        style={{ objectFit: 'contain' }}
                     />
                 </div>
             </div>

@@ -4,7 +4,6 @@ import { tinaField } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import type { PagesBlocksContent } from '../../../tina/__generated__/types'
 import { Button } from '../kit/Button'
-import PricingTable from '../util/PricingTable'
 
 const components = {
     Button: (props: { label: string | undefined; link: string }) => {
@@ -16,9 +15,6 @@ const components = {
     },
     Divider: () => {
         return <hr className="py-4 border-zinc-700" />
-    },
-    PricingTable: () => {
-        return <PricingTable />
     },
 }
 

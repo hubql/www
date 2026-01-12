@@ -3,7 +3,6 @@ import { aboutCardsBlockSchema } from '../src/components/blocks/AboutCard'
 import { featuredBlog } from '../src/components/blocks/BlogList'
 import { cardsBlockSchema } from '../src/components/blocks/Cards'
 import { contentBlockSchema } from '../src/components/blocks/Content'
-import { featureFocusBlockSchema } from '../src/components/blocks/FeatureFocus'
 import { featureFocusSimpleBlockSchema } from '../src/components/blocks/FeatureFocusSimple'
 import { heroBlockSchema } from '../src/components/blocks/Hero'
 import {
@@ -12,14 +11,11 @@ import {
 } from '../src/components/blocks/Hero2Column'
 import { imageGalleryBlockSchema } from '../src/components/blocks/ImageGallery'
 import { imageGridBlockSchema } from '../src/components/blocks/ImageGrid'
-import { scrollCardBlockSchema } from '../src/components/blocks/ScrollCard'
 import { sectionCtaBlockSchema } from '../src/components/blocks/SectionCta'
 import { sectionHeadingBlockSchema } from '../src/components/blocks/SectionHeading'
 
 import { imageBlockSchema } from '../src/components/blocks/Image'
 import { paragraphBlockSchema } from '../src/components/blocks/Paragraph'
-import { templateApiReferenceBlockSchema } from '../src/components/blocks/TemplateApiReference'
-import { vsHeroBlockSchema } from '../src/components/blocks/VsHero'
 import { aboveFoldBlockSchema } from '@/src/components/blocks/AboveFold'
 import { trustedByBlockSchema } from '../src/components/blocks/TrustedBy'
 import { servicesBlockSchema } from '../src/components/blocks/Services'
@@ -28,9 +24,9 @@ import { whyHubqlBlockSchema } from '../src/components/blocks/WhyHubql'
 import { techStackBlockSchema } from '../src/components/blocks/TechStack'
 import { testimonialsBlockSchema } from '../src/components/blocks/Testimonials'
 import { serviceCardsBlockSchema } from '../src/components/blocks/ServiceCards'
-import { projectReferencesBlockSchema } from '../src/components/blocks/ProjectReferences'
 import { aboveFoldBlockSchema2 } from '@/src/components/blocks/AboveFold2'
 import { teamMembersBlockSchema } from '../src/components/blocks/TeamMembers'
+import { projectReferencesBlockSchema } from '../src/components/blocks/ProjectReferences'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -99,8 +95,11 @@ export default defineConfig({
                     {
                         label: 'Category',
                         name: 'category',
-                        type: 'reference',
-                        collections: ['category'],
+                        type: 'string',
+                        options: ['News', 'Changelog', 'Community'],
+                        ui: {
+                            component: 'select',
+                        },
                     },
                     {
                         type: 'rich-text',
@@ -374,7 +373,6 @@ export default defineConfig({
                         },
                         templates: [
                             heroBlockSchema,
-                            featureFocusBlockSchema,
                             sectionHeadingBlockSchema,
                             sectionCtaBlockSchema,
                             hero2ColumnBlockSchema,
@@ -385,9 +383,6 @@ export default defineConfig({
                             imageGalleryBlockSchema,
                             aboutCardsBlockSchema,
                             hubqlDemoFileSchema,
-                            scrollCardBlockSchema,
-                            templateApiReferenceBlockSchema,
-                            vsHeroBlockSchema,
                             paragraphBlockSchema,
                             imageBlockSchema,
                             aboveFoldBlockSchema,

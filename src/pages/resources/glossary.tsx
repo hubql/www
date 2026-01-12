@@ -1,12 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import client from '../../../tina/__generated__/client'
-import { Chevron } from '../../components/icons/Chevron'
 import { Layout } from '../../components/layout/Layout'
+import { ChevronRight } from 'lucide-react'
 
-export default function Glossary(props: { header: any; footer: any }) {
-    const header = props.header
-    const footer = props.footer
+export default function Glossary() {
     const articles = [
         {
             title: 'What is an API',
@@ -86,7 +84,7 @@ export default function Glossary(props: { header: any; footer: any }) {
                                                         </p>
                                                         <div className="flex items-center gap-1 text-sm text-zinc-50 mt-2">
                                                             View article
-                                                            <Chevron className="text-accent-500 w-4 h-4" />
+                                                            <ChevronRight className="text-accent-500 w-4 h-4" />
                                                         </div>
                                                     </div>
                                                 </div>
