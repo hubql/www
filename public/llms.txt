@@ -1,0 +1,42 @@
+# Hubql
+
+> Product-focused software studio building modern web applications, APIs, and intelligent automation systems for startups and fast-moving companies.
+
+Hubql helps bring visions to life through collaborative platforms, visual applications, and workflow automation - crafted with care, focus, and creativity. Based in the DACH region, we specialize in rapid MVP development using modern technologies like React, Next.js, and Supabase.
+
+## Services
+
+- [Collaborative Web Applications](https://www.hubql.com/collaborative-web-application): Real-time platforms, dashboards, and multiplayer workspaces
+- [3D Web Applications](https://www.hubql.com/3d-web-application): WebGL visualizations, product configurators, industrial tools
+- [APIs & Documentation](https://www.hubql.com/apis): RESTful and GraphQL API development with automated docs
+- [Intelligent Automation](https://www.hubql.com/intelligent-automation-systems): Workflow automation with n8n and integrations
+- [Web Design](https://www.hubql.com/web-design): UI/UX design, wireframing, and design systems
+- [Supabase MVP Development](https://www.hubql.com/supabase-mvp): Rapid MVP builds with Supabase backend
+
+## Portfolio
+
+- [Schema Visualizer](https://www.schemavisualizer.dev/): Data visualization SaaS tool
+- [Hoot](https://www.hoot.org.uk/): Job portal and dashboard for schools
+- [RConnect](https://www.rconnect.tech/): Developer marketing website
+- [APIPT](https://www.apipt.dev/): Developer tool landing page
+
+## Technology
+
+Core stack: React, Next.js, TypeScript, Tailwind CSS, Supabase, Node.js, n8n, AWS, Cloudflare Workers.
+
+## Navigation
+
+- [Home](https://www.hubql.com/): Main landing page
+- [Portfolio](https://www.hubql.com/portfolio): Project showcase and case studies
+- [Services](https://www.hubql.com/services): Full services overview
+- [Pricing](https://www.hubql.com/pricing): Service pricing information
+- [Contact](https://www.hubql.com/contact): Get in touch
+- [Blog](https://www.hubql.com/blog): Articles and insights
+
+## Optional
+
+- [About](https://www.hubql.com/about): About Hubql
+- [Team](https://www.hubql.com/team): Meet our team
+- [Events](https://www.hubql.com/events): Company events
+- [Privacy Policy](https://www.hubql.com/privacy-policy): Privacy policy
+- [Imprint](https://www.hubql.com/imprint): Legal imprint
