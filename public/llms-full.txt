@@ -1,0 +1,231 @@
+# Hubql
+
+> Product-focused software studio building modern web applications, APIs, and intelligent automation systems for startups and fast-moving companies.
+
+## Overview
+
+Hubql is a software development agency specializing in building intelligent software solutions for startups, fast-moving companies, and product-focused teams. We help bring visions to life through modern web applications, APIs, collaborative platforms, and intelligent automation systems - crafted with care, focus, and creativity.
+
+## Services
+
+### Collaborative Web Applications
+
+From dashboards to multiplayer workspaces - we design and build web apps that support real-time collaboration, rich data, and custom workflows.
+
+**Deliverables:**
+- Real-time collaborative platforms and dashboards
+- Custom workflow management systems
+- Data-rich interactive applications
+- Multiplayer workspaces and team tools
+
+Learn more: [Collaborative Web Applications](https://www.hubql.com/collaborative-web-application)
+
+### Visual & 3D Web Applications
+
+We design immersive product interfaces - from 2D dashboards to WebGL-powered 3D tools. Ideal for configurators, industrial visualization, or rich design systems.
+
+**Deliverables:**
+- WebGL-powered 3D visualizations
+- Product configurators and customization tools
+- Industrial visualization platforms
+- Interactive design systems and rich interfaces
+
+Learn more: [3D Web Applications](https://www.hubql.com/3d-web-application)
+
+### APIs & Documentation
+
+We build fast, well-documented APIs and internal platforms that keep teams efficient - perfect for scaling startups or process-heavy SMEs.
+
+**Deliverables:**
+- Custom RESTful and GraphQL API development
+- Automated API documentation systems
+- Internal developer platforms
+- Third-party API integrations
+
+Learn more: [APIs & Documentation](https://www.hubql.com/apis)
+
+### Intelligent Automation Systems
+
+We craft intelligent automation systems that streamline processes, improve efficiency, and enhance productivity through workflow orchestration and smart integrations.
+
+**Deliverables:**
+- Workflow automation and orchestration with n8n
+- Business process automation
+- API integrations and data transformations
+- Event-driven automation systems
+
+Learn more: [Intelligent Automation Systems](https://www.hubql.com/intelligent-automation-systems)
+
+### Web Design
+
+We create user-centered digital experiences that blend functionality with aesthetics. From wireframes to final UI/UX, we ensure that your product is intuitive and engaging.
+
+**Deliverables:**
+- End-to-end UI/UX design for web applications
+- Wireframing and interactive prototyping
+- Design systems and component libraries
+- User research and usability testing
+
+Learn more: [Web Design](https://www.hubql.com/web-design)
+
+### Supabase MVPs
+
+We help early-stage teams launch fast using Supabase as the foundation. From schema planning to production-ready frontends - sprint delivery, zero fluff.
+
+**Deliverables:**
+- Rapid MVP development with Supabase
+- PostgreSQL database schema design
+- Authentication and authorization setup
+- Production-ready full-stack applications
+
+Learn more: [Supabase MVP Development](https://www.hubql.com/supabase-mvp)
+
+## Portfolio & Case Studies
+
+### Fintech Dashboard
+Fintech trading dashboard to manage trading bots.
+- Technologies: React, Supabase, Next.js, Custom Design
+- Comprehensive trading management platform
+
+### Schema Visualizer
+SaaS tool marketing website and visualization platform.
+- URL: [schemavisualizer.dev](https://www.schemavisualizer.dev/)
+- Technologies: React, XY Flow, Node.js, Supabase, AWS
+- Full-featured data visualization SaaS product
+
+### Hoot - Job Portal
+Job portal & dashboard for schools.
+- URL: [hoot.org.uk](https://www.hoot.org.uk/)
+- Technologies: React, Tailwind CSS, Custom Design
+- Complete job management system for educational institutions
+
+### RConnect
+Developer marketing website.
+- URL: [rconnect.tech](https://www.rconnect.tech/)
+- Technologies: React, Next.js, Web Design
+- Modern developer-focused marketing site
+
+### APIPT
+Devtool landing page and marketing website.
+- URL: [apipt.dev](https://www.apipt.dev/)
+- Technologies: React, Next.js, Web Design
+- Developer tool product website
+
+### Synci
+Two-way sync for Airtable and Webflow.
+- Technologies: React, Next.js, Web Design
+- Integration platform for no-code tools
+
+## Technology Stack
+
+### Frontend & Design
+- **Figma**: Collaborative design, prototyping, component libraries, design systems
+- **React**: Component-based UI architecture, modern patterns, Next.js integration
+- **Next.js**: Server-side rendering, static generation, App/Pages Router
+- **Tailwind CSS**: Utility-first styling, responsive design, custom design systems
+- **Framer Motion**: Animations and interactive UI elements
+- **TypeScript**: Type-safe development across the stack
+
+### Backend & Infrastructure
+- **Node.js**: Backend runtime for scalable server-side applications
+- **Supabase**: PostgreSQL database, authentication, real-time subscriptions, storage
+- **AWS**: Cloud hosting, serverless architecture, managed services, CloudFront CDN
+- **Cloudflare**: Global CDN, DDoS protection, edge optimization, Workers deployment
+
+### Automation & Integration
+- **n8n**: Workflow automation, API orchestration, self-hosted integrations
+- **Zapier**: No-code integrations and automated workflows
+- **Airtable**: Flexible databases, project management, custom views
+
+### Development & Deployment
+- **Git & GitHub**: Version control and collaboration
+- **TinaCMS**: Content management system
+- **OpenNext for Cloudflare**: Next.js deployment to Cloudflare Workers
+- **PostHog & Koala**: Analytics and user tracking
+
+## Site Navigation
+
+### Main Pages
+- [Home](https://www.hubql.com/): Main landing page
+- [Portfolio](https://www.hubql.com/portfolio): Project showcase and case studies
+- [Contact](https://www.hubql.com/contact): Get in touch
+- [About](https://www.hubql.com/about): About Hubql
+- [Team](https://www.hubql.com/team): Meet our team
+- [Pricing](https://www.hubql.com/pricing): Service pricing
+- [Events](https://www.hubql.com/events): Company events and updates
+- [Blog](https://www.hubql.com/blog): Articles and insights
+
+### Services Pages
+- [Services Overview](https://www.hubql.com/services): All services
+- [Collaborative Web Applications](https://www.hubql.com/collaborative-web-application): Real-time web apps
+- [3D Web Applications](https://www.hubql.com/3d-web-application): Visual and 3D tools
+- [APIs](https://www.hubql.com/apis): API development
+- [Intelligent Automation](https://www.hubql.com/intelligent-automation-systems): Automation systems
+- [Web Design](https://www.hubql.com/web-design): UI/UX design
+- [Supabase MVP](https://www.hubql.com/supabase-mvp): Rapid MVP development
+- [Supabase Services](https://www.hubql.com/supabase-development-services): Comprehensive Supabase
+- [n8n Automation](https://www.hubql.com/n8n-workflow-automation): n8n services
+
+### Legal
+- [Privacy Policy](https://www.hubql.com/privacy-policy): Privacy policy
+- [Imprint](https://www.hubql.com/imprint): Legal imprint
+
+## Target Clients
+
+- **Startups**: Early-stage teams needing rapid MVP development and product validation
+- **Fast-Moving Companies**: Organizations requiring quick iterations and scalable solutions
+- **Product Teams**: Teams building collaborative platforms and data-rich applications
+- **SMEs**: Small to medium enterprises needing process automation and custom tools
+- **Founders**: Entrepreneurs bringing new product ideas to life
+- **Educational Institutions**: Schools and organizations needing custom portals and tools
+
+## Technical Capabilities
+
+### Frontend Development
+- Server-side rendering and static site generation with Next.js
+- Component-based architecture with React 19
+- Responsive design with Tailwind CSS
+- Interactive animations with Framer Motion
+- 3D graphics with Spline and WebGL
+- Dark mode and theming support
+
+### Backend Development
+- RESTful and GraphQL API development
+- Real-time data with Supabase subscriptions
+- Authentication and authorization systems
+- File storage and CDN integration
+- Serverless functions and edge computing
+
+### Automation & Integration
+- Workflow automation with n8n and Zapier
+- Third-party API integrations
+- Data synchronization across platforms (Airtable, Webflow)
+- Event-driven architectures
+- Scheduled tasks and background jobs
+
+### Design & UX
+- User-centered design methodology
+- Wireframing and prototyping in Figma
+- Design systems and component libraries
+- Accessibility and performance optimization
+- Responsive and mobile-first design
+
+## Infrastructure
+
+- **Hosting**: Cloudflare Workers (production), AWS (services)
+- **CDN**: Cloudflare global network
+- **Database**: Supabase (PostgreSQL)
+- **Content**: TinaCMS cloud
+- **Analytics**: PostHog, Koala
+- **Security**: Turnstile CAPTCHA, DDoS protection
+
+## Contact
+
+- **Website**: [hubql.com](https://www.hubql.com)
+- **Contact Page**: [Contact Us](https://www.hubql.com/contact)
+- **Portfolio**: [View Projects](https://www.hubql.com/portfolio)
+- **Pricing**: [See Pricing](https://www.hubql.com/pricing)
+
+## Partnership
+
+Hubql partners with GROWSaaS for growth and marketing services, offering comprehensive solutions from product development to market launch in the DACH region and beyond.
