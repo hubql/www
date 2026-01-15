@@ -1,20 +1,37 @@
-import { ImageResponse } from '@vercel/og'
+import satori from 'satori'
+import { Resvg } from '@resvg/resvg-js'
+import { readFile } from 'fs/promises'
+import { join } from 'path'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-export const config = {
-    runtime: 'edge',
-}
+export default async function handler(
+    req: NextApiRequest,
+    res: NextApiResponse
+) {
+    try {
+        const title = (
+            (Array.isArray(req.query.title)
+                ? req.query.title[0]
+                : req.query.title) || 'Build Software Together'
+        )
+            .slice(0, 100)
+            .replace(/\s*\|\s*Hubql(\s+Labs)?$/i, '')
 
-export default async function handler(req: Request) {
-    const { searchParams, origin } = new URL(req.url)
+        // Read background image from filesystem
+        const bgPath = join(process.cwd(), 'public', 'settings', 'ogimage.png')
+        const bgBuffer = await readFile(bgPath)
+        const bgBase64 = `data:image/png;base64,${bgBuffer.toString('base64')}`
 
-    const rawTitle =
-        searchParams.get('title')?.slice(0, 100) || 'Build Software Together'
-    const title = rawTitle.replace(/\s*\|\s*Hubql Labs$/i, '')
+        // Load Lexend Bold font
+        const fontPath = join(
+            process.cwd(),
+            'public',
+            'fonts',
+            'Lexend-Bold.ttf'
+        )
+        const fontData = await readFile(fontPath)
 
-    const backgroundUrl = `${origin}/settings/ogimage.png`
-
-    return new ImageResponse(
-        (
+        const svg = await satori(
             <div
                 style={{
                     height: '100%',
@@ -26,7 +43,7 @@ export default async function handler(req: Request) {
                 }}
             >
                 <img
-                    src={backgroundUrl}
+                    src={bgBase64}
                     alt=""
                     style={{
                         position: 'absolute',
@@ -48,7 +65,8 @@ export default async function handler(req: Request) {
                                 : title.length > 30
                                 ? 48
                                 : 64,
-                        fontWeight: 600,
+                        fontFamily: 'Lexend',
+                        fontWeight: 700,
                         letterSpacing: '-0.025em',
                         color: 'white',
                         padding: '0 80px',
@@ -61,11 +79,35 @@ export default async function handler(req: Request) {
                 >
                     {title}
                 </div>
-            </div>
-        ),
-        {
-            width: 1200,
-            height: 630,
-        }
-    )
+            </div>,
+            {
+                width: 1200,
+                height: 630,
+                fonts: [
+                    {
+                        name: 'Lexend',
+                        data: fontData,
+                        weight: 700,
+                        style: 'normal',
+                    },
+                ],
+            }
+        )
+
+        const resvg = new Resvg(svg, {
+            fitTo: {
+                mode: 'width',
+                value: 1200,
+            },
+        })
+        const pngData = resvg.render()
+        const pngBuffer = pngData.asPng()
+
+        res.setHeader('Content-Type', 'image/png')
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
+        res.status(200).send(pngBuffer)
+    } catch (e: any) {
+        console.error(`OG image generation failed:`, e)
+        res.status(500).send(`Failed to generate the image: ${e.message}`)
+    }
 }
