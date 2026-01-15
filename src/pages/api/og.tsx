@@ -1,26 +1,71 @@
 import satori from 'satori'
 import { Resvg, initWasm } from '@resvg/resvg-wasm'
-import { readFile } from 'fs/promises'
-import { join } from 'path'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { OG_IMAGE_BASE64 } from '../../lib/ogimage-base64'
 
 let wasmInitPromise: Promise<void> | null = null
+let wasmInitialized = false
 
-const ensureWasmInitialized = async () => {
-    if (!wasmInitPromise) {
-        wasmInitPromise = (async () => {
-            const wasmPath = join(
-                process.cwd(),
-                'node_modules',
-                '@resvg',
-                'resvg-wasm',
-                'index_bg.wasm'
-            )
-            const wasmBuffer = await readFile(wasmPath)
-            await initWasm(wasmBuffer)
-        })()
+const ensureWasmInitialized = async (baseUrl: string) => {
+    if (wasmInitialized) {
+        return
     }
-    return wasmInitPromise
+
+    if (wasmInitPromise) {
+        try {
+            await wasmInitPromise
+            return
+        } catch (error) {
+            wasmInitPromise = null
+        }
+    }
+
+    wasmInitPromise = (async () => {
+        const wasmPaths = [
+            `https://cdn.jsdelivr.net/npm/@resvg/resvg-wasm@2.6.2/index_bg.wasm`,
+            `https://unpkg.com/@resvg/resvg-wasm@2.6.2/index_bg.wasm`,
+        ]
+
+        for (const wasmUrl of wasmPaths) {
+            try {
+                const wasmResponse = await fetch(wasmUrl)
+                if (wasmResponse.ok) {
+                    const wasmBuffer = await wasmResponse.arrayBuffer()
+                    try {
+                        await initWasm(wasmBuffer)
+                        wasmInitialized = true
+                        return
+                    } catch (initError: any) {
+                        if (
+                            initError.message?.includes(
+                                'already initialized'
+                            ) ||
+                            initError.message?.includes(
+                                'already been initialized'
+                            )
+                        ) {
+                            wasmInitialized = true
+                            return
+                        }
+                        throw initError
+                    }
+                }
+            } catch (error) {
+                console.error(`Failed to load WASM from ${wasmUrl}:`, error)
+                continue
+            }
+        }
+
+        throw new Error('Failed to load WASM from any source')
+    })()
+
+    try {
+        await wasmInitPromise
+    } catch (error) {
+        wasmInitPromise = null
+        wasmInitialized = false
+        throw error
+    }
 }
 
 export default async function handler(
@@ -36,19 +81,14 @@ export default async function handler(
             .slice(0, 100)
             .replace(/\s*\|\s*Hubql(\s+Labs)?$/i, '')
 
-        // Read background image from filesystem
-        const bgPath = join(process.cwd(), 'public', 'settings', 'ogimage.png')
-        const bgBuffer = await readFile(bgPath)
-        const bgBase64 = `data:image/png;base64,${bgBuffer.toString('base64')}`
+        const protocol = req.headers['x-forwarded-proto'] || 'http'
+        const host = req.headers.host || 'localhost:3000'
+        const baseUrl = `${protocol}://${host}`
 
-        // Load Lexend Bold font
-        const fontPath = join(
-            process.cwd(),
-            'public',
-            'fonts',
-            'Lexend-Bold.ttf'
-        )
-        const fontData = await readFile(fontPath)
+        const bgBase64 = `data:image/png;base64,${OG_IMAGE_BASE64}`
+
+        const fontResponse = await fetch(`${baseUrl}/fonts/Lexend-Bold.ttf`)
+        const fontData = await fontResponse.arrayBuffer()
 
         const svg = await satori(
             <div
@@ -105,7 +145,7 @@ export default async function handler(
                 fonts: [
                     {
                         name: 'Lexend',
-                        data: fontData,
+                        data: Buffer.from(fontData),
                         weight: 700,
                         style: 'normal',
                     },
@@ -113,21 +153,29 @@ export default async function handler(
             }
         )
 
-        await ensureWasmInitialized()
+        await ensureWasmInitialized(baseUrl)
 
-        const resvg = new Resvg(svg, {
-            fitTo: {
-                mode: 'width',
-                value: 1200,
-            },
-        })
-        const pngData = resvg.render()
-        const pngBuffer = Buffer.from(pngData.asPng())
+        try {
+            const resvg = new Resvg(svg, {
+                fitTo: {
+                    mode: 'width',
+                    value: 1200,
+                },
+            })
+            const pngData = resvg.render()
+            const pngBuffer = Buffer.from(pngData.asPng())
 
-        res.setHeader('Content-Type', 'image/png')
-        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
-        res.status(200)
-        res.end(pngBuffer)
+            res.setHeader('Content-Type', 'image/png')
+            res.setHeader(
+                'Cache-Control',
+                'public, max-age=31536000, immutable'
+            )
+            res.status(200)
+            res.end(pngBuffer)
+        } catch (renderError: any) {
+            console.error('Resvg render error:', renderError)
+            throw renderError
+        }
     } catch (e: any) {
         console.error(`OG image generation failed:`, e)
         res.status(500).send(`Failed to generate the image: ${e.message}`)
