@@ -1,8 +1,27 @@
 import satori from 'satori'
-import { Resvg } from '@resvg/resvg-js'
+import { Resvg, initWasm } from '@resvg/resvg-wasm'
 import { readFile } from 'fs/promises'
 import { join } from 'path'
 import type { NextApiRequest, NextApiResponse } from 'next'
+
+let wasmInitPromise: Promise<void> | null = null
+
+const ensureWasmInitialized = async () => {
+    if (!wasmInitPromise) {
+        wasmInitPromise = (async () => {
+            const wasmPath = join(
+                process.cwd(),
+                'node_modules',
+                '@resvg',
+                'resvg-wasm',
+                'index_bg.wasm'
+            )
+            const wasmBuffer = await readFile(wasmPath)
+            await initWasm(wasmBuffer)
+        })()
+    }
+    return wasmInitPromise
+}
 
 export default async function handler(
     req: NextApiRequest,
@@ -94,6 +113,8 @@ export default async function handler(
             }
         )
 
+        await ensureWasmInitialized()
+
         const resvg = new Resvg(svg, {
             fitTo: {
                 mode: 'width',
@@ -101,11 +122,12 @@ export default async function handler(
             },
         })
         const pngData = resvg.render()
-        const pngBuffer = pngData.asPng()
+        const pngBuffer = Buffer.from(pngData.asPng())
 
         res.setHeader('Content-Type', 'image/png')
         res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
-        res.status(200).send(pngBuffer)
+        res.status(200)
+        res.end(pngBuffer)
     } catch (e: any) {
         console.error(`OG image generation failed:`, e)
         res.status(500).send(`Failed to generate the image: ${e.message}`)
