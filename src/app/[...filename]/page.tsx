@@ -1,6 +1,7 @@
 import client from '@/tina/__generated__/client'
 import { notFound, redirect } from 'next/navigation'
 import { DynamicPageClient } from './DynamicPageClient'
+import type { Metadata } from 'next'
 
 const customPages = [
     'product/api-client',
@@ -41,6 +42,40 @@ export async function generateStaticParams() {
             }) ?? []
 
     return pagePaths
+}
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ filename: string[] }>
+}): Promise<Metadata> {
+    const resolvedParams = await params
+    const filename = Array.isArray(resolvedParams.filename)
+        ? resolvedParams.filename.join('/')
+        : resolvedParams.filename
+
+    try {
+        const { data } = await client.queries.pages({
+            relativePath: `${filename}.mdx`,
+        })
+        const pageTitle = data.pages.seoTitle || data.pages.title || 'Hubql'
+        return {
+            title: pageTitle,
+            openGraph: {
+                images: [
+                    {
+                        url: `/api/og?title=${encodeURIComponent(pageTitle)}`,
+                        width: 1200,
+                        height: 630,
+                    },
+                ],
+            },
+        }
+    } catch {
+        return {
+            title: 'Hubql',
+        }
+    }
 }
 
 export default async function DynamicPage({

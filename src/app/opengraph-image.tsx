@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og'
+import { headers } from 'next/headers'
 import { OG_IMAGE_BASE64 } from '../lib/ogimage-base64'
 import { LEXEND_BOLD_FONT_BASE64 } from '../lib/lexend-bold-base64'
+import client from '@/tina/__generated__/client'
 
 export const size = {
     width: 1200,
@@ -9,8 +11,47 @@ export const size = {
 
 export const contentType = 'image/png'
 
-export default async function Image() {
-    const title = 'Build Software Together'
+export default async function Image({
+    params,
+}: {
+    params?: Promise<{ filename?: string[] }>
+}) {
+    let title = 'Build Software Together'
+
+    try {
+        let filename = 'home.mdx'
+        const headersList = await headers()
+        const referer = headersList.get('referer')
+
+        if (params) {
+            const resolvedParams = await params
+            if (resolvedParams?.filename) {
+                const path = Array.isArray(resolvedParams.filename)
+                    ? resolvedParams.filename.join('/')
+                    : resolvedParams.filename
+                if (path) {
+                    filename = `${path}.mdx`
+                }
+            }
+        } else if (referer && !referer.includes('opengraph-image')) {
+            try {
+                const url = new URL(referer)
+                const pathname = url.pathname.replace(/\/$/, '') || '/'
+                if (pathname !== '/') {
+                    filename = `${pathname.replace(/^\//, '')}.mdx`
+                }
+            } catch {
+                // Invalid URL, use default
+            }
+        }
+
+        const { data } = await client.queries.pages({
+            relativePath: filename,
+        })
+        title = data.pages.seoTitle || data.pages.title || title
+    } catch (error) {
+        // If page not found or error, use default title
+    }
 
     const cleanTitle = title
         .slice(0, 100)
