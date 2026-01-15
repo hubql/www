@@ -26,7 +26,7 @@ const lexend = Lexend({
 
 export const Layout = ({ children, data }: { children: any; data?: any }) => {
     const router = useRouter()
-    const domain = 'https://www.hubql.com'
+    const domain = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hubql.com'
     const canonicalUrl = domain + router.asPath.replace(/\?.*/, '')
 
     return (
@@ -70,9 +70,11 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                     content={
                         data.heroImage
                             ? data.heroImage
-                            : `https://www.hubql.com/api/og${
+                            : `${domain}/api/og${
                                   data.seoTitle != ''
-                                      ? `?title=${data.seoTitle}`
+                                      ? `?title=${encodeURIComponent(
+                                            data.seoTitle
+                                        )}`
                                       : ''
                               }`
                     }
@@ -87,7 +89,13 @@ export const Layout = ({ children, data }: { children: any; data?: any }) => {
                     content={
                         data.heroImage
                             ? data.heroImage
-                            : '/settings/og-image-v1.png'
+                            : `${domain}/api/og${
+                                  data.seoTitle != ''
+                                      ? `?title=${encodeURIComponent(
+                                            data.seoTitle
+                                        )}`
+                                      : ''
+                              }`
                     }
                 />
                 <meta property="twitter:locale" content="en_US" />
