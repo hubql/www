@@ -1,7 +1,8 @@
-import Head from 'next/head'
+'use client'
+
 import { Footer } from './Footer'
 import { Header } from './Header'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { Noto_Sans } from 'next/font/google'
 import { Orbitron } from 'next/font/google'
 import { Lexend } from 'next/font/google'
@@ -25,94 +26,23 @@ const lexend = Lexend({
 })
 
 export const Layout = ({ children, data }: { children: any; data?: any }) => {
-    const router = useRouter()
+    const pathname = usePathname()
     const domain = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hubql.com'
-    const canonicalUrl = domain + router.asPath.replace(/\?.*/, '')
+    const canonicalUrl = domain + (pathname || '').replace(/\?.*/, '')
 
     return (
-        <>
-            <Head>
-                <link rel="canonical" href={canonicalUrl} />
-
-                <title>{data.seoTitle}</title>
-                <meta name="description" content={data.seoDescription} />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                />
-                <link
-                    rel="icon"
-                    href="/settings/hubql-favicon-new.png"
-                    sizes="16x16"
-                />
-                <link
-                    rel="icon"
-                    href="/settings/hubql-favicon-new.png"
-                    sizes="32x32"
-                />
-                <link
-                    rel="icon"
-                    href="/settings/hubql-favicon-new.png"
-                    sizes="96x96"
-                />
-                <link
-                    rel="apple-touch-icon"
-                    href="/settings/hubql-favicon-new.png"
-                />
-                <link rel="manifest" href="/manifest.webmanifest" />
-                {data.robots && <meta name="robots" content={data.robots} />}
-
-                <meta property="og:title" content={data.seoTitle} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={canonicalUrl} />
-                <meta
-                    property="og:image"
-                    content={
-                        data.heroImage
-                            ? data.heroImage
-                            : `${domain}/api/og${
-                                  data.seoTitle != ''
-                                      ? `?title=${encodeURIComponent(
-                                            data.seoTitle
-                                        )}`
-                                      : ''
-                              }`
-                    }
-                />
-                <meta property="og:locale" content="en_US" />
-
-                <meta property="twitter:title" content={data.seoTitle} />
-                <meta property="twitter:type" content="website" />
-                <meta property="twitter:url" content={canonicalUrl} />
-                <meta
-                    property="twitter:image"
-                    content={
-                        data.heroImage
-                            ? data.heroImage
-                            : `${domain}/api/og${
-                                  data.seoTitle != ''
-                                      ? `?title=${encodeURIComponent(
-                                            data.seoTitle
-                                        )}`
-                                      : ''
-                              }`
-                    }
-                />
-                <meta property="twitter:locale" content="en_US" />
-            </Head>
-            <div
-                className={`bg-background ${noto.variable} ${orbitron.variable} ${lexend.variable} font-noto`}
-            >
-                <div className="w-full overflow-x-hidden flex h-full">
-                    <div className="relative w-full flex flex-col h-full min-h-screen items-start">
-                        <Header />
-                        <div className="relative z-10 w-full flex-1">
-                            {children}
-                        </div>
-                        <Footer />
+        <div
+            className={`bg-background ${noto.variable} ${orbitron.variable} ${lexend.variable} font-noto`}
+        >
+            <div className="w-full overflow-x-hidden flex h-full">
+                <div className="relative w-full flex flex-col h-full min-h-screen items-start">
+                    <Header />
+                    <div className="relative z-10 w-full flex-1">
+                        {children}
                     </div>
+                    <Footer />
                 </div>
             </div>
-        </>
+        </div>
     )
 }

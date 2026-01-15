@@ -1,3 +1,5 @@
+'use client'
+
 import { FC, createElement, useEffect } from 'react'
 
 const TermlyScriptWrapper: FC<{ dataId: string }> = ({ dataId }) => {

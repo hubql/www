@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { Button } from '../kit/Button'
 import { tinaField } from 'tinacms/dist/react'

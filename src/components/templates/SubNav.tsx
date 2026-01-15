@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import {
     PanelLeft,
@@ -15,10 +17,10 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 
 export const SubNav = () => {
-    const router = useRouter()
+    const pathname = usePathname()
     const navLinks = [
         {
             // name: 'Hubql Grid',
@@ -78,11 +80,11 @@ export const SubNav = () => {
                         key={link.path}
                         href={link.path}
                         className={`relative inline-flex text-neutral-400  text-sm hover:text-neutral-300 py-4 px-2 gap-2 items-center ${
-                            router.pathname === link.path ? 'text-white' : ''
+                            pathname === link.path ? 'text-white' : ''
                         }`}
                     >
                         {link.icon}
-                        {router.pathname === link.path && (
+                        {pathname === link.path && (
                             <motion.div
                                 layoutId="underline"
                                 className="absolute  h-[1px] bg-accent-300 left-0 right-0 rounded-lg bottom-0"

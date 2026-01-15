@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import type { Template } from 'tinacms'
@@ -110,7 +112,7 @@ export const ImageGrid = ({ data }: { data: any }) => {
                         <div
                             key={i}
                             className={cn(
-                                'relative overflow-hidden rounded-lg mb-4 break-inside-avoid aspect-[4/3]'
+                                'relative overflow-hidden rounded-lg mb-4 break-inside-avoid aspect-4/3'
                             )}
                             data-tina-field={tinaField(data, 'cards', i)}
                         >

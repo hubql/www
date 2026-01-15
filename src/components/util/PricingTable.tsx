@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '../kit/Button'
@@ -136,7 +138,9 @@ const Plan = ({ plan, monthly }: { plan: any; monthly: boolean }) => {
             </div>
             <div className="w-full grid grid-cols-12 px-8 py-16 justify-center items-center border-b border-neutral-800">
                 <div className="col-span-12 lg:col-span-3">
-                    <h3 className="text-2xl font-bold font-orbitron">Open Source</h3>
+                    <h3 className="text-2xl font-bold font-orbitron">
+                        Open Source
+                    </h3>
                 </div>
                 <div className="col-span-12 lg:col-span-9 text-neutral-900 dark:text-neutral-400 text-base">
                     Our tools are available as open source. No subscription
@@ -198,8 +202,7 @@ const pricing = [
             'Custom Billing Requirements',
         ],
         href: {
-            monthly:
-                '/contact',
+            monthly: '/contact',
             yearly: '/contact',
         },
         featured: false,

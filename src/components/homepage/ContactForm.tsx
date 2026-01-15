@@ -1,3 +1,5 @@
+'use client'
+
 import { Turnstile } from '@marsidev/react-turnstile'
 import { ArrowIcon, Button } from '../kit/Button'
 import { useState } from 'react'

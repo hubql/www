@@ -1,6 +1,73 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@theme {
+    --color-accent-100: #12ea61;
+    --color-accent-200: #10d257;
+    --color-accent-300: #0eba4d;
+    --color-accent-400: #0ca243;
+    --color-accent-500: #0a8939;
+    --color-accent-600: #0a8035;
+    --color-accent-700: #097631;
+    --color-black: #000000;
+    --color-background: #121212;
+    --color-muted: #404040;
+    --color-primary: #3ecf8e;
+    --color-muted-foreground: #ababab;
+    --color-card: #171717;
+    --color-border: #2e2e2e;
+
+    --font-family-noto: var(--font-noto);
+    --font-family-orbitron: var(--font-orbitron);
+    --font-family-lexend: var(--font-lexend);
+
+    --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+    --animate-aurora: aurora 120s linear infinite;
+    --animate-accordion-down: accordion-down 0.2s ease-out;
+    --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes spotlight {
+    0% {
+        opacity: 0;
+        transform: translate(-72%, -62%) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -40%) scale(1);
+    }
+}
+
+@keyframes aurora {
+    from {
+        background-position:
+            50% 50%,
+            50% 50%;
+    }
+    to {
+        background-position:
+            350% 50%,
+            350% 50%;
+    }
+}
+
+@keyframes accordion-down {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--radix-accordion-content-height);
+    }
+}
+
+@keyframes accordion-up {
+    from {
+        height: var(--radix-accordion-content-height);
+    }
+    to {
+        height: 0;
+    }
+}
 
 :root {
     --accent-500: #0a8939;
@@ -13,7 +80,7 @@
     --zinc-100: #f4f4f5;
     --zinc-200: #e4e4e7;
     --zinc-300: #d4d4d8;
-    --zinc-400: #a1a1aa;
+    --zinc-400: #d1d5db;
     --zinc-500: #71717a;
     --zinc-600: #373737;
     --zinc-700: #242424;
@@ -23,8 +90,9 @@
     --frosted-color: #18181b99;
     --frosted: blur(20px);
     --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-    --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
-        0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+    --box-shadow:
+        0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+        0 16px 32px rgba(var(--gray), 33%);
 }
 
 * {
@@ -53,27 +121,6 @@ h6 {
     margin: 0 0 0.5rem 0;
     color: var(--zinc-50);
 }
-h1 {
-    font-size: 3.052em;
-    line-height: 1.2 !important;
-    font-family: var(--font-orbitron);
-}
-h2 {
-    font-size: 2.441em;
-}
-h3 {
-    font-size: 1.953em;
-}
-h4 {
-    font-size: 1.563em;
-}
-h5 {
-    font-size: 1.25em;
-}
-strong,
-b {
-    font-weight: 700;
-}
 p {
     margin-bottom: 1em;
     font-weight: 400;
@@ -82,11 +129,9 @@ p {
 .prose p {
     margin-top: 0.5em;
     margin-bottom: 1em;
-}
-
-.prose p {
-    margin-top: 0.5em;
-    margin-bottom: 1em;
+    color: var(--zinc-400);
+    font-weight: 400;
+    font-size: 1rem;
 }
 .scroll-component p {
     margin-top: 0em;
@@ -111,6 +156,8 @@ p {
 .prose h2 {
     margin-top: 2em;
     margin-bottom: 0em;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 .prose strong {
     color: white;
@@ -236,7 +283,9 @@ hr {
 }
 
 .textStroke {
-    text-shadow: -1.5px -1.5px 0 var(--accent-500),
-        1.5px -1.5px 0 var(--accent-500), -1.5px 1.5px 0 var(--accent-500),
+    text-shadow:
+        -1.5px -1.5px 0 var(--accent-500),
+        1.5px -1.5px 0 var(--accent-500),
+        -1.5px 1.5px 0 var(--accent-500),
         1.5px 1.5px 0 var(--accent-500);
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { TrailingScroll } from '../animation/TrailingScroll'
 import { Button } from '../kit/Button'

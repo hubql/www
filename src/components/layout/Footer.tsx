@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { HubqlLogo } from '../kit/HubqlLogo'
 import { usePathname } from 'next/navigation'
