@@ -2,6 +2,7 @@ import satori from 'satori'
 import { Resvg, initWasm } from '@resvg/resvg-wasm'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { OG_IMAGE_BASE64 } from '../../lib/ogimage-base64'
+import { LEXEND_BOLD_FONT_BASE64 } from '../../lib/lexend-bold-base64'
 
 let wasmInitPromise: Promise<void> | null = null
 let wasmInitialized = false
@@ -87,8 +88,7 @@ export default async function handler(
 
         const bgBase64 = `data:image/png;base64,${OG_IMAGE_BASE64}`
 
-        const fontResponse = await fetch(`${baseUrl}/fonts/Lexend-Bold.ttf`)
-        const fontData = await fontResponse.arrayBuffer()
+        const fontData = Buffer.from(LEXEND_BOLD_FONT_BASE64, 'base64')
 
         const svg = await satori(
             <div
